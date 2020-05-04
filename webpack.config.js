@@ -10,4 +10,8 @@ module.exports = {
 			},
 		],
 	},
+	output: {
+		globalObject: 'this',
+		libraryTarget: 'umd',
+	},
 };

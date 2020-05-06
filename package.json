@@ -5,7 +5,7 @@
 	"main": "dist/main.js",
 	"scripts": {
 		"build": "webpack --mode production",
-		"prepare": "npm run build",
+		"prepare": "rm -r dist/* && npm run build",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"eslint": "eslint --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js"
 	},
@@ -18,7 +18,12 @@
 		"@quartz/eslint-config-base": "^1.2.0",
 		"@quartz/eslint-config-react": "^1.0.4",
 		"babel-loader": "^8.1.0",
+		"css-loader": "^3.5.3",
 		"eslint": "^6.8.0",
+		"mini-css-extract-plugin": "^0.9.0",
+		"node-sass": "^4.14.1",
+		"sass-loader": "^8.0.2",
+		"style-loader": "^1.2.1",
 		"webpack": "^4.43.0",
 		"webpack-cli": "^3.3.11"
 	},

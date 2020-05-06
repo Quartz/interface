@@ -1,0 +1,6 @@
+{
+	"extends": [
+		"@quartz/eslint-config-react"
+	],
+	"parser": "babel-eslint"
+}

@@ -6,7 +6,8 @@
 	"scripts": {
 		"build": "webpack --mode production",
 		"prepare": "npm run build",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"eslint": "eslint --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js"
 	},
 	"author": "",
 	"license": "ISC",
@@ -14,7 +15,10 @@
 		"@babel/core": "^7.9.6",
 		"@babel/preset-env": "^7.9.6",
 		"@babel/preset-react": "^7.9.4",
+		"@quartz/eslint-config-base": "^1.2.0",
+		"@quartz/eslint-config-react": "^1.0.4",
 		"babel-loader": "^8.1.0",
+		"eslint": "^6.8.0",
 		"webpack": "^4.43.0",
 		"webpack-cli": "^3.3.11"
 	},

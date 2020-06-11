@@ -9,8 +9,3 @@ import { MyComponentName } from '@quartz/interface';
 
 <MyComponentName />
 ```
-
-## Local development
-
-To build: `npm run build`
-

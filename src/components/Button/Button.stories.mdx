@@ -1,0 +1,20 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { boolean } from "@storybook/addon-knobs";
+import Button from './Button';
+
+<Meta title="Forms/Button" component={Button} />
+
+# Button
+
+With `MDX` we can define a story for `Button` right in the middle of our
+markdown documentation.
+
+<Preview>
+	<Story name="Simple button">
+		<Button text="Click me" />
+	</Story>
+</Preview>
+
+## Props
+
+<Props of={Button} />

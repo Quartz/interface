@@ -6,12 +6,21 @@
 		"node": ">=10.9"
 	},
 	"scripts": {
+		"storybook": "start-storybook",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"eslint": "eslint --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js"
 	},
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"@quartz/eslint-config-react": "^1.0.4"
+		"@babel/core": "^7.10.4",
+		"@quartz/eslint-config-react": "^1.0.4",
+		"@storybook/react": "^5.3.19",
+		"babel-loader": "^8.1.0"
+	},
+	"dependencies": {
+		"@storybook/addon-docs": "^5.3.19",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1"
 	}
 }

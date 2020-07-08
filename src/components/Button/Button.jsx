@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import styles from './Button.scss';
-import Spinner from 'components/Spinner/Spinner';
-import Link from 'components/Link/Link';
+import Spinner from '../Spinner/Spinner';
+import Link from '../Link/Link';
 
 const cx = classnames.bind( styles );
 

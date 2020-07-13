@@ -19,6 +19,7 @@
 		"babel-loader": "^8.1.0"
 	},
 	"dependencies": {
+		"@quartz/styles": "git+https://github.com/Quartz/styles.git#cc8eff5",
 		"@storybook/addon-docs": "^5.3.19",
 		"classnames": "^2.2.6",
 		"css-loader": "^3.6.0",

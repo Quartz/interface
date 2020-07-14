@@ -12,8 +12,8 @@ addDecorator( withA11y );
 addDecorator( Story => <MockAppDecorator><Story /></MockAppDecorator> );
 
 addParameters({
-  options: {
-  	name: 'Quartz Interface',
-    selectedPanel: 'storybookjs/knobs/panel',
-  },
+	options: {
+		name: 'Quartz Interface',
+		selectedPanel: 'storybookjs/knobs/panel',
+	},
 });

@@ -6,12 +6,33 @@
 		"node": ">=10.9"
 	},
 	"scripts": {
+		"dev": "start-storybook -s public",
+		"build": "build-storybook -o .storybook/build -s public",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"eslint": "eslint --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js"
 	},
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"@quartz/eslint-config-react": "^1.0.4"
+		"@babel/core": "^7.10.4",
+		"@quartz/eslint-config-react": "^1.0.4",
+		"@storybook/react": "^5.3.19",
+		"babel-loader": "^8.1.0"
+	},
+	"dependencies": {
+		"@quartz/styles": "git+https://github.com/Quartz/styles.git#9090a00",
+		"@storybook/addon-a11y": "^5.3.19",
+		"@storybook/addon-actions": "^5.3.19",
+		"@storybook/addon-docs": "^5.3.19",
+		"@storybook/addon-knobs": "^5.3.19",
+		"classnames": "^2.2.6",
+		"css-loader": "^3.6.0",
+		"node-sass": "^4.14.1",
+		"prop-types": "^15.7.2",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-router-dom": "^5.2.0",
+		"sass-loader": "^9.0.2",
+		"style-loader": "^1.2.1"
 	}
 }

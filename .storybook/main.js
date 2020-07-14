@@ -5,7 +5,9 @@ module.exports = {
 		'../src/**/*.stories.mdx',
 	],
 	addons: [
+		'@storybook/addon-a11y/register',
 		'@storybook/addon-docs',
+		'@storybook/addon-knobs/register',
 	],
 	webpackFinal: async config => {
 		// Loads .scss files using our sassconfig

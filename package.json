@@ -6,7 +6,7 @@
 		"node": ">=10.9"
 	},
 	"scripts": {
-		"storybook": "start-storybook",
+		"storybook": "start-storybook -s public",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"eslint": "eslint --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js"
 	},
@@ -20,7 +20,10 @@
 	},
 	"dependencies": {
 		"@quartz/styles": "git+https://github.com/Quartz/styles.git#cc8eff5",
+		"@storybook/addon-a11y": "^5.3.19",
+		"@storybook/addon-actions": "^5.3.19",
 		"@storybook/addon-docs": "^5.3.19",
+		"@storybook/addon-knobs": "^5.3.19",
 		"classnames": "^2.2.6",
 		"css-loader": "^3.6.0",
 		"node-sass": "^4.14.1",

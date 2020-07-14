@@ -1,0 +1,97 @@
+//@import '~@quartz/styles/scss/base';
+
+
+
+@font-face {
+	font-family: 'PTSerif';
+	src:
+		url('/fonts/PT_Serif/PT_Serif-Web-Regular.woff2') format('woff2'),
+		url('/fonts/PT_Serif/PT_Serif-Web-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'PTSerif';
+	src:
+		url('/fonts/PT_Serif/PT_Serif-Web-Bold.woff2') format('woff2'),
+		url('/fonts/PT_Serif/PT_Serif-Web-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'PTSerif';
+	src:
+		url('/fonts/PT_Serif/PT_Serif-Web-Italic.woff2') format('woff2'),
+		url('/fonts/PT_Serif/PT_Serif-Web-Italic.woff') format('woff');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'PTSerif';
+	src:
+		url('/fonts/PT_Serif/PT_Serif-Web-BoldItalic.woff2') format('woff2'),
+		url('/fonts/PT_Serif/PT_Serif-Web-BoldItalic.woff') format('woff');
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'MaisonNeue';
+	src: url('/fonts/MaisonNeue/MaisonNeue-Medium.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/**
+ * The duplication of the "MaisonNeue" font is intentional and meant to
+ * help us avoid some regressions while we transition from old mixins to new
+ */
+@font-face {
+	font-family: 'MaisonNeue';
+	src: url('/fonts/MaisonNeue/MaisonNeue-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'MaisonNeue';
+	src: url('/fonts/MaisonNeue/MaisonNeue-ExtraBold.woff2') format('woff2');
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'MaisonNeueExtended';
+	src: url('/fonts/MaisonNeue/MaisonNeueExtended-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'MaisonNeueMono';
+	src: url('/fonts/MaisonNeue/MaisonNeueMono-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Publico Headline';
+	src:
+		url('/fonts/PublicoHeadline/PublicoHeadline-Bold-Web.woff2') format('woff2'),
+		url('/fonts/PublicoHeadline/PublicoHeadline-Bold-Web.woff') format('woff');
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}

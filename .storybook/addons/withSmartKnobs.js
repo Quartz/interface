@@ -2,8 +2,7 @@
  * Fork of:
  * https://github.com/storybookjs/addon-smart-knobs
  *
- * Can go back to using the upstream module after my PR is merged:
- * https://github.com/storybookjs/addon-smart-knobs/pull/74
+ * Can go back to using the upstream module after [this PR](https://github.com/storybookjs/addon-smart-knobs/pull/74) is merged and deployed (>6.0.2)
  */
 
 import { cloneElement, Children } from 'react'

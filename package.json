@@ -7,7 +7,7 @@
 	},
 	"scripts": {
 		"dev": "start-storybook -s public",
-		"build": "build-storybook -o .storybook/build",
+		"build": "build-storybook -o .storybook/build -s public",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"eslint": "eslint --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js"
 	},

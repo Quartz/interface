@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { MemoryRouter } from 'react-router-dom';
 import '!style-loader!css-loader!sass-loader!./MockAppDecorator.scss';
 
 /*
@@ -10,7 +11,9 @@ import '!style-loader!css-loader!sass-loader!./MockAppDecorator.scss';
 	https://storybook.js.org/docs/addons/introduction/#1-decorators
 */
 const MockAppDecorator = ( { children } ) => (
-	<main className="fonts-loaded">{children}</main>
+	<MemoryRouter>
+		<main className="fonts-loaded">{children}</main>
+	</MemoryRouter>
 );
 
 MockAppDecorator.propTypes = {

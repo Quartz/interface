@@ -1,5 +1,5 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
-import Button from './Button';
+import Button, { ButtonLink } from './Button';
 
 <Meta title="Button" component={Button} />
 
@@ -9,7 +9,16 @@ With `MDX` we can define a story for `Button` right in the middle of our
 markdown documentation.
 
 <Preview>
-  <Story name="test">
-    <Button loading={false}>Click me!</Button>
+  <Story name="Default">
+    <Button>Click me!</Button>
   </Story>
 </Preview>
+
+This is a `ButtonLink`
+
+<Preview>
+  <Story name="ButtonLink">
+    <ButtonLink to="https://example.com">I link to example.com</ButtonLink>
+  </Story>
+</Preview>
+

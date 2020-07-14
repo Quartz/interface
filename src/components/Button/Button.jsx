@@ -76,7 +76,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-	checked: false,
 	disabled: false,
 	inactive: false,
 	loading: false,

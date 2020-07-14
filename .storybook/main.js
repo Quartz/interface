@@ -10,7 +10,7 @@ module.exports = {
 		'@storybook/addon-knobs/register',
 	],
 	webpackFinal: async config => {
-		// Loads .scss files using our sassconfig
+		// Add support for .scss files (Sass)
 		config.module.rules.push( {
 			test: /\.s?css$/,
 			use: [

@@ -43,18 +43,6 @@
 @font-face {
 	font-family: 'MaisonNeue';
 	src: url('/fonts/MaisonNeue/MaisonNeue-Medium.woff2') format('woff2');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-/**
- * The duplication of the "MaisonNeue" font is intentional and meant to
- * help us avoid some regressions while we transition from old mixins to new
- */
-@font-face {
-	font-family: 'MaisonNeue';
-	src: url('/fonts/MaisonNeue/MaisonNeue-Medium.woff2') format('woff2');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;

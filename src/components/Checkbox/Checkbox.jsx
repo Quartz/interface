@@ -12,9 +12,9 @@ const Checkbox = ( {
 	checked,
 	children,
 	disabled,
-	handleChange,
 	id,
 	invalid,
+	onChange,
 	required,
 	size,
 } ) => (
@@ -28,7 +28,7 @@ const Checkbox = ( {
 			className={cx( 'input', size )}
 			disabled={disabled}
 			id={id}
-			onChange={handleChange}
+			onChange={onChange}
 			required={required}
 			type="checkbox"
 		/>
@@ -43,9 +43,9 @@ Checkbox.propTypes = {
 	checked: PropTypes.bool,
 	children: PropTypes.node,
 	disabled: PropTypes.bool.isRequired,
-	handleChange: PropTypes.func.isRequired,
 	id: PropTypes.string,
 	invalid: PropTypes.bool,
+	onChange: PropTypes.func.isRequired,
 	required: PropTypes.bool.isRequired,
 	size: PropTypes.oneOf( [ 'small', 'large' ] ),
 };

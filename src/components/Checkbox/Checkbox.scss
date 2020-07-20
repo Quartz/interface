@@ -42,8 +42,8 @@
 
 	&:checked {
 		background-repeat: no-repeat;
-		background-position: 3px 3px;
-		background-size: 9px;
+		background-position: 50%;
+		background-size: 75%;
 		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMSIgdmlld0JveD0iMTgzIDE4IDEyIDExIj48cGF0aCBzdHlsZT0iZmlsbDp2YXIoLS1jb2xvciwgI2ZmZikiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTE5My4yOTQgMThsLTYuMzUgNi45NjgtMi4zMzUtMi40OEwxODMgMjQuMjAxbDMuODYgNC4xMTNMMTk1IDE5LjU4eiIvPjwvc3ZnPg==');
 		background-color: $color-accent;
 		border-color: $color-accent;
@@ -66,11 +66,6 @@
 	&.large {
 		height: 20px;
 		width: 20px;
-
-		&:checked {
-			background-position: 4px 4px;
-			background-size: 12px;
-		}
 	}
 }
 

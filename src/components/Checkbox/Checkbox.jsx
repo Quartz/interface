@@ -12,20 +12,22 @@ const Checkbox = ( {
 	checked,
 	children,
 	handleChange,
-	hasError,
 	id,
+	invalid,
+	required,
 	size,
 } ) => (
-	<label className={cx( 'container', { hasError } )}>
+	<label className={cx( 'container' )}>
 		<input
 			aria-describedby={ariaDescribedBy}
-			aria-invalid={hasError}
+			aria-invalid={invalid}
 			aria-label={ariaLabel}
 			aria-labelledby={ariaLabelledBy}
 			checked={checked}
 			className={cx( 'input', size )}
 			id={id}
 			onChange={handleChange}
+			required={required}
 			type="checkbox"
 		/>
 		{children && <span className={cx( 'label', size )}>{children}</span>}
@@ -39,13 +41,16 @@ Checkbox.propTypes = {
 	checked: PropTypes.bool,
 	children: PropTypes.node,
 	handleChange: PropTypes.func.isRequired,
-	hasError: PropTypes.bool,
 	id: PropTypes.string,
-	size: PropTypes.oneOf( [ 'large' ] ),
+	invalid: PropTypes.bool,
+	required: PropTypes.bool.isRequired,
+	size: PropTypes.oneOf( [ 'small', 'large' ] ),
 };
 
 Checkbox.defaultProps = {
-	hasError: false,
+	invalid: false,
+	required: false,
+	size: 'small',
 };
 
 export default Checkbox;

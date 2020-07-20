@@ -1,0 +1,88 @@
+@import '~@quartz/styles/scss/borders';
+@import '~@quartz/styles/scss/color-scheme';
+@import '~@quartz/styles/scss/fonts';
+@import '~@quartz/styles/scss/helpers/resets';
+@import '~@quartz/styles/scss/tokens';
+
+.container {
+	@include font-maison-500-1;
+
+	color: $color-typography;
+	cursor: pointer;
+	display: flex;
+	align-items: inherit;
+
+	&:hover {
+		color: $color-accent;
+	}
+
+	&.has-error {
+		color: $color-red;
+	}
+}
+
+.label,
+.input {
+	transition-duration: $time-slowly;
+	transition-property: background-color, border-color, color;
+}
+
+.input {
+	@include reset-checkbox;
+
+	height: 15px;
+	width: 15px;
+	margin-right: 12px;
+	border-radius: 2px;
+	border: $border-solid-interactive;
+	background-color: $color-background-2;
+	flex-shrink: 0;
+	flex-grow: 0;
+	cursor: pointer;
+
+	&:checked {
+		background-repeat: no-repeat;
+		background-position: 3px 3px;
+		background-size: 9px;
+		background-image: url('/public/svg/check.svg?fill=fff');
+		background-color: $color-accent;
+		border-color: $color-accent;
+	}
+
+	&:focus,
+	&:hover {
+		color: $color-accent;
+		border-color: $color-accent;
+	}
+
+	&[aria-invalid=true] {
+		&,
+		&:checked,
+		&:hover {
+			border-color: $color-red;
+		}
+	}
+
+	&.large {
+		height: 20px;
+		width: 20px;
+
+		&:checked {
+			background-position: 4px 4px;
+			background-size: 12px;
+		}
+	}
+}
+
+.label {
+	color: $color-typography-faint;
+
+	/* Line height should match height of checkbox */
+	line-height: 15px;
+	width: 100%;
+
+	&.large {
+		line-height: 16px;
+		margin-top: 2px;
+	}
+}

@@ -5,16 +5,11 @@
 @import '~@quartz/styles/scss/tokens';
 
 .container {
-	@include font-maison-500-1;
+	@include font-maison;
 
-	color: $color-typography;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-
-	&:hover {
-		color: $color-accent;
-	}
 
 	&.has-error {
 		color: $color-red;

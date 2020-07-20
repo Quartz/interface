@@ -21,12 +21,6 @@
 	}
 }
 
-.label,
-.input {
-	transition-duration: $time-slowly;
-	transition-property: background-color, border-color, color;
-}
-
 .input {
 	@include reset-checkbox;
 
@@ -39,6 +33,8 @@
 	flex-shrink: 0;
 	flex-grow: 0;
 	cursor: pointer;
+	transition-duration: $time-slowly;
+	transition-property: background-color, border-color;
 
 	&:checked {
 		background-repeat: no-repeat;

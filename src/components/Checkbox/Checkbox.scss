@@ -54,6 +54,12 @@
 		}
 	}
 
+	&:disabled,
+	&:disabled:hover {
+		opacity: 0.5;
+		border: $border-solid-interactive;
+	}
+
 	&.large {
 		height: 20px;
 		width: 20px;

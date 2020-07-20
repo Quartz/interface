@@ -11,6 +11,7 @@ const Checkbox = ( {
 	ariaLabelledBy,
 	checked,
 	children,
+	disabled,
 	handleChange,
 	id,
 	invalid,
@@ -25,6 +26,7 @@ const Checkbox = ( {
 			aria-labelledby={ariaLabelledBy}
 			checked={checked}
 			className={cx( 'input', size )}
+			disabled={disabled}
 			id={id}
 			onChange={handleChange}
 			required={required}
@@ -40,6 +42,7 @@ Checkbox.propTypes = {
 	ariaLabelledBy: PropTypes.string,
 	checked: PropTypes.bool,
 	children: PropTypes.node,
+	disabled: PropTypes.bool.isRequired,
 	handleChange: PropTypes.func.isRequired,
 	id: PropTypes.string,
 	invalid: PropTypes.bool,
@@ -48,6 +51,7 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
+	disabled: false,
 	invalid: false,
 	required: false,
 	size: 'small',

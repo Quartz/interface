@@ -30,7 +30,7 @@ const Checkbox = ( {
 			required={required}
 			type="checkbox"
 		/>
-		{children && <span className={cx( 'label', size )}>{children}</span>}
+		{children && <span className={cx( 'label' )}>{children}</span>}
 	</label>
 );
 

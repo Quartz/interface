@@ -10,7 +10,7 @@
 	color: $color-typography;
 	cursor: pointer;
 	display: flex;
-	align-items: inherit;
+	align-items: center;
 
 	&:hover {
 		color: $color-accent;
@@ -30,8 +30,8 @@
 .input {
 	@include reset-checkbox;
 
-	height: 15px;
-	width: 15px;
+	height: 16px;
+	width: 16px;
 	margin-right: 12px;
 	border-radius: 2px;
 	border: $border-solid-interactive;
@@ -71,13 +71,6 @@
 
 .label {
 	color: $color-typography-faint;
-
-	/* Line height should match height of checkbox */
-	line-height: 15px;
+	line-height: 1;
 	width: 100%;
-
-	&.large {
-		line-height: 16px;
-		margin-top: 2px;
-	}
 }

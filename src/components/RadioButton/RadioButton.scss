@@ -1,0 +1,73 @@
+@import '~@quartz/styles/scss/borders';
+@import '~@quartz/styles/scss/color-scheme';
+@import '~@quartz/styles/scss/fonts';
+@import '~@quartz/styles/scss/helpers/positioning';
+@import '~@quartz/styles/scss/helpers/resets';
+@import '~@quartz/styles/scss/tokens';
+
+.container {
+	@include font-maison;
+
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+
+	&.block {
+		display: flex;
+		width: 100%;
+	}
+}
+
+.input {
+	@include reset-appearance;
+	@include reset-focus-styles;
+
+	cursor: pointer;
+	margin-right: 12px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	border: $border-solid-interactive;
+	transition: border-color $time-slowly;
+	background-color: $color-background-2;
+
+	&:focus,
+	&:hover,
+	.container:focus,
+	.container:hover & {
+		border-color: $color-accent;
+	}
+
+	&:checked,
+	&:active {
+		position: relative;
+
+		&::before {
+			@include center;
+
+			content: '';
+			width: 9px;
+			height: 9px;
+			border-radius: 50%;
+			background-color: $color-background-3;
+		}
+	}
+
+	&:checked {
+		border-color: $color-accent;
+
+		&::before {
+			background-color: $color-accent;
+		}
+	}
+
+	&:disabled,
+	&:disabled:hover {
+		opacity: 0.5;
+		border-color: $color-typography-faint;
+
+		&::before {
+			background-color: $color-typography-faint;
+		}
+	}
+}

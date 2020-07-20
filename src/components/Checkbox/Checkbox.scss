@@ -1,0 +1,72 @@
+@import '~@quartz/styles/scss/borders';
+@import '~@quartz/styles/scss/color-scheme';
+@import '~@quartz/styles/scss/fonts';
+@import '~@quartz/styles/scss/helpers/resets';
+@import '~@quartz/styles/scss/tokens';
+
+.container {
+	@include font-maison;
+
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+
+	&.has-error {
+		color: $color-red;
+	}
+}
+
+.input {
+	@include reset-checkbox;
+
+	height: 16px;
+	width: 16px;
+	margin-right: 12px;
+	border-radius: 2px;
+	border: $border-solid-interactive;
+	background-color: $color-background-2;
+	flex-shrink: 0;
+	flex-grow: 0;
+	cursor: pointer;
+	transition-duration: $time-slowly;
+	transition-property: background-color, border-color;
+
+	&:checked {
+		background-repeat: no-repeat;
+		background-position: 50%;
+		background-size: 75%;
+		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMSIgdmlld0JveD0iMTgzIDE4IDEyIDExIj48cGF0aCBzdHlsZT0iZmlsbDp2YXIoLS1jb2xvciwgI2ZmZikiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTE5My4yOTQgMThsLTYuMzUgNi45NjgtMi4zMzUtMi40OEwxODMgMjQuMjAxbDMuODYgNC4xMTNMMTk1IDE5LjU4eiIvPjwvc3ZnPg==');
+		background-color: $color-accent;
+		border-color: $color-accent;
+	}
+
+	&:focus,
+	&:hover {
+		color: $color-accent;
+		border-color: $color-accent;
+	}
+
+	&[aria-invalid=true] {
+		&,
+		&:checked,
+		&:hover {
+			border-color: $color-red;
+		}
+	}
+
+	&:disabled,
+	&:disabled:hover {
+		opacity: 0.5;
+		border: $border-solid-interactive;
+	}
+
+	&.large {
+		height: 20px;
+		width: 20px;
+	}
+}
+
+.label {
+	line-height: 1;
+	width: 100%;
+}

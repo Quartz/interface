@@ -6,9 +6,9 @@
 		"node": ">=10.9"
 	},
 	"scripts": {
-		"dev": "start-storybook -s public",
+		"start": "start-storybook -s public",
 		"build": "build-storybook -o .storybook/build -s public",
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "npm run eslint",
 		"eslint": "eslint --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js"
 	},
 	"author": "",

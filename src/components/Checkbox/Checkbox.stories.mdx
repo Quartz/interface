@@ -1,0 +1,39 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Checkbox from './Checkbox';
+
+<Meta title="Checkbox" component={Checkbox} />
+
+# Checkbox
+
+With `MDX` we can define a story for `Checkbox` right in the middle of our
+markdown documentation.
+
+<Preview>
+  <Story name="Default">
+    <Checkbox>Check me out!</Checkbox>
+  </Story>
+</Preview>
+
+Large checkbox
+
+<Preview>
+  <Story name="Large">
+    <Checkbox size="large">Woah, Nelly!</Checkbox>
+  </Story>
+</Preview>
+
+Required, invalid checkbox
+
+<Preview>
+  <Story name="Invalid">
+    <Checkbox invalid={true} required={true}>I agree to the terms and conditions (required)</Checkbox>
+  </Story>
+</Preview>
+
+Disabled checkbox
+
+<Preview>
+  <Story name="Disabled">
+    <Checkbox disabled={true}>Can’t check this</Checkbox>
+  </Story>
+</Preview>

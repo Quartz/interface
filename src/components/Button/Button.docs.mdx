@@ -1,7 +1,5 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import Button, { ButtonLink } from './Button';
-
-<Meta title="Button" component={Button} />
 
 # Button
 
@@ -31,24 +29,35 @@ import { ButtonLink } from '@quartz/interface/src/components';
 ### Default button
 
 <Preview>
-  <Story name="Default">
-    <Button>Click me!</Button>
-  </Story>
+  <Story id="button--primary" />
 </Preview>
 
 ### Secondary button
 
+
 <Preview>
-  <Story name="Secondary">
-    <Button variant="secondary">Click me!</Button>
-  </Story>
+  <Story id="button--secondary" />
+</Preview>
+
+### Warning button
+
+<Preview>
+  <Story id="button--warning" />
+</Preview>
+
+### Inline buttons
+
+<Preview>
+  <Story id="button--inline" />
+</Preview>
+
+<Preview>
+  <Story id="button--inline-warning" />
 </Preview>
 
 ### ButtonLink
 
 <Preview>
-  <Story name="ButtonLink">
-    <ButtonLink to="https://example.com">I link to example.com</ButtonLink>
-  </Story>
+  <Story id="button--link" />
 </Preview>
 

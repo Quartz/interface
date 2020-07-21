@@ -10,4 +10,4 @@ export default {
 	},
 };
 
-export const Base = () => <Checkbox>Check me out!</Checkbox>;
+export const Default = () => <Checkbox>Check me out!</Checkbox>;

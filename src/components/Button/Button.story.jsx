@@ -10,7 +10,7 @@ export default {
 	},
 };
 
-export const Primary = () => <Button>Click me!</Button>;
+export const Default = () => <Button>Click me!</Button>;
 export const Secondary = () => <Button variant="secondary">Click me!</Button>;
 export const Warning = () => <Button variant="warning">Be very careful</Button>;
 export const Inline = () => <Button variant="inline">Click me!</Button>;

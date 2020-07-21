@@ -8,9 +8,9 @@ import Link from '../Link/Link';
 const cx = classnames.bind( styles );
 
 const Button = ( {
-	checked,
+	ariaChecked,
 	children,
-	describedBy,
+	ariaDescribedBy,
 	disabled,
 	inactive,
 	loading,
@@ -21,8 +21,8 @@ const Button = ( {
 	variant,
 } ) => (
 	<button
-		aria-checked={checked}
-		aria-describedby={describedBy}
+		aria-checked={ariaChecked}
+		aria-describedby={ariaDescribedBy}
 		className={cx(
 			`variant-${variant}`,
 			{
@@ -36,23 +36,61 @@ const Button = ( {
 		role={role}
 		type={type}
 	>
-		{
-			loading
-				? <Spinner />
-				: <span className={cx( 'label' )}>{children}</span>
-		}
+		{loading && <Spinner />}
+		<span className={cx( 'label', { loading } )}>{children}</span>
 	</button>
 );
 
 Button.propTypes = {
-	checked: PropTypes.bool,
+	/**
+	 * Forwarded to the button element as `aria-checked`. Only use when
+	 * `props.role` is one of `checkbox`, `menuitemcheckbox`,
+	 * `menuitemradiobutton`, `radiobutton`, or `switch`.
+	 */
+	ariaChecked: PropTypes.bool,
+	/**
+	 * Forwarded to the button element as `aria-described-by`.
+	 */
+	ariaDescribedBy: PropTypes.string,
+	/**
+	 * Child nodes to be rendered as the label for the button. Maps to
+	 * the button element’s innerHTML.
+	 */
 	children: PropTypes.node.isRequired,
-	describedBy: PropTypes.string,
+	/**
+	 * Whether the button is interactive. Forwarded to the button
+	 * element.
+	 */
 	disabled: PropTypes.bool.isRequired,
+	/**
+	 * Toggles the same visual state as `props.disabled`, but without
+	 * affecting the interactivity of the button. Use this when you want
+	 * to indicate that a form's contents are invalid, but still
+	 * submissible.
+	 */
 	inactive: PropTypes.bool.isRequired,
+	/**
+	 * Visually replaces `props.children`` with the Spinner component. Use
+	 * when waiting for an action to complete in response to a user
+	 * engaging the button.
+	 */
 	loading: PropTypes.bool.isRequired,
+	/**
+	 * For binding Google AMP interactivity. See
+	 * https://amp.dev/documentation/examples/components/amp-bind/
+	 */
 	on: PropTypes.string,
+	/**
+	 * Function to run when the button is engaged. Forwarded to the button
+	 * element.
+	 */
 	onClick: PropTypes.func.isRequired,
+	/**
+	 * The WAI-ARIA element role. It is always preferable to use the
+	 * approporiate HTML element over the role attribute, e.g.
+	 * `<input type="checkbox" />` is preferred to `<Button role="checkbox" />`.
+	 * Forwarded to the button element.
+	 */
 	role: PropTypes.oneOf( [
 		'checkbox',
 		'link',
@@ -64,12 +102,18 @@ Button.propTypes = {
 		'switch',
 		'tab',
 	] ),
+	/**
+	 * When value is 'submit', the button will submit a parent `<form>`
+	 * element when engaged. Forwarded to the button element.
+	 */
 	type: PropTypes.oneOf( [ 'submit', 'button' ] ).isRequired,
+	/**
+	 * Visual variations of the button.
+	 */
 	variant: PropTypes.oneOf( [
 		'inline',
 		'primary',
 		'secondary',
-		'transparent',
 		'warning-inline',
 		'warning',
 	] ).isRequired,

@@ -70,7 +70,7 @@ Button.propTypes = {
 	 */
 	inactive: PropTypes.bool.isRequired,
 	/**
-	 * Visually replaces `props.children`` with the Spinner component. Use
+	 * Visually replaces `props.children` with the Spinner component. Use
 	 * when waiting for an action to complete in response to a user
 	 * engaging the button.
 	 */

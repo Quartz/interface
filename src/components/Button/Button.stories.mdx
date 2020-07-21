@@ -5,9 +5,30 @@ import Button, { ButtonLink } from './Button';
 
 # Button
 
-Presents the user with a call to action.
+Presents the user with an action to take, such as a form submission or promotional call-to-action.
+
+## Usage
+
+```js
+import { Button } from '@quartz/interface/src/components';
+```
+
+```js
+import { ButtonLink } from '@quartz/interface/src/components';
+```
+
+## Props
 
 <Props of={Button} />
+
+## Usage guidelines
+
+- **Do** use Button for actions that change something on the page, such as form submissions or toggling content visibility.
+- **Do not** use Button for linking to another page, use `ButtonLink` instead.
+
+## Examples
+
+### Default button
 
 <Preview>
   <Story name="Default">
@@ -15,7 +36,15 @@ Presents the user with a call to action.
   </Story>
 </Preview>
 
-This is a `ButtonLink`
+### Secondary button
+
+<Preview>
+  <Story name="Secondary">
+    <Button variant="secondary">Click me!</Button>
+  </Story>
+</Preview>
+
+### ButtonLink
 
 <Preview>
   <Story name="ButtonLink">

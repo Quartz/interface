@@ -56,7 +56,7 @@ Checkbox.propTypes = {
 	checked: PropTypes.bool,
 	/**
 	 * Child nodes to be rendered as the label for the checkbox.
-	 * Label/input happens automatically.
+	 * Label/input HTML linking happens automatically.
 	 */
 	children: PropTypes.node,
 	/**

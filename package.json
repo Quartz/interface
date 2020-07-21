@@ -8,8 +8,9 @@
 	"scripts": {
 		"start": "start-storybook -s public",
 		"build": "build-storybook -o .storybook/build -s public",
-		"test": "npm run eslint",
-		"eslint": "eslint --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js"
+		"test": "npm run eslint && npm run stylelint",
+		"eslint": "eslint --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js",
+		"stylelint": "stylelint --ignore-path .gitignore '**/*.scss'"
 	},
 	"author": "",
 	"license": "ISC",
@@ -20,8 +21,9 @@
 	],
 	"devDependencies": {
 		"@babel/core": "^7.10.4",
-		"@quartz/styles": "git+https://github.com/Quartz/styles.git#9090a00",
 		"@quartz/eslint-config-react": "^1.0.4",
+		"@quartz/stylelint-config": "^1.0.0",
+		"@quartz/styles": "git+https://github.com/Quartz/styles.git#9090a00",
 		"@storybook/addon-a11y": "^5.3.19",
 		"@storybook/addon-actions": "^5.3.19",
 		"@storybook/addon-docs": "^5.3.19",
@@ -36,6 +38,7 @@
 		"react-dom": "^16.13.1",
 		"react-router-dom": "^5.2.0",
 		"sass-loader": "^9.0.2",
-		"style-loader": "^1.2.1"
+		"style-loader": "^1.2.1",
+		"stylelint": "^13.6.1"
 	}
 }

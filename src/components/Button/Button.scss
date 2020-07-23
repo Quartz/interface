@@ -1,13 +1,13 @@
 @import '~@quartz/styles/scss/borders';
 @import '~@quartz/styles/scss/color-scheme';
 @import '~@quartz/styles/scss/fonts';
+@import '~@quartz/styles/scss/helpers/a11y';
 @import '~@quartz/styles/scss/helpers/resets';
 @import '~@quartz/styles/scss/states';
 @import '~@quartz/styles/scss/tokens';
 
 .variant-primary,
 .variant-secondary,
-.variant-transparent,
 .variant-warning {
 	@include reset-button;
 	@include font-maison-800-2;
@@ -45,15 +45,6 @@
 	background-color: $color-background-3;
 }
 
-.variant-transparent {
-	background: none;
-	border: $border-solid-interactive;
-
-	&:hover {
-		border-color: $color-accent;
-	}
-}
-
 .variant-warning {
 	color: $color-white;
 	background-color: $color-red;
@@ -83,4 +74,8 @@
 .loading {
 	pointer-events: none;
 	padding: 0;
+}
+
+label.loading {
+	@include visually-hidden;
 }

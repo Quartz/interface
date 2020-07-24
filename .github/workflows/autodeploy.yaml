@@ -10,11 +10,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
     - uses: actions/setup-node@v1
+
     - name: Build Storybook
       run: |
         npm i
         npm run build
+
     - name: Publish to S3 bucket
       uses: jakejarvis/s3-sync-action@master
       with:

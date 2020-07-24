@@ -9,10 +9,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-      name: Checkout deploy
-      with:
-        ref: deploy
     - uses: actions/setup-node@v1
     - name: Build Storybook
       run: |

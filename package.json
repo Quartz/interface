@@ -10,7 +10,9 @@
 		"build": "build-storybook -o .storybook/build -s public",
 		"eslint": "eslint --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js",
 		"stylelint": "stylelint --ignore-path .gitignore '**/*.scss'",
-		"test": "npm run eslint && npm run stylelint && jest"
+		"test:lint": "npm run eslint && npm run stylelint",
+		"test:unit": "jest",
+		"test": "npm run test:lint && npm run test:unit"
 	},
 	"author": "",
 	"license": "ISC",

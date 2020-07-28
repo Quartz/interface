@@ -7,7 +7,7 @@ export default {
 	component: Button,
 	parameters: {
 		docs: { page: docs },
-	}
+	},
 };
 
 export const Default = () => <Button>Click me!</Button>;

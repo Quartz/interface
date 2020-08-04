@@ -76,7 +76,7 @@ In your consuming repository, you can then install this branch as a dependency a
 
 ### Updating qz-react with changes from Prism UI
 
-Once your pull request to Quartz/interface has been merged, take the commit hash containing your changes and in qz-react run:
+Once your pull request to `Quartz/interface` has been merged, take the commit hash containing your changes and in `qz-react` run:
 
 `npm i --save github:Quartz/interface#[YOUR_COMMIT_HASH]`
 

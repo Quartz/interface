@@ -5,6 +5,10 @@ import Button, { ButtonLink } from './Button';
 
 Presents the user with an action to take, such as a form submission or promotional call-to-action.
 
+Use the `Button` component when presenting the user with an action that affects the current page, such as submitting a form or dismissing a modal. This component renders an HTML `<button>` tag.
+
+Use the `ButtonLink` component when linking to another page. This component renders an HTML `<a>` tag.
+
 ## Usage
 
 ```js
@@ -21,8 +25,14 @@ import { ButtonLink } from '@quartz/interface/src/components';
 
 ## Usage guidelines
 
-- **Do** use Button for actions that change something on the page, such as form submissions or toggling content visibility.
-- **Do not** use Button for linking to another page, use `ButtonLink` instead.
+- **Do** use the `Button` component for actions that change something on the page, such as form submissions or toggling content visibility.
+- **Do** use the `ButtonLink` component to link to another page or as an anchor link to a piece of content on the same page.
+- **Do** use icons when needed using `props.children`
+- **Do** use the primary variant for affirmative calls to action, such as agreeing to a confirmation or submitting a form.
+- **Do** use the secondary variant for negative calls to action, such as declining a confirmation or cancelling an action.
+- **Do not** use the Button component to link to another page, use `ButtonLink` instead.
+- **Do not** pass content into `props.children` that modifies the color, spacing, font size, font family, font weight, or font style of the label.
+- **Do not** intentionally misuse primary and secondary variants to create UX dark patterns.
 
 ## Examples
 

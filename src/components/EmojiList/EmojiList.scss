@@ -1,0 +1,21 @@
+@import '~@quartz/styles/scss/helpers/resets';
+// @import '~styles/tokens';
+
+.container {
+	@include reset-ul;
+
+	li {
+		position: relative;
+		padding-left: 3em;
+		// margin-bottom: $size-height-spacing-list-item;
+		margin-bottom: 20px;
+		min-height: 40px;
+
+		&::before {
+			position: absolute;
+			left: 0;
+			top: 0;
+			font-size: 40px;
+		}
+	}
+}

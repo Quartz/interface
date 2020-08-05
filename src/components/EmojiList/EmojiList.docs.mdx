@@ -1,0 +1,38 @@
+import { Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import Button, { ButtonLink } from './Button';
+
+# Emoji List
+
+A list of items with a descriptive emoji as a bullet point.
+
+Use the `EmojiList` component when pulling in a bulleted list from the WP CMS. This component parses the html passed in, pulls out the emojis, and styles the list appropriately.
+
+Use the `StructuredEmojiList` component when passing an array of objects into EmojiList. This component renders an HTML `<ul>` tag.
+
+## Usages
+
+```js
+import { EmojiList } from '@quartz/interface/src/components';
+```
+
+```js
+import { StructuredEmojiList } from '@quartz/interface/src/components';
+```
+
+## Props
+
+<Props of={EmojiList} />
+
+## Examples
+
+### Emoji List
+
+<Preview>
+  <Story id="emojilist--default" />
+</Preview>
+
+### Structured Emoji List
+
+<Preview>
+  <Story id="emojilist--structured" />
+</Preview>

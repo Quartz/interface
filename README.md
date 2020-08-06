@@ -1,11 +1,11 @@
-# Prism UI
+# 🌈 Prism UI
 
-Prism UI is a React-based component library. It is part of the Prism design system for Quartz. The goal of this library is to centralize and document the building blocks of our web front-end. By doing this we hope to:
+Prism UI is a React-based component library. It is part of the Prism design system for [Quartz](https://qz.com/). The goal of this library is to centralize and document the building blocks of our web front-end. By doing this we hope to:
 
-1) Make front-end web development easier by improving reusability.
-2) Provide a more consistent, performant and accessible experience for Quartz readers.
+1. Make front-end web development easier by improving reusability.
+2. Provide a more consistent, performant and accessible experience for Quartz readers.
 
-You can browse Prism UI components in Storybook at prism.qz.com. Each Storybook component has a Canvas view, for previewing the component, and a Docs view for reading the full documentation.
+You can browse Prism UI components in Storybook at [prism.qz.com](https://prism.qz.com). Each Storybook component has a Canvas view, for previewing the component, and a Docs view for reading the full documentation.
 
 ### THIS REPOSITORY IS PUBLIC
 
@@ -44,16 +44,16 @@ Before you make a contribution to Prism UI, it’s worth asking yourself a few q
 
 If you want to **update a component**:
 
-	* Are the changes you want to make potentially applicable to a broad range of usage scenarios, including potential usage outside of qz.com?
-	* Is it the responsibility of this component to do the thing you want it to do?
-	* If you are adding some logic to this component, is this the right place in the tree to do so?
-	* If you are making changes based on a design, have you confirmed with the designer that these changes should be reflected in Prism UI?
+* Are the changes you want to make potentially applicable to a broad range of usage scenarios, including potential usage outside of qz.com?
+* Is it the responsibility of this component to do the thing you want it to do?
+* If you are adding some logic to this component, is this the right place in the tree to do so?
+* If you are making changes based on a design, have you confirmed with the designer that these changes should be reflected in Prism UI?
 
 If you want to **add a new component**:
 
-	* Is this component functionally or visually distinct from other components in the library? Could the same effect be achieved by tweaking an existing component?
-	* Do you anticipate this component being long-lived and/or being used in more than one location?
-	* If you are adding a component from a design, have you confirmed with the designer that this component should be part of Prism UI?
+* Is this component functionally or visually distinct from other components in the library? Could the same effect be achieved by tweaking an existing component?
+* Do you anticipate this component being long-lived and/or being used in more than one location?
+* If you are adding a component from a design, have you confirmed with the designer that this component should be part of Prism UI?
 
 If the answer to any of these questions is no, chat with your teammates about how best to achieve what you want. Don’t be afraid to ask questions in the `#product-prism-support` Slack channel.
 
@@ -84,29 +84,31 @@ Then open a second pull request in qz-react with the updated `package.json` and 
 
 ### Component checklist
 
-Before opening a pull request, please review the following checklist:
+Before opening a pull request with a new or updated library entry, please review the following checklist:
 
 #### Required
 
-* All code must pass linting and unit tests (`npm test`)
-* Components must be documented with a `[COMPONENT_NAME].story.jsx` and `[COMPONENT_NAME].docs.mdx` file
-* All tests must pass in the Storybook accessibility panel
-* propTypes must be documented using JSDoc format, e.g.
+* All lint and unit tests pass (`npm test`)
+* Component is are documented with a `[COMPONENT_NAME].story.jsx` and `[COMPONENT_NAME].docs.mdx` file
+* Component passes a11y smoke tests in the Storybook 'Accessibility' panel
+* Any propTypes in the component file are documented using JSDoc format, e.g.
 ```js
 /**
-	 * Whether the button is interactive. Forwarded to the button element.
-	 */
-	disabled: PropTypes.bool.isRequired,
+ * Whether the button is interactive. Forwarded to the button element.
+ */
+disabled: PropTypes.bool.isRequired,
 ```
-* If a prop’s sole purpose is to forward a value to an HTML attribute or React event handler, use the camel-cased name of that attribute, e.g. a prop that populates an `aria-label` attribute and nothing else should be named `ariaLabel`
-* Use `props.children` when appropriate, for example when a component will render a single element with an open and closing HTML tag
-* Props must be named semantically, e.g. `props.description` instead of `props.text`
-* Props that modify the appearance or functionality of the component should be limited to a list of potential values using `PropTypes.arrayOf`
-* Wherever possible, use helper mixins and token variables in SCSS
+* Props are named semantically, e.g. `props.description` instead of `props.text`
+* Props that modify the appearance or functionality of the component are limited to a list of potential values using `PropTypes.arrayOf`
 * The component is exported from `src/components/index.js`
+* The name of the component helps other developers understand when it should be used and makes sense outside the context of qz.com. E.g., `InfoPanel` instead of `HomepageDescription`, `CallToAction` instead of `SubscribeButton`, `WarningText` instead of `PaymentWarning`, etc.
 
 #### Suggested
 
-* Components that have some degree of interactivity should include a suite of unit tests in a `[COMPONENT_NAME].test.js` file. Tests that check for idempotent render output, such as snapshot tests, are discouraged
+* Component uses `props.children` when appropriate, for example when the component will render a single element with an open and closing HTML tag
+* Any prop whose sole purpose is to forward a value to an HTML attribute or React event handler uses the camel-cased name of that attribute. E.g., a prop that populates an `aria-label` attribute and nothing else should be named `ariaLabel` and not, for example, `label` or `a11yLabel`
+* If the component has some degree of interactivity it includes a suite of unit tests in a `[COMPONENT_NAME].test.js` file. Tests that check for idempotent render output, such as snapshot tests, are discouraged
+* The component does not include any external spacing, i.e. margin, which is considered the responsibility of the component consumer
+* Wherever possible, component SCSS extends helper mixins and token variables
 
 ### TK: Component story template

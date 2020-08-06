@@ -1,11 +1,11 @@
 # 🌈 Prism UI
 
-Prism UI is a React-based component library. It is part of the Prism design system for Quartz. The goal of this library is to centralize and document the building blocks of our web front-end. By doing this we hope to:
+Prism UI is a React-based component library. It is part of the Prism design system for [Quartz](https://qz.com/). The goal of this library is to centralize and document the building blocks of our web front-end. By doing this we hope to:
 
-1) Make front-end web development easier by improving reusability.
-2) Provide a more consistent, performant and accessible experience for Quartz readers.
+1. Make front-end web development easier by improving reusability.
+2. Provide a more consistent, performant and accessible experience for Quartz readers.
 
-You can browse Prism UI components in Storybook at prism.qz.com. Each Storybook component has a Canvas view, for previewing the component, and a Docs view for reading the full documentation.
+You can browse Prism UI components in Storybook at [prism.qz.com](https://prism.qz.com). Each Storybook component has a Canvas view, for previewing the component, and a Docs view for reading the full documentation.
 
 ### THIS REPOSITORY IS PUBLIC
 

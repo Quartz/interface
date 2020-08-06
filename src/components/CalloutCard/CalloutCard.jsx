@@ -18,4 +18,8 @@ CalloutCard.propTypes = {
 	] ).isRequired,
 };
 
+CalloutCard.defaultProps = {
+	children: [],
+};
+
 export default CalloutCard;

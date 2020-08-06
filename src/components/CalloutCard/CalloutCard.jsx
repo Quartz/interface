@@ -9,7 +9,13 @@ const CalloutCard = ( { children } ) => (
 );
 
 CalloutCard.propTypes = {
-	children: PropTypes.node.isRequired,
+	/**
+	 * Child nodes to be rendered as the inner content of the callout card.
+	 */
+	children: PropTypes.oneOfType( [
+		PropTypes.arrayOf( PropTypes.node ),
+		PropTypes.node,
+	] ).isRequired,
 };
 
 export default CalloutCard;

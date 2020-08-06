@@ -24,12 +24,20 @@ export const Default = () => (
 	</div>
 );
 
+const inputStyles = {
+	width: '100%',
+	'margin-top': '15px',
+	border: '1px solid #ccc',
+	'border-radius': '5px',
+	padding: '5px',
+};
+
 export const Form = () => (
 	<div style={styles}>
 		<CalloutCard>
 			<p>Want a calm, rational, even curious approach to coronavirus? <a href="https://qz.com/emails/coronavirus/" target="_blank">We’ve got an email for that.</a> Sign up here:</p>
 			<label>Email address
-				<input label="email" name="email" placeholder="email@email.com" />
+				<input style={inputStyles} label="email" name="email" placeholder="email@email.com" />
 			</label>
 		</CalloutCard>
 	</div>

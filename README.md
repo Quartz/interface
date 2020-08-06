@@ -62,7 +62,7 @@ Each component should have a few files associated with it:
 - The component itself (`.jsx`)
 - Any necessary styling (`.scss`)
 - Component documentation (`.docs.mdx`)
-- Component examples (`.story.jsx`)
+- Component stories (`.story.jsx`)
 
 The component and styles work together as you would expect in any React application. The documentation file comes from the Storybook Docs addon [(docs)](https://github.com/storybookjs/storybook/tree/master/addons/docs) and works directly with your stories [(docs)](https://github.com/storybookjs/storybook/tree/master).
 

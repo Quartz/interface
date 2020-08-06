@@ -1,4 +1,4 @@
-# Prism UI
+# 🌈 Prism UI
 
 Prism UI is a React-based component library. It is part of the Prism design system for Quartz. The goal of this library is to centralize and document the building blocks of our web front-end. By doing this we hope to:
 
@@ -98,8 +98,6 @@ Before opening a pull request, please review the following checklist:
 	 */
 	disabled: PropTypes.bool.isRequired,
 ```
-* If a prop’s sole purpose is to forward a value to an HTML attribute or React event handler, use the camel-cased name of that attribute, e.g. a prop that populates an `aria-label` attribute and nothing else should be named `ariaLabel`
-* Use `props.children` when appropriate, for example when a component will render a single element with an open and closing HTML tag
 * Props must be named semantically, e.g. `props.description` instead of `props.text`
 * Props that modify the appearance or functionality of the component should be limited to a list of potential values using `PropTypes.arrayOf`
 * Wherever possible, use helper mixins and token variables in SCSS
@@ -107,6 +105,9 @@ Before opening a pull request, please review the following checklist:
 
 #### Suggested
 
+* Use `props.children` when appropriate, for example when a component will render a single element with an open and closing HTML tag
+* If a prop’s sole purpose is to forward a value to an HTML attribute or React event handler, use the camel-cased name of that attribute, e.g. a prop that populates an `aria-label` attribute and nothing else should be named `ariaLabel` and not, for example, `label` or `a11yLabel`
 * Components that have some degree of interactivity should include a suite of unit tests in a `[COMPONENT_NAME].test.js` file. Tests that check for idempotent render output, such as snapshot tests, are discouraged
+* A component’s spacing, i.e. margin, is typically the responsibility of the component consumer and should not be included in the component files.
 
 ### TK: Component story template

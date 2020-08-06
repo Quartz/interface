@@ -10,7 +10,7 @@ addDecorator( Story => <MockAppDecorator><Story /></MockAppDecorator> );
 
 addParameters({
 	options: {
-		name: 'Quartz Interface',
+		name: 'Prism UI',
 		selectedPanel: 'storybookjs/knobs/panel',
 	},
 });

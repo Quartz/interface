@@ -44,16 +44,16 @@ Before you make a contribution to Prism UI, it’s worth asking yourself a few q
 
 If you want to **update a component**:
 
-	* Are the changes you want to make potentially applicable to a broad range of usage scenarios, including potential usage outside of qz.com?
-	* Is it the responsibility of this component to do the thing you want it to do?
-	* If you are adding some logic to this component, is this the right place in the tree to do so?
-	* If you are making changes based on a design, have you confirmed with the designer that these changes should be reflected in Prism UI?
+* Are the changes you want to make potentially applicable to a broad range of usage scenarios, including potential usage outside of qz.com?
+* Is it the responsibility of this component to do the thing you want it to do?
+* If you are adding some logic to this component, is this the right place in the tree to do so?
+* If you are making changes based on a design, have you confirmed with the designer that these changes should be reflected in Prism UI?
 
 If you want to **add a new component**:
 
-	* Is this component functionally or visually distinct from other components in the library? Could the same effect be achieved by tweaking an existing component?
-	* Do you anticipate this component being long-lived and/or being used in more than one location?
-	* If you are adding a component from a design, have you confirmed with the designer that this component should be part of Prism UI?
+* Is this component functionally or visually distinct from other components in the library? Could the same effect be achieved by tweaking an existing component?
+* Do you anticipate this component being long-lived and/or being used in more than one location?
+* If you are adding a component from a design, have you confirmed with the designer that this component should be part of Prism UI?
 
 If the answer to any of these questions is no, chat with your teammates about how best to achieve what you want. Don’t be afraid to ask questions in the `#product-prism-support` Slack channel.
 

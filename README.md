@@ -64,7 +64,7 @@ Each component should have a few files associated with it:
 - Component documentation (`.docs.mdx`)
 - Component examples (`.story.jsx`)
 
-The component and styles work together as you would expect in any React application. The documentation file comes from the Storybook Docs addon [(docs)](https://github.com/storybookjs/storybook/tree/master/addons/docs) and works directly with your Storybook examples [(docs)](https://github.com/storybookjs/storybook/tree/master).
+The component and styles work together as you would expect in any React application. The documentation file comes from the Storybook Docs addon [(docs)](https://github.com/storybookjs/storybook/tree/master/addons/docs) and works directly with your stories [(docs)](https://github.com/storybookjs/storybook/tree/master).
 
 ### Running Storybook locally
 
@@ -98,7 +98,7 @@ Before opening a pull request with a new or updated library entry, please review
 #### Required
 
 * All lint and unit tests pass (`npm test`)
-* Component is are documented with a `[COMPONENT_NAME].story.jsx` and `[COMPONENT_NAME].docs.mdx` file
+* Component is are documented with a `[COMPONENT_NAME].story.jsx` and `[COMPONENT_NAME].docs.mdx` file [(formatting guide)](https://github.com/storybookjs/storybook/tree/master/addons/docs)
 * Component passes a11y smoke tests in the Storybook 'Accessibility' panel
 * Any propTypes in the component file are documented using JSDoc format, e.g.
 ```js

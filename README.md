@@ -100,7 +100,6 @@ disabled: PropTypes.bool.isRequired,
 ```
 * Props are named semantically, e.g. `props.description` instead of `props.text`
 * Props that modify the appearance or functionality of the component are limited to a list of potential values using `PropTypes.arrayOf`
-* Wherever possible, component SCSS extends helper mixins and token variables
 * The component is exported from `src/components/index.js`
 * The name of the component helps other developers understand when it should be used and makes sense outside the context of qz.com. E.g., `InfoPanel` instead of `HomepageDescription`, `CallToAction` instead of `SubscribeButton`, `WarningText` instead of `PaymentWarning`, etc.
 
@@ -110,5 +109,6 @@ disabled: PropTypes.bool.isRequired,
 * Any prop whose sole purpose is to forward a value to an HTML attribute or React event handler uses the camel-cased name of that attribute. E.g., a prop that populates an `aria-label` attribute and nothing else should be named `ariaLabel` and not, for example, `label` or `a11yLabel`
 * If the component has some degree of interactivity it includes a suite of unit tests in a `[COMPONENT_NAME].test.js` file. Tests that check for idempotent render output, such as snapshot tests, are discouraged
 * The component does not include any external spacing, i.e. margin, which is considered the responsibility of the component consumer
+* Wherever possible, component SCSS extends helper mixins and token variables
 
 ### TK: Component story template

@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './InlineWrapper.scss';
+import styles from './CalloutCard.scss';
 
-const InlineWrapper = ( { children } ) => (
+const CalloutCard = ( { children } ) => (
 	<div className={styles.container}>
 		{children}
 	</div>
 );
 
-InlineWrapper.propTypes = {
+CalloutCard.propTypes = {
 	children: PropTypes.node.isRequired,
 };
 
-export default InlineWrapper;
+export default CalloutCard;

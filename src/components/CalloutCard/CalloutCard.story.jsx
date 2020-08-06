@@ -37,7 +37,7 @@ export const Form = () => (
 		<CalloutCard>
 			<h3>Need to Know: Coronavirus</h3>
 			<p>Want a calm, rational, even curious approach to coronavirus? <a href="https://qz.com/emails/coronavirus/" target="_blank">We’ve got an email for that.</a> Sign up here:</p>
-			<label>Email address
+			<label>Email address:
 				<input style={inputStyles} label="email" name="email" placeholder="email@email.com" />
 			</label>
 		</CalloutCard>

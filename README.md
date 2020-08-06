@@ -102,10 +102,10 @@ Before opening a pull request with a new or updated library entry, please review
 * Component passes a11y smoke tests in the Storybook 'Accessibility' panel
 * Any propTypes in the component file are documented using JSDoc format, e.g.
 ```js
-	/**
-	 * Whether the button is interactive. Forwarded to the button element.
-	 */
-	disabled: PropTypes.bool.isRequired,
+/**
+ * Whether the button is interactive. Forwarded to the button element.
+ */
+disabled: PropTypes.bool.isRequired,
 ```
 * Props are named semantically, e.g. `props.description` instead of `props.text`
 * Props that modify the appearance or functionality of the component are limited to a list of potential values using `PropTypes.arrayOf`

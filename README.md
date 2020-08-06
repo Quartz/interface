@@ -64,7 +64,7 @@ Each component should have a few files associated with it:
 - Component documentation (`.docs.mdx`)
 - Component examples (`.story.jsx`)
 
-The component and styles work together as you would expect in any React application. The documentation file comes from the Storybook Docs addon [(docs)](https://github.com/storybookjs/storybook/tree/master/addons/docs) and works directly with your Storybook examples [(docs)](https://github.com/storybookjs/storybook/tree/master)
+The component and styles work together as you would expect in any React application. The documentation file comes from the Storybook Docs addon [(docs)](https://github.com/storybookjs/storybook/tree/master/addons/docs) and works directly with your Storybook examples [(docs)](https://github.com/storybookjs/storybook/tree/master).
 
 ### Running Storybook locally
 

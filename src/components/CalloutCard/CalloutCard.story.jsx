@@ -28,10 +28,11 @@ const inputStyles = {
 	width: '100%',
 	'margin-top': '15px',
 	border: '1px solid #ccc',
-	'border-radius': '5px',
+	borderRadius: '5px',
 	padding: '5px',
 };
 
+// @TODO: Use our custom input component in this example once it is migrated
 export const Form = () => (
 	<div style={styles}>
 		<CalloutCard>

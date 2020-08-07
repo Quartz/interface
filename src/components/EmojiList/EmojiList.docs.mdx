@@ -1,5 +1,5 @@
 import { Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import Button, { ButtonLink } from './Button';
+import EmojiList, { StructuredEmojiList } from './EmojiList';
 
 # Emoji List
 
@@ -19,20 +19,24 @@ import { EmojiList } from '@quartz/interface/src/components';
 import { StructuredEmojiList } from '@quartz/interface/src/components';
 ```
 
-## Props
+## EmojiList props
 
 <Props of={EmojiList} />
+
+## Structured EmojiList props
+
+<Props of={StructuredEmojiList} />
 
 ## Examples
 
 ### Emoji List
 
 <Preview>
-  <Story id="emojilist--default" />
+  <Story id="emoji-list--default" />
 </Preview>
 
 ### Structured Emoji List
 
 <Preview>
-  <Story id="emojilist--structured" />
+  <Story id="emoji-list--structured" />
 </Preview>

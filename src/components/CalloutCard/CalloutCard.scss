@@ -1,0 +1,17 @@
+@import '~@quartz/styles/scss/borders';
+@import '~@quartz/styles/scss/color-scheme';
+@import '~@quartz/styles/scss/media-queries';
+@import '~@quartz/styles/scss/fonts';
+
+.container {
+	@include font-maison-500-3;
+
+	background-color: $color-background-2;
+	border: $border-solid-decorative;
+	border-radius: $size-border-radius;
+	padding: 24px 12px;
+
+	@include for-tablet-portrait-up {
+		padding: 28px;
+	}
+}

@@ -57,6 +57,14 @@ If you want to **add a new component**:
 
 If the answer to any of these questions is no, chat with your teammates about how best to achieve what you want. Don’t be afraid to ask questions in the `#product-prism-support` Slack channel.
 
+### File Structure
+Each component should have a few files associated with it:
+- The component itself (`.jsx`)
+- Any necessary styling (`.scss`)
+- Component documentation (`.docs.mdx`) [(Storybook Docs add-on)](https://github.com/storybookjs/storybook/tree/master/addons/docs)
+- Component stories (`.story.jsx`) [(Stories are written in MDX)](https://storybook.js.org/docs/formats/mdx-syntax/)
+- (Optional) Component tests (`test.js`)
+
 ### Running Storybook locally
 
 To run a local instance of Storybook, use `npm start`. Hot-reloading is supported.
@@ -89,7 +97,7 @@ Before opening a pull request with a new or updated library entry, please review
 #### Required
 
 * All lint and unit tests pass (`npm test`)
-* Component is are documented with a `[COMPONENT_NAME].story.jsx` and `[COMPONENT_NAME].docs.mdx` file
+* Component is documented with a `[COMPONENT_NAME].story.jsx` and `[COMPONENT_NAME].docs.mdx` file [(formatting guide)](https://github.com/storybookjs/storybook/tree/master/addons/docs)
 * Component passes a11y smoke tests in the Storybook 'Accessibility' panel
 * Any propTypes in the component file are documented using JSDoc format, e.g.
 ```js

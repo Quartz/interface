@@ -3,7 +3,7 @@ import Image from './Image';
 
 # Image
 
-Displays an image. The `Image` component requires `height` and `width` to set aspect ratio and `sizes` and `srcSet` to provide [responsive rendering](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images). They will not be calculated for you and there are no default values. Future components may provide a simpler implementation for specific use cases.
+Displays an image. The `Image` component requires `fallbackHeight` and `fallbackWidth` to set aspect ratio and `sizes` and `srcSet` to provide [responsive rendering](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images). They will not be calculated for you and there are no default values. Future components may provide a simpler implementation for specific use cases.
 
 This component does not provide [art direction](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture), which is also a task for a future component.
 
@@ -20,10 +20,10 @@ import { Image } from '@quartz/interface/src/components';
 ## Usage guidelines
 
 - **Do** use a container to constrain the size or shape of the image. An `Image` will always expand or contract to fit the width of its container. The `Image` component purposefully does not accept a `className` prop.
-- **Do** understand that the `height` and `width` props are [used to help the browser reserve space](https://blog.logrocket.com/jank-free-page-loading-with-media-aspect-ratios/) for the image. They do not need to match the _rendered_ size of the image but should be set at reasonable upper bounds.
+- **Do** understand that the `fallbackHeight` and `fallbackWidth` props are [used to set aspect ratio and help the browser reserve space](https://blog.logrocket.com/jank-free-page-loading-with-media-aspect-ratios/) for the image during initial layout.
 - **Do** [provide useful alt text](https://www.w3.org/WAI/tutorials/images/decision-tree/) for your images. Sometimes, an empty string is the most useful!
 - **Do** learn why and how to use [responsive rendering](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images). It’s important to understand how `sizes` and `srcSet` work.
-- **Do** think about AMP when using the `Image` component and pass the correct `amp` prop.
+- **Do** think when and whether this component might be rendered on AMP pages and pass the correct `amp` prop.
 - **Do not** avoid the `Image` component by using the HTML `img` tag. The `Image` component enforces best practices and performant rendering.
 - **Do not** use the `Image` component for SVGs. Instead, import SVGs and render them directly with React.
 

@@ -1,0 +1,21 @@
+@import '~@quartz/styles/scss/color-scheme';
+
+.kicker {
+	margin-bottom: 5px;
+}
+
+.kicker-article {
+	color: $color-accent;
+}
+
+.kicker-bulletin {
+	color: $color-gold;
+}
+
+.kicker-default {
+	color: $color-typography-faint;
+}
+
+.tagline {
+	margin-top: 5px;
+}

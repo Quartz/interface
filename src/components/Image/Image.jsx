@@ -38,13 +38,13 @@ ImageAmp.propTypes = {
 function Image ( {
 	alt,
 	amp,
-	height,
+	fallbackHeight: height,
+	fallbackWidth: width,
 	loading,
 	sizes,
 	src,
 	srcSet,
 	title,
-	width,
 } ) {
 	if ( amp ) {
 		return (
@@ -90,16 +90,23 @@ Image.propTypes = {
 	amp: PropTypes.bool.isRequired,
 
 	/**
-	 * The height of the image. The absolute value is not as important as its
-	 * correspondences with the `width` prop to set the correct aspect ratio. A
-	 * good practice is to set this at the largest size at which this image can be
-	 * rendered.
+	 * The rendered height of the image when CSS cannot be loaded or in very old
+	 * browsers. With `fallbackWidth`, it sets the aspect ratio for the image.
+	 * Therefore, it's critical to provide an accurate value. A good practice is
+	 * to set this at the largest size at which this image can be rendered.
 	 */
-	height: PropTypes.number.isRequired,
+	fallbackHeight: PropTypes.number.isRequired,
 
 	/**
-	 * How and when the image should be loaded—e.g., right away or only after the
-	 * image is revealed in the viewport.
+	 * The rendered width of the image when CSS cannot be loaded or in very old
+	 * browsers. See `fallbackHeight`.
+	 */
+	fallbackWidth: PropTypes.number.isRequired,
+
+	/**
+	 * How and when the image should be loaded. See
+	 * [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) for
+	 * details on allowed values and their behavior.
 	 */
 	loading: PropTypes.oneOf( [ 'auto', 'eager', 'lazy' ] ).isRequired,
 
@@ -122,14 +129,6 @@ Image.propTypes = {
 	 * The `img` title attribute.
 	 */
 	title: PropTypes.string,
-
-	/**
-	 * The width of the image. The absolute value is not as important as its
-	 * correspondence with the `height` prop to set the correct aspect ratio. A
-	 * good practice is to set this at the largest size at which this image can be
-	 * rendered.
-	 */
-	width: PropTypes.number.isRequired,
 };
 
 Image.defaultProps = {

@@ -1,0 +1,9 @@
+@import '~@quartz/styles/scss/color-scheme';
+@import '~@quartz/styles/scss/fonts';
+
+.container {
+	@include font-maison-500-1;
+
+	color: $color-typography-faint;
+	line-height: 1;
+}

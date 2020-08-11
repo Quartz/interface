@@ -1,0 +1,8 @@
+@import '~@quartz/styles/scss/color-scheme';
+@import '~@quartz/styles/scss/fonts';
+
+.container {
+	@include font-maison-extended-700-1;
+
+	text-transform: uppercase;
+}

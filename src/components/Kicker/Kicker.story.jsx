@@ -13,11 +13,3 @@ export default {
 export const Default = () => (
 	<Kicker>Neither Here Nor There</Kicker>
 );
-
-export const Article = () => (
-	<Kicker type="article">Neither Here Nor There</Kicker>
-);
-
-export const Bulletin = () => (
-	<Kicker type="bulletin">Neither Here Nor There</Kicker>
-);

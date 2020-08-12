@@ -23,8 +23,15 @@ export const Default = () => (
 	</div>
 );
 
+const testimonialStyles = {
+	'font-family': "'Helvetica Neue', Helvetica, sans-serif",
+	'font-size': '20px',
+	width: 600,
+	margin: '0 auto',
+};
+
 export const Testimonial = () => (
-	<div style={styles}>
+	<div style={testimonialStyles}>
 		<Blockquote>
 			<p><strong>The subscription to Quartz was probably my best investment of 2019. Your journalism is one of a kind, local on a global scale, actual and never boring.</strong></p>
 		</Blockquote>

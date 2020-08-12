@@ -10,13 +10,13 @@ function Example ( {
 
 Example.propTypes = {
 	/**
-	 * Text
+	 * Child node to be rendered as the inner HTML of the component.
 	 */
-	text: PropTypes.string.isRequired,
+	children: PropTypes.node.isRequired,
 };
 
 Example.defaultProps = {
-	text: 'Hello, world!',
+	children: 'Hello, world!',
 };
 
 export default Example;

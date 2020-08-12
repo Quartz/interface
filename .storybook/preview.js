@@ -6,7 +6,6 @@ import { withA11y } from '@storybook/addon-a11y';
 import MockAppDecorator from './addons/MockAppDecorator/MockAppDecorator'
 import qzTheme from './themes/qz';
 
-addDecorator( withSmartKnobs() );
 addDecorator( withKnobs );
 addDecorator( withA11y );
 addDecorator( Story => <MockAppDecorator><Story /></MockAppDecorator> );

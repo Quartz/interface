@@ -42,6 +42,7 @@
 		"enzyme-adapter-react-16": "^1.15.2",
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^26.1.0",
+		"js-utils": "git+https://github.com/Quartz/js-utils.git#8ab4cf9",
 		"node-sass": "^4.14.1",
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",

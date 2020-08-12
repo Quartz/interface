@@ -1,38 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { resizeImage } from 'js-utils';
 import Image from '../Image/Image';
 import styles from './Badge.scss';
-
-/**
- * Resize an image from our media library (powered by Photon).
- * TODO: Export this from a utils library.
- *
- * @param  {string} url
- * @param  {int}    width
- * @param  {int}    height
- * @param  {bool}   crop
- * @param  {int}    quality
- * @return {string}
- */
-const resizeImage = ( url, width, height, crop = false, quality = 75 ) => {
-	const { origin, pathname } = new URL( url );
-
-	let resizedUrl = `${origin}${pathname}?quality=${quality}&strip=all`;
-
-	if ( width ) {
-		resizedUrl += `&w=${width}`;
-	}
-
-	if ( height ) {
-		resizedUrl += `&h=${height}`;
-	}
-
-	if ( crop ) {
-		resizedUrl += '&crop=1';
-	}
-
-	return resizedUrl;
-};
 
 const sizeToPx = {
 	'extra-large': 82,

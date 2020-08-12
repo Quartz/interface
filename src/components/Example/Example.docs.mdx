@@ -1,0 +1,40 @@
+import { Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import Example from './Example';
+
+# Example
+
+An example component that can be used as a template for new components. A script
+is provided to copy this component to a new one, renaming everything
+appropriately:
+
+```sh
+npm run copy Example NewComponent
+```
+
+This script can also be used to copy any existing component, just replace
+`Example` with the name of another component.
+
+## Usage
+
+```js
+import { Example } from '@quartz/interface/src/components';
+```
+
+## Props
+
+<Props of={Example} />
+
+## Usage guidelines
+
+- **Do** update the `Example` component if you make improvements that other components could benefit from.
+- **Do not** use the `Example` component.
+
+## Examples
+
+### Default
+
+<Preview>
+  <Story id="example--default" />
+</Preview>
+
+

@@ -1,0 +1,43 @@
+import { Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import TextGroup from './TextGroup';
+
+# TextGroup
+
+A basic promotional unit that groups textual elements to describe a piece of
+content. Most `TextGroup`s are wrapped in `Link`s that take the user to the
+described content.
+
+## Usage
+
+```js
+import { TextGroup } from '@quartz/interface/src/components';
+```
+
+## Props
+
+<Props of={TextGroup} />
+
+## Usage guidelines
+
+- **Do** use a container to constrain the size of the `TextGroup`.
+- **Do not** use the `TextGroup` component to represent things that are not Quartz content.
+
+## Examples
+
+### A taxonomy
+
+<Preview>
+  <Story id="textgroup--default" />
+</Preview>
+
+### An article
+
+<Preview>
+  <Story id="textgroup--article" />
+</Preview>
+
+### A special project
+
+<Preview>
+  <Story id="textgroup--no-kicker" />
+</Preview>

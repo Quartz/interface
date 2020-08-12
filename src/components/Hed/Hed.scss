@@ -1,0 +1,15 @@
+@import '~@quartz/styles/scss/color-scheme';
+@import '~@quartz/styles/scss/fonts';
+
+.container {
+	color: $color-typography;
+	margin: 0;
+}
+
+.small {
+	@include font-maison-800-4;
+}
+
+.large {
+	@include font-maison-800-7;
+}

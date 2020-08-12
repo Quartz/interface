@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Example from './Example';
 
 const defaultProps = {
-	text: 'Test content',
+	children: 'Test content',
 };
 
 const setup = overrides => shallow( <Example {...defaultProps} {...overrides} /> );
@@ -15,4 +15,3 @@ describe( 'Example', () => {
 		expect( wrapper.text() ).toEqual( 'Test content' );
 	} );
 } );
-

@@ -1,0 +1,23 @@
+@import '~@quartz/styles/scss/color-scheme';
+
+.container {
+	align-items: start;
+	display: flex;
+	flex-direction: row;
+}
+
+.badge {
+	margin-right: 10px;
+}
+
+.text {
+	flex-grow: 1;
+}
+
+.arrow {
+	align-self: center;
+
+	& > path {
+		fill: $color-typography-faint;
+	}
+}

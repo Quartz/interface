@@ -1,0 +1,32 @@
+import { Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import BadgeGroup from './BadgeGroup';
+
+# BadgeGroup
+
+A `BadgeGroup` is a `TextGroup` accompanied by a `Badge` and a chevron, linking
+the user to a collection of content, such as a Guide or an Obsession.
+
+## Usage
+
+```js
+import { BadgeGroup } from '@quartz/interface/src/components';
+```
+
+## Props
+
+<Props of={BadgeGroup} />
+
+## Usage guidelines
+
+- **Do** wrap `BadgeGroup` in a `Link`.
+- **Do not** use the `BadgeGroup` component to link to non-Quartz content.
+
+## Examples
+
+### Taxonomy
+
+<Preview>
+  <Story id="badgegroup--taxonomy" />
+</Preview>
+
+

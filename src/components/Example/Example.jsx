@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Example.scss';
 
 function Example ( {
-	text,
+	children,
 } ) {
 	return <div className={styles.container}>{children}</div>;
 }

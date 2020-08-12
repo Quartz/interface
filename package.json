@@ -6,6 +6,7 @@
 		"node": ">=10.9"
 	},
 	"scripts": {
+		"copy": "./copy.sh",
 		"start": "start-storybook -s public",
 		"build": "build-storybook -o .storybook/build -s public",
 		"eslint": "eslint --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js",

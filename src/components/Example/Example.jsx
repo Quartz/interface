@@ -5,7 +5,7 @@ import styles from './Example.scss';
 function Example ( {
 	text,
 } ) {
-	return <div className={styles.container}>{text}</div>;
+	return <div className={styles.container}>{children}</div>;
 }
 
 Example.propTypes = {

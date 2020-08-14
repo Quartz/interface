@@ -1,4 +1,5 @@
 export { default as Button, ButtonLink } from './Button/Button';
+export { default as BadgeGroup } from './BadgeGroup/BadgeGroup';
 export { default as Blockquote } from './Blockquote/Blockquote';
 export { default as CalloutCard } from './CalloutCard/CalloutCard';
 export { default as Checkbox } from './Checkbox/Checkbox';

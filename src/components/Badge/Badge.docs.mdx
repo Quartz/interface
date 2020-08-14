@@ -1,0 +1,48 @@
+import { Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import Badge from './Badge';
+
+# Badge
+
+A `Badge` is a round image of predetermined size used for decorative images.
+
+## Usage
+
+```js
+import { Badge } from '@quartz/interface/src/components';
+```
+
+## Props
+
+<Props of={Badge} />
+
+## Usage guidelines
+
+- **Do** use `Badge` for avatars and other representational images (e.g., an image representing a series or field guide).
+- **Do not** use `Badge` for editorial images.
+- **Do not** attempt to render a `Badge` at a size other than the built-in sizes.
+
+## Badges
+
+### Small
+
+<Preview>
+  <Story id="badge--small" />
+</Preview>
+
+### Medium
+
+<Preview>
+  <Story id="badge--medium" />
+</Preview>
+
+### Large
+
+<Preview>
+  <Story id="badge--large" />
+</Preview>
+
+### Extra large
+
+<Preview>
+  <Story id="badge--extra-large" />
+</Preview>

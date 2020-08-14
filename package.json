@@ -23,7 +23,7 @@
 		"src/**/*.scss"
 	],
 	"dependencies": {
-		"js-utils": "github:Quartz/js-utils#8ab4cf9"
+		"@quartz/js-utils": "github:Quartz/js-utils#8ab4cf9"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.10.4",
@@ -31,7 +31,7 @@
 		"@babel/preset-react": "^7.10.4",
 		"@quartz/eslint-config-react": "^1.0.4",
 		"@quartz/stylelint-config": "^1.0.0",
-		"@quartz/styles": "git+https://github.com/Quartz/styles.git#4a94e3d",
+		"@quartz/styles": "github:Quartz/styles#4a94e3d",
 		"@storybook/addon-a11y": "^5.3.19",
 		"@storybook/addon-actions": "^5.3.19",
 		"@storybook/addon-docs": "^5.3.19",

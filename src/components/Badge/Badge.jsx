@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { resizeImage } from 'js-utils';
+import { resizeImage } from '@quartz/js-utils';
 import Image from '../Image/Image';
 import styles from './Badge.scss';
 

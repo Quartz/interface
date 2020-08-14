@@ -6,17 +6,17 @@ import Tagline from '../Tagline/Tagline';
 import styles from './TextGroup.scss';
 
 function TextGroup ( {
+	isArticle,
 	kicker,
 	tagline,
 	title,
-	type,
 } ) {
 	return (
 		<>
 			{
 				kicker &&
 					<Kicker>
-						<div className={`${styles.kicker} ${styles[ `kicker-${type}` ]}`}>{kicker}</div>
+						<div className={`${styles.kicker} ${isArticle ? styles.isArticle : ''}`}>{kicker}</div>
 					</Kicker>
 			}
 			<Hed size="small">{title}</Hed>
@@ -32,6 +32,12 @@ function TextGroup ( {
 
 TextGroup.propTypes = {
 	/**
+	 * Whether this text group represents an article, which influences color and
+	 * other formatting.
+	 */
+	isArticle: PropTypes.bool.isRequired,
+
+	/**
 	 * Kicker text. This accepts a string or a node—most notably to accommodate
 	 * bulletins, which have multicolor kickers and sometimes incorporate images.
 	 */
@@ -46,15 +52,10 @@ TextGroup.propTypes = {
 	 * Title.
 	 */
 	title: PropTypes.string.isRequired,
-
-	/**
-	 * The type of the text group, which influences color and other formatting.
-	 */
-	type: PropTypes.oneOf( [ 'article', 'default' ] ),
 };
 
 TextGroup.defaultProps = {
-	type: 'default',
+	isArticle: false,
 };
 
 export default TextGroup;

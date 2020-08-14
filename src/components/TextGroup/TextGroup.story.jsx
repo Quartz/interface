@@ -10,7 +10,7 @@ export default {
 	},
 };
 
-export const Default = () => (
+export const Taxonomy = () => (
 	<div style={{ maxWidth: 400 }}>
 		<TextGroup
 			kicker="From our Guide"
@@ -23,10 +23,10 @@ export const Default = () => (
 export const Article = () => (
 	<div style={{ maxWidth: 400 }}>
 		<TextGroup
+			isArticle={true}
 			kicker="Lightning Goals"
 			tagline="Oct. 12, 2018 • Quartz"
 			title="Usain Bolt is slowly but surely becoming a soccer player"
-			type="article"
 		/>
 	</div>
 );

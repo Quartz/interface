@@ -1,15 +1,12 @@
 @import '~@quartz/styles/scss/color-scheme';
 
 .kicker {
-	margin-bottom: 5px;
-}
-
-.kicker-article {
-	color: $color-accent;
-}
-
-.kicker-default {
 	color: $color-typography-faint;
+	margin-bottom: 5px;
+
+	&.is-article {
+		color: $color-accent;
+	}
 }
 
 .tagline {

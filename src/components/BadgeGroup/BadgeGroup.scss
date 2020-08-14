@@ -16,6 +16,8 @@
 
 .arrow {
 	align-self: center;
+	flex-shrink: 0;
+	margin-left: 10px;
 
 	& > path {
 		fill: $color-typography-faint;

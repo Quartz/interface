@@ -25,7 +25,7 @@ function Badge ( {
 	const src = resizeImage( imageUrl, px, px, true );
 
 	return (
-		<figure className={`${styles.container} ${styles[ size ]}`}>
+		<div className={`${styles.container} ${styles[ size ]}`}>
 			<Image
 				alt={alt}
 				fallbackHeight={px}
@@ -34,7 +34,7 @@ function Badge ( {
 				src={src}
 				srcSet={srcSet}
 			/>
-		</figure>
+		</div>
 	);
 };
 

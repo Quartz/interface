@@ -1,0 +1,92 @@
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import Badge from './Badge';
+
+<Meta title="Badge" component={Badge} />
+
+# Badge
+
+A `Badge` is a round image of predetermined size used for decorative images.
+
+## Usage guidelines
+
+- **Do** use `Badge` for avatars and other representational images (e.g., an image representing a series or field guide).
+- **Do not** use `Badge` for editorial images.
+- **Do not** attempt to render a `Badge` at a size other than the built-in sizes.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'Mindful Money',
+			imageUrl: 'https://cms.qz.com/wp-content/uploads/2020/03/MM_promo.png?w=2000',
+		}}
+		name="Default"
+	>
+		{args => <Badge {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Small
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'Mindful Money',
+			imageUrl: 'https://cms.qz.com/wp-content/uploads/2020/03/MM_promo.png?w=2000',
+			size: 'small',
+		}}
+		name="Small"
+	>
+		{args => <Badge {...args} />}
+	</Story>
+</Canvas>
+
+### Medium
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'Mindful Money',
+			imageUrl: 'https://cms.qz.com/wp-content/uploads/2020/03/MM_promo.png?w=2000',
+			size: 'medium',
+		}}
+		name="Medium"
+	>
+		{args => <Badge {...args} />}
+	</Story>
+</Canvas>
+
+### Large
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'Mindful Money',
+			imageUrl: 'https://cms.qz.com/wp-content/uploads/2020/03/MM_promo.png?w=2000',
+			size: 'large',
+		}}
+		name="Large"
+	>
+		{args => <Badge {...args} />}
+	</Story>
+</Canvas>
+
+### Extra large
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'Mindful Money',
+			imageUrl: 'https://cms.qz.com/wp-content/uploads/2020/03/MM_promo.png?w=2000',
+			size: 'extra-large',
+		}}
+		name="Extra large"
+	>
+		{args => <Badge {...args} />}
+	</Story>
+</Canvas>

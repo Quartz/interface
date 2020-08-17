@@ -4,11 +4,19 @@ module.exports = {
 	stories: [
 		'./welcome.story.mdx',
 		'../src/**/*.story.jsx',
+		'../src/**/*.stories.mdx',
 	],
+	// Order is apparently important for addons.
 	addons: [
-		'@storybook/addon-a11y/register',
+		'@storybook/addon-a11y',
 		'@storybook/addon-docs',
-		'@storybook/addon-knobs/register',
+		'@storybook/addon-links',
+		{
+			name: '@storybook/addon-essentials',
+			options: {
+				backgrounds: false, // Disable in favor of own theming (TODO).
+			},
+		},
 	],
 	webpackFinal: async config => {
 		// Add support for .scss files (Sass)

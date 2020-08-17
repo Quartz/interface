@@ -36,7 +36,6 @@
 		"@storybook/addon-actions": "^6.0.10",
 		"@storybook/addon-docs": "^6.0.10",
 		"@storybook/addon-essentials": "^6.0.10",
-		"@storybook/addon-knobs": "^6.0.10",
 		"@storybook/addon-links": "^6.0.10",
 		"@storybook/react": "^6.0.10",
 		"babel-jest": "^26.1.0",

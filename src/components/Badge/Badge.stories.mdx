@@ -20,6 +20,24 @@ A `Badge` is a round image of predetermined size used for decorative images.
 		args={{
 			alt: 'Mindful Money',
 			imageUrl: 'https://cms.qz.com/wp-content/uploads/2020/03/MM_promo.png?w=2000',
+		}}
+		name="Default"
+	>
+		{args => <Badge {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Small
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'Mindful Money',
+			imageUrl: 'https://cms.qz.com/wp-content/uploads/2020/03/MM_promo.png?w=2000',
 			size: 'small',
 		}}
 		name="Small"
@@ -27,10 +45,6 @@ A `Badge` is a round image of predetermined size used for decorative images.
 		{args => <Badge {...args} />}
 	</Story>
 </Canvas>
-
-<ArgsTable story="Small" />
-
-## Stories
 
 ### Medium
 

@@ -10,7 +10,6 @@ module.exports = {
 		'@storybook/addon-a11y/register',
 		'@storybook/addon-docs',
 		'@storybook/addon-essentials',
-		'@storybook/addon-knobs/register',
 		'@storybook/addon-links',
 	],
 	webpackFinal: async config => {

@@ -1,0 +1,50 @@
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import Blockquote from './Blockquote';
+
+<Meta title="Blockquote" component={Blockquote} />
+
+# Blockquote
+
+A stylized blockquote that accentuates a quote from a larger body of text. Renders an HTML `<blockquote>` tag.
+
+## Usage guidelines
+
+- **Do** wrap a `Blockquote` component to change the text style or constrain its width.
+- **Do not** use the `Blockquote` component if the text is not a direct quote from a person or source material.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			children: <p>The subscription to Quartz was probably my best investment of 2019. Your journalism is one of a kind, local on a global scale, actual and never boring.</p>
+		}}
+		name="Default"
+	>
+		{args => <Blockquote {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Testimonial
+
+<Canvas>
+	<Story
+		args={{
+			children: <p>The subscription to Quartz was probably my best investment of 2019. Your journalism is one of a kind, local on a global scale, actual and never boring.</p>
+		}}
+		name="Testimonial"
+	>
+		{args => (
+			<div style={{
+				fontSize: '20px',
+			}}>
+				<Blockquote {...args} />
+				<p>— Davide M., Director of Product Development</p>
+			</div>
+		)}
+	</Story>
+</Canvas>

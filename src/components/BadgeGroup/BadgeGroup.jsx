@@ -7,6 +7,7 @@ import styles from './BadgeGroup.scss';
 function BadgeGroup ( {
 	imageUrl,
 	kicker,
+	size,
 	tagline,
 	title,
 } ) {
@@ -25,6 +26,7 @@ function BadgeGroup ( {
 			<div className={styles.text}>
 				<TextGroup
 					kicker={kicker}
+					size={size === 'large' ? 'medium' : 'small'}
 					tagline={tagline}
 					title={title}
 				/>
@@ -51,6 +53,11 @@ BadgeGroup.propTypes = {
 	kicker: PropTypes.node,
 
 	/**
+	 * Size preset. Adjusts the size of the headline (Hed component).
+	 */
+	size: PropTypes.oneOf( [ 'small', 'large' ] ),
+
+	/**
 	 * Tagline to appear beneath the title.
 	 */
 	tagline: PropTypes.string,
@@ -59,6 +66,10 @@ BadgeGroup.propTypes = {
 	 * Title.
 	 */
 	title: PropTypes.string.isRequired,
+};
+
+BadgeGroup.defaultProps = {
+	size: 'small',
 };
 
 export default BadgeGroup;

@@ -6,14 +6,20 @@ import Spinner from '../Spinner/Spinner';
 
 const cx = classnames.bind( styles );
 
-const ButtonLabel = ( { children, variant } ) => <span className={cx( `variant-${variant}` )}>{children}</span>;
+const ButtonLabel = ( {
+	children,
+	inline,
+	variant,
+} ) => <span className={cx( 'label', `variant-${variant}`, { block: !inline } )}>{children}</span>;
 
 ButtonLabel.propTypes = {
 	children: PropTypes.node.isRequired,
+	inline: PropTypes.bool.isRequired,
 	variant: PropTypes.string.isRequired,
 };
 
 ButtonLabel.defaultProps = {
+	inline: false,
 	variant: 'primary',
 };
 
@@ -22,6 +28,7 @@ const Button = ( {
 	children,
 	ariaDescribedBy,
 	disabled,
+	inline,
 	loading,
 	on,
 	onClick,
@@ -32,14 +39,14 @@ const Button = ( {
 	<button
 		aria-checked={ariaChecked}
 		aria-describedby={ariaDescribedBy}
-		className={styles.button}
+		className={cx( 'button', { block: !inline } )}
 		disabled={disabled || loading}
 		on={on}
 		onClick={onClick}
 		role={role}
 		type={type}
 	>
-		<ButtonLabel variant={variant}>
+		<ButtonLabel variant={variant} inline={inline}>
 			{
 				loading && (
 					<div className={styles.spinner}>
@@ -73,6 +80,11 @@ Button.propTypes = {
 	 * element.
 	 */
 	disabled: PropTypes.bool.isRequired,
+	/**
+	 * Whether the button should be purely textual, e.g. for use in a
+	 * paragraph of text.
+	 */
+	inline: PropTypes.bool.isRequired,
 	/**
 	 * Visually replaces `props.children` with the Spinner component. Use
 	 * when waiting for an action to complete in response to a user
@@ -115,10 +127,8 @@ Button.propTypes = {
 	 * Visual variations of the button.
 	 */
 	variant: PropTypes.oneOf( [
-		'inline',
 		'primary',
 		'secondary',
-		'warning-inline',
 		'warning',
 	] ).isRequired,
 };

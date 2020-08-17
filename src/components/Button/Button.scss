@@ -10,8 +10,6 @@
 	@include reset-button;
 	@include fade-on-hover;
 
-	display: block;
-	width: 100%;
 	cursor: pointer;
 	position: relative;
 
@@ -20,6 +18,11 @@
 
 		opacity: 0.5;
 		cursor: default;
+	}
+
+	&.block {
+		display: block;
+		width: 100%;
 	}
 }
 
@@ -31,45 +34,46 @@
 	@include center;
 }
 
-.variant-primary,
-.variant-secondary,
-.variant-warning {
-	@include font-maison-800-2;
+.label {
+	@include font-maison;
 
-	display: block;
-	box-sizing: border-box;
-	line-height: 1;
-	text-align: center;
-	border-radius: $size-border-radius;
 	font-size: 16px;
-	padding: 14px;
 	white-space: nowrap;
+	line-height: 1;
+
+	&.block {
+		font-weight: 800;
+		display: block;
+		box-sizing: border-box;
+		text-align: center;
+		border-radius: $size-border-radius;
+		padding: 14px;
+	}
 }
 
 .variant-primary {
-	color: $color-background-2;
-	background-color: $color-accent;
+	color: $color-accent;
+
+	&.block {
+		color: $color-background-2;
+		background-color: $color-accent;
+	}
 }
 
 .variant-secondary {
-	color: $color-typography;
-	background-color: $color-background-3;
+	color: $color-typography-faint;
+
+	&.block {
+		color: $color-typography;
+		background-color: $color-background-3;
+	}
 }
 
 .variant-warning {
-	color: $color-white;
-	background-color: $color-red;
-}
-
-.variant-inline,
-.variant-warning-inline {
-	@include reset-button;
-	@include fade-on-hover;
-	@include font-maison;
-
-	color: $color-accent;
-}
-
-.variant-warning-inline {
 	color: $color-red;
+
+	&.block {
+		color: $color-white;
+		background-color: $color-red;
+	}
 }

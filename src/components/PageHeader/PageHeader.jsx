@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Header.scss';
+import styles from './PageHeader.scss';
 
-const Header = ( { border, children, intro, title } ) => (
+const PageHeader = ( { border, children, intro, title } ) => (
 	<div className={`${styles.container} ${border ? styles.border : ''}`}>
 		<div className={styles.contents}>
 			<h1 className={styles.title}>{title}</h1>
@@ -12,15 +12,15 @@ const Header = ( { border, children, intro, title } ) => (
 	</div>
 );
 
-Header.propTypes = {
+PageHeader.propTypes = {
 	border: PropTypes.bool,
 	children: PropTypes.node,
 	intro: PropTypes.string,
 	title: PropTypes.string.isRequired,
 };
 
-Header.defaultProps = {
+PageHeader.defaultProps = {
 	border: true,
 };
 
-export default Header;
+export default PageHeader;

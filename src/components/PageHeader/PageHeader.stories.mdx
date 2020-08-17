@@ -1,9 +1,9 @@
 import { Story, Canvas, Props } from '@storybook/addon-docs/blocks';
-import Header from './Header.jsx';
+import PageHeader from './PageHeader.jsx';
 
-<Meta title="Header" component={Header} />
+<Meta title="PageHeader" component={PageHeader} />
 
-# Header
+# PageHeader
 
 Very large text that can be used to present the title and short additional intro text for a non-article page.
 
@@ -11,7 +11,7 @@ It takes optional children that should be used for relevant non-text components,
 
 ## Props
 
-<Props of={Header} />
+<Props of={PageHeader} />
 
 ## Usage Guidelines
 
@@ -29,7 +29,7 @@ It takes optional children that should be used for relevant non-text components,
 		}}
 		name="Default"
 	>
-		{ args => <Header {...args} /> }
+		{ args => <PageHeader {...args} /> }
 	</Story>
 </Canvas>
 
@@ -44,7 +44,7 @@ It takes optional children that should be used for relevant non-text components,
 		}}
 		name="With Intro"
 	>
-		{ args => <Header {...args} /> }
+		{ args => <PageHeader {...args} /> }
 	</Story>
 </Canvas>
 
@@ -73,6 +73,6 @@ It takes optional children that should be used for relevant non-text components,
 		}}
 		name="With Children"
 	>
-		{ args => <Header {...args} /> }
+		{ args => <PageHeader {...args} /> }
 	</Story>
 </Canvas>

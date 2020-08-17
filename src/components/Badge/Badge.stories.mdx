@@ -1,6 +1,8 @@
 import { Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import Badge from './Badge';
 
+<Meta title="Badge" component={Badge} />
+
 # Badge
 
 A `Badge` is a round image of predetermined size used for decorative images.
@@ -26,23 +28,47 @@ import { Badge } from '@quartz/interface/src/components';
 ### Small
 
 <Preview>
-  <Story id="badge--small" />
+  <Story name="Small">
+		<Badge
+			alt="Mindful Money"
+			imageUrl="https://cms.qz.com/wp-content/uploads/2020/03/MM_promo.png?w=2000"
+			size="small"
+		/>
+	</Story>
 </Preview>
 
 ### Medium
 
 <Preview>
-  <Story id="badge--medium" />
+  <Story name="Medium">
+		<Badge
+			alt="Mindful Money"
+			imageUrl="https://cms.qz.com/wp-content/uploads/2020/03/MM_promo.png?w=2000"
+			size="medium"
+		/>
+	</Story>
 </Preview>
 
 ### Large
 
 <Preview>
-  <Story id="badge--large" />
+  <Story name="Large">
+		<Badge
+			alt="Mindful Money"
+			imageUrl="https://cms.qz.com/wp-content/uploads/2020/03/MM_promo.png?w=2000"
+			size="large"
+		/>
+	</Story>
 </Preview>
 
 ### Extra large
 
 <Preview>
-  <Story id="badge--extra-large" />
+  <Story name="Extra large">
+		<Badge
+			alt="Mindful Money"
+			imageUrl="https://cms.qz.com/wp-content/uploads/2020/03/MM_promo.png?w=2000"
+			size="extra-large"
+		/>
+	</Story>
 </Preview>

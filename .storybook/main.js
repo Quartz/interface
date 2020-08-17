@@ -4,6 +4,7 @@ module.exports = {
 	stories: [
 		'./welcome.story.mdx',
 		'../src/**/*.story.jsx',
+		'../src/**/*.stories.mdx',
 	],
 	addons: [
 		'@storybook/addon-a11y/register',

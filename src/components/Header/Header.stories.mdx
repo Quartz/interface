@@ -1,0 +1,72 @@
+import { Story, Canvas, Props } from '@storybook/addon-docs/blocks';
+import Header from './Header.jsx';
+
+<Meta title="Header" component={Header} />
+
+# Header
+
+Very large text that can be used to present the title and short additional intro text for a non-article page.
+
+It takes optional children that should be used for relevant non-text components, such as navigation elements.
+
+## Usage
+
+```js
+import { Header } from '@quartz/interface/src/components';
+```
+
+## Props
+
+<Props of={Header} />
+
+### Examples
+
+<Canvas>
+	<Story
+		args={{
+			title: "Good morning, USA"
+		}}
+		name="Default"
+	>
+		{ args => <Header {...args} /> }
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		args={{
+			title: "Good morning, USA",
+			intro: "I’ve got a feeling that it’s gonna be a wonderful day",
+		}}
+		name="With Intro"
+	>
+		{ args => <Header {...args} /> }
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		args={{
+			title: "Good morning, USA",
+			children: (
+				<form>
+					<input
+						style={{
+							width: '200px',
+							margin: '15px',
+							border: '1px solid #ccc',
+							borderRadius: '8px',
+							padding: '5px 8px',
+							fontSize: '16px',
+						}}
+						placeholder="Search Quartz"
+						aria-label="Search"
+					/>
+				</form>
+			),
+		}}
+		name="With Children"
+	>
+		{ args => <Header {...args} /> }
+	</Story>
+</Canvas>

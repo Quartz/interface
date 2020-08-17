@@ -13,9 +13,24 @@ const ButtonLabel = ( {
 } ) => <span className={cx( 'label', `variant-${variant}`, { block: !inline } )}>{children}</span>;
 
 ButtonLabel.propTypes = {
+	/**
+	 * Child nodes to be rendered as the label for the button. Maps to
+	 * the button element’s innerHTML.
+	 */
 	children: PropTypes.node.isRequired,
+	/**
+	 * Whether the label should be purely textual, e.g. for use in a
+	 * paragraph of text.
+	 */
 	inline: PropTypes.bool.isRequired,
-	variant: PropTypes.string.isRequired,
+	/**
+	 * Visual variations of the button.
+	 */
+	variant: PropTypes.oneOf( [
+		'primary',
+		'secondary',
+		'warning',
+	] ).isRequired,
 };
 
 ButtonLabel.defaultProps = {
@@ -124,22 +139,16 @@ Button.propTypes = {
 	 */
 	type: PropTypes.oneOf( [ 'submit', 'button' ] ).isRequired,
 	/**
-	 * Visual variations of the button.
+	 * Visual variations of the button. See `ButtonLabel.propTypes.variant`
 	 */
-	variant: PropTypes.oneOf( [
-		'primary',
-		'secondary',
-		'warning',
-	] ).isRequired,
+	variant: PropTypes.string,
 };
 
 Button.defaultProps = {
 	disabled: false,
-	inactive: false,
 	loading: false,
 	onClick: () => {},
 	type: 'button',
-	variant: 'primary',
 };
 
 export { ButtonLabel };

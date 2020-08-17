@@ -3,16 +3,47 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import styles from './Button.scss';
 import Spinner from '../Spinner/Spinner';
-import Link from '../Link/Link';
 
 const cx = classnames.bind( styles );
+
+const ButtonLabel = ( {
+	children,
+	inline,
+	variant,
+} ) => <span className={cx( 'label', `variant-${variant}`, { block: !inline } )}>{children}</span>;
+
+ButtonLabel.propTypes = {
+	/**
+	 * Child nodes to be rendered as the label for the button. Maps to
+	 * the button element’s innerHTML.
+	 */
+	children: PropTypes.node.isRequired,
+	/**
+	 * Whether the label should be purely textual, e.g. for use in a
+	 * paragraph of text.
+	 */
+	inline: PropTypes.bool.isRequired,
+	/**
+	 * Visual variations of the button.
+	 */
+	variant: PropTypes.oneOf( [
+		'primary',
+		'secondary',
+		'warning',
+	] ).isRequired,
+};
+
+ButtonLabel.defaultProps = {
+	inline: false,
+	variant: 'primary',
+};
 
 const Button = ( {
 	ariaChecked,
 	children,
 	ariaDescribedBy,
 	disabled,
-	inactive,
+	inline,
 	loading,
 	on,
 	onClick,
@@ -23,21 +54,23 @@ const Button = ( {
 	<button
 		aria-checked={ariaChecked}
 		aria-describedby={ariaDescribedBy}
-		className={cx(
-			`variant-${variant}`,
-			{
-				inactive: inactive || disabled,
-				loading,
-			}
-		)}
+		className={cx( 'button', { block: !inline } )}
 		disabled={disabled || loading}
 		on={on}
 		onClick={onClick}
 		role={role}
 		type={type}
 	>
-		{loading && <Spinner />}
-		<span className={cx( 'label', { loading } )}>{children}</span>
+		<ButtonLabel variant={variant} inline={inline}>
+			{
+				loading && (
+					<div className={styles.spinner}>
+						<Spinner />
+					</div>
+				)
+			}
+			<span className={cx( 'label-text', { loading } )}>{children}</span>
+		</ButtonLabel>
 	</button>
 );
 
@@ -63,12 +96,10 @@ Button.propTypes = {
 	 */
 	disabled: PropTypes.bool.isRequired,
 	/**
-	 * Toggles the same visual state as `props.disabled`, but without
-	 * affecting the interactivity of the button. Use this when you want
-	 * to indicate that a form's contents are invalid, but still
-	 * submissible.
+	 * Whether the button should be purely textual, e.g. for use in a
+	 * paragraph of text.
 	 */
-	inactive: PropTypes.bool.isRequired,
+	inline: PropTypes.bool.isRequired,
 	/**
 	 * Visually replaces `props.children` with the Spinner component. Use
 	 * when waiting for an action to complete in response to a user
@@ -108,36 +139,17 @@ Button.propTypes = {
 	 */
 	type: PropTypes.oneOf( [ 'submit', 'button' ] ).isRequired,
 	/**
-	 * Visual variations of the button.
+	 * Visual variations of the button. See `ButtonLabel.propTypes.variant`
 	 */
-	variant: PropTypes.oneOf( [
-		'inline',
-		'primary',
-		'secondary',
-		'warning-inline',
-		'warning',
-	] ).isRequired,
+	variant: PropTypes.string,
 };
 
 Button.defaultProps = {
 	disabled: false,
-	inactive: false,
 	loading: false,
 	onClick: () => {},
 	type: 'button',
-	variant: 'primary',
 };
 
-const ButtonLink = ( { children, variant, ...props } ) => <Link className={cx( `variant-${variant}` )} {...props}>{children}</Link>;
-
-ButtonLink.propTypes = {
-	children: PropTypes.node.isRequired,
-	variant: PropTypes.string.isRequired,
-};
-
-ButtonLink.defaultProps = {
-	variant: 'primary',
-};
-
-export { ButtonLink };
+export { ButtonLabel };
 export default Button;

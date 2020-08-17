@@ -3,16 +3,25 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import styles from './Button.scss';
 import Spinner from '../Spinner/Spinner';
-import Link from '../Link/Link';
 
 const cx = classnames.bind( styles );
+
+const ButtonLabel = ( { children, variant } ) => <span className={cx( `variant-${variant}` )}>{children}</span>;
+
+ButtonLabel.propTypes = {
+	children: PropTypes.node.isRequired,
+	variant: PropTypes.string.isRequired,
+};
+
+ButtonLabel.defaultProps = {
+	variant: 'primary',
+};
 
 const Button = ( {
 	ariaChecked,
 	children,
 	ariaDescribedBy,
 	disabled,
-	inactive,
 	loading,
 	on,
 	onClick,
@@ -23,21 +32,23 @@ const Button = ( {
 	<button
 		aria-checked={ariaChecked}
 		aria-describedby={ariaDescribedBy}
-		className={cx(
-			`variant-${variant}`,
-			{
-				inactive: inactive || disabled,
-				loading,
-			}
-		)}
+		className={styles.button}
 		disabled={disabled || loading}
 		on={on}
 		onClick={onClick}
 		role={role}
 		type={type}
 	>
-		{loading && <Spinner />}
-		<span className={cx( 'label', { loading } )}>{children}</span>
+		<ButtonLabel variant={variant}>
+			{
+				loading && (
+					<div className={styles.spinner}>
+						<Spinner />
+					</div>
+				)
+			}
+			<span className={cx( 'label-text', { loading } )}>{children}</span>
+		</ButtonLabel>
 	</button>
 );
 
@@ -62,13 +73,6 @@ Button.propTypes = {
 	 * element.
 	 */
 	disabled: PropTypes.bool.isRequired,
-	/**
-	 * Toggles the same visual state as `props.disabled`, but without
-	 * affecting the interactivity of the button. Use this when you want
-	 * to indicate that a form's contents are invalid, but still
-	 * submissible.
-	 */
-	inactive: PropTypes.bool.isRequired,
 	/**
 	 * Visually replaces `props.children` with the Spinner component. Use
 	 * when waiting for an action to complete in response to a user
@@ -128,16 +132,5 @@ Button.defaultProps = {
 	variant: 'primary',
 };
 
-const ButtonLink = ( { children, variant, ...props } ) => <Link className={cx( `variant-${variant}` )} {...props}>{children}</Link>;
-
-ButtonLink.propTypes = {
-	children: PropTypes.node.isRequired,
-	variant: PropTypes.string.isRequired,
-};
-
-ButtonLink.defaultProps = {
-	variant: 'primary',
-};
-
-export { ButtonLink };
+export { ButtonLabel };
 export default Button;

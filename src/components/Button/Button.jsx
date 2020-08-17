@@ -146,6 +146,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
 	disabled: false,
+	inline: false,
 	loading: false,
 	onClick: () => {},
 	type: 'button',

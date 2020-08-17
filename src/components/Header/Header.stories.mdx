@@ -9,7 +9,7 @@ Very large text that can be used to present the title and short additional intro
 
 It takes optional children that should be used for relevant non-text components, such as navigation elements.
 
-## Usage
+## Usage 
 
 ```js
 import { Header } from '@quartz/interface/src/components';
@@ -19,7 +19,14 @@ import { Header } from '@quartz/interface/src/components';
 
 <Props of={Header} />
 
-### Examples
+## Usage Guidelines
+
+- **Do not** use this on a page where an H1 already exists
+- **Do not** use the optional children for general page content
+
+## Examples
+
+### Default
 
 <Canvas>
 	<Story
@@ -32,6 +39,8 @@ import { Header } from '@quartz/interface/src/components';
 	</Story>
 </Canvas>
 
+### With Intro
+
 <Canvas>
 	<Story
 		args={{
@@ -43,6 +52,8 @@ import { Header } from '@quartz/interface/src/components';
 		{ args => <Header {...args} /> }
 	</Story>
 </Canvas>
+
+### With Children
 
 <Canvas>
 	<Story

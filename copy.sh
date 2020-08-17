@@ -9,10 +9,9 @@ fi
 mkdir -p "./src/components/$2"
 
 files=(
-	'docs.mdx'
 	'jsx'
 	'scss'
-	'story.jsx'
+	'stories.mdx'
 	'test.js'
 )
 for file in "${files[@]}"; do

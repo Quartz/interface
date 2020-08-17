@@ -1,5 +1,7 @@
-import { Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
 import Example from './Example';
+
+<Meta title="Example" component={Example} />
 
 # Example
 
@@ -14,27 +16,35 @@ npm run copy Example NewComponent
 This script can also be used to copy any existing component, just replace
 `Example` with the name of another component.
 
-## Usage
-
-```js
-import { Example } from '@quartz/interface/src/components';
-```
-
-## Props
-
-<Props of={Example} />
-
 ## Usage guidelines
 
 - **Do** update the `Example` component if you make improvements that other components could benefit from.
 - **Do not** use the `Example` component.
 
-## Examples
+## Props
 
-### Default
+<Canvas>
+	<Story
+		args={{}}
+		name="Default"
+	>
+		{args => <Example {...args} />}
+	</Story>
+</Canvas>
 
-<Preview>
-  <Story id="example--default" />
-</Preview>
+<ArgsTable story="Default" />
 
+## Stories
 
+### Inquisitive
+
+<Canvas>
+	<Story
+		args={{
+			children: 'Hello, world?',
+		}}
+		name="Inquisitive"
+	>
+		{args => <Example {...args} />}
+	</Story>
+</Canvas>

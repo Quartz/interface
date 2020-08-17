@@ -1,5 +1,7 @@
-import { Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
 import Button, { ButtonLabel } from './Button';
+
+<Meta title="Button" component={Button} />
 
 # Button
 
@@ -8,24 +10,6 @@ Presents the user with an action to take, such as a form submission or promotion
 Use the `Button` component when presenting the user with an action that affects the current page, such as submitting a form or dismissing a modal. This component renders an HTML `<button>` tag.
 
 Use the `ButtonLabel` component when you want a component that is styled like a button, without the `<button>` wrapper, e.g. for use in a link. This component renders a `<span>` tag only.
-
-## Usage
-
-```js
-import { Button } from '@quartz/interface/src/components';
-```
-
-```js
-import { ButtonLabel } from '@quartz/interface/src/components';
-```
-
-## Props
-
-<Props of={Button} />
-
-### ButtonLabel
-
-<Props of={ButtonLabel} />
 
 ## Usage guidelines
 
@@ -38,39 +22,107 @@ import { ButtonLabel } from '@quartz/interface/src/components';
 - **Do not** pass content into `props.children` that modifies the color, spacing, font size, font family, font weight, or font style of the label.
 - **Do not** intentionally misuse primary and secondary variants to create UX dark patterns.
 
-## Examples
+## Button props
 
-### Default button
+<Canvas>
+	<Story
+		args={{
+			children: 'Click me!',
+		}}
+		name="Default"
+	>
+		{args => <Button {...args} />}
+	</Story>
+</Canvas>
 
-<Preview>
-  <Story id="button--default" />
-</Preview>
+<ArgsTable story="Default" />
 
-### Secondary button
+### ButtonLabel props
 
-<Preview>
-  <Story id="button--secondary" />
-</Preview>
+<Canvas>
+	<Story
+		args={{
+			children: 'I am static text',
+		}}
+		name="Button label"
+	>
+		{args => <ButtonLabel {...args} />}
+	</Story>
+</Canvas>
 
-### Warning button
+<ArgsTable story="Button label" />
 
-<Preview>
-  <Story id="button--warning" />
-</Preview>
+<Props of={ButtonLabel} />
 
-### Inline buttons
+## Stories
 
-<Preview>
-  <Story id="button--inline" />
-</Preview>
+### Secondary
 
-<Preview>
-  <Story id="button--inline-warning" />
-</Preview>
+<Canvas>
+	<Story
+		args={{
+			children: 'Click me!',
+			variant: 'secondary',
+		}}
+		name="Secondary"
+	>
+		{args => <Button {...args} />}
+	</Story>
+</Canvas>
 
-### ButtonLabel
+### Loading
 
-<Preview>
-  <Story id="button--label-only" />
-</Preview>
+<Canvas>
+	<Story
+		args={{
+			children: 'Ignored',
+			loading: true,
+		}}
+		name="Loading"
+	>
+		{args => <Button {...args} />}
+	</Story>
+</Canvas>
 
+### Warning
+
+<Canvas>
+	<Story
+		args={{
+			children: 'Be very careful',
+			variant: 'warning',
+		}}
+		name="Warning"
+	>
+		{args => <Button {...args} />}
+	</Story>
+</Canvas>
+
+### Inline
+
+<Canvas>
+	<Story
+		args={{
+			children: 'Click me!',
+			inline: true,
+		}}
+		name="Inline"
+	>
+		{args => <Button {...args} />}
+	</Story>
+</Canvas>
+
+### Inline warning
+
+<Canvas>
+	<Story
+		args={{
+			children: 'Be very careful',
+			inline: true,
+			variant: 'warning',
+		}}
+		name="Inline warning"
+	>
+		{args => <Button {...args} />}
+	</Story>
+</Canvas>

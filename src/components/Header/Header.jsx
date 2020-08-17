@@ -1,15 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames/bind';
 import styles from './Header.scss';
 
-const cx = classnames.bind( styles );
-
 const Header = ( { border, children, intro, title } ) => (
-	<div className={cx( 'container', { border } )}>
-		<div className={cx( 'contents' )}>
-			<h1 className={cx( 'title' )}>{title}</h1>
-			<p className={cx( 'intro' )}>{intro}</p>
+	<div className={`${styles.container} ${border ? styles.border : ''}`}>
+		<div className={styles.contents}>
+			<h1 className={styles.title}>{title}</h1>
+			<p className={styles.intro}>{intro}</p>
 		</div>
 		{children}
 	</div>

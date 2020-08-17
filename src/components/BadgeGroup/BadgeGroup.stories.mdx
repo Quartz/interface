@@ -1,0 +1,54 @@
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import BadgeGroup from './BadgeGroup';
+
+<Meta title="BadgeGroup" component={BadgeGroup} />
+
+# BadgeGroup
+
+A `BadgeGroup` is a <LinkTo kind="TextGroup">TextGroup</LinkTo> accompanied by a <LinkTo kind="Badge">Badge</LinkTo> and a chevron, linking the user to a collection of content, such as a Guide or an Obsession.
+
+## Usage guidelines
+
+- **Do** wrap `BadgeGroup` in a link taking the user to the appropriate destination.
+- **Do not** use the `BadgeGroup` component to link to non-Quartz content.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			imageUrl: 'https://cms.qz.com/wp-content/uploads/2019/12/fintech_guide_cover.jpg?quality=75&strip=all&w=100&h=100&crop=1',
+			kicker: 'From our Guide',
+			tagline: 'Which unicorns will fade and which are here to stay.',
+			title: 'Beyond the fintech hype',
+		}}
+		name="Default"
+	>
+		{args => <BadgeGroup {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Wrapping tagline
+
+<Canvas>
+	<Story
+		args={{
+			imageUrl: 'https://cms.qz.com/wp-content/uploads/2019/12/fintech_guide_cover.jpg?quality=75&strip=all&w=100&h=100&crop=1',
+			kicker: 'From our Guide',
+			tagline: 'Which unicorns will fade and which are here to stay. A guide to the biggest beasts in the fintech unicorn herd.',
+			title: 'Beyond the fintech hype',
+		}}
+		name="Wrapping tagline"
+	>
+		{args => (
+			<div style={{ maxWidth: 400 }}>
+				<BadgeGroup {...args} />
+			</div>
+		)}
+	</Story>
+</Canvas>

@@ -13,7 +13,7 @@ const PageHeader = ( { border, children, intro, title } ) => (
 );
 
 PageHeader.propTypes = {
-	border: PropTypes.bool,
+	border: PropTypes.bool.isRequired,
 	children: PropTypes.node,
 	intro: PropTypes.string,
 	title: PropTypes.string.isRequired,

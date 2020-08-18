@@ -1,9 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styles from './EmojiList.scss';
-import classnames from 'classnames/bind';
-
-const cx = classnames.bind( styles );
 
 const getBulletStyle = ( bullet, id, i ) => {
 	if ( ! bullet ) {
@@ -63,7 +60,7 @@ ListItems.propTypes = {
 };
 
 // If the emojis array contains emojis, strip those emojis from the supplied HTML
-const stripHtmlEmojis = ( html, emojis ) => {
+const stripHtmlEmojis = ( html = '', emojis ) => {
 	if ( ! emojis.length ) {
 		return html;
 	}
@@ -79,6 +76,7 @@ const EmojiList = ( {
 	bullets,
 	id,
 	innerHtml,
+	items,
 	tagName,
 } ) => (
 	<Fragment>
@@ -86,6 +84,7 @@ const EmojiList = ( {
 		<ListItems
 			id={id}
 			innerHtml={stripHtmlEmojis( innerHtml, bullets )}
+			items={items}
 			tagName={tagName}
 		/>
 	</Fragment>
@@ -94,7 +93,8 @@ const EmojiList = ( {
 EmojiList.propTypes = {
 	bullets: PropTypes.arrayOf( PropTypes.string ).isRequired,
 	id: PropTypes.string.isRequired,
-	innerHtml: PropTypes.string.isRequired,
+	innerHtml: PropTypes.string,
+	items: PropTypes.arrayOf( PropTypes.node ),
 	tagName: PropTypes.oneOf( [ 'ol', 'ul' ] ).isRequired,
 };
 
@@ -109,18 +109,13 @@ EmojiList.defaultProps = {
 export const StructuredEmojiList = ( {
 	items,
 	id,
-} ) => {
-	const listStyle = items
-		.map( ( item, i ) => getBulletStyle( item.bullet, id, i ) )
-		.join( '' );
-
-	return (
-		<ul className={cx( 'container', id )}>
-			<style dangerouslySetInnerHTML={{ __html: listStyle }}/>
-			<ListItems id={id} items={items.map( ( { item } ) => item )} tagName="ul" />
-		</ul>
-	);
-};
+} ) => (
+	<EmojiList
+		id={id}
+		bullets={items.map( ( { bullet } ) => bullet )}
+		items={items.map( ( { item } ) => item )}
+	/>
+);
 
 StructuredEmojiList.defaultProps = {
 	items: [],

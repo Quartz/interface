@@ -2,19 +2,19 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styles from './EmojiList.scss';
 
-const getBulletStyle = ( bullet, id, i ) => {
+const getBulletStyle = ( bullet, listId, i ) => {
 	if ( ! bullet ) {
 		return null;
 	}
 
-	return `.${id} li:nth-of-type(${i + 1})::before { content: '${bullet}'; }`;
+	return `.${listId} li:nth-of-type(${i + 1})::before { content: '${bullet}'; }`;
 };
 
-const ListStyles = ( { bullets, id } ) => (
+const ListStyles = ( { bullets, listId } ) => (
 	<style
 		dangerouslySetInnerHTML={{
 			__html: bullets
-				.map( ( bullet, index ) => getBulletStyle( bullet, id, index ) )
+				.map( ( bullet, index ) => getBulletStyle( bullet, listId, index ) )
 				.join( '' ),
 		}}
 	/>
@@ -22,22 +22,22 @@ const ListStyles = ( { bullets, id } ) => (
 
 ListStyles.propTypes = {
 	bullets: PropTypes.array.isRequired,
-	id: PropTypes.string.isRequired,
+	listId: PropTypes.string.isRequired,
 };
 
 const ListItems = ( {
-	id,
+	listId,
 	innerHtml = '',
 	items,
 	tagName,
 } ) => {
-	// If a list of nodes is passed in, render it as a child
+	// If a list of nodes is passed in, render it as a child of <li> tags
 	if ( items ) {
 		const listItems = items.map( ( item, i ) => <li key={i}>{item}</li> );
 
 		return React.createElement(
 			tagName,
-			{ className: `${styles.container} ${id}` },
+			{ className: `${styles.container} ${listId}` },
 			listItems
 		);
 	}
@@ -46,16 +46,16 @@ const ListItems = ( {
 	return React.createElement(
 		tagName,
 		{
-			className: `${styles.container} ${id}`,
+			className: `${styles.container} ${listId}`,
 			dangerouslySetInnerHTML: { __html: innerHtml },
 		}
 	);
 };
 
 ListItems.propTypes = {
-	id: PropTypes.string.isRequired,
 	innerHtml: PropTypes.string,
 	items: PropTypes.arrayOf( PropTypes.node ),
+	listId: PropTypes.string.isRequired,
 	tagName: PropTypes.oneOf( [ 'ul', 'ol' ] ),
 };
 
@@ -82,9 +82,9 @@ const EmojiList = ( {
 
 	return (
 		<Fragment>
-			<ListStyles bullets={bullets} id={emojiId} />
+			<ListStyles bullets={bullets} listId={emojiId} />
 			<ListItems
-				id={emojiId}
+				listId={emojiId}
 				innerHtml={stripHtmlEmojis( innerHtml, bullets )}
 				items={items}
 				tagName={tagName}

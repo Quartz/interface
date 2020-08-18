@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import EmojiList, { StructuredEmojiList } from './EmojiList';
+import { EmojiList, StructuredEmojiList } from './EmojiList';
 import docs from './EmojiList.docs.mdx';
 import Link from '../Link/Link';
 

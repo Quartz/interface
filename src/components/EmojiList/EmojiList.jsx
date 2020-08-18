@@ -72,7 +72,7 @@ const stripHtmlEmojis = ( html = '', emojis ) => {
 /**
  * Displays a WP content block or a list of nodes.
  */
-const EmojiList = ( {
+export const EmojiList = ( {
 	bullets,
 	innerHtml,
 	items,
@@ -125,5 +125,3 @@ StructuredEmojiList.propTypes = {
 		item: PropTypes.node,
 	} ) ).isRequired,
 };
-
-export default EmojiList;

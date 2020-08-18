@@ -3,7 +3,7 @@ export { default as Button, ButtonLabel } from './Button/Button';
 export { default as Blockquote } from './Blockquote/Blockquote';
 export { default as CalloutCard } from './CalloutCard/CalloutCard';
 export { default as Checkbox } from './Checkbox/Checkbox';
-export { default as EmojiList, StructuredEmojiList } from './EmojiList/EmojiList';
+export { EmojiList, StructuredEmojiList } from './EmojiList/EmojiList';
 export { default as Image } from './Image/Image';
 export { default as RadioButton } from './RadioButton/RadioButton';
 export { default as Spinner } from './Spinner/Spinner';

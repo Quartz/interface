@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 import styles from './Blockquote.scss';
 
 function Blockquote( { children, innerHtml } ) {
-	return (
-		<blockquote
-			className={styles.blockquote}
-			dangerouslySetInnerHTML={{ __html: innerHtml }}
-		>
-			{children}
-		</blockquote>
-	);
+	if ( innerHtml ) {
+		return (
+			<blockquote
+				className={styles.blockquote}
+				dangerouslySetInnerHTML={{ __html: innerHtml }}
+			/>
+		);
+	}
+
+	return <blockquote className={styles.blockquote}>{children}</blockquote>;
 };
 
 Blockquote.propTypes = {

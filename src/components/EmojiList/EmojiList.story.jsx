@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { EmojiList, StructuredEmojiList } from './EmojiList';
 import docs from './EmojiList.docs.mdx';
-import Link from '../Link/Link';
 
 export default {
 	title: 'Emoji List',
@@ -42,7 +41,7 @@ export const Structured = () => ( <StructuredEmojiList
 			item: (
 				<Fragment>
 					<h2 style={headerStyle}>Weekly Field Guides</h2>
-					<p style={descriptionStyle}>Deep dives on the companies, people, and phenomena defining the global economy. Topics include <Link to="/guide/antiracist-company/">how to build an anti-racist company</Link>, <Link to="/guide/world-vs-coronavirus/">world vs. coronavirus</Link>, <Link to="/guide/startups-fail/">why startups fail</Link>, and <Link to="/guide/gen-z/">what gen z wants</Link>.</p>
+					<p style={descriptionStyle}>Deep dives on the companies, people, and phenomena defining the global economy. Topics include <a href="/guide/antiracist-company/">how to build an anti-racist company</a>, <a href="/guide/world-vs-coronavirus/">world vs. coronavirus</a>, <a href="/guide/startups-fail/">why startups fail</a>, and <a href="/guide/gen-z/">what gen z wants</a>.</p>
 				</Fragment>
 			),
 			bullet: '📚',

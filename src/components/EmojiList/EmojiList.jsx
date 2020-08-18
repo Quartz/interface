@@ -30,22 +30,36 @@ ListStyles.propTypes = {
 
 const ListItems = ( {
 	id,
-	innerHtml,
+	innerHtml = '',
+	items,
 	tagName,
-} ) => (
-	React.createElement(
+} ) => {
+	// If a list of nodes is passed in, render it as a child
+	if ( items ) {
+		const listItems = items.map( ( item, i ) => <li key={i}>{item}</li> );
+
+		return React.createElement(
+			tagName,
+			{ className: `${styles.container} ${id}` },
+			listItems
+		);
+	}
+
+	// If html is passed in, set it as a prop
+	return React.createElement(
 		tagName,
 		{
 			className: `${styles.container} ${id}`,
 			dangerouslySetInnerHTML: { __html: innerHtml },
 		}
-	)
-);
+	);
+};
 
 ListItems.propTypes = {
 	id: PropTypes.string.isRequired,
-	innerHtml: PropTypes.string.isRequired,
-	tagName: PropTypes.string.isRequired,
+	innerHtml: PropTypes.string,
+	items: PropTypes.arrayOf( PropTypes.node ),
+	tagName: PropTypes.oneOf( [ 'ul', 'ol' ] ),
 };
 
 // If the emojis array contains emojis, strip those emojis from the supplied HTML
@@ -103,11 +117,7 @@ export const StructuredEmojiList = ( {
 	return (
 		<ul className={cx( 'container', id )}>
 			<style dangerouslySetInnerHTML={{ __html: listStyle }}/>
-			{items.map( ( { item }, i ) => (
-				<li key={i} className={cx( id )}>
-					{item}
-				</li>
-			) )}
+			<ListItems id={id} items={items.map( ( { item } ) => item )} tagName="ul" />
 		</ul>
 	);
 };

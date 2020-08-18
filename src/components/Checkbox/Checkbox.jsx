@@ -92,6 +92,7 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
 	disabled: false,
 	invalid: false,
+	onChange: () => {},
 	required: false,
 	size: 'small',
 };

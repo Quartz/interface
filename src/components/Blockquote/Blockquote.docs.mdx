@@ -1,0 +1,32 @@
+import { Story, Preview } from '@storybook/addon-docs/blocks';
+import Blockquote from './Blockquote';
+
+# Blockquote
+
+A stylized blockquote that accentuates a quote from a larger body of text. Renders an HTML `<blockquote>` tag.
+
+## Usage
+
+```js
+import { Blockquote } from '@quartz/interface/src/components';
+```
+
+## Props
+
+<Props of={Blockquote} />
+
+## Usage Guidelines
+- **Do** wrap a `Blockquote` component to change the text style or constrain its width.
+- **Do not** use the `Blockquote` component if the text is not a direct quote from a person or source material.
+
+## Examples
+
+### Blockquote with children
+<Preview>
+	<Story id="blockquote--children" />
+</Preview>
+
+### Blockquote with innerHtml
+<Preview>
+	<Story id="blockquote--inner-html" />
+</Preview>

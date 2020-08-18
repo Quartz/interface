@@ -13,9 +13,21 @@ const PageHeader = ( { border, children, intro, title } ) => (
 );
 
 PageHeader.propTypes = {
+	/**
+	 * Boolean to determine whether or not the component renders with a bottom border.
+	 */
 	border: PropTypes.bool.isRequired,
+	/**
+	 * Child node to be rendered as the inner HTML of the component.
+	 */
 	children: PropTypes.node,
+	/**
+	 * Smaller-print text used for the page subheader (renders as `<p>` tag).
+	 */
 	intro: PropTypes.string,
+	/**
+	 * Required text for the h1 tag.
+	 */
 	title: PropTypes.string.isRequired,
 };
 

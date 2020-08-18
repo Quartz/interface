@@ -70,29 +70,31 @@ const stripHtmlEmojis = ( html = '', emojis ) => {
 };
 
 /**
- * Displays a WP content block.
+ * Displays a WP content block or a list of nodes.
  */
 const EmojiList = ( {
 	bullets,
-	id,
 	innerHtml,
 	items,
 	tagName,
-} ) => (
-	<Fragment>
-		<ListStyles bullets={bullets} id={id} />
-		<ListItems
-			id={id}
-			innerHtml={stripHtmlEmojis( innerHtml, bullets )}
-			items={items}
-			tagName={tagName}
-		/>
-	</Fragment>
-);
+} ) => {
+	const emojiId = bullets.join( '-' );
+
+	return (
+		<Fragment>
+			<ListStyles bullets={bullets} id={emojiId} />
+			<ListItems
+				id={emojiId}
+				innerHtml={stripHtmlEmojis( innerHtml, bullets )}
+				items={items}
+				tagName={tagName}
+			/>
+		</Fragment>
+	);
+};
 
 EmojiList.propTypes = {
 	bullets: PropTypes.arrayOf( PropTypes.string ).isRequired,
-	id: PropTypes.string.isRequired,
 	innerHtml: PropTypes.string,
 	items: PropTypes.arrayOf( PropTypes.node ),
 	tagName: PropTypes.oneOf( [ 'ol', 'ul' ] ).isRequired,
@@ -106,12 +108,8 @@ EmojiList.defaultProps = {
 /**
  * An emoji list of arbitrary content.
  */
-export const StructuredEmojiList = ( {
-	items,
-	id,
-} ) => (
+export const StructuredEmojiList = ( { items } ) => (
 	<EmojiList
-		id={id}
 		bullets={items.map( ( { bullet } ) => bullet )}
 		items={items.map( ( { item } ) => item )}
 	/>
@@ -122,7 +120,6 @@ StructuredEmojiList.defaultProps = {
 };
 
 StructuredEmojiList.propTypes = {
-	id: PropTypes.string.isRequired,
 	items: PropTypes.arrayOf( PropTypes.shape( {
 		bullet: PropTypes.string,
 		item: PropTypes.node,

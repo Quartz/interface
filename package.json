@@ -51,6 +51,7 @@
 		"sass-loader": "^9.0.2",
 		"storybook-addon-themes": "^5.4.1",
 		"style-loader": "^1.2.1",
-		"stylelint": "^13.6.1"
+		"stylelint": "^13.6.1",
+		"svg-react-loader": "^0.4.6"
 	}
 }

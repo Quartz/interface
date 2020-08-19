@@ -1,0 +1,44 @@
+@import '~@quartz/styles/scss/borders';
+@import '~@quartz/styles/scss/color-scheme';
+@import '~@quartz/styles/scss/fonts';
+@import '~@quartz/styles/scss/media-queries';
+
+.container {
+	text-align: center;
+
+	&.border {
+		border-bottom: $border-solid-decorative;
+	}
+}
+
+.contents {
+	margin-top: 20px;
+	margin-bottom: 24px;
+
+	@include for-tablet-portrait-up {
+		margin-top: 48px;
+		margin-bottom: 60px;
+	}
+}
+
+.title {
+	@include font-maison-800-10;
+
+	margin: 0;
+}
+
+.intro {
+	@include font-maison-500-5;
+
+	max-width: 500px;
+	margin: 8px auto 0;
+	color: $color-typography-faint;
+
+	@include for-tablet-portrait-up {
+		max-width: 600px;
+	}
+
+	@include for-tablet-landscape-up {
+		max-width: 760px;
+	}
+}

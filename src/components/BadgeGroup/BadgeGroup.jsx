@@ -26,7 +26,7 @@ function BadgeGroup ( {
 			<div className={styles.text}>
 				<TextGroup
 					kicker={kicker}
-					size={size === 'large' ? 'medium' : 'small'}
+					size={size}
 					tagline={tagline}
 					title={title}
 				/>
@@ -53,9 +53,10 @@ BadgeGroup.propTypes = {
 	kicker: PropTypes.node,
 
 	/**
-	 * Size preset. Adjusts the size of the headline (Hed component).
+	 * Size preset. Adjusts the size of the TextGroup (see
+	 * `TextGroup.propTypes.size`).
 	 */
-	size: PropTypes.oneOf( [ 'small', 'large' ] ),
+	size: PropTypes.oneOf( [ 'small', 'medium' ] ),
 
 	/**
 	 * Tagline to appear beneath the title.

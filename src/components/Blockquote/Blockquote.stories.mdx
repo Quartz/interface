@@ -14,29 +14,18 @@ A stylized blockquote that accentuates a quote from a larger body of text. Rende
 
 ## Props
 
-<Canvas>
-	<Story
-		args={{
-			children: <p>The subscription to Quartz was probably my best investment of 2019. Your journalism is one of a kind, local on a global scale, actual and never boring.</p>
-		}}
-		name="Default"
-	>
-		{args => <Blockquote {...args} />}
-	</Story>
-</Canvas>
-
-<ArgsTable story="Default" />
+<Props of={Blockquote} />
 
 ## Stories
 
-### Testimonial
+### Default
 
 <Canvas>
 	<Story
 		args={{
 			children: <><p>The subscription to Quartz was probably my best investment of 2019. Your journalism is one of a kind, local on a global scale, actual and never boring.</p><p>— Davide M., Director of Product Development</p></>
 		}}
-		name="Testimonial"
+		name="Default"
 	>
 		{args => (
 			<div style={{

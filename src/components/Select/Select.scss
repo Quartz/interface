@@ -3,71 +3,94 @@
 @import '~@quartz/styles/scss/fonts';
 @import '~@quartz/styles/scss/helpers/positioning';
 @import '~@quartz/styles/scss/helpers/resets';
-@import '~@quartz/styles/scss/tokens';
 
 .container {
 	@include font-maison;
+}
 
-	display: inline-flex;
-	align-items: center;
+.select-container {
+	position: relative;
+}
+
+.select {
+	@include reset-select;
+
+	display: inline-block;
+	height: 45px;
+	width: 100%;
+	min-width: 210px;
+	border-radius: $size-border-radius;
+	border: $border-solid-interactive;
 	cursor: pointer;
+	font-size: 16px;
+	color: $color-typography;
+	padding: 0 15px 0 40px;
+	background-color: $color-background-2;
 
-	&.block {
-		display: flex;
-		width: 100%;
+	&:disabled {
+		opacity: 0.5;
+
+		&:hover {
+			border-color: $color-border-interactive;
+		}
+	}
+
+	&[aria-invalid="true"] {
+		color: $color-red;
+		border-color: $color-red;
+	}
+
+	&.is-placeholder {
+		color: $color-typography-faint;
+	}
+
+	&:hover,
+	&:focus {
+		border-color: $color-accent;
+	}
+
+	&::-ms-expand {
+		display: none;
 	}
 }
 
-.input {
-	@include reset-appearance;
-	@include reset-focus-styles;
+.down-arrow {
+	@include vertical-center;
 
-	cursor: pointer;
-	margin-right: 12px;
-	width: 16px;
-	height: 16px;
-	border-radius: 50%;
-	border: $border-solid-interactive;
-	transition: border-color $time-slowly;
-	background-color: $color-background-2;
+	--color: #{$color-typography};
 
-	&:focus,
-	&:hover,
-	.container:focus,
-	.container:hover & {
-		border-color: $color-accent;
+	left: 16px;
+
+	.select:hover + & {
+		--color: #{$color-accent};
 	}
 
-	&:checked,
-	&:active {
-		position: relative;
+	.select:disabled + &,
+	.select:disabled:hover + & {
+		--color: #{$color-typography};
 
-		&::before {
-			@include center;
-
-			content: '';
-			width: 9px;
-			height: 9px;
-			border-radius: 50%;
-			background-color: $color-background-3;
-		}
-	}
-
-	&:checked {
-		border-color: $color-accent;
-
-		&::before {
-			background-color: $color-accent;
-		}
-	}
-
-	&:disabled,
-	&:disabled:hover {
 		opacity: 0.5;
-		border: $border-solid-interactive;
-
-		&::before {
-			background-color: $border-solid-interactive;
-		}
 	}
+
+	&.invalid {
+		--color: #{$color-red};
+	}
+}
+
+.subtext {
+	margin-top: 10px;
+	font-size: 12px;
+	color: $color-typography-faint;
+	display: block;
+
+	&.invalid {
+		color: $color-red;
+	}
+}
+
+.label {
+	@include font-maison-extended-700-1;
+
+	display: block;
+	margin-bottom: 7px;
 }

@@ -10,4 +10,27 @@ export default {
 	},
 };
 
-export const Default = () => <Select options={[]}></Select>;
+export const Default = () => (
+	<Select
+		label="Obsessions"
+		options={[
+			{ label: 'What are you obsessed with?', value: '' },
+			{ label: 'Future of Finance', value: 'ff' },
+		]}
+		subtext="Obsessions are our alternative to traditional journalistic beats."
+	>
+	</Select>
+);
+
+export const Invalid = () => (
+	<Select
+		label="Obsessions"
+		invalid={true}
+		options={[
+			{ label: 'What are you obsessed with?', value: '' },
+			{ label: 'Future of Finance', value: 'ff' },
+		]}
+		subtext="Something's wrong."
+	>
+	</Select>
+);

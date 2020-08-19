@@ -7,9 +7,9 @@ import ExpandArrowDown from './expand-arrow-down.svg';
 const cx = classnames.bind( styles );
 
 const Select = ( {
-	description,
+	subtext,
 	disabled,
-	handleChange,
+	onChange,
 	invalid,
 	label,
 	options,
@@ -29,7 +29,7 @@ const Select = ( {
 					aria-invalid={invalid}
 					className={cx( 'select', { isPlaceholder: '' === value } )}
 					disabled={disabled}
-					onChange={handleChange}
+					onChange={onChange}
 					required={required}
 					value={value}
 				>
@@ -52,18 +52,17 @@ const Select = ( {
 			</div>
 		</label>
 		{
-			description &&
-			<span className={cx( 'description', { invalid } )}>{description}</span>
+			subtext &&
+			<span className={cx( 'subtext', { invalid } )}>{subtext}</span>
 		}
 	</div>
 );
 
 Select.propTypes = {
-	description: PropTypes.string,
 	disabled: PropTypes.bool.isRequired,
-	handleChange: PropTypes.func.isRequired,
 	invalid: PropTypes.bool,
 	label: PropTypes.string,
+	onChange: PropTypes.func.isRequired,
 	options: PropTypes.arrayOf( PropTypes.shape( {
 		label: PropTypes.string.isRequired,
 		value: PropTypes.oneOfType( [
@@ -73,6 +72,7 @@ Select.propTypes = {
 	} ) ).isRequired,
 	placeholder: PropTypes.string,
 	required: PropTypes.bool.isRequired,
+	subtext: PropTypes.string,
 	value: PropTypes.oneOfType( [
 		PropTypes.number,
 		PropTypes.string,

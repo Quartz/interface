@@ -2,17 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Blockquote.scss';
 
-function Blockquote( { children, innerHtml } ) {
-	if ( innerHtml ) {
-		return (
-			<blockquote
-				className={styles.blockquote}
-				dangerouslySetInnerHTML={{ __html: innerHtml }}
-			/>
-		);
-	}
-
-	return <blockquote className={styles.blockquote}>{children}</blockquote>;
+function Blockquote( { children } ) {
+	return (
+		<blockquote className={styles.blockquote}>{children}</blockquote>
+	);
 };
 
 Blockquote.propTypes = {
@@ -20,10 +13,6 @@ Blockquote.propTypes = {
 	 * Child nodes to be rendered as the inner content of the blockquote.
 	 */
 	children: PropTypes.node,
-	/**
-	 * Html from a WP content block to be rendered as the inner content of the blockquote.
-	 */
-	innerHtml: PropTypes.string,
 };
 
 export default Blockquote;

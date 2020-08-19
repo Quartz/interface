@@ -59,10 +59,24 @@ const Select = ( {
 );
 
 Select.propTypes = {
+	/**
+	 * If true, the element is not interactive. False by default.
+	 */
 	disabled: PropTypes.bool.isRequired,
+	/**
+	 * Whether the element is in an invalid state (or part of a group of
+	 * elements that are).
+	 */
 	invalid: PropTypes.bool,
+	/**
+	 * A label for the whole element.
+	 */
 	label: PropTypes.string,
+	/**
+	 * A function that will called on change. It's passed to the native select's onChange handler.
+	 */
 	onChange: PropTypes.func.isRequired,
+	/** The options to display in the dropdown. Each has a label, which will display to the user, and a value, which can be different than the label. */
 	options: PropTypes.arrayOf( PropTypes.shape( {
 		label: PropTypes.string.isRequired,
 		value: PropTypes.oneOfType( [
@@ -70,9 +84,20 @@ Select.propTypes = {
 			PropTypes.string,
 		] ).isRequired,
 	} ) ).isRequired,
+
+	/**
+	 * A non-selectable option. Use this as an example or instruction.
+	 * ("Pick an option")
+	 */
 	placeholder: PropTypes.string,
-	required: PropTypes.bool.isRequired,
+
+	/**
+	 * Text to be displayed below the select. If the element's invalid prop is true,
+	 * this will be styled as an error.
+	 */
 	subtext: PropTypes.string,
+
+	/** The value of the select as a controlled component. */
 	value: PropTypes.oneOfType( [
 		PropTypes.number,
 		PropTypes.string,
@@ -81,8 +106,6 @@ Select.propTypes = {
 
 Select.defaultProps = {
 	disabled: false,
-	hasError: false,
-	required: false,
 	value: '',
 };
 

@@ -61,8 +61,7 @@ If the answer to any of these questions is no, chat with your teammates about ho
 Each component should have a few files associated with it:
 - The component itself (`.jsx`)
 - Any necessary styling (`.scss`)
-- Component documentation (`.docs.mdx`) [(Storybook Docs add-on)](https://github.com/storybookjs/storybook/tree/master/addons/docs)
-- Component stories (`.story.jsx`) [(Stories are written in MDX)](https://storybook.js.org/docs/formats/mdx-syntax/)
+- Component stories and documentation (`.stories.jsx`) [(Stories are written in MDX)](https://storybook.js.org/docs/react/api/mdx)
 - (Optional) Component tests (`test.js`)
 
 ### Running Storybook locally

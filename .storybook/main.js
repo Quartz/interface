@@ -54,12 +54,12 @@ module.exports = {
 			loader: 'svg-react-loader',
 		});
 
-		config.resolve.alias = {
-			...config.resolve.alias,
-			svgs: path.resolve( __dirname, '../public/svg' ),
-		};
-
-		console.log( "Aliases: ", config.resolve.alias );
+		// Leaving this commented to attract the ire of my reviewers,
+		// and hopefully also a suggestion to make this go.
+		// config.resolve.alias = {
+		// 	...config.resolve.alias,
+		// 	svgs: path.resolve( __dirname, '../public/svg' ),
+		// };
 
 		return config;
 	}

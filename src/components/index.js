@@ -10,6 +10,7 @@ export { default as Image } from './Image/Image';
 export { default as Kicker } from './Kicker/Kicker';
 export { default as PageHeader } from './PageHeader/PageHeader';
 export { default as RadioButton } from './RadioButton/RadioButton';
+export { default as Select } from './Select/Select';
 export { default as Spinner } from './Spinner/Spinner';
 export { TabNav, TabNavItem } from './TabNav/TabNav';
 export { default as TextGroup } from './TextGroup/TextGroup';

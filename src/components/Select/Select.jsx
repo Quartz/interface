@@ -92,6 +92,11 @@ Select.propTypes = {
 	placeholder: PropTypes.string,
 
 	/**
+	 * Whether a selection is required.
+	 */
+	required: PropTypes.bool,
+
+	/**
 	 * Text to be displayed below the select. If the element's invalid prop is true,
 	 * this will be styled as an error.
 	 */
@@ -106,6 +111,7 @@ Select.propTypes = {
 
 Select.defaultProps = {
 	disabled: false,
+	required: false,
 	value: '',
 };
 

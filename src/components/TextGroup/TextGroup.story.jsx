@@ -10,6 +10,36 @@ export default {
 	},
 };
 
+export const Small = () => (
+	<div style={{ maxWidth: 400 }}>
+		<TextGroup
+			size="small"
+			tagline="The concise, conversational rundown you need to start your day."
+			title="Quartz Daily Brief"
+		/>
+	</div>
+);
+
+export const Medium = () => (
+	<div style={{ maxWidth: 400 }}>
+		<TextGroup
+			size="medium"
+			tagline="The concise, conversational rundown you need to start your day."
+			title="Quartz Daily Brief"
+		/>
+	</div>
+);
+
+export const Large = () => (
+	<div style={{ maxWidth: 600 }}>
+		<TextGroup
+			size="large"
+			tagline="The concise, conversational rundown you need to start your day."
+			title="Quartz Daily Brief"
+		/>
+	</div>
+);
+
 export const Taxonomy = () => (
 	<div style={{ maxWidth: 400 }}>
 		<TextGroup
@@ -21,10 +51,11 @@ export const Taxonomy = () => (
 );
 
 export const Article = () => (
-	<div style={{ maxWidth: 400 }}>
+	<div style={{ maxWidth: 600 }}>
 		<TextGroup
 			isArticle={true}
 			kicker="Lightning Goals"
+			size="large"
 			tagline="Oct. 12, 2018 • Quartz"
 			title="Usain Bolt is slowly but surely becoming a soccer player"
 		/>

@@ -8,6 +8,7 @@ import styles from './TextGroup.scss';
 function TextGroup ( {
 	isArticle,
 	kicker,
+	size,
 	tagline,
 	title,
 } ) {
@@ -16,14 +17,14 @@ function TextGroup ( {
 			{
 				kicker &&
 					<Kicker>
-						<div className={`${styles.kicker} ${isArticle ? styles.isArticle : ''}`}>{kicker}</div>
+						<div className={`${styles.kicker} ${styles[ size ]} ${isArticle ? styles.isArticle : ''}`}>{kicker}</div>
 					</Kicker>
 			}
-			<Hed size="small">{title}</Hed>
+			<Hed size={size}>{title}</Hed>
 			{
 				tagline &&
 					<Tagline>
-						<div className={styles.tagline}>{tagline}</div>
+						<div className={`${styles.tagline} ${styles[ size ]}`}>{tagline}</div>
 					</Tagline>
 			}
 		</>
@@ -44,6 +45,12 @@ TextGroup.propTypes = {
 	kicker: PropTypes.node,
 
 	/**
+	 * Size preset for the text group. Adjusts the font size and spacing
+	 * of the headline (Hed component).
+	 */
+	size: PropTypes.oneOf( [ 'small', 'medium', 'large' ] ),
+
+	/**
 	 * Tagline to appear beneath the title.
 	 */
 	tagline: PropTypes.string,
@@ -56,6 +63,7 @@ TextGroup.propTypes = {
 
 TextGroup.defaultProps = {
 	isArticle: false,
+	size: 'medium',
 };
 
 export default TextGroup;

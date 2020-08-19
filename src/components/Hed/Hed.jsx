@@ -22,7 +22,7 @@ Hed.propTypes = {
 	/**
 	 * The size of the headline.
 	 */
-	size: PropTypes.oneOf( [ 'large', 'small' ] ).isRequired,
+	size: PropTypes.oneOf( [ 'small', 'medium', 'large' ] ).isRequired,
 };
 
 Hed.defaultProps = {

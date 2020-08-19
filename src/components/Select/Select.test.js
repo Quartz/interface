@@ -5,6 +5,9 @@ import Select from './Select';
 const setup = overrides => {
 	const defaultProps = {
 		onChange: jest.fn(),
+		options: [
+			{ value: 'orange', label: 'Premium Florida citrus' },
+		],
 	};
 
 	const props = {
@@ -21,7 +24,7 @@ describe( 'Select', () => {
 	it( 'Calls onChange when the input checked state changes', () => {
 		const { props, wrapper } = setup();
 
-		wrapper.find( 'input' ).simulate( 'change' );
+		wrapper.find( 'select' ).simulate( 'change' );
 		expect( props.onChange ).toBeCalled();
 	} );
 } );

@@ -1,0 +1,78 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import PageHeader from './PageHeader.jsx';
+
+<Meta title="PageHeader" component={PageHeader} />
+
+# PageHeader
+
+Page title and short additional intro text for a non-article page.
+
+It takes optional children, which should be navigation elements (tabs, search bars, etc).
+
+## Props
+
+<ArgsTable story="Default" />
+
+## Usage Guidelines
+
+- **Do not** use this on a page where an H1 already exists
+- **Do not** use the optional children for general page content
+
+## Examples
+
+### Default
+
+<Canvas>
+	<Story
+		args={{
+			title: "Good morning, USA"
+		}}
+		name="Default"
+	>
+		{ args => <PageHeader {...args} /> }
+	</Story>
+</Canvas>
+
+### With Intro, No Border
+
+<Canvas>
+	<Story
+		args={{
+			title: "Good morning, USA",
+			border: false,
+			intro: "I’ve got a feeling that it’s gonna be a wonderful day",
+		}}
+		name="With Intro"
+	>
+		{ args => <PageHeader {...args} /> }
+	</Story>
+</Canvas>
+
+### With Children
+
+<Canvas>
+	<Story
+		args={{
+			title: "Good morning, USA",
+			children: (
+				<form>
+					<input
+						style={{
+							width: '200px',
+							margin: '15px',
+							border: '1px solid #ccc',
+							borderRadius: '8px',
+							padding: '5px 8px',
+							fontSize: '16px',
+						}}
+						placeholder="Search Quartz"
+						aria-label="Search"
+					/>
+				</form>
+			),
+		}}
+		name="With Children"
+	>
+		{ args => <PageHeader {...args} /> }
+	</Story>
+</Canvas>

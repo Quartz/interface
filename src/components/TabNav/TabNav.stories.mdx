@@ -18,13 +18,14 @@ import { TabNav, TabNavItem } from '@quartz/interface/src/components';
 ## Usage guidelines
 
 - **Do** use `TabNav` to present sibling pages.
-- **Do** use `TabNav` inside the `Header` component.
-- **Do** use `TabNav` inside the `Header` component.
-- **Do not** use `TabNavItem` components without an immediate `TabNav` parent.
+- **Do** use `TabNav` inside the `Header` component when possible.
+- **Do not** use the `TabNavItem` component without an immediate `TabNav` parent.
 - **Do not** apply `isActive={true}` to more than one `TabNavItem` at a time.
 - **Do not** use a `TabNav` to link to pages that are not semantically related.
 
 ## Props
+
+### TabNav
 
 <Props of={TabNav} />
 

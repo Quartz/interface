@@ -6,4 +6,5 @@ export { default as Checkbox } from './Checkbox/Checkbox';
 export { default as Image } from './Image/Image';
 export { default as RadioButton } from './RadioButton/RadioButton';
 export { default as Spinner } from './Spinner/Spinner';
+export { TabNav, TabNavItem } from './TabNav/TabNav';
 export { default as TextGroup } from './TextGroup/TextGroup';

@@ -1,0 +1,70 @@
+@import '~@quartz/styles/scss/color-scheme';
+@import '~@quartz/styles/scss/fonts';
+@import '~@quartz/styles/scss/media-queries';
+@import '~@quartz/styles/scss/helpers/resets';
+@import '~@quartz/styles/scss/tokens';
+
+.container {
+	text-align: center;
+	white-space: nowrap;
+	position: relative;
+	width: 100%;
+
+	&::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 15%;
+		height: 100%;
+		background: linear-gradient(to right, $color-background-1-transparent, $color-background-1);
+		pointer-events: none;
+	}
+}
+
+.scroll-container {
+	overflow: auto;
+}
+
+.tablist {
+	@include reset-ul;
+
+	display: inline-flex;
+}
+
+.tab {
+	@include font-maison-extended-700-1;
+
+	margin: 0 12px;
+	padding: 16px 0 14px;
+	color: $color-typography-faint;
+
+	&:first-child {
+		margin-left: $size-gutter-mobile;
+
+		@include for-tablet-portrait-up {
+			margin-left: $size-gutter-tablet;
+		}
+
+		@include for-desktop-up {
+			margin-left: $size-gutter-desktop;
+		}
+	}
+
+	&:last-child {
+		margin-right: $size-gutter-mobile;
+
+		@include for-tablet-portrait-up {
+			margin-right: $size-gutter-tablet;
+		}
+
+		@include for-desktop-up {
+			margin-right: $size-gutter-desktop;
+		}
+	}
+
+	&[aria-current="true"] {
+		border-bottom: 2px solid $color-accent;
+		color: $color-accent;
+	}
+}

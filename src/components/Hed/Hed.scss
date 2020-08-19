@@ -7,6 +7,10 @@
 }
 
 .small {
+	@include font-maison-800-2;
+}
+
+.medium {
 	@include font-maison-800-4;
 }
 

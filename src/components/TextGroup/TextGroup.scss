@@ -1,4 +1,5 @@
 @import '~@quartz/styles/scss/color-scheme';
+@import '~@quartz/styles/scss/media-queries';
 
 .kicker {
 	color: $color-typography-faint;
@@ -7,8 +8,20 @@
 	&.is-article {
 		color: $color-accent;
 	}
+
+	&.large {
+		@include for-tablet-landscape-up {
+			margin-bottom: 8px;
+		}
+	}
 }
 
 .tagline {
 	margin-top: 4px;
+
+	&.large {
+		@include for-tablet-landscape-up {
+			margin-top: 8px;
+		}
+	}
 }

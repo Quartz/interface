@@ -48,10 +48,6 @@
 	&:focus {
 		border-color: $color-accent;
 	}
-
-	&::-ms-expand {
-		display: none;
-	}
 }
 
 .down-arrow {

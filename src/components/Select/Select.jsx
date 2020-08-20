@@ -102,7 +102,9 @@ Select.propTypes = {
 	 */
 	subtext: PropTypes.string,
 
-	/** The value of the select as a controlled component. */
+	/**
+	 * The value of the select element when used as a [controlled component](https://reactjs.org/docs/forms.html#controlled-components)
+	 */
 	value: PropTypes.oneOfType( [
 		PropTypes.number,
 		PropTypes.string,

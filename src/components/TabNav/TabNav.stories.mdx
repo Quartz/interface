@@ -1,0 +1,55 @@
+import { ArgsTable, Canvas, Props, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { TabNav, TabNavItem } from './TabNav';
+
+<Meta title="TabNav" component={TabNav} />
+
+# TabNav and TabNavItem
+
+Navigational components for linking to sibling pages. Use TabNav for the container element and TabNavItem for individual navigational items.
+
+A link (`<a>`) or button (`<button>`) element should be passed into each TabNavItem as a child node.
+
+## Usage guidelines
+
+- **Do** use TabNav to present sibling pages.
+- **Do** use TabNav inside the <LinkTo kind="PageHeader">PageHeader</LinkTo> component when possible.
+- **Do not** use the TabNavItem component without an immediate TabNav parent.
+- **Do not** apply `isActive={true}` to more than one TabNavItem at a time.
+- **Do not** use a TabNav to link to pages that are not semantically related.
+
+## Props
+
+### TabNav
+
+<Props of={TabNav} />
+
+### TabNavItem
+
+<Props of={TabNavItem} />
+
+## Examples
+
+### Default
+
+<Canvas>
+	<Story name="Default">
+		{args => (
+			<TabNav>
+				<TabNavItem isActive={true}>
+					<a style={{color: 'inherit'}} href="#">John</a>
+				</TabNavItem>
+				<TabNavItem>
+					<a style={{color: 'inherit'}} href="#">Paul</a>
+				</TabNavItem>
+				<TabNavItem>
+					<a style={{color: 'inherit'}} href="#">George</a>
+				</TabNavItem>
+				<TabNavItem>
+					<a style={{color: 'inherit'}} href="#">Ringo</a>
+				</TabNavItem>
+			</TabNav>
+		)}
+	</Story>
+</Canvas>
+

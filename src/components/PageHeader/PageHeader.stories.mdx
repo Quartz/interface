@@ -1,5 +1,6 @@
 import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import PageHeader from './PageHeader.jsx';
+import { TabNav, TabNavItem } from '../TabNav/TabNav';
 
 <Meta title="PageHeader" component={PageHeader} />
 
@@ -13,7 +14,7 @@ It takes optional children, which should be navigation elements (tabs, search ba
 
 <ArgsTable story="Default" />
 
-## Usage Guidelines
+## Usage guidelines
 
 - **Do not** use this on a page where an H1 already exists
 - **Do not** use the optional children for general page content
@@ -33,7 +34,7 @@ It takes optional children, which should be navigation elements (tabs, search ba
 	</Story>
 </Canvas>
 
-### With Intro, No Border
+### With intro, no border
 
 <Canvas>
 	<Story
@@ -48,27 +49,19 @@ It takes optional children, which should be navigation elements (tabs, search ba
 	</Story>
 </Canvas>
 
-### With Children
+### With nested navigation
 
 <Canvas>
 	<Story
 		args={{
 			title: "Good morning, USA",
 			children: (
-				<form>
-					<input
-						style={{
-							width: '200px',
-							margin: '15px',
-							border: '1px solid #ccc',
-							borderRadius: '8px',
-							padding: '5px 8px',
-							fontSize: '16px',
-						}}
-						placeholder="Search Quartz"
-						aria-label="Search"
-					/>
-				</form>
+				<TabNav>
+					<TabNavItem isActive={true}>Stan</TabNavItem>
+					<TabNavItem>Francine</TabNavItem>
+					<TabNavItem>Roger</TabNavItem>
+					<TabNavItem>Klaus</TabNavItem>
+				</TabNav>
 			),
 		}}
 		name="With Children"

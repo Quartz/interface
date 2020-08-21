@@ -1,0 +1,30 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import CalloutCard from './CalloutCard';
+import TextGroup from '../TextGroup/TextGroup';
+
+<Meta title="CalloutCard" component={CalloutCard} />
+
+# Callout Card
+
+A stylized box that brings attention to a piece of text.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			children: (
+				<TextGroup
+					size="medium"
+					tagline="Go beyond the headlines to master your understanding of the forces reshaping the world."
+					title="Become a member of Quartz"
+				/>
+			)
+		}}
+		name="Default"
+	>
+		{args => <CalloutCard {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />

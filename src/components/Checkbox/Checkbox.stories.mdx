@@ -1,0 +1,67 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import Checkbox from './Checkbox';
+
+<Meta title="Checkbox" component={Checkbox} />
+
+# Checkbox
+
+Presents users with a binary choice, independently of other checkboxes.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			children: 'You must check this box to continue',
+		}}
+		name="Default"
+	>
+		{args => <Checkbox {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Examples
+
+### Large
+
+<Canvas>
+	<Story
+		args={{
+			children: 'You must check this box to continue',
+			size: 'large',
+		}}
+		name="Large"
+	>
+		{args => <Checkbox {...args} />}
+	</Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+	<Story
+		args={{
+			children: 'You must check this box to continue',
+			disabled: true,
+		}}
+		name="Disabled"
+	>
+		{args => <Checkbox {...args} />}
+	</Story>
+</Canvas>
+
+### Invalid
+
+<Canvas>
+	<Story
+		args={{
+			children: 'You must check this box to continue',
+			invalid: true,
+		}}
+		name="Invalid"
+	>
+		{args => <Checkbox {...args} />}
+	</Story>
+</Canvas>

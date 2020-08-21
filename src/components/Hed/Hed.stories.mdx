@@ -1,0 +1,68 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import Hed from './Hed';
+
+<Meta title="Hed" component={Hed} />
+
+
+# Hed
+
+A hed (short for headline) is the title of a story or unit of content. This component is not exported for direct use; instead, it is composed into other components that provide information about a story.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			children: 'All the “wellness” products Americans love to buy are sold on both Infowars and Goop',
+		}}
+		name="Default"
+	>
+		{args => <Hed {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Small
+
+<Canvas>
+	<Story
+		args={{
+			children: 'All the “wellness” products Americans love to buy are sold on both Infowars and Goop',
+			size: 'small',
+		}}
+		name="Small"
+	>
+		{args => <Hed {...args} />}
+	</Story>
+</Canvas>
+
+### Medium
+
+<Canvas>
+	<Story
+		args={{
+			children: 'All the “wellness” products Americans love to buy are sold on both Infowars and Goop',
+			size: 'medium',
+		}}
+		name="Medium"
+	>
+		{args => <Hed {...args} />}
+	</Story>
+</Canvas>
+
+### Large
+
+<Canvas>
+	<Story
+		args={{
+			children: 'All the “wellness” products Americans love to buy are sold on both Infowars and Goop',
+			size: 'large',
+		}}
+		name="Large"
+	>
+		{args => <Hed {...args} />}
+	</Story>
+</Canvas>

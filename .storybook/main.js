@@ -54,13 +54,6 @@ module.exports = {
 			loader: 'svg-react-loader',
 		});
 
-		// Leaving this commented to attract the ire of my reviewers,
-		// and hopefully also a suggestion to make this go.
-		// config.resolve.alias = {
-		// 	...config.resolve.alias,
-		// 	svgs: path.resolve( __dirname, '../public/svg' ),
-		// };
-
 		return config;
 	}
 };

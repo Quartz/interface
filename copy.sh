@@ -12,11 +12,8 @@ files=(
 	'jsx'
 	'scss'
 	'stories.mdx'
-	'story.jsx'
-	'docs.mdx'
 	'test.js'
 )
-
 for file in "${files[@]}"; do
 	source="./src/components/$1/$1.$file"
 	dest="./src/components/$2/$2.$file"

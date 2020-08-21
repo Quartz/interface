@@ -24,12 +24,11 @@ const Select = ( {
 				<span className={cx( 'label' )}>{label}</span>
 			}
 			<div className={cx( 'select-container' )}>
-				{/* eslint-disable-next-line jsx-a11y/no-onchange */}
 				<select
 					aria-invalid={invalid}
 					className={cx( 'select', { isPlaceholder: '' === value } )}
 					disabled={disabled}
-					onChange={onChange}
+					onBlur={onChange}
 					required={required}
 					value={value}
 				>
@@ -90,7 +89,7 @@ Select.propTypes = {
 	 */
 	label: PropTypes.string.isRequired,
 	/**
-	 * A function that will called on change. It's passed to the native select's onChange handler.
+	 * A function that will called on change. It's passed to the native select's onBlur handler.
 	 */
 	onChange: PropTypes.func.isRequired,
 	/**

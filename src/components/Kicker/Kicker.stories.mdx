@@ -1,5 +1,7 @@
-import { Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
 import Kicker from './Kicker';
+
+<Meta title="Kicker" component={Kicker} />
 
 # Kicker
 
@@ -9,12 +11,15 @@ Interestingly, the word ”kicker” is [undergoing some change](https://www.mer
 
 ## Props
 
-<Props of={Kicker} />
+<Canvas>
+	<Story
+		args={{
+			children: 'Neither here nor there',
+		}}
+		name="Default"
+	>
+		{args => <Kicker {...args} />}
+	</Story>
+</Canvas>
 
-## Examples
-
-### Default
-
-<Preview>
-  <Story id="kicker--default" />
-</Preview>
+<ArgsTable story="Default" />

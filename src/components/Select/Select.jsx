@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import styles from './Select.scss';
-import ExpandArrowDown from './expand-arrow-down.svg';
+import ExpandArrowDown from '../../svg/expand-arrow-down.svg';
 
 const cx = classnames.bind( styles );
 

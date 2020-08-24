@@ -1,0 +1,74 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import Image from './Image';
+
+<Meta title="Image" component={Image} />
+
+# Image
+
+Displays an image. The `Image` component requires `fallbackHeight` and `fallbackWidth` to set aspect ratio and `sizes` and `srcSet` to provide [responsive rendering](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images). They will not be calculated for you and there are no default values. Future components may provide a simpler implementation for specific use cases.
+
+This component does not provide [art direction](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture), which is also a task for a future component.
+
+## Usage guidelines
+
+- **Do** use a container to constrain the size or shape of the image. An `Image` will always expand or contract to fit the width of its container. The `Image` component purposefully does not accept a `className` prop.
+- **Do** understand that the `fallbackHeight` and `fallbackWidth` props are [used to set aspect ratio and help the browser reserve space](https://blog.logrocket.com/jank-free-page-loading-with-media-aspect-ratios/) for the image during initial layout.
+- **Do** [provide useful alt text](https://www.w3.org/WAI/tutorials/images/decision-tree/) for your images. Sometimes, an empty string is the most useful!
+- **Do** learn why and how to use [responsive rendering](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images). It’s important to understand how `sizes` and `srcSet` work.
+- **Do** think when and whether this component might be rendered on AMP pages and pass the correct `amp` prop.
+- **Do not** avoid the `Image` component by using the HTML `img` tag. The `Image` component enforces best practices and performant rendering.
+- **Do not** use the `Image` component for SVGs. Instead, import SVGs and render them directly with React.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'A studio portrait of Lena Waithe',
+			fallbackHeight: 400,
+			fallbackWidth: 400,
+			sizes: '(max-width: 200px) 200w, 400w',
+			src: 'https://cms.qz.com/wp-content/uploads/2018/01/lenawaithe-portrait.jpg?quality=75&strip=all&w=400&h=400&crop=1',
+			srcSet: `
+				https://cms.qz.com/wp-content/uploads/2018/01/lenawaithe-portrait.jpg?quality=75&strip=all&w=200&h=200&crop=1 200w 1x,
+				https://cms.qz.com/wp-content/uploads/2018/01/lenawaithe-portrait.jpg?quality=75&strip=all&w=400&h=400&crop=1 200w 2x,
+				https://cms.qz.com/wp-content/uploads/2018/01/lenawaithe-portrait.jpg?quality=75&strip=all&w=400&h=400&crop=1 400w 1x,
+				https://cms.qz.com/wp-content/uploads/2018/01/lenawaithe-portrait.jpg?quality=75&strip=all&w=800&h=800&crop=1 400w 2x
+			`,
+		}}
+		name="Default"
+	>
+		{args => <div style={{ maxWidth: 400 }}><Image {...args} /></div>}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Examples
+
+### An image constrained to 200px and reshaped as round
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'A studio portrait of Lena Waithe',
+			fallbackHeight: 400,
+			fallbackWidth: 400,
+			sizes: '(max-width: 100px) 100w, 200w',
+			src: 'https://cms.qz.com/wp-content/uploads/2018/01/lenawaithe-portrait.jpg?quality=75&strip=all&w=400&h=400&crop=1',
+			srcSet: `
+				https://cms.qz.com/wp-content/uploads/2018/01/lenawaithe-portrait.jpg?quality=75&strip=all&w=100&h=100&crop=1 100w 1x,
+				https://cms.qz.com/wp-content/uploads/2018/01/lenawaithe-portrait.jpg?quality=75&strip=all&w=200&h=200&crop=1 100w 2x,
+				https://cms.qz.com/wp-content/uploads/2018/01/lenawaithe-portrait.jpg?quality=75&strip=all&w=200&h=200&crop=1 200w 1x,
+				https://cms.qz.com/wp-content/uploads/2018/01/lenawaithe-portrait.jpg?quality=75&strip=all&w=400&h=400&crop=1 200w 2x
+			`,
+		}}
+		name="Reshaped"
+	>
+		{args => (
+			<div style={{ borderRadius: '50%', maxWidth: 200, overflow: 'hidden' }}>
+				<Image {...args} />
+			</div>
+		)}
+	</Story>
+</Canvas>

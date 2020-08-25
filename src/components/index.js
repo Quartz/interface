@@ -5,6 +5,7 @@ export { default as CalloutCard } from './CalloutCard/CalloutCard';
 export { default as Checkbox } from './Checkbox/Checkbox';
 export { EmojiList, StructuredEmojiList } from './EmojiList/EmojiList';
 export { default as Image } from './Image/Image';
+export { default as PageHeader } from './PageHeader/PageHeader';
 export { default as RadioButton } from './RadioButton/RadioButton';
 export { default as Spinner } from './Spinner/Spinner';
 export { TabNav, TabNavItem } from './TabNav/TabNav';

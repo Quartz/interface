@@ -1,0 +1,110 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import TextGroup from './TextGroup';
+
+<Meta title="TextGroup" component={TextGroup} />
+
+# TextGroup
+
+A basic promotional unit that groups textual elements to describe a piece of
+content. Most `TextGroup`s are wrapped in `Link`s that take the user to the
+described content.
+
+## Usage guidelines
+
+- **Do** use a container to constrain the size of the `TextGroup`.
+- **Do not** use the `TextGroup` component to represent things that are not Quartz content.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			tagline: 'The concise, conversational rundown you need to start your day.',
+			title: 'Quartz Daily Brief',
+		}}
+		name="Default"
+	>
+		{args => <TextGroup {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Small
+
+<Canvas>
+	<Story
+		args={{
+			size: 'small',
+			tagline: 'The concise, conversational rundown you need to start your day.',
+			title: 'Quartz Daily Brief',
+		}}
+		name="Small"
+	>
+		{args => <TextGroup {...args} />}
+	</Story>
+</Canvas>
+
+### Medium
+
+<Canvas>
+	<Story
+		args={{
+			size: 'medium',
+			tagline: 'The concise, conversational rundown you need to start your day.',
+			title: 'Quartz Daily Brief',
+		}}
+		name="Medium"
+	>
+		{args => <TextGroup {...args} />}
+	</Story>
+</Canvas>
+
+### Large
+
+<Canvas>
+	<Story
+		args={{
+			size: 'large',
+			tagline: 'The concise, conversational rundown you need to start your day.',
+			title: 'Quartz Daily Brief',
+		}}
+		name="Large"
+	>
+		{args => <TextGroup {...args} />}
+	</Story>
+</Canvas>
+
+### Taxonomy
+
+<Canvas>
+	<Story
+		args={{
+			kicker: 'From our Guide',
+			tagline: 'Which unicorns will fade and which are here to stay.',
+			title: 'Beyond the fintech hype',
+		}}
+		name="Taxonomy"
+	>
+		{args => <TextGroup {...args} />}
+	</Story>
+</Canvas>
+
+### Article
+
+<Canvas>
+	<Story
+		args={{
+			isArticle: true,
+			kicker: 'Lightning Goals',
+			size: 'large',
+			tagline: 'Oct. 12, 2018 • Quartz',
+			title: 'Usain Bolt is slowly but surely becoming a soccer player',
+		}}
+		name="Article"
+	>
+		{args => <TextGroup {...args} />}
+	</Story>
+</Canvas>

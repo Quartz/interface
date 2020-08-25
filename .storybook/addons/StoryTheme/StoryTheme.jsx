@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ColorScheme, { schemes } from '../../../src/components/ColorScheme/ColorScheme';
 
-/*
- * Decorator to supply a ColorScheme corresponding to the user's theme
- * selection. All story components are automatically wrapped.
+/**
+ * Decorator that supplies a ColorScheme corresponding to the user's theme
+ * selection. All stories are automatically wrapped.
  *
  * https://github.com/tonai/storybook-addon-themes#custom-decorator
  */

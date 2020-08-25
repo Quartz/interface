@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import '!style-loader!css-loader!sass-loader!./MockAppDecorator.scss';
 
 /**
- * A decorator component that provides baseline conditions required to display
- * library components. All story components are automatically wrapped (see
- * .storybook/preview.js).
+ * A decorator that provides baseline conditions required to render stories. All
+ * stories are automatically wrapped (see .storybook/preview.js).
  *
  * https://storybook.js.org/docs/react/writing-stories/decorators
  */

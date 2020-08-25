@@ -1,0 +1,21 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import Spinner from './Spinner';
+
+<Meta title="Spinner" component={Spinner} />
+
+# Spinner
+
+An animated spinner to indicate that an action is in progress.
+
+## Props
+
+This component does not accept any props.
+
+<Canvas>
+	<Story
+		args={{}}
+		name="Default"
+	>
+		{args => <Spinner {...args} />}
+	</Story>
+</Canvas>

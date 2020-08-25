@@ -1,0 +1,23 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import RadioButton from './RadioButton';
+
+<Meta title="RadioButton" component={RadioButton} />
+
+# RadioButton
+
+Presents users with a choice from a range of other radio buttons.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			children: 'Choice 1',
+		}}
+		name="Default"
+	>
+		{args => <RadioButton {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />

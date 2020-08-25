@@ -1,0 +1,38 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import Tagline from './Tagline';
+
+<Meta title="Tagline" component={Tagline} />
+
+# Tagline
+
+A tagline is a short description or introduction that accompanies the [hed](/?path=/docs/hed--small#hed) of a story. It might also be used to implement a dateline. This component is not exported for direct use; instead, it is composed into other components that provide information about a story.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			children: 'The next big battles in tech.',
+		}}
+		name="Default"
+	>
+		{args => <Tagline {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Dateline
+
+<Canvas>
+	<Story
+		args={{
+			children: '3 days ago • Quartz Africa',
+		}}
+		name="Dateline"
+	>
+		{args => <Tagline {...args} />}
+	</Story>
+</Canvas>

@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import ColorScheme, { schemes } from '../../../src/components/ColorScheme/ColorScheme';
 
 /*
-	A decorator component that provides baseline conditions required to
-	display library components. All story components are automatically
-	wrapped (see .storybook/preview.js)
-
-	https://storybook.js.org/docs/addons/introduction/#1-decorators
-*/
+ * Decorator to supply a ColorScheme corresponding to the user's theme
+ * selection. All story components are automatically wrapped.
+ *
+ * https://github.com/tonai/storybook-addon-themes#custom-decorator
+ */
 function StoryTheme ( { children, themeName } ) {
 	let scheme = schemes.LIGHT;
 
@@ -37,7 +36,7 @@ function StoryTheme ( { children, themeName } ) {
 
 StoryTheme.propTypes = {
 	children: PropTypes.node,
-	themeName: PropTypes.string.isRequired,
+	themeName: PropTypes.oneOf( [ 'At Work Dark', 'At Work Light', 'Dark', 'Light' ] ).isRequired,
 };
 
 export default StoryTheme;

@@ -150,7 +150,7 @@ const Input = ( {
 					[ 'confirmed', 'valid' ].includes( status ) &&
 					<div className={cx( 'status' )}>
 						<Checkbox
-							className={cx( 'check' )}
+							checked={true}
 						/>
 						{statusText && <span className={cx( 'status-text' )}>{statusText}</span>}
 					</div>

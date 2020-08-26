@@ -1,4 +1,5 @@
 import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
 import Input from './Input';
 
 <Meta title="Input" component={Input} />
@@ -14,9 +15,51 @@ A text field that accepts and validates user input.
 <Canvas>
 	<Story
 		name="Default"
+		args={{
+			placeholder: 'Search'
+		}}
 	>
 		{ args => <Input {...args} /> }
 	</Story>
 </Canvas>
 
 <ArgsTable story="Default" />
+
+## Stories
+
+<Canvas>
+	<Story
+		name="With Required Fields"
+		args={{
+			buttonProps: {
+				children: <Button>Submit</Button>,
+				onClick: action( 'clicked' ),
+			},
+			id: 'email',
+			label: 'Email',
+			placeholder: 'example@qz.com',
+			required: true,
+			type: 'email',
+		}}
+	>
+		{ args => (
+			<form>
+				<Input {...args} />
+			</form>
+		) }
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		name="With Checkmark"
+		args={{
+			status: 'confirmed',
+			statusText: '40% Off',
+			subtext: 'Promo codes only apply to the yearly plan',
+			value: 'QZFALLSALE',
+		}}
+	>
+		{ args => <Input {...args} /> }
+	</Story>
+</Canvas>

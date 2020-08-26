@@ -23,7 +23,7 @@
 		"src/**/*.scss"
 	],
 	"dependencies": {
-		"@quartz/js-utils": "github:Quartz/js-utils#8ab4cf9"
+		"@quartz/js-utils": "github:Quartz/js-utils#f7a4ea1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.10.4",
@@ -49,6 +49,7 @@
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"sass-loader": "^9.0.2",
+		"storybook-addon-themes": "^5.4.1",
 		"style-loader": "^1.2.1",
 		"stylelint": "^13.6.1"
 	}

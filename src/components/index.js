@@ -1,8 +1,10 @@
+export { default as Badge } from './Badge/Badge';
 export { default as BadgeGroup } from './BadgeGroup/BadgeGroup';
 export { default as Button, ButtonLabel } from './Button/Button';
 export { default as Blockquote } from './Blockquote/Blockquote';
 export { default as CalloutCard } from './CalloutCard/CalloutCard';
 export { default as Checkbox } from './Checkbox/Checkbox';
+export { default as ColorScheme, schemes } from './ColorScheme/ColorScheme';
 export { EmojiList, StructuredEmojiList } from './EmojiList/EmojiList';
 export { default as Image } from './Image/Image';
 export { default as PageHeader } from './PageHeader/PageHeader';

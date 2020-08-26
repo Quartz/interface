@@ -17,6 +17,7 @@ module.exports = {
 				backgrounds: false, // Disable in favor of own theming (TODO).
 			},
 		},
+		'storybook-addon-themes',
 	],
 	webpackFinal: async config => {
 		// Add support for .scss files (Sass)

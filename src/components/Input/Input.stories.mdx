@@ -1,0 +1,22 @@
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import Input from './Input';
+
+<Meta title="Input" component={Input} />
+
+# Input
+
+A text field that accepts and validates user input.
+
+## Usage Guidelines
+
+## Props
+
+<Canvas>
+	<Story
+		name="Default"
+	>
+		{ args => <Input {...args} /> }
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />

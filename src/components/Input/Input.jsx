@@ -177,36 +177,117 @@ const Input = ( {
 };
 
 Input.propTypes = {
+	/**
+	 * Style prop that accepts a QZ app theme (i.e. 'work').
+	 */
 	appTheme: PropTypes.string,
+	/**
+	 * Input tag prop; boolean to accept autoCompletion or not.
+	 */
 	autoComplete: PropTypes.string,
+	/**
+	 * Object that should contain props to be used with an associated `<Button />` component (see Button story).
+	 */
 	buttonProps: PropTypes.shape( {
 		children: PropTypes.node.isRequired,
 		onClick: PropTypes.func.isRequired,
 		loading: PropTypes.bool.isRequired,
 	} ),
+	/**
+	 * Input tag prop; sets default value.
+	 */
 	defaultValue: PropTypes.string,
+	/**
+	 * Event handler for blur event.
+	 */
 	handleBlur: PropTypes.func.isRequired,
+	/**
+	 * Event handler for change event. Will reset any invalid status.
+	 */
 	handleChange: PropTypes.func.isRequired,
+	/**
+	 * Event handler for click event.
+	 */
 	handleClick: PropTypes.func,
+	/**
+	 * Event handler for focus event.
+	 */
 	handleFocus: PropTypes.func.isRequired,
+	/**
+	 * Event handler for key press event.
+	 */
 	handleKeyPress: PropTypes.func,
+	/**
+	 * Event handler for the toggle button; only used when toggleText is present.
+	 */
 	handleToggleClick: PropTypes.func,
+	/**
+	 * Input tag prop; attaches id to tag.
+	 */
 	id: PropTypes.string.isRequired,
+	/**
+	 * Used in the event of forwarding a ref to the input tag.
+	 */
 	inputRef: PropTypes.object,
+	/**
+	 * Boolean that determines whether component is a `textarea` or `input` tag.
+	 */
 	isMultiline: PropTypes.bool.isRequired,
+	/**
+	 * Text to be used in `label` tag.
+	 */
 	label: PropTypes.string,
+	/**
+	 * Input tag prop; prevents string length beyond given value.
+	 */
 	maxLength: PropTypes.number,
+	/**
+	 * Input tag prop; name of the input control, submitted along with value.
+	 */
 	name: PropTypes.string,
+	/**
+	 * Input tag prop; sets `value` validation pattern.
+	 */
 	pattern: PropTypes.string,
+	/**
+	 * Input tag prop; sets 'ghost' text that appears when no value exists.
+	 */
 	placeholder: PropTypes.string,
+	/**
+	 * Input tag prop; determines whether value is editable or not.
+	 */
 	readOnly: PropTypes.bool,
+	/**
+	 * Input tag prop + style prop; if true, value must be present for the form to be submitted. Will add asterisk to label if label is present.
+	 */
 	required: PropTypes.bool.isRequired,
+	/**
+	 * Used primarily for styling - sets a status which will appear in classnames. Primarily used with 'error', 'confirmed', 'valid'.
+	 */
 	status: PropTypes.string,
+	/**
+	 * Text used when status is 'valid' or 'confirmed' - adjacent to Checkbox.
+	 */
 	statusText: PropTypes.string,
+	/**
+	 * Text that appears below the input element, primarily for error messages or disclaimers.
+	 */
 	subtext: PropTypes.node,
+	/**
+	 * Boolean used to determine active/inactive status of toggle.
+	 */
 	toggleActive: PropTypes.bool,
+	/**
+	 * Text that appears as child of the toggle button, if `handleToggleClick` is present.
+	 */
 	toggleText: PropTypes.string,
+	/**
+	 * Input tag prop; determines type of form control.
+	 */
 	type: PropTypes.oneOf( [ 'text', 'email', 'password' ] ),
+	/**
+	 * Sets whether the component is controlled or not.
+	 */
 	value: PropTypes.oneOfType( [
 		PropTypes.string,
 		PropTypes.number,

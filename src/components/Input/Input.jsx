@@ -1,142 +1,12 @@
 import React, { useState } from 'react';
 import Button from '../Button/Button';
 import Checkbox from '../Checkbox/Checkbox';
+import Fieldset from '../Fieldset/Fieldset';
 import PropTypes from 'prop-types';
 
 import styles from './Input.scss';
 import classnames from 'classnames/bind';
 const cx = classnames.bind( styles );
-
-const InputBase = ( {
-	appTheme,
-	autoComplete,
-	buttonProps,
-	children,
-	defaultValue,
-	describedBy,
-	id,
-	invalid,
-	isMultiline,
-	label,
-	maxLength,
-	name,
-	placeholder,
-	value,
-	onBlur,
-	onChange,
-	onClick,
-	onFocus,
-	onKeyPress,
-	onInvalid,
-	pattern,
-	readOnly,
-	ref,
-	required,
-	title,
-	type,
-} ) => {
-	// ClassNames used by both <input> and <textarea>.
-	const sharedClassNames = {
-		readOnly,
-		[`status-${status}`]: status,
-		[appTheme]: appTheme,
-		[type]: type,
-	};
-
-	const requiredField = label && required;
-	const optionalField =  label && !requiredField;
-
-	return (
-		<div className={styles.inner}>
-			{
-				requiredField &&
-					<div
-						className={styles.requiredLabel}
-						title="Required"
-					>
-						<label className={styles.label} htmlFor={id}>
-							{label}
-						</label>
-						<sup className={styles.requiredAsterisk}> * </sup>
-					</div>
-			}
-
-			{
-				optionalField &&
-				<label className={styles.label} htmlFor={id}>
-					{label}
-				</label>
-			}
-
-			{isMultiline &&
-				<textarea
-					className={cx( 'textarea', { ...sharedClassNames } )}
-					rows={6}
-					aria-invalid={invalid}
-					aria-describedby={describedBy}
-					autoComplete={autoComplete}
-					defaultValue={defaultValue}
-					describedBy={describedBy}
-					id={id}
-					maxLength={maxLength}
-					name={name}
-					placeholder={placeholder}
-					value={value}
-					onBlur={onBlur}
-					onChange={onChange}
-					onClick={onClick}
-					onFocus={onFocus}
-					onKeyPress={onKeyPress}
-					onInvalid={onInvalid}
-					pattern={pattern}
-					readOnly={readOnly}
-					ref={ref}
-					required={required}
-					title={title}
-				/>
-			}
-
-			{!isMultiline &&
-				<div className={styles.inputGroup}>
-					<input
-						className={cx( 'input', { ...sharedClassNames } )}
-						type={type}
-						aria-invalid={invalid}
-						aria-describedby={describedBy}
-						autoComplete={autoComplete}
-						defaultValue={defaultValue}
-						describedBy={describedBy}
-						id={id}
-						maxLength={maxLength}
-						name={name}
-						placeholder={placeholder}
-						readOnly={readOnly}
-						value={value}
-						onBlur={onBlur}
-						onChange={onChange}
-						onClick={onClick}
-						onFocus={onFocus}
-						onKeyPress={onKeyPress}
-						onInvalid={onInvalid}
-						pattern={pattern}
-						readOnly={readOnly}
-						ref={ref}
-						required={required}
-						title={title}
-						type={type}
-					/>
-					{
-						buttonProps &&
-						<div className={styles.inputButton}>
-							<Button {...buttonProps} />
-						</div>
-					}
-				</div>
-			}
-			{children}
-		</div>
-	);
-};
 
 const Input = ( {
 	appTheme,
@@ -202,13 +72,12 @@ const Input = ( {
 		readOnly,
 		ref: inputRef,
 		required,
-		title: subtext,
 		type,
 	};
 
 	return (
 		<div className={cx( 'container', { [`status-${status}`]: status, invalid } )}>
-			<InputBase {...baseProps}>
+			<Fieldset {...baseProps}>
 				{
 					toggleText && handleToggleClick &&
 					<div className={styles.toggle}>
@@ -233,7 +102,7 @@ const Input = ( {
 						{statusText && <span className={styles.statusText}>{statusText}</span>}
 					</div>
 				}
-			</InputBase>
+			</Fieldset>
 			{
 				subtext &&
 				<div

@@ -1,0 +1,122 @@
+@import '~@quartz/styles/scss/borders';
+@import '~@quartz/styles/scss/color-scheme';
+@import '~@quartz/styles/scss/fonts';
+@import '~@quartz/styles/scss/helpers/resets';
+
+.inner {
+	position: relative;
+	border: 0;
+	padding: 0;
+}
+
+.input {
+	@include reset-text-input;
+
+	position: relative;
+	display: inline-block;
+	height: 45px;
+	width: 100%;
+	border-radius: $size-border-radius;
+	border: $border-solid-interactive;
+	box-sizing: border-box;
+	font-size: 16px;
+	font-weight: 300;
+	color: $color-typography;
+	text-indent: 15px;
+	background-color: $color-background-2;
+	padding: 0;
+	transition: border-color, 0.25s;
+
+	&::placeholder {
+		color: $color-typography-faint;
+	}
+
+	&:hover,
+	&:focus {
+		border-color: $color-accent;
+	}
+
+	&.work {
+		@include font-graphik;
+	}
+
+	&[aria-invalid=true],
+	&.status-error,
+	&.status-error:focus {
+		border-color: $color-red;
+	}
+}
+
+.textarea {
+	@include reset-text-input;
+
+	resize: none;
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	font-size: 16px;
+	line-height: 1.25;
+	color: $color-typography;
+	border: $border-solid-interactive;
+	background-color: $color-background-2;
+	border-radius: $size-border-radius;
+	padding: 12px;
+	margin-bottom: 10px;
+
+	&:focus,
+	&:hover {
+		border-color: $color-accent;
+	}
+
+	&::placeholder {
+		color: $color-typography-faint;
+	}
+}
+
+.read-only {
+	background-color: transparent;
+	cursor: default;
+	color: $color-typography-faint;
+
+	&:hover {
+		border-color: $color-border-decorative;
+	}
+}
+
+.label {
+	@include font-maison-extended-700-1;
+
+	text-transform: uppercase;
+	margin: 0 0 10px;
+	color: $color-typography;
+	display: block;
+	margin-bottom: 10px;
+}
+
+.required-label {
+	display: flex;
+}
+
+.required-asterisk {
+	@include font-maison-800-2;
+
+	color: $color-accent;
+	padding: 7px 0 0 2px;
+}
+
+.input-group {
+	display: flex;
+	width: 100%;
+}
+
+.input-button {
+	max-width: 167px;
+	min-width: 90px;
+	margin-left: 12px;
+	flex-shrink: 0;
+}
+
+input::-webkit-credentials-auto-fill-button {
+	/* moves the key icon in Safari outside our login fields */
+	margin-right: -24px;
+}

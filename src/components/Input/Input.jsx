@@ -88,19 +88,19 @@ const Input = ( {
 				{
 					requiredField &&
 						<div
-							className={cx( 'required-label' )}
+							className={styles.requiredLabel}
 							title="Required"
 						>
-							<label className={cx( 'label' )} htmlFor={id}>
+							<label className={styles.label} htmlFor={id}>
 								{label}
 							</label>
-							<sup className={cx( 'required-asterisk' )}> * </sup>
+							<sup className={styles.requiredAsterisk}> * </sup>
 						</div>
 				}
 
 				{
 					optionalField &&
-					<label className={cx( 'label' )} htmlFor={id}>
+					<label className={styles.label} htmlFor={id}>
 						{label}
 					</label>
 				}
@@ -116,7 +116,7 @@ const Input = ( {
 
 				{
 					!isMultiline &&
-					<div className={cx( 'input-group' )}>
+					<div className={styles.inputGroup}>
 						<input
 							className={cx( 'input', { ...sharedClassNames } )}
 							type={type}
@@ -124,7 +124,7 @@ const Input = ( {
 						/>
 						{
 							buttonProps &&
-							<div className={cx( 'input-button' )}>
+							<div className={styles.inputButton}>
 								<Button {...buttonProps} />
 							</div>
 						}
@@ -133,7 +133,7 @@ const Input = ( {
 
 				{
 					toggleText && handleToggleClick &&
-					<div className={cx( 'toggle' )}>
+					<div className={styles.toggle}>
 						<Button
 							checked={toggleActive}
 							inline={true}
@@ -148,17 +148,17 @@ const Input = ( {
 
 				{
 					[ 'confirmed', 'valid' ].includes( status ) &&
-					<div className={cx( 'status' )}>
+					<div className={styles.status}>
 						<Checkbox
 							checked={true}
 						/>
-						{statusText && <span className={cx( 'status-text' )}>{statusText}</span>}
+						{statusText && <span className={styles.statusText}>{statusText}</span>}
 					</div>
 				}
 
 				{
 					status === 'loading' &&
-					<div className={cx( 'spinner' )}>
+					<div className={styles.spinner}>
 						<Spinner />
 					</div>
 				}

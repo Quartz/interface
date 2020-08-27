@@ -7,6 +7,109 @@ import styles from './Input.scss';
 import classnames from 'classnames/bind';
 const cx = classnames.bind( styles );
 
+const InputBase = ( {
+	appTheme,
+	autoComplete,
+	buttonProps,
+	defaultValue,
+	describedBy,
+	id,
+	invalid,
+	isMultiline,
+	maxLength,
+	name,
+	placeholder,
+	value,
+	onBlur,
+	onChange,
+	onClick,
+	onFocus,
+	onKeyPress,
+	onInvalid,
+	pattern,
+	readOnly,
+	ref,
+	required,
+	title,
+	type,
+} ) => {
+	// ClassNames used by both <input> and <textarea>.
+	const sharedClassNames = {
+		readOnly,
+		[`status-${status}`]: status,
+		[appTheme]: appTheme,
+		[type]: type,
+	};
+
+	if ( isMultiline ) {
+		return (
+			<textarea
+				className={cx( 'textarea', { ...sharedClassNames } )}
+				rows={6}
+				aria-invalid={invalid}
+				aria-describedby={describedBy}
+				autoComplete={autoComplete}
+				defaultValue={defaultValue}
+				describedBy={describedBy}
+				id={id}
+				maxLength={maxLength}
+				name={name}
+				placeholder={placeholder}
+				value={value}
+				onBlur={onBlur}
+				onChange={onChange}
+				onClick={onClick}
+				onFocus={onFocus}
+				onKeyPress={onKeyPress}
+				onInvalid={onInvalid}
+				pattern={pattern}
+				readOnly={readOnly}
+				ref={ref}
+				required={required}
+				title={title}
+			/>
+		);
+	}
+
+	return (
+		<div className={styles.inputGroup}>
+			<input
+				className={cx( 'input', { ...sharedClassNames } )}
+				type={type}
+				aria-invalid={invalid}
+				aria-describedby={describedBy}
+				autoComplete={autoComplete}
+				defaultValue={defaultValue}
+				describedBy={describedBy}
+				id={id}
+				maxLength={maxLength}
+				name={name}
+				placeholder={placeholder}
+				readOnly={readOnly}
+				value={value}
+				onBlur={onBlur}
+				onChange={onChange}
+				onClick={onClick}
+				onFocus={onFocus}
+				onKeyPress={onKeyPress}
+				onInvalid={onInvalid}
+				pattern={pattern}
+				readOnly={readOnly}
+				ref={ref}
+				required={required}
+				title={title}
+				type={type}
+			/>
+			{
+				buttonProps &&
+				<div className={styles.inputButton}>
+					<Button {...buttonProps} />
+				</div>
+			}
+		</div>
+	);
+};
+
 const Input = ( {
 	appTheme,
 	autoComplete,
@@ -49,17 +152,20 @@ const Input = ( {
 	const optionalField =  label && !requiredField;
 
 	// Props used by both <input> and <textarea>.
-	const sharedProps = {
+	const baseProps = {
+		appTheme,
 		autoComplete,
+		buttonProps,
 		defaultValue,
+		describedBy: subtext ? descriptionElId : undefined,
 		id,
+		invalid,
+		isMultiline,
 		maxLength,
 		name,
 		placeholder,
 		readOnly,
 		value,
-		'aria-describedby': subtext ? descriptionElId : undefined,
-		'aria-invalid': invalid,
 		onBlur: handleBlur,
 		onChange: setAndHandleChange,
 		onClick: handleClick,
@@ -67,19 +173,12 @@ const Input = ( {
 		onKeyPress: handleKeyPress,
 		onInvalid: () => setInvalid( true ),
 		pattern,
+		readOnly,
 		ref: inputRef,
 		required,
 		title: subtext,
+		type,
 	};
-
-	// ClassNames used by both <input> and <textarea>.
-	const sharedClassNames = {
-		readOnly,
-		[`status-${status}`]: status,
-		[appTheme]: appTheme,
-		[type]: type,
-	};
-
 
 	return (
 		<div className={cx( 'container', { [`status-${status}`]: status, invalid } )}>
@@ -104,31 +203,7 @@ const Input = ( {
 					</label>
 				}
 
-				{
-					isMultiline &&
-					<textarea
-						className={cx( 'textarea', { ...sharedClassNames } )}
-						rows={6}
-						{...sharedProps}
-					/>
-				}
-
-				{
-					!isMultiline &&
-					<div className={styles.inputGroup}>
-						<input
-							className={cx( 'input', { ...sharedClassNames } )}
-							type={type}
-							{...sharedProps}
-						/>
-						{
-							buttonProps &&
-							<div className={styles.inputButton}>
-								<Button {...buttonProps} />
-							</div>
-						}
-					</div>
-				}
+				<InputBase {...baseProps} />
 
 				{
 					toggleText && handleToggleClick &&

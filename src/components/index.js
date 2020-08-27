@@ -7,6 +7,7 @@ export { default as Checkbox } from './Checkbox/Checkbox';
 export { default as ColorScheme, schemes } from './ColorScheme/ColorScheme';
 export { EmojiList, StructuredEmojiList } from './EmojiList/EmojiList';
 export { default as Image } from './Image/Image';
+export { default as Kicker } from './Kicker/Kicker';
 export { default as PageHeader } from './PageHeader/PageHeader';
 export { default as RadioButton } from './RadioButton/RadioButton';
 export { default as Spinner } from './Spinner/Spinner';

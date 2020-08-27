@@ -11,11 +11,13 @@ const InputBase = ( {
 	appTheme,
 	autoComplete,
 	buttonProps,
+	children,
 	defaultValue,
 	describedBy,
 	id,
 	invalid,
 	isMultiline,
+	label,
 	maxLength,
 	name,
 	placeholder,
@@ -41,71 +43,97 @@ const InputBase = ( {
 		[type]: type,
 	};
 
-	if ( isMultiline ) {
-		return (
-			<textarea
-				className={cx( 'textarea', { ...sharedClassNames } )}
-				rows={6}
-				aria-invalid={invalid}
-				aria-describedby={describedBy}
-				autoComplete={autoComplete}
-				defaultValue={defaultValue}
-				describedBy={describedBy}
-				id={id}
-				maxLength={maxLength}
-				name={name}
-				placeholder={placeholder}
-				value={value}
-				onBlur={onBlur}
-				onChange={onChange}
-				onClick={onClick}
-				onFocus={onFocus}
-				onKeyPress={onKeyPress}
-				onInvalid={onInvalid}
-				pattern={pattern}
-				readOnly={readOnly}
-				ref={ref}
-				required={required}
-				title={title}
-			/>
-		);
-	}
+	const requiredField = label && required;
+	const optionalField =  label && !requiredField;
 
 	return (
-		<div className={styles.inputGroup}>
-			<input
-				className={cx( 'input', { ...sharedClassNames } )}
-				type={type}
-				aria-invalid={invalid}
-				aria-describedby={describedBy}
-				autoComplete={autoComplete}
-				defaultValue={defaultValue}
-				describedBy={describedBy}
-				id={id}
-				maxLength={maxLength}
-				name={name}
-				placeholder={placeholder}
-				readOnly={readOnly}
-				value={value}
-				onBlur={onBlur}
-				onChange={onChange}
-				onClick={onClick}
-				onFocus={onFocus}
-				onKeyPress={onKeyPress}
-				onInvalid={onInvalid}
-				pattern={pattern}
-				readOnly={readOnly}
-				ref={ref}
-				required={required}
-				title={title}
-				type={type}
-			/>
+		<div className={styles.inner}>
 			{
-				buttonProps &&
-				<div className={styles.inputButton}>
-					<Button {...buttonProps} />
+				requiredField &&
+					<div
+						className={styles.requiredLabel}
+						title="Required"
+					>
+						<label className={styles.label} htmlFor={id}>
+							{label}
+						</label>
+						<sup className={styles.requiredAsterisk}> * </sup>
+					</div>
+			}
+
+			{
+				optionalField &&
+				<label className={styles.label} htmlFor={id}>
+					{label}
+				</label>
+			}
+
+			{isMultiline &&
+				<textarea
+					className={cx( 'textarea', { ...sharedClassNames } )}
+					rows={6}
+					aria-invalid={invalid}
+					aria-describedby={describedBy}
+					autoComplete={autoComplete}
+					defaultValue={defaultValue}
+					describedBy={describedBy}
+					id={id}
+					maxLength={maxLength}
+					name={name}
+					placeholder={placeholder}
+					value={value}
+					onBlur={onBlur}
+					onChange={onChange}
+					onClick={onClick}
+					onFocus={onFocus}
+					onKeyPress={onKeyPress}
+					onInvalid={onInvalid}
+					pattern={pattern}
+					readOnly={readOnly}
+					ref={ref}
+					required={required}
+					title={title}
+				/>
+			}
+
+			{!isMultiline &&
+				<div className={styles.inputGroup}>
+					<input
+						className={cx( 'input', { ...sharedClassNames } )}
+						type={type}
+						aria-invalid={invalid}
+						aria-describedby={describedBy}
+						autoComplete={autoComplete}
+						defaultValue={defaultValue}
+						describedBy={describedBy}
+						id={id}
+						maxLength={maxLength}
+						name={name}
+						placeholder={placeholder}
+						readOnly={readOnly}
+						value={value}
+						onBlur={onBlur}
+						onChange={onChange}
+						onClick={onClick}
+						onFocus={onFocus}
+						onKeyPress={onKeyPress}
+						onInvalid={onInvalid}
+						pattern={pattern}
+						readOnly={readOnly}
+						ref={ref}
+						required={required}
+						title={title}
+						type={type}
+					/>
+					{
+						buttonProps &&
+						<div className={styles.inputButton}>
+							<Button {...buttonProps} />
+						</div>
+					}
 				</div>
 			}
+			{children}
 		</div>
 	);
 };
@@ -148,9 +176,6 @@ const Input = ( {
 
 	const descriptionElId = `${id}-description`;
 
-	const requiredField = label && required;
-	const optionalField =  label && !requiredField;
-
 	// Props used by both <input> and <textarea>.
 	const baseProps = {
 		appTheme,
@@ -161,6 +186,7 @@ const Input = ( {
 		id,
 		invalid,
 		isMultiline,
+		label,
 		maxLength,
 		name,
 		placeholder,
@@ -182,29 +208,7 @@ const Input = ( {
 
 	return (
 		<div className={cx( 'container', { [`status-${status}`]: status, invalid } )}>
-			<div className={cx( 'inner', { toggleVisibility: toggleText } )}>
-				{
-					requiredField &&
-						<div
-							className={styles.requiredLabel}
-							title="Required"
-						>
-							<label className={styles.label} htmlFor={id}>
-								{label}
-							</label>
-							<sup className={styles.requiredAsterisk}> * </sup>
-						</div>
-				}
-
-				{
-					optionalField &&
-					<label className={styles.label} htmlFor={id}>
-						{label}
-					</label>
-				}
-
-				<InputBase {...baseProps} />
-
+			<InputBase {...baseProps}>
 				{
 					toggleText && handleToggleClick &&
 					<div className={styles.toggle}>
@@ -229,7 +233,7 @@ const Input = ( {
 						{statusText && <span className={styles.statusText}>{statusText}</span>}
 					</div>
 				}
-			</div>
+			</InputBase>
 			{
 				subtext &&
 				<div

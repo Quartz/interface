@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../Button/Button';
 import Checkbox from '../Checkbox/Checkbox';
-import Spinner from '../Spinner/Spinner';
 import PropTypes from 'prop-types';
 
 import styles from './Input.scss';
@@ -153,13 +152,6 @@ const Input = ( {
 							checked={true}
 						/>
 						{statusText && <span className={styles.statusText}>{statusText}</span>}
-					</div>
-				}
-
-				{
-					status === 'loading' &&
-					<div className={styles.spinner}>
-						<Spinner />
 					</div>
 				}
 			</div>

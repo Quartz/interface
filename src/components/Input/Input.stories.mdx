@@ -78,10 +78,11 @@ A text field that accepts and validates user input.
 		args={{
 			id: 'promo',
 			label: 'Promo Code',
+			maxLength: 20,
 			status: 'confirmed',
 			statusText: '40% Off',
 			subtext: 'Promo codes only apply to the yearly plan',
-			value: 'QZFALLSALE',
+			defaultValue: 'QZFALLSALE',
 		}}
 	>
 		{ args => <Input {...args} /> }

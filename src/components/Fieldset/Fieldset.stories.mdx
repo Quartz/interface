@@ -15,6 +15,7 @@ Generally, this is not meant to be used by itself, but as a building block withi
 <Canvas>
 	<Story
 		args={{
+			id: 'search',
 			onBlur: action( 'blurred' ),
 			onChange: action( 'changed' ),
 			onFocus: action( 'focused' ),
@@ -33,9 +34,11 @@ Generally, this is not meant to be used by itself, but as a building block withi
 <Canvas>
 	<Story
 		args={{
+			autoComplete: true,
 			onBlur: action( 'blurred' ),
 			onChange: action( 'changed' ),
 			onFocus: action( 'focused' ),
+			id: 'email',
 			label: 'Email',
 			placeholder: 'example@qz.com',
 			required: true,
@@ -53,6 +56,7 @@ Generally, this is not meant to be used by itself, but as a building block withi
 			onBlur: action( 'blurred' ),
 			onChange: action( 'changed' ),
 			onFocus: action( 'focused' ),
+			id: 'password',
 			label: 'Password',
 			required: true,
 			type: 'password',

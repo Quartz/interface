@@ -12,13 +12,17 @@ Generally, this is not meant to be used by itself, but as a building block withi
 
 ## Props
 
+export const defaultActions = {
+	onBlur: action( 'blurred' ),
+	onChange: action( 'changed' ),
+	onFocus: action( 'focused' ),
+};
+
 <Canvas>
 	<Story
 		args={{
+			...defaultActions,
 			id: 'search',
-			onBlur: action( 'blurred' ),
-			onChange: action( 'changed' ),
-			onFocus: action( 'focused' ),
 			placeholder: 'Search',
 		}}
 		name="Default"
@@ -34,10 +38,22 @@ Generally, this is not meant to be used by itself, but as a building block withi
 <Canvas>
 	<Story
 		args={{
+			...defaultActions,
+			id: 'email',
+			defaultValue: 'example@qz.com',
+			readOnly: true,
+		}}
+		name="ReadOnly"
+	>
+		{args => <Fieldset {...args} />}
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		args={{
+			...defaultActions,
 			autoComplete: true,
-			onBlur: action( 'blurred' ),
-			onChange: action( 'changed' ),
-			onFocus: action( 'focused' ),
 			id: 'email',
 			label: 'Email',
 			placeholder: 'example@qz.com',
@@ -53,15 +69,27 @@ Generally, this is not meant to be used by itself, but as a building block withi
 <Canvas>
 	<Story
 		args={{
-			onBlur: action( 'blurred' ),
-			onChange: action( 'changed' ),
-			onFocus: action( 'focused' ),
+			...defaultActions,
 			id: 'password',
 			label: 'Password',
 			required: true,
 			type: 'password',
 		}}
 		name="Password"
+	>
+		{args => <Fieldset {...args} />}
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		args={{
+			...defaultActions,
+			id: 'textarea',
+			label: 'Message',
+			isMultiline: true,
+		}}
+		name="TextArea"
 	>
 		{args => <Fieldset {...args} />}
 	</Story>

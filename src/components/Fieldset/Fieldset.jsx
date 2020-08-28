@@ -10,6 +10,7 @@ const Fieldset = ( {
 	describedBy,
 	isMultiline,
 	inputRef,
+	id,
 	label,
 	maxLength,
 	placeholder,
@@ -41,9 +42,10 @@ const Fieldset = ( {
 						className={cx( 'textarea', { ...sharedClassNames } )}
 						rows={6}
 						aria-describedby={describedBy}
-						autoComplete={autoComplete}
+						autocomplete={autoComplete}
 						defaultValue={defaultValue}
 						describedBy={describedBy}
+						id={id}
 						maxLength={maxLength}
 						placeholder={placeholder}
 						onBlur={onBlur}
@@ -63,9 +65,10 @@ const Fieldset = ( {
 						className={cx( 'input', { ...sharedClassNames } )}
 						type={type}
 						aria-describedby={describedBy}
-						autoComplete={autoComplete}
+						autocomplete={autoComplete}
 						defaultValue={defaultValue}
 						describedBy={describedBy}
+						id={id}
 						maxLength={maxLength}
 						placeholder={placeholder}
 						readOnly={readOnly}
@@ -99,6 +102,10 @@ Fieldset.propTypes = {
 	 * Input tag prop; used with aria-describedby attribute to indicate the ID of a linked description element.
 	 */
 	describedBy: PropTypes.string,
+	/**
+	 * Used to identify the element.
+	 */
+	id: PropTypes.string,
 	/**
 	 * Used in the event of forwarding a ref to the input tag.
 	 */

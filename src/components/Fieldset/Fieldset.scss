@@ -3,14 +3,37 @@
 @import '~@quartz/styles/scss/fonts';
 @import '~@quartz/styles/scss/helpers/resets';
 
-.inner {
+.container {
 	position: relative;
 	border: 0;
 	padding: 0;
+	margin: 0;
+}
+
+.label {
+	@include font-maison-extended-700-1;
+
+	text-transform: uppercase;
+	color: $color-typography;
+	display: block;
+}
+
+.required-label {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.required-asterisk {
+	@include font-maison-800-3;
+
+	color: $color-accent;
+	padding: 0 4px;
+	line-height: 0.8;
 }
 
 .input {
 	@include reset-text-input;
+	@include font-maison-500-3;
 
 	position: relative;
 	display: inline-block;
@@ -26,6 +49,7 @@
 	background-color: $color-background-2;
 	padding: 0;
 	transition: border-color, 0.25s;
+	margin: 10px 0;
 
 	&::placeholder {
 		color: $color-typography-faint;
@@ -49,6 +73,7 @@
 
 .textarea {
 	@include reset-text-input;
+	@include font-maison-500-3;
 
 	resize: none;
 	box-sizing: border-box;
@@ -61,7 +86,7 @@
 	background-color: $color-background-2;
 	border-radius: $size-border-radius;
 	padding: 12px;
-	margin-bottom: 10px;
+	margin: 10px 0;
 
 	&:focus,
 	&:hover {
@@ -81,32 +106,6 @@
 	&:hover {
 		border-color: $color-border-decorative;
 	}
-}
-
-.label {
-	@include font-maison-extended-700-1;
-
-	text-transform: uppercase;
-	margin: 0 0 10px;
-	color: $color-typography;
-	display: block;
-	margin-bottom: 10px;
-}
-
-.required-label {
-	display: flex;
-}
-
-.required-asterisk {
-	@include font-maison-800-2;
-
-	color: $color-accent;
-	padding: 7px 0 0 2px;
-}
-
-.input-group {
-	display: flex;
-	width: 100%;
 }
 
 .input-button {

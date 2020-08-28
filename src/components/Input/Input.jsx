@@ -18,7 +18,6 @@ const Input = ( {
 	handleClick,
 	handleFocus,
 	handleKeyPress,
-	handleToggleClick,
 	id,
 	inputRef,
 	isMultiline,
@@ -30,10 +29,7 @@ const Input = ( {
 	readOnly,
 	required,
 	status,
-	statusText,
 	subtext,
-	toggleActive,
-	toggleText,
 	type,
 	value,
 } ) => {
@@ -77,32 +73,31 @@ const Input = ( {
 
 	return (
 		<div className={cx( 'container', { [`status-${status}`]: status, invalid } )}>
-			<Fieldset {...baseProps}>
-				{
-					toggleText && handleToggleClick &&
-					<div className={styles.toggle}>
-						<Button
-							checked={toggleActive}
-							inline={true}
-							onClick={handleToggleClick}
-							role="switch"
-							type="button"
-						>
-							{toggleText}
-						</Button>
-					</div>
-				}
+			<Fieldset {...baseProps} />
+			{/* {
+				toggleText && handleToggleClick &&
+				<div className={styles.toggle}>
+					<Button
+						checked={toggleActive}
+						inline={true}
+						onClick={handleToggleClick}
+						role="switch"
+						type="button"
+					>
+						{toggleText}
+					</Button>
+				</div>
+			}
 
-				{
-					[ 'confirmed', 'valid' ].includes( status ) &&
-					<div className={styles.status}>
-						<Checkbox
-							checked={true}
-						/>
-						{statusText && <span className={styles.statusText}>{statusText}</span>}
-					</div>
-				}
-			</Fieldset>
+			{
+				[ 'confirmed', 'valid' ].includes( status ) &&
+				<div className={styles.status}>
+					<Checkbox
+						checked={true}
+					/>
+					{statusText && <span className={styles.statusText}>{statusText}</span>}
+				</div>
+			} */}
 			{
 				subtext &&
 				<div

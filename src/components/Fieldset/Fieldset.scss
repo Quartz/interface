@@ -37,7 +37,7 @@
 
 	position: relative;
 	display: inline-block;
-	height: 45px;
+	height: 44px;
 	width: 100%;
 	border-radius: $size-border-radius;
 	border: $border-solid-interactive;
@@ -45,11 +45,11 @@
 	font-size: 16px;
 	font-weight: 300;
 	color: $color-typography;
-	text-indent: 15px;
+	text-indent: 12px;
 	background-color: $color-background-2;
 	padding: 0;
 	transition: border-color, 0.25s;
-	margin: 10px 0;
+	margin: 8px 0;
 
 	&::placeholder {
 		color: $color-typography-faint;
@@ -86,7 +86,7 @@
 	background-color: $color-background-2;
 	border-radius: $size-border-radius;
 	padding: 12px;
-	margin: 10px 0;
+	margin: 8px 0;
 
 	&:focus,
 	&:hover {

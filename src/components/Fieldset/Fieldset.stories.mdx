@@ -27,3 +27,38 @@ Generally, this is not meant to be used by itself, but as a building block withi
 </Canvas>
 
 <ArgsTable story="Default" />
+
+## Stories
+
+<Canvas>
+	<Story
+		args={{
+			onBlur: action( 'blurred' ),
+			onChange: action( 'changed' ),
+			onFocus: action( 'focused' ),
+			label: 'Email',
+			placeholder: 'example@qz.com',
+			required: true,
+			type: 'email',
+		}}
+		name="Email"
+	>
+		{args => <Fieldset {...args} />}
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		args={{
+			onBlur: action( 'blurred' ),
+			onChange: action( 'changed' ),
+			onFocus: action( 'focused' ),
+			label: 'Password',
+			required: true,
+			type: 'password',
+		}}
+		name="Password"
+	>
+		{args => <Fieldset {...args} />}
+	</Story>
+</Canvas>

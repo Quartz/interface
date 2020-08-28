@@ -27,6 +27,7 @@ const Fieldset = ( {
 } ) => {
 	// ClassNames used by both <input> and <textarea>.
 	const sharedClassNames = {
+		disabled,
 		readOnly,
 		[type]: type,
 	};

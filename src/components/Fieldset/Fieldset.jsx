@@ -1,31 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../Button/Button';
 import classnames from 'classnames/bind';
 import styles from './Fieldset.scss';
 const cx = classnames.bind( styles );
 
 const Fieldset = ( {
-	appTheme,
 	autoComplete,
-	buttonProps,
-	children,
 	defaultValue,
 	describedBy,
-	id,
-	invalid,
 	isMultiline,
 	inputRef,
 	label,
 	maxLength,
-	name,
 	placeholder,
-	value,
 	onBlur,
 	onChange,
 	onClick,
 	onFocus,
-	onKeyPress,
 	onInvalid,
 	pattern,
 	readOnly,
@@ -35,84 +26,53 @@ const Fieldset = ( {
 	// ClassNames used by both <input> and <textarea>.
 	const sharedClassNames = {
 		readOnly,
-		[`status-${status}`]: status,
-		[appTheme]: appTheme,
 		[type]: type,
 	};
 
 	const requiredField = label && required;
-	const optionalField =  label && !requiredField;
 
 	return (
-		<fieldset className={styles.inner}>
-			{
-				requiredField &&
-					<div
-						className={styles.requiredLabel}
-						title="Required"
-					>
-						<label className={styles.label} htmlFor={id}>
-							{label}
-						</label>
-						<sup className={styles.requiredAsterisk}> * </sup>
-					</div>
-			}
-
-			{
-				optionalField &&
-				<label className={styles.label} htmlFor={id}>
-					{label}
-				</label>
-			}
-
-			{isMultiline &&
-				<textarea
-					className={cx( 'textarea', { ...sharedClassNames } )}
-					rows={6}
-					aria-invalid={invalid}
-					aria-describedby={describedBy}
-					autoComplete={autoComplete}
-					defaultValue={defaultValue}
-					describedBy={describedBy}
-					id={id}
-					maxLength={maxLength}
-					name={name}
-					placeholder={placeholder}
-					value={value}
-					onBlur={onBlur}
-					onChange={onChange}
-					onClick={onClick}
-					onFocus={onFocus}
-					onKeyPress={onKeyPress}
-					onInvalid={onInvalid}
-					pattern={pattern}
-					readOnly={readOnly}
-					ref={inputRef}
-					required={required}
-				/>
-			}
-
-			{!isMultiline &&
-				<div className={styles.inputGroup}>
-					<input
-						className={cx( 'input', { ...sharedClassNames } )}
-						type={type}
-						aria-invalid={invalid}
+		<fieldset className={styles.container}>
+			<label className={`${styles.label} ${styles.requiredLabel}`}>
+				{label}
+				{requiredField && <span className={styles.requiredAsterisk}> * </span>}
+				{isMultiline &&
+					<textarea
+						className={cx( 'textarea', { ...sharedClassNames } )}
+						rows={6}
 						aria-describedby={describedBy}
 						autoComplete={autoComplete}
 						defaultValue={defaultValue}
 						describedBy={describedBy}
-						id={id}
 						maxLength={maxLength}
-						name={name}
 						placeholder={placeholder}
-						readOnly={readOnly}
-						value={value}
 						onBlur={onBlur}
 						onChange={onChange}
 						onClick={onClick}
 						onFocus={onFocus}
-						onKeyPress={onKeyPress}
+						onInvalid={onInvalid}
+						pattern={pattern}
+						readOnly={readOnly}
+						ref={inputRef}
+						required={required}
+					/>
+				}
+
+				{!isMultiline &&
+					<input
+						className={cx( 'input', { ...sharedClassNames } )}
+						type={type}
+						aria-describedby={describedBy}
+						autoComplete={autoComplete}
+						defaultValue={defaultValue}
+						describedBy={describedBy}
+						maxLength={maxLength}
+						placeholder={placeholder}
+						readOnly={readOnly}
+						onBlur={onBlur}
+						onChange={onChange}
+						onClick={onClick}
+						onFocus={onFocus}
 						onInvalid={onInvalid}
 						pattern={pattern}
 						readOnly={readOnly}
@@ -120,51 +80,29 @@ const Fieldset = ( {
 						required={required}
 						type={type}
 					/>
-					{
-						buttonProps &&
-						<div className={styles.inputButton}>
-							<Button {...buttonProps} />
-						</div>
-					}
-				</div>
-			}
-			{children}
+				}
+			</label>
 		</fieldset>
 	);
 };
 
 Fieldset.propTypes = {
 	/**
-	 * Style prop that accepts a QZ app theme (i.e. 'work').
-	 */
-	appTheme: PropTypes.string,
-	/**
 	 * Input tag prop; boolean to accept autoCompletion or not.
 	 */
 	autoComplete: PropTypes.string,
 	/**
-	 * Object that should contain props to be used with an associated `<Button />` component (see Button story).
-	 */
-	buttonProps: PropTypes.shape( {
-		children: PropTypes.node.isRequired,
-		onClick: PropTypes.func.isRequired,
-		loading: PropTypes.bool.isRequired,
-	} ),
-	children: PropTypes.node,
-	/**
 	 * Input tag prop; sets default value.
 	 */
 	defaultValue: PropTypes.string,
-	describedBy: PropTypes.string,
 	/**
-	 * Input tag prop; attaches id to tag.
+	 * Input tag prop; used with aria-describedby attribute to indicate the ID of a linked description element.
 	 */
-	id: PropTypes.string.isRequired,
+	describedBy: PropTypes.string,
 	/**
 	 * Used in the event of forwarding a ref to the input tag.
 	 */
 	inputRef: PropTypes.object,
-	invalid: PropTypes.bool,
 	/**
 	 * Boolean that determines whether component is a `textarea` or `input` tag.
 	 */
@@ -178,15 +116,11 @@ Fieldset.propTypes = {
 	 */
 	maxLength: PropTypes.number,
 	/**
-	 * Input tag prop; name of the input control, submitted along with value.
-	 */
-	name: PropTypes.string,
-	/**
 	 * Event handler for blur event.
 	 */
 	onBlur: PropTypes.func.isRequired,
 	/**
-	 * Event handler for change event. Will reset any invalid status.
+	 * Event handler for change event.
 	 */
 	onChange: PropTypes.func.isRequired,
 	/**
@@ -197,11 +131,10 @@ Fieldset.propTypes = {
 	 * Event handler for focus event.
 	 */
 	onFocus: PropTypes.func.isRequired,
-	onInvalid: PropTypes.func,
 	/**
-	 * Event handler for key press event.
+	 * Event handler for invalid event.
 	 */
-	onKeyPress: PropTypes.func,
+	onInvalid: PropTypes.func,
 	/**
 	 * Input tag prop; sets `value` validation pattern.
 	 */
@@ -219,24 +152,9 @@ Fieldset.propTypes = {
 	 */
 	required: PropTypes.bool.isRequired,
 	/**
-	 * Used primarily for styling - sets a status which will appear in classnames. Primarily used with 'error', 'confirmed', 'valid'.
-	 */
-	status: PropTypes.string,
-	/**
-	 * Text used when status is 'valid' or 'confirmed' - adjacent to Checkbox.
-	 */
-	statusText: PropTypes.string,
-	/**
 	 * Input tag prop; determines type of form control.
 	 */
 	type: PropTypes.oneOf( [ 'text', 'email', 'password' ] ),
-	/**
-	 * Sets whether the component is controlled or not.
-	 */
-	value: PropTypes.oneOfType( [
-		PropTypes.string,
-		PropTypes.number,
-	] ),
 };
 
 Fieldset.defaultProps = {

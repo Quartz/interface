@@ -1,0 +1,29 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import Fieldset from './Fieldset';
+
+<Meta title="Fieldset" component={Fieldset} />
+
+# Fieldset
+
+A basic uncontrolled input component that for either a `textArea` or `input` element depending on the `isMultiline` prop.
+Rendered inside an associated `label` tag. The `inputRef` prop can be used to find the component's `value`.
+Generally, this is not meant to be used by itself, but as a building block within other components.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			onBlur: action( 'blurred' ),
+			onChange: action( 'changed' ),
+			onFocus: action( 'focused' ),
+			placeholder: 'Search',
+		}}
+		name="Default"
+	>
+		{args => <Fieldset {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />

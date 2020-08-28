@@ -98,6 +98,7 @@
 	}
 }
 
+.disabled,
 .read-only {
 	background-color: transparent;
 	cursor: default;
@@ -106,13 +107,6 @@
 	&:hover {
 		border-color: $color-border-decorative;
 	}
-}
-
-.input-button {
-	max-width: 167px;
-	min-width: 90px;
-	margin-left: 12px;
-	flex-shrink: 0;
 }
 
 input::-webkit-credentials-auto-fill-button {

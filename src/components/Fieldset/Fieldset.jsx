@@ -8,6 +8,7 @@ const Fieldset = ( {
 	autoComplete,
 	defaultValue,
 	describedBy,
+	disabled,
 	isMultiline,
 	inputRef,
 	id,
@@ -45,6 +46,7 @@ const Fieldset = ( {
 						autocomplete={autoComplete}
 						defaultValue={defaultValue}
 						describedBy={describedBy}
+						disabled={disabled}
 						id={id}
 						maxLength={maxLength}
 						placeholder={placeholder}
@@ -53,7 +55,6 @@ const Fieldset = ( {
 						onClick={onClick}
 						onFocus={onFocus}
 						onInvalid={onInvalid}
-						pattern={pattern}
 						readOnly={readOnly}
 						ref={inputRef}
 						required={required}
@@ -68,6 +69,7 @@ const Fieldset = ( {
 						autocomplete={autoComplete}
 						defaultValue={defaultValue}
 						describedBy={describedBy}
+						disabled={disabled}
 						id={id}
 						maxLength={maxLength}
 						placeholder={placeholder}
@@ -102,6 +104,10 @@ Fieldset.propTypes = {
 	 * Input tag prop; used with aria-describedby attribute to indicate the ID of a linked description element.
 	 */
 	describedBy: PropTypes.string,
+	/**
+	 * Input tag prop; sets whether the input is disabled from changing values or not.
+	 */
+	disabled: PropTypes.bool,
 	/**
 	 * Used to identify the element.
 	 */
@@ -165,10 +171,11 @@ Fieldset.propTypes = {
 };
 
 Fieldset.defaultProps = {
+	disabled: false,
+	isMultiline: false,
 	onBlur: () => {},
 	onChange: () => {},
 	onFocus: () => {},
-	isMultiline: false,
 	required: false,
 	type: 'text',
 };

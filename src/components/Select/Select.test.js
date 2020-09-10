@@ -23,7 +23,7 @@ const setup = overrides => {
 };
 
 describe( 'Select', () => {
-	it( 'Calls onChange when the input checked state blurs', () => {
+	it( 'Calls onChange when the select element blurs', () => {
 		const { props, wrapper } = setup();
 
 		wrapper.find( 'select' ).simulate( 'blur' );

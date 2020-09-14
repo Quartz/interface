@@ -14,5 +14,5 @@ export { default as Pill } from './Pill/Pill';
 export { default as RadioButton } from './RadioButton/RadioButton';
 export { default as Spinner } from './Spinner/Spinner';
 export { TabNav, TabNavItem } from './TabNav/TabNav';
-export { Tagline as Tagline } from './Tagline/Tagline';
+export { default as Tagline } from './Tagline/Tagline';
 export { default as TextGroup } from './TextGroup/TextGroup';

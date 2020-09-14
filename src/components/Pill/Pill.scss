@@ -1,0 +1,15 @@
+@import '~@quartz/styles/scss/color-scheme';
+@import '~@quartz/styles/scss/fonts';
+@import '~@quartz/styles/scss/media-queries';
+
+.container {
+	@include font-maison-extended-700-1;
+
+	background-color: $color-border-decorative;
+	border-radius: 0.75em;
+	display: inline-block;
+	padding: 0.5em;
+	text-transform: uppercase;
+	vertical-align: middle;
+	white-space: nowrap;
+}

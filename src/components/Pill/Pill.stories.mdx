@@ -1,0 +1,45 @@
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import Hed from '../Hed/Hed';
+import Pill from './Pill';
+import { TabNav, TabNavItem } from '../TabNav/TabNav';
+
+<Meta title="Pill" component={Pill} />
+
+# Pill
+
+A pill displays an important data point or callout next to a head or label. It
+is typically used to show that something has been updated.
+
+## Usage guidelines
+
+- **Do not** use the `Pill` component for long strings of text.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			text: 'Updated',
+		}}
+		name="Default"
+	>
+		{args => <Pill {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### With Hed
+
+<Canvas>
+	<Story
+		args={{
+			text: '2 new',
+		}}
+		name="With Hed"
+	>
+		{args => <Hed>Latest stories <Pill {...args} /></Hed>}
+	</Story>
+</Canvas>

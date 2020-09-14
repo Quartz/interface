@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Pill from './Pill';
 
 const defaultProps = {
-	children: 'Test content',
+	text: 'Test content',
 };
 
 const setup = overrides => shallow( <Pill {...defaultProps} {...overrides} /> );

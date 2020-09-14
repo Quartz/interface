@@ -20,6 +20,12 @@ module.exports = {
 		'storybook-addon-themes',
 	],
 	webpackFinal: async config => {
+
+		// Find the regex that Storybook uses to find SVGs
+		const assetRule = config.module.rules.find(({ test }) => test.test('.svg'));
+		// Remove them from the rule so they aren't double processed when we provide our own.
+		assetRule.test = new RegExp( assetRule.test.toString().replace( 'svg', '' ));
+
 		// Add support for .scss files (Sass)
 		config.module.rules.push( {
 			test: /\.s?css$/,
@@ -42,6 +48,11 @@ module.exports = {
 				path.resolve( __dirname, '../src' ),
 			],
 		} );
+
+		config.module.rules.push({
+			test: /\.svg$/,
+			loader: 'svg-react-loader',
+		});
 
 		return config;
 	}

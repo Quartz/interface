@@ -1,0 +1,92 @@
+@import '~@quartz/styles/scss/borders';
+@import '~@quartz/styles/scss/color-scheme';
+@import '~@quartz/styles/scss/fonts';
+@import '~@quartz/styles/scss/helpers/positioning';
+@import '~@quartz/styles/scss/helpers/resets';
+
+.container {
+	@include font-maison;
+}
+
+.select-container {
+	position: relative;
+}
+
+.select {
+	@include reset-select;
+
+	display: inline-block;
+	height: 45px;
+	width: 100%;
+	min-width: 210px;
+	border-radius: $size-border-radius;
+	border: $border-solid-interactive;
+	cursor: pointer;
+	font-size: 16px;
+	color: $color-typography;
+	padding: 0 15px 0 40px;
+	background-color: $color-background-2;
+
+	&:disabled {
+		opacity: 0.5;
+
+		&:hover {
+			border-color: $color-border-interactive;
+		}
+	}
+
+	&[aria-invalid="true"] {
+		color: $color-red;
+		border-color: $color-red;
+	}
+
+	&.is-placeholder {
+		color: $color-typography-faint;
+	}
+
+	&:hover,
+	&:focus {
+		border-color: $color-accent;
+	}
+}
+
+.down-arrow {
+	@include vertical-center;
+
+	--color: #{$color-typography};
+
+	left: 16px;
+
+	.select:hover + & {
+		--color: #{$color-accent};
+	}
+
+	.select:disabled + &,
+	.select:disabled:hover + & {
+		--color: #{$color-typography};
+
+		opacity: 0.5;
+	}
+
+	&.invalid {
+		--color: #{$color-red};
+	}
+}
+
+.subtext {
+	margin-top: 10px;
+	font-size: 12px;
+	color: $color-typography-faint;
+	display: block;
+
+	&.invalid {
+		color: $color-red;
+	}
+}
+
+.label {
+	@include font-maison-extended-700-1;
+
+	display: block;
+	margin-bottom: 7px;
+}

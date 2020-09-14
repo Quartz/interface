@@ -1,0 +1,59 @@
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import Select from './Select';
+import options from './exampleOptions';
+
+<Meta title="Select" component={Select} />
+
+# Select
+
+Presents users with a choice of options from a dropdown.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			options,
+			placeholder: "What are you obsessed with?",
+			hint: "Obsessions are our alternative to traditional journalistic beats.",
+			label: "Our obsessions"
+		}}
+		name="Default"
+	>
+		{args => <Select {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+<Canvas>
+	<Story
+		args={{
+			disabled: true,
+			options,
+			placeholder: "What are you obsessed with?",
+			hint: "Enter your email to select an obsession to follow.",
+			label: "Our obsessions"
+		}}
+		name="Disabled"
+	>
+		{args => <Select {...args} />}
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		args={{
+			invalid: true,
+			options,
+			placeholder: "What are you obsessed with?",
+			hint: "Sorry, your selection isn't available for mail order.",
+			label: "Our obsessions"
+		}}
+		name="Invalid"
+	>
+		{args => <Select {...args} />}
+	</Story>
+</Canvas>

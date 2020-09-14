@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import styles from './Pill.scss';
 
 function Pill ( {
-	text,
+	children,
 } ) {
-	return <span className={styles.container}>{text}</span>;
+	return <span className={styles.container}>{children}</span>;
 }
 
 Pill.propTypes = {
 	/**
-	 * String to be rendered inside the pill.
+	 * String or node to be rendered inside the pill.
 	 */
-	text: PropTypes.string.isRequired,
+	children: PropTypes.node.isRequired,
 };
 
 export default Pill;

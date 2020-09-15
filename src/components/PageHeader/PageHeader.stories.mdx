@@ -12,17 +12,6 @@ It takes optional children, which should be navigation elements (tabs, search ba
 
 ## Props
 
-<ArgsTable story="Default" />
-
-## Usage guidelines
-
-- **Do not** use this on a page where an H1 already exists
-- **Do not** use the optional children for general page content
-
-## Examples
-
-### Default
-
 <Canvas>
 	<Story
 		args={{
@@ -34,16 +23,39 @@ It takes optional children, which should be navigation elements (tabs, search ba
 	</Story>
 </Canvas>
 
+<ArgsTable story="Default" />
+
+## Usage guidelines
+
+- **Do not** use this on a page where an H1 already exists
+- **Do not** use the optional children for general page content
+
+## Examples
+
 ### With intro, no border
 
 <Canvas>
 	<Story
 		args={{
-			title: "Good morning, USA",
 			border: false,
-			intro: "I’ve got a feeling that it’s gonna be a wonderful day",
+			intro: "I’ve got a feeling that it’s gonna be a wonderful day.",
+			title: "Good morning, USA",
 		}}
-		name="With Intro"
+		name="With intro"
+	>
+		{ args => <PageHeader {...args} /> }
+	</Story>
+</Canvas>
+
+### With tagline
+
+<Canvas>
+	<Story
+		args={{
+			title: "Good morning, USA",
+			tagline: "Last updated 3 hours ago",
+		}}
+		name="With tagline"
 	>
 		{ args => <PageHeader {...args} /> }
 	</Story>
@@ -64,7 +76,30 @@ It takes optional children, which should be navigation elements (tabs, search ba
 				</TabNav>
 			),
 		}}
-		name="With Children"
+		name="With navigation"
+	>
+		{ args => <PageHeader {...args} /> }
+	</Story>
+</Canvas>
+
+### “Fully dressed”
+
+<Canvas>
+	<Story
+		args={{
+			intro: "I’ve got a feeling that it’s gonna be a wonderful day.",
+			title: "Good morning, USA",
+			tagline: "Last updated 3 hours ago",
+			children: (
+				<TabNav>
+					<TabNavItem isActive={true}>Stan</TabNavItem>
+					<TabNavItem>Francine</TabNavItem>
+					<TabNavItem>Roger</TabNavItem>
+					<TabNavItem>Klaus</TabNavItem>
+				</TabNav>
+			),
+		}}
+		name="Fully dressed"
 	>
 		{ args => <PageHeader {...args} /> }
 	</Story>

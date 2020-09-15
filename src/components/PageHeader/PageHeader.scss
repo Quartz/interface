@@ -27,11 +27,16 @@
 	margin: 0;
 }
 
+.tagline {
+	max-width: 500px;
+	margin: 12px auto;
+}
+
 .intro {
-	@include font-maison-500-5;
+	@include font-maison-500-3;
 
 	max-width: 500px;
-	margin: 8px auto 0;
+	margin: 24px auto;
 	color: $color-typography-faint;
 
 	@include for-tablet-portrait-up {

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import styles from './Select.scss';
-import ExpandArrowDown from '../../svg/expand-arrow-down.svg';
 
 const cx = classnames.bind( styles );
 
@@ -47,10 +46,20 @@ const Select = ( {
 						</option>
 					) )}
 				</select>
-				<ExpandArrowDown
-					className={cx( 'down-arrow', { invalid } )}
+				<svg
 					aria-hidden="true"
-				/>
+					className={cx( 'down-arrow', { invalid } )}
+					height="6"
+					width="11"
+					viewBox="15 20 11 6"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M20.027 26l.016-.016 1.088-1.062 3.887-3.859L23.932 20l-3.894 3.852L16.104 20l-1.086 1.064 3.964 3.881z"
+						fillRule="evenodd"
+						style={{ fill: 'var(--color, #4C4C4C)' }}
+					/>
+				</svg>
 			</div>
 		</label>
 		{

@@ -2,22 +2,46 @@
 @import '~@quartz/styles/scss/color-scheme';
 @import '~@quartz/styles/scss/fonts';
 @import '~@quartz/styles/scss/media-queries';
+@import '~@quartz/styles/scss/tokens';
 
 .container {
-	text-align: center;
+	margin-top: 20px;
+
+	@include for-tablet-landscape-up {
+		margin-top: 48px;
+	}
 
 	&.border {
 		border-bottom: $border-solid-decorative;
 	}
+
+	&.show-padding {
+		padding-bottom: 28px;
+
+		@include for-tablet-landscape-up {
+			padding-bottom: 60px;
+		}
+	}
+}
+
+.children {
+	margin-top: 16px;
+
+	@include for-tablet-landscape-up {
+		margin-top: 24px;
+	}
 }
 
 .contents {
-	margin-top: 20px;
-	margin-bottom: 24px;
+	padding: 0 $size-gutter-mobile;
+	text-align: center;
 
 	@include for-tablet-portrait-up {
-		margin-top: 48px;
-		margin-bottom: 60px;
+		padding: 0 $size-gutter-tablet;
+	}
+
+	@include for-tablet-landscape-up {
+		padding: 0 $size-gutter-desktop;
 	}
 }
 
@@ -28,18 +52,19 @@
 }
 
 .tagline {
-	max-width: 500px;
 	margin: 12px auto;
+	max-width: 500px;
 }
 
 .intro {
 	@include font-maison-500-3;
 
-	max-width: 500px;
-	margin: 24px auto;
 	color: $color-typography-faint;
+	margin: 16px auto;
+	max-width: 500px;
 
 	@include for-tablet-portrait-up {
+		margin: 24px auto;
 		max-width: 600px;
 	}
 

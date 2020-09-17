@@ -48,7 +48,7 @@ TextGroup.propTypes = {
 	 * Size preset for the text group. Adjusts the font size and spacing
 	 * of the headline (Hed component).
 	 */
-	size: PropTypes.oneOf( [ 'small', 'medium', 'large' ] ),
+	size: PropTypes.oneOf( [ 'small', 'medium', 'large', 'extra-large' ] ),
 
 	/**
 	 * Tagline to appear beneath the title.

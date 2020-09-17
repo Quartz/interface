@@ -3,22 +3,30 @@ import PropTypes from 'prop-types';
 import Tagline from '../Tagline/Tagline';
 import styles from './PageHeader.scss';
 
-const PageHeader = ( { border, children, intro, tagline, title } ) => (
-	<div className={`${styles.container} ${border ? styles.border : ''}`}>
-		<div className={styles.contents}>
-			<h1 className={styles.title}>{title}</h1>
-			{
-				tagline &&
-					<div className={styles.tagline}>
-						<Tagline>{tagline}</Tagline>
-					</div>
-			}
-			{
-				intro &&
-					<p className={styles.intro}>{intro}</p>
-			}
-		</div>
-		{children}
+const PageHeader = ( {
+	border,
+	children,
+	intro,
+	showPadding,
+	tagline,
+	title,
+} ) => (
+	<div className={`${styles.container} ${border ? styles.border : ''} ${showPadding ? styles.showPadding : ''}`}>
+		<h1 className={styles.title}>{title}</h1>
+		{
+			tagline &&
+				<div className={styles.tagline}>
+					<Tagline>{tagline}</Tagline>
+				</div>
+		}
+		{
+			intro &&
+				<p className={styles.intro}>{intro}</p>
+		}
+		{
+			children &&
+				<div className={styles.children}>{children}</div>
+		}
 	</div>
 );
 
@@ -39,6 +47,11 @@ PageHeader.propTypes = {
 	intro: PropTypes.node,
 
 	/**
+	 * Boolean to determine whether to add padding to the header before the bottom border.
+	 */
+	showPadding: PropTypes.bool.isRequired,
+
+	/**
 	 * Very small-print text used directly below the title (e.g., as a dateline).
 	 */
 	tagline: PropTypes.node,
@@ -51,6 +64,7 @@ PageHeader.propTypes = {
 
 PageHeader.defaultProps = {
 	border: true,
+	showPadding: true,
 };
 
 export default PageHeader;

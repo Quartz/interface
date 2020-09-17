@@ -4,20 +4,31 @@
 @import '~@quartz/styles/scss/media-queries';
 
 .container {
+	margin-top: 20px;
 	text-align: center;
+
+	@include for-tablet-landscape-up {
+		margin-top: 48px;
+	}
 
 	&.border {
 		border-bottom: $border-solid-decorative;
 	}
+
+	&.show-padding {
+		padding-bottom: 28px;
+
+		@include for-tablet-landscape-up {
+			padding-bottom: 60px;
+		}
+	}
 }
 
-.contents {
-	margin-top: 20px;
-	margin-bottom: 24px;
+.children {
+	margin-top: 16px;
 
-	@include for-tablet-portrait-up {
-		margin-top: 48px;
-		margin-bottom: 60px;
+	@include for-tablet-landscape-up {
+		margin-top: 24px;
 	}
 }
 
@@ -28,18 +39,19 @@
 }
 
 .tagline {
-	max-width: 500px;
 	margin: 12px auto;
+	max-width: 500px;
 }
 
 .intro {
 	@include font-maison-500-3;
 
-	max-width: 500px;
-	margin: 24px auto;
 	color: $color-typography-faint;
+	margin: 16px auto;
+	max-width: 500px;
 
 	@include for-tablet-portrait-up {
+		margin: 24px auto;
 		max-width: 600px;
 	}
 

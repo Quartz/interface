@@ -68,26 +68,6 @@ export const schemes = {
 		typography: '#000',
 		ui: '#000',
 	},
-	WORK_LIGHT: {
-		accent: colors.teal,
-		background1: colors[ 'off-white' ],
-		background2: null,
-		background3: null,
-		background4: null,
-		borderInteractive: null,
-		typography: colors.black,
-		ui: colors[ 'dark-gray' ],
-	},
-	WORK_DARK: {
-		accent: colors[ 'light-teal' ],
-		background1: colors.teal,
-		background2: null,
-		background3: null,
-		background4: null,
-		borderInteractive: null,
-		typography: colors.white,
-		ui: colors.white,
-	},
 };
 
 /**

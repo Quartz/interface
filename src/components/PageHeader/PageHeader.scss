@@ -2,10 +2,10 @@
 @import '~@quartz/styles/scss/color-scheme';
 @import '~@quartz/styles/scss/fonts';
 @import '~@quartz/styles/scss/media-queries';
+@import '~@quartz/styles/scss/tokens';
 
 .container {
 	margin-top: 20px;
-	text-align: center;
 
 	@include for-tablet-landscape-up {
 		margin-top: 48px;
@@ -29,6 +29,19 @@
 
 	@include for-tablet-landscape-up {
 		margin-top: 24px;
+	}
+}
+
+.contents {
+	padding: 0 $size-gutter-mobile;
+	text-align: center;
+
+	@include for-tablet-portrait-up {
+		padding: 0 $size-gutter-tablet;
+	}
+
+	@include for-tablet-landscape-up {
+		padding: 0 $size-gutter-desktop;
 	}
 }
 

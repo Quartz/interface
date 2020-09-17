@@ -12,17 +12,19 @@ const PageHeader = ( {
 	title,
 } ) => (
 	<div className={`${styles.container} ${border ? styles.border : ''} ${showPadding ? styles.showPadding : ''}`}>
-		<h1 className={styles.title}>{title}</h1>
-		{
-			tagline &&
-				<div className={styles.tagline}>
-					<Tagline>{tagline}</Tagline>
-				</div>
-		}
-		{
-			intro &&
-				<p className={styles.intro}>{intro}</p>
-		}
+		<div className={styles.contents}>
+			<h1 className={styles.title}>{title}</h1>
+			{
+				tagline &&
+					<div className={styles.tagline}>
+						<Tagline>{tagline}</Tagline>
+					</div>
+			}
+			{
+				intro &&
+					<p className={styles.intro}>{intro}</p>
+			}
+		</div>
 		{
 			children &&
 				<div className={styles.children}>{children}</div>

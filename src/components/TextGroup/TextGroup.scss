@@ -9,7 +9,8 @@
 		color: $color-accent;
 	}
 
-	&.large {
+	&.large,
+	&.extra-large {
 		@include for-tablet-landscape-up {
 			margin-bottom: 8px;
 		}
@@ -19,7 +20,8 @@
 .tagline {
 	margin-top: 4px;
 
-	&.large {
+	&.large,
+	&.extra-large {
 		@include for-tablet-landscape-up {
 			margin-top: 8px;
 		}

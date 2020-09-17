@@ -15,5 +15,9 @@
 }
 
 .large {
+	@include font-maison-800-5;
+}
+
+.extra-large {
 	@include font-maison-800-7;
 }

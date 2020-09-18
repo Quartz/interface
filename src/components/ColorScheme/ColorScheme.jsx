@@ -20,7 +20,7 @@ const colors = Object.keys( color ).reduce( ( acc, colorName ) => ( {
  * define it here. Other color schemes are defined in the CMS (e.g., for a
  * series or guide).
  *
- * A color scheme contains at least four colors. Order matters.
+ * A color scheme contains at least four colors.
  *
  * 1. Typography: Default font color.
  * 2. Background 1: Background color of the page.
@@ -40,6 +40,7 @@ const colors = Object.keys( color ).reduce( ( acc, colorName ) => ( {
  *    Typography with 10% alpha channel.
  * 8. Navigation background: background of the navigation and tab bar. Defaults
  *    to Background 1.
+ * 9. Highlight: color used to highlight text or other UI elements for emphasis.
  */
 export const schemes = {
 	LIGHT: {
@@ -49,6 +50,7 @@ export const schemes = {
 		background3: null,
 		background4: colors.white,
 		borderInteractive: null,
+		highlight: createRgba( ...hexToRgb( colors[ 'accent-blue' ] ), 0.2 ),
 		typography: colors.black,
 		ui: colors.black,
 	},
@@ -59,6 +61,7 @@ export const schemes = {
 		background3: null,
 		background4: null,
 		borderInteractive: null,
+		highlight: createRgba( ...hexToRgb( colors.pink ), 0.25 ),
 		typography: colors.white,
 		ui: colors.white,
 	},
@@ -67,26 +70,6 @@ export const schemes = {
 		background1: 'transparent',
 		typography: '#000',
 		ui: '#000',
-	},
-	WORK_LIGHT: {
-		accent: colors.teal,
-		background1: colors[ 'off-white' ],
-		background2: null,
-		background3: null,
-		background4: null,
-		borderInteractive: null,
-		typography: colors.black,
-		ui: colors[ 'dark-gray' ],
-	},
-	WORK_DARK: {
-		accent: colors[ 'light-teal' ],
-		background1: colors.teal,
-		background2: null,
-		background3: null,
-		background4: null,
-		borderInteractive: null,
-		typography: colors.white,
-		ui: colors.white,
 	},
 };
 
@@ -110,6 +93,7 @@ function getCss ( {
 	background3,
 	background4,
 	borderInteractive,
+	highlight,
 	type,
 	typography,
 	ui,
@@ -129,6 +113,7 @@ function getCss ( {
 					--color-background-navigation: transparent;
 					--color-border-decorative: ${ui};
 					--color-border-interactive: ${ui};
+					--color-highlight: transparent;
 					--color-typography: ${typography};
 					--color-typography-faint: ${typography};
 					--color-ui: ${ui};
@@ -163,6 +148,7 @@ function getCss ( {
 				--color-background-modal: ${backgroundModal};
 				--color-border-decorative: ${borderDecorative};
 				--color-border-interactive: ${borderInteractive || borderInteractiveFallback};
+				--color-highlight: ${highlight || borderDecorative};
 				--color-typography: ${typography};
 				--color-typography-faint: ${typographyFaint};
 				--color-ui: ${ui};
@@ -183,6 +169,7 @@ function ColorScheme( {
 	background3,
 	background4,
 	borderInteractive,
+	highlight,
 	type,
 	typography,
 	ui,
@@ -196,6 +183,7 @@ function ColorScheme( {
 		background3,
 		background4,
 		borderInteractive,
+		highlight,
 		type,
 		typography,
 		ui,
@@ -239,6 +227,12 @@ ColorScheme.propTypes = {
 	 * `typography` with 30% alpha channel.
 	 */
 	borderInteractive: PropTypes.string,
+
+	/**
+	 * The background color used for highlighting text or other UI elements for
+	 * emphasis. Defaults to `typography` with 15% alpha channel.
+	 */
+	highlight: PropTypes.string,
 
 	/**
 	 * The color scheme type. If a value other than `default` or `print` is

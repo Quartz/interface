@@ -5,7 +5,7 @@
 .container {
 	@include font-maison-extended-700-1;
 
-	background-color: $color-border-decorative;
+	background-color: $color-highlight;
 	border-radius: $size-border-radius;
 	display: inline-block;
 	padding: 0.5em;

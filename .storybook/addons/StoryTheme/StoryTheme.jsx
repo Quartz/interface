@@ -15,14 +15,6 @@ function StoryTheme ( { children, themeName } ) {
 		scheme = schemes.DARK;
 	}
 
-	if ( 'At Work Light' === themeName ) {
-		scheme = schemes.WORK_LIGHT;
-	}
-
-	if ( 'At Work Dark' === themeName ) {
-		scheme = schemes.WORK_DARK;
-	}
-
 	return (
 		<>
 			<ColorScheme
@@ -36,7 +28,7 @@ function StoryTheme ( { children, themeName } ) {
 
 StoryTheme.propTypes = {
 	children: PropTypes.node,
-	themeName: PropTypes.oneOf( [ 'At Work Dark', 'At Work Light', 'Dark', 'Light' ] ).isRequired,
+	themeName: PropTypes.oneOf( [ 'Dark', 'Light' ] ).isRequired,
 };
 
 export default StoryTheme;

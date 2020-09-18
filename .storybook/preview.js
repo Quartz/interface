@@ -19,8 +19,6 @@ addParameters( {
 		list: [
 			{ name: 'Light', color: color[ 'off-white' ].value, default: true },
 			{ name: 'Dark', color: color[ 'dark-blue' ].value },
-			{ name: 'At Work Light', color: color[ 'light-teal' ].value },
-			{ name: 'At Work Dark', color: color[ 'dark-teal' ].value },
 		],
 	},
 } );

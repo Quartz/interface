@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './EmojiList.scss';
 
@@ -10,39 +10,42 @@ const getBulletStyle = ( bullet, listId, i ) => {
 	return `.${listId} li:nth-of-type(${i + 1})::before { content: '${bullet}'; }`;
 };
 
-const ListStyles = ( { bullets, listId } ) => (
-	<style
-		dangerouslySetInnerHTML={{
-			__html: bullets
-				.map( ( bullet, index ) => getBulletStyle( bullet, listId, index ) )
-				.join( '' ),
-		}}
-	/>
-);
+const ListStyles = ( { bullets, listId, renderStyles } ) => {
+	const css = bullets
+		.map( ( bullet, index ) => getBulletStyle( bullet, listId, index ) )
+		.join( '' );
+
+	if ( renderStyles ) {
+		return renderStyles( css );
+	}
+
+	return (
+		<style dangerouslySetInnerHTML={{ __html: css }} />
+	);
+};
 
 ListStyles.propTypes = {
 	bullets: PropTypes.array.isRequired,
 	listId: PropTypes.string.isRequired,
+	renderStyles: PropTypes.func,
 };
 
 const ListItems = ( {
-	listId,
+	children,
 	innerHtml = '',
-	items,
+	listId,
 	tagName,
 } ) => {
-	// If a list of nodes is passed in, render it as a child of <li> tags
-	if ( items ) {
-		const listItems = items.map( ( item, i ) => <li key={i}>{item}</li> );
-
+	// If a children are provided, render them.
+	if ( children ) {
 		return React.createElement(
 			tagName,
 			{ className: `${styles.container} ${listId}` },
-			listItems
+			children
 		);
 	}
 
-	// If html is passed in, set it as a prop
+	// If html is passed in, dangerously set it.
 	return React.createElement(
 		tagName,
 		{
@@ -53,8 +56,8 @@ const ListItems = ( {
 };
 
 ListItems.propTypes = {
+	children: PropTypes.node,
 	innerHtml: PropTypes.string,
-	items: PropTypes.arrayOf( PropTypes.node ),
 	listId: PropTypes.string.isRequired,
 	tagName: PropTypes.oneOf( [ 'ul', 'ol' ] ),
 };
@@ -69,34 +72,59 @@ const stripHtmlEmojis = ( html = '', emojis ) => {
 	return html.replace( pattern, '' );
 };
 
-/**
- * Displays a WP content block or a list of nodes.
- */
-export const EmojiList = ( {
+const EmojiList = ( {
 	bullets,
+	children,
 	innerHtml,
-	items,
+	renderStyles,
 	tagName,
 } ) => {
 	const emojiId = bullets.join( '-' );
 
 	return (
-		<Fragment>
-			<ListStyles bullets={bullets} listId={emojiId} />
+		<>
+			<ListStyles
+				bullets={bullets}
+				listId={emojiId}
+				renderStyles={renderStyles}
+			/>
 			<ListItems
+				children={children}
 				listId={emojiId}
 				innerHtml={stripHtmlEmojis( innerHtml, bullets )}
-				items={items}
 				tagName={tagName}
 			/>
-		</Fragment>
+		</>
 	);
 };
 
 EmojiList.propTypes = {
+	/**
+	 * An array of emojis, one for each list item, in order.
+	 */
 	bullets: PropTypes.arrayOf( PropTypes.string ).isRequired,
+
+	/**
+	 * If you have JSX representing the list items, pass it as a children prop
+	 * without an enclosing `<ul>` or `<ol>` (use tagName).
+	 */
+	children: PropTypes.node,
+
+	/**
+	 * If you do not have JSX and instead have raw HTML, pass it as an innerHtml
+	 * prop.
+	 */
 	innerHtml: PropTypes.string,
-	items: PropTypes.arrayOf( PropTypes.node ),
+
+	/**
+	 * An optional render prop to customize the rendering of the CSS. If omitted,
+	 * an inline style tag will be rendered just before the list.
+	 */
+	renderStyles: PropTypes.func,
+
+	/**
+	 * The type of list to render.
+	 */
 	tagName: PropTypes.oneOf( [ 'ol', 'ul' ] ).isRequired,
 };
 
@@ -105,23 +133,4 @@ EmojiList.defaultProps = {
 	tagName: 'ul',
 };
 
-/**
- * An emoji list of arbitrary content.
- */
-export const StructuredEmojiList = ( { items } ) => (
-	<EmojiList
-		bullets={items.map( ( { bullet } ) => bullet )}
-		items={items.map( ( { item } ) => item )}
-	/>
-);
-
-StructuredEmojiList.defaultProps = {
-	items: [],
-};
-
-StructuredEmojiList.propTypes = {
-	items: PropTypes.arrayOf( PropTypes.shape( {
-		bullet: PropTypes.string,
-		item: PropTypes.node,
-	} ) ).isRequired,
-};
+export default EmojiList;

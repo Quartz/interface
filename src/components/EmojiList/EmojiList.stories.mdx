@@ -1,15 +1,17 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
-import { EmojiList, StructuredEmojiList } from './EmojiList';
+import EmojiList from './EmojiList';
+import CalloutCard from '../CalloutCard/CalloutCard';
 
 <Meta title="EmojiList" component={EmojiList} />
 
 # EmojiList
 
-A list of items with a descriptive emoji as a bullet point. There are two components exported for use:
+A list of items with a descriptive emoji as a bullet point.
 
-- Use `EmojiList` when pulling in a bulleted list from the post content of a WordPress post. `EmojiList` parses raw html, pulls out the emojis, and styles the list appropriately.
+## Usage
 
-- Use `StructuredEmojiList` when passing an array of objects into EmojiList—e.g., when you are creating an emoji list from code.
+- **Do** use the `innerHtml` prop when pulling in a bulleted list from the post content of a WordPress post. It will parse the raw html, pull out the emojis, and style the list appropriately.
+- **Do** use the `children` prop when you are creating an emoji list from code, passing in JSX representing the list items (`<li>`s).
 
 ## Props
 
@@ -30,52 +32,62 @@ A list of items with a descriptive emoji as a bullet point. There are two compon
 
 ## Stories
 
-### Structured
+### With children prop
 
 <Canvas>
 	<Story
 		args={{
-			items: [
-				{
-					item: (
-						<>
-							<h2>All of Quartz journalism, unlocked</h2>
-							<p>Goodbye paywall, hello access across platforms, including on our iOS app to global business news that offers a fresh perspective on the financial forces changing the world.</p>
-						</>
-					),
-					bullet: '🔐',
-				},
-				{
-					item: (
-						<>
-							<h2>Weekly Field Guides</h2>
-							<p>Deep dives on the companies, people, and phenomena defining the global economy. Topics include <a href="/guide/antiracist-company/">how to build an anti-racist company</a>, <a href="/guide/world-vs-coronavirus/">world vs. coronavirus</a>, <a href="/guide/startups-fail/">why startups fail</a>, and <a href="/guide/gen-z/">what gen z wants</a>.</p>
-						</>
-					),
-					bullet: '📚',
-				},
-				{
-					item: (
-						<>
-							<h2>Member-only newsletters</h2>
-							<p>Every Monday, we’ll send you a TLDR of our latest field guide, and on Thursday, an exclusive essay with a wrap up of the best of Quartz for weekend reading.</p>
-						</>
-					),
-					bullet: '📬',
-				},
-				{
-					item: (
-						<>
-							<h2>Digital events from Quartz at Work</h2>
-							<p>Get early invites—and access to playbacks and recaps—for bi-monthly virtual events that explore the challenges of a modern-day worker.</p>
-						</>
-					),
-					bullet: '👨‍💻',
-				},
+			bullets: [
+				'🔐',
+				'📚',
+				'📬',
+				'👨‍💻',
 			],
-			}}
-		name="Structured"
+			children: (
+				<>
+					<li>
+						<h2>All of Quartz journalism, unlocked</h2>
+						<p>Goodbye paywall, hello access across platforms, including on our iOS app to global business news that offers a fresh perspective on the financial forces changing the world.</p>
+					</li>
+					<li>
+						<h2>Weekly Field Guides</h2>
+						<p>Deep dives on the companies, people, and phenomena defining the global economy. Topics include <a href="/guide/antiracist-company/">how to build an anti-racist company</a>, <a href="/guide/world-vs-coronavirus/">world vs. coronavirus</a>, <a href="/guide/startups-fail/">why startups fail</a>, and <a href="/guide/gen-z/">what gen z wants</a>.</p>
+					</li>
+					<li>
+						<h2>Member-only newsletters</h2>
+						<p>Every Monday, we’ll send you a TLDR of our latest field guide, and on Thursday, an exclusive essay with a wrap up of the best of Quartz for weekend reading.</p>
+					</li>
+					<li>
+						<h2>Digital events from Quartz at Work</h2>
+						<p>Get early invites—and access to playbacks and recaps—for bi-monthly virtual events that explore the challenges of a modern-day worker.</p>
+					</li>
+				</>
+			),
+		}}
+		name="Children prop"
 	>
-		{args => <StructuredEmojiList {...args} />}
+		{args => <EmojiList {...args} />}
+	</Story>
+</Canvas>
+
+### Using render prop for custom style rendering
+
+This approach is useful when you need greater control of how the accompanying
+CSS is rendered (e.g., in AMP). Here we simply render the styles in a
+`CalloutCard`.
+
+<Canvas>
+	<Story
+		args={{
+			bullets: [ '🚫' ],
+			id: 'render-prop',
+			innerHtml: '<li>hello from AMP, where inline styles are verboten</li>',
+			renderStyles: css => (
+				<CalloutCard><code>{css}</code></CalloutCard>
+			),
+		}}
+		name="Render prop"
+	>
+		{args => <EmojiList {...args} />}
 	</Story>
 </Canvas>

@@ -79,7 +79,8 @@ const EmojiList = ( {
 	renderStyles,
 	tagName,
 } ) => {
-	const emojiId = bullets.join( '-' );
+	const emojiId = 'testymctest';
+	// bullets.join( '-' );
 
 	return (
 		<>

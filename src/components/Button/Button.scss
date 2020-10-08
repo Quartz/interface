@@ -1,20 +1,19 @@
-@import '~@quartz/styles/scss/borders';
-@import '~@quartz/styles/scss/color-scheme';
-@import '~@quartz/styles/scss/fonts';
-@import '~@quartz/styles/scss/helpers/positioning';
-@import '~@quartz/styles/scss/helpers/resets';
-@import '~@quartz/styles/scss/states';
-@import '~@quartz/styles/scss/tokens';
+@use '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/fonts';
+@use '~@quartz/styles/scss/helpers/positioning';
+@use '~@quartz/styles/scss/helpers/resets';
+@use '~@quartz/styles/scss/states';
+@use '~@quartz/styles/scss/tokens';
 
 .button {
-	@include reset-button;
-	@include fade-on-hover;
+	@include resets.button;
+	@include states.fade-on-hover;
 
 	cursor: pointer;
 	position: relative;
 
 	&:disabled {
-		@include reset-fade-on-hover;
+		@include states.fade-on-hover;
 
 		opacity: 0.5;
 		cursor: default;
@@ -31,11 +30,11 @@
 }
 
 .spinner {
-	@include center;
+	@include positioning.center;
 }
 
 .label {
-	@include font-maison;
+	@include fonts.maison;
 
 	font-size: 16px;
 	opacity: inherit;
@@ -47,34 +46,34 @@
 		display: block;
 		box-sizing: border-box;
 		text-align: center;
-		border-radius: $size-border-radius;
+		border-radius: tokens.$size-border-radius;
 		padding: 14px;
 	}
 }
 
 .variant-primary {
-	color: $color-accent;
+	color: color-scheme.$accent;
 
 	&.block {
-		color: $color-background-2;
-		background-color: $color-accent;
+		color: color-scheme.$background-2;
+		background-color: color-scheme.$accent;
 	}
 }
 
 .variant-secondary {
-	color: $color-typography-faint;
+	color: color-scheme.$typography-faint;
 
 	&.block {
-		color: $color-typography;
-		background-color: $color-background-3;
+		color: color-scheme.$typography;
+		background-color: color-scheme.$background-3;
 	}
 }
 
 .variant-warning {
-	color: $color-red;
+	color: tokens.$color-red;
 
 	&.block {
-		color: $color-white;
-		background-color: $color-red;
+		color: tokens.$color-white;
+		background-color: tokens.$color-red;
 	}
 }

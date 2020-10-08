@@ -1,8 +1,7 @@
-@import '~@quartz/styles/scss/color-scheme';
-@import '~@quartz/styles/scss/fonts';
+@use '~@quartz/styles/scss/color-scheme';
 
 .blockquote {
-	color: $color-typography;
+	color: color-scheme.$typography;
 	position: relative;
 	padding-left: 24px;
 	margin-left: 0;
@@ -16,7 +15,7 @@
 		left: 0;
 		width: 4px;
 		height: 100%;
-		background-color: $color-border-decorative;
+		background-color: color-scheme.$border-decorative;
 		border-radius: 2px;
 	}
 }

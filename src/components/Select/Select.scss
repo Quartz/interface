@@ -1,11 +1,12 @@
-@import '~@quartz/styles/scss/borders';
-@import '~@quartz/styles/scss/color-scheme';
-@import '~@quartz/styles/scss/fonts';
-@import '~@quartz/styles/scss/helpers/positioning';
-@import '~@quartz/styles/scss/helpers/resets';
+@use '~@quartz/styles/scss/borders';
+@use '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/fonts';
+@use '~@quartz/styles/scss/helpers/positioning';
+@use '~@quartz/styles/scss/helpers/resets';
+@use '~@quartz/styles/scss/tokens';
 
 .container {
-	@include font-maison;
+	@include fonts.maison;
 }
 
 .select-container {
@@ -13,79 +14,79 @@
 }
 
 .select {
-	@include reset-select;
+	@include resets.select;
 
 	display: inline-block;
 	height: 45px;
 	width: 100%;
 	min-width: 210px;
-	border-radius: $size-border-radius;
-	border: $border-solid-interactive;
+	border-radius: tokens.$size-border-radius;
+	border: borders.$solid-interactive;
 	cursor: pointer;
 	font-size: 16px;
-	color: $color-typography;
+	color: color-scheme.$typography;
 	padding: 0 15px 0 40px;
-	background-color: $color-background-2;
+	background-color: color-scheme.$background-2;
 
 	&:disabled {
 		opacity: 0.5;
 
 		&:hover {
-			border-color: $color-border-interactive;
+			border-color: color-scheme.$border-interactive;
 		}
 	}
 
 	&[aria-invalid="true"] {
-		color: $color-red;
-		border-color: $color-red;
+		color: tokens.$color-red;
+		border-color: tokens.$color-red;
 	}
 
 	&.is-placeholder {
-		color: $color-typography-faint;
+		color: color-scheme.$typography-faint;
 	}
 
 	&:hover,
 	&:focus {
-		border-color: $color-accent;
+		border-color: color-scheme.$accent;
 	}
 }
 
 .down-arrow {
-	@include vertical-center;
+	@include positioning.vertical-center;
 
-	--color: #{$color-typography};
+	--color: #{color-scheme.$typography};
 
 	left: 16px;
 
 	.select:hover + & {
-		--color: #{$color-accent};
+		--color: #{color-scheme.$accent};
 	}
 
 	.select:disabled + &,
 	.select:disabled:hover + & {
-		--color: #{$color-typography};
+		--color: #{color-scheme.$typography};
 
 		opacity: 0.5;
 	}
 
 	&.invalid {
-		--color: #{$color-red};
+		--color: #{tokens.$color-red};
 	}
 }
 
 .subtext {
 	margin-top: 10px;
 	font-size: 12px;
-	color: $color-typography-faint;
+	color: color-scheme.$typography-faint;
 	display: block;
 
 	&.invalid {
-		color: $color-red;
+		color: tokens.$color-red;
 	}
 }
 
 .label {
-	@include font-maison-extended-700-1;
+	@include fonts.maison-extended-700-1;
 
 	display: block;
 	margin-bottom: 7px;

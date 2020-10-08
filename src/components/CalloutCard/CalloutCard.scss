@@ -1,17 +1,18 @@
-@import '~@quartz/styles/scss/borders';
-@import '~@quartz/styles/scss/color-scheme';
-@import '~@quartz/styles/scss/media-queries';
-@import '~@quartz/styles/scss/fonts';
+@use '~@quartz/styles/scss/borders';
+@use '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/media-queries';
+@use '~@quartz/styles/scss/fonts';
+@use '~@quartz/styles/scss/tokens';
 
 .container {
-	@include font-maison-500-3;
+	@include fonts.maison-500-3;
 
-	background-color: $color-background-2;
-	border: $border-solid-decorative;
-	border-radius: $size-border-radius;
+	background-color: color-scheme.$background-2;
+	border: borders.$solid-decorative;
+	border-radius: tokens.$size-border-radius;
 	padding: 24px 12px;
 
-	@include for-tablet-portrait-up {
+	@include media-queries.tablet-portrait-up {
 		padding: 28px;
 	}
 }

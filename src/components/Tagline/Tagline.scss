@@ -1,8 +1,8 @@
-@import '~@quartz/styles/scss/color-scheme';
-@import '~@quartz/styles/scss/fonts';
+@use '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/fonts';
 
 .container {
-	@include font-maison-500-1;
+	@include fonts.maison-500-1;
 
-	color: $color-typography-faint;
+	color: color-scheme.$typography-faint;
 }

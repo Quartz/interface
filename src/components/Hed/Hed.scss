@@ -1,23 +1,23 @@
-@import '~@quartz/styles/scss/color-scheme';
-@import '~@quartz/styles/scss/fonts';
+@use '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/fonts';
 
 .container {
-	color: $color-typography;
+	color: color-scheme.$typography;
 	margin: 0;
 }
 
 .small {
-	@include font-maison-800-2;
+	@include fonts.maison-800-2;
 }
 
 .medium {
-	@include font-maison-800-4;
+	@include fonts.maison-800-4;
 }
 
 .large {
-	@include font-maison-800-5;
+	@include fonts.maison-800-5;
 }
 
 .extra-large {
-	@include font-maison-800-7;
+	@include fonts.maison-800-7;
 }

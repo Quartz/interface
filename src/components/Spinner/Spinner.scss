@@ -1,5 +1,5 @@
-@import '~@quartz/styles/scss/color-scheme';
-@import '~@quartz/styles/scss/helpers/a11y';
+@use '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/helpers/a11y';
 
 /* from https://projects.lukehaas.me/css-loaders/ */
 
@@ -20,10 +20,10 @@
 	display: inline-block;
 	transform: translateZ(0);
 	animation: spin 1.1s infinite cubic-bezier(0.32, 0.64, 0.71, 0.74);
-	border: 2px solid $color-accent;
-	border-top: 2px solid $color-background-1;
+	border: 2px solid color-scheme.$accent;
+	border-top: 2px solid color-scheme.$background-1;
 }
 
 .label {
-	@include visually-hidden;
+	@include a11y.visually-hidden;
 }

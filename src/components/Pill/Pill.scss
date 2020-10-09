@@ -1,12 +1,12 @@
-@import '~@quartz/styles/scss/color-scheme';
-@import '~@quartz/styles/scss/fonts';
-@import '~@quartz/styles/scss/media-queries';
+@use '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/fonts';
+@use '~@quartz/styles/scss/tokens';
 
 .container {
-	@include font-maison-extended-700-1;
+	@include fonts.maison-extended-700-1;
 
-	background-color: $color-highlight;
-	border-radius: $size-border-radius;
+	background-color: color-scheme.$highlight;
+	border-radius: tokens.$size-border-radius;
 	display: inline-block;
 	padding: 0.5em;
 	vertical-align: middle;

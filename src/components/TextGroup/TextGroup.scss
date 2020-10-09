@@ -1,17 +1,17 @@
-@import '~@quartz/styles/scss/color-scheme';
-@import '~@quartz/styles/scss/media-queries';
+@use '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/media-queries';
 
 .kicker {
-	color: $color-typography-faint;
+	color: color-scheme.$typography-faint;
 	margin-bottom: 4px;
 
 	&.is-article {
-		color: $color-accent;
+		color: color-scheme.$accent;
 	}
 
 	&.large,
 	&.extra-large {
-		@include for-tablet-landscape-up {
+		@include media-queries.tablet-landscape-up {
 			margin-bottom: 8px;
 		}
 	}
@@ -22,7 +22,7 @@
 
 	&.large,
 	&.extra-large {
-		@include for-tablet-landscape-up {
+		@include media-queries.tablet-landscape-up {
 			margin-top: 8px;
 		}
 	}

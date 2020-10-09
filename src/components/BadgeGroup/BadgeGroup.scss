@@ -1,4 +1,4 @@
-@import '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/color-scheme';
 
 .container {
 	align-items: start;
@@ -20,6 +20,6 @@
 	margin-left: 16px;
 
 	& > path {
-		fill: $color-typography-faint;
+		fill: color-scheme.$typography-faint;
 	}
 }

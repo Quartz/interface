@@ -1,7 +1,7 @@
-@import '~@quartz/styles/scss/helpers/resets';
+@use '~@quartz/styles/scss/helpers/resets';
 
 .container {
-	@include reset-ul;
+	@include resets.ul;
 
 	li {
 		position: relative;

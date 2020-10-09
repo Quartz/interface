@@ -1,7 +1,7 @@
-@import '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/color-scheme';
 
 .container {
-	background: $color-background-3;
+	background: color-scheme.$background-3;
 	border-radius: 50%;
 	overflow: hidden;
 }

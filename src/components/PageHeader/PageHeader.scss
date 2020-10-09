@@ -1,24 +1,24 @@
-@import '~@quartz/styles/scss/borders';
-@import '~@quartz/styles/scss/color-scheme';
-@import '~@quartz/styles/scss/fonts';
-@import '~@quartz/styles/scss/media-queries';
-@import '~@quartz/styles/scss/tokens';
+@use '~@quartz/styles/scss/borders';
+@use '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/fonts';
+@use '~@quartz/styles/scss/media-queries';
+@use '~@quartz/styles/scss/tokens';
 
 .container {
 	margin-top: 20px;
 
-	@include for-tablet-landscape-up {
+	@include media-queries.tablet-landscape-up {
 		margin-top: 48px;
 	}
 
 	&.border {
-		border-bottom: $border-solid-decorative;
+		border-bottom: borders.$solid-decorative;
 	}
 
 	&.show-padding {
 		padding-bottom: 28px;
 
-		@include for-tablet-landscape-up {
+		@include media-queries.tablet-landscape-up {
 			padding-bottom: 60px;
 		}
 	}
@@ -27,26 +27,26 @@
 .children {
 	margin-top: 16px;
 
-	@include for-tablet-landscape-up {
+	@include media-queries.tablet-landscape-up {
 		margin-top: 24px;
 	}
 }
 
 .contents {
-	padding: 0 $size-gutter-mobile;
+	padding: 0 tokens.$size-gutter-mobile;
 	text-align: center;
 
-	@include for-tablet-portrait-up {
-		padding: 0 $size-gutter-tablet;
+	@include media-queries.tablet-portrait-up {
+		padding: 0 tokens.$size-gutter-tablet;
 	}
 
-	@include for-tablet-landscape-up {
-		padding: 0 $size-gutter-desktop;
+	@include media-queries.tablet-landscape-up {
+		padding: 0 tokens.$size-gutter-desktop;
 	}
 }
 
 .title {
-	@include font-maison-800-10;
+	@include fonts.maison-800-10;
 
 	margin: 0;
 }
@@ -57,18 +57,18 @@
 }
 
 .intro {
-	@include font-maison-500-3;
+	@include fonts.maison-500-3;
 
-	color: $color-typography-faint;
+	color: color-scheme.$typography-faint;
 	margin: 16px auto;
 	max-width: 500px;
 
-	@include for-tablet-portrait-up {
+	@include media-queries.tablet-portrait-up {
 		margin: 24px auto;
 		max-width: 600px;
 	}
 
-	@include for-tablet-landscape-up {
+	@include media-queries.tablet-landscape-up {
 		max-width: 760px;
 	}
 }

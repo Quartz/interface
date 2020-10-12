@@ -23,7 +23,7 @@ function ImageAmp ( {
 			width={width / height}
 		/>
 	);
-};
+}
 
 ImageAmp.propTypes = {
 	alt: PropTypes.string.isRequired,

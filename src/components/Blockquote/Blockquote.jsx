@@ -6,7 +6,7 @@ function Blockquote( { children } ) {
 	return (
 		<blockquote className={styles.blockquote}>{children}</blockquote>
 	);
-};
+}
 
 Blockquote.propTypes = {
 	/**

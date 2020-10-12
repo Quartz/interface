@@ -29,7 +29,7 @@
 		"@babel/core": "^7.10.4",
 		"@babel/preset-env": "^7.10.4",
 		"@babel/preset-react": "^7.10.4",
-		"@quartz/eslint-config-react": "^1.0.4",
+		"@quartz/eslint-config-react": "^1.1.3",
 		"@quartz/stylelint-config": "^1.2.0",
 		"@quartz/styles": "github:Quartz/styles#aa7b8c0",
 		"@storybook/addon-a11y": "^6.0.10",

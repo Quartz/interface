@@ -74,7 +74,7 @@ function Image ( {
 			width={width}
 		/>
 	);
-};
+}
 
 Image.propTypes = {
 	/**

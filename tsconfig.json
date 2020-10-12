@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "jsx": "react",
+    "module": "es6",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "paths": {},
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "es2017"
+  },
+  "exclude": [
+    "node_modules",
+    "public"
+  ]
+}

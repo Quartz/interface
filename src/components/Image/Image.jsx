@@ -113,7 +113,7 @@ Image.propTypes = {
 	/**
 	 * The responsize `img` sizes attribute.
 	 */
-	sizes: PropTypes.string.isRequired,
+	sizes: PropTypes.string,
 
 	/**
 	 * The fallback `img` src attribute.
@@ -121,9 +121,9 @@ Image.propTypes = {
 	src: PropTypes.string.isRequired,
 
 	/**
-	 * The response `img` srcSet attribute.
+	 * The responsive `img` srcset attribute.
 	 */
-	srcSet: PropTypes.string.isRequired,
+	srcSet: PropTypes.string,
 
 	/**
 	 * The `img` title attribute.
@@ -136,4 +136,82 @@ Image.defaultProps = {
 	loading: 'lazy',
 };
 
-export default Image;
+/**
+ * Helper to update query string params
+ * @param  {string} uri
+ * @param  {string} key
+ * @param  {string} value
+ * @return {string}
+ */
+export const updateQueryStringParameter = ( uri, key, value ) => {
+	const re = new RegExp( `([?&])${key}=.*?(&|$)`, 'i' );
+	const separator = uri.indexOf( '?' ) !== -1 ? '&' : '?';
+
+	if ( uri.match( re ) ) {
+		return uri.replace( re, `$1${key}=${value}$2` );
+	}
+
+	return `${uri}${separator}${key}=${value}`;
+};
+
+function resizeWPImage( src, width, aspectRatio ) {
+	let resizedSrc = updateQueryStringParameter( src, 'w', width );
+
+	if ( aspectRatio ) {
+		resizedSrc = updateQueryStringParameter( resizedSrc, 'h', width * aspectRatio );
+		resizedSrc = updateQueryStringParameter( resizedSrc, 'crop', 1 );
+	}
+
+	return resizedSrc;
+}
+
+function arrayFromRange( min, max, increment = 1 ) {
+	const arr = new Array( Math.ceil( ( max - min ) / increment ) )
+		.fill()
+		.map( ( _, i ) => min + ( i * increment ) );
+
+	if ( arr.slice( -1 ) !== max ) {
+		arr.push( max );
+	}
+
+	return arr;
+}
+
+function WPResponsiveImage( {
+	alt,
+	aspectRatio,
+	fallbackWidth,
+	src,
+	widthRange,
+} ) {
+	const [ smallestWidth, largestWidth ] = widthRange;
+	const singleWidths = arrayFromRange( smallestWidth, largestWidth, 100 );
+	const doubleWidths = singleWidths.map( width => width * 2 );
+	const srcWidths = Array.from( new Set( [ ...singleWidths, ...doubleWidths ] ) );
+
+	// Map source widths to image URLs
+	const srcSet = srcWidths.map( width => `${resizeWPImage( src, width, aspectRatio )} ${width}w` );
+
+	return (
+		<Image
+			alt={alt}
+			src={resizeWPImage( src, fallbackWidth, aspectRatio )}
+			srcSet={srcSet.join()}
+			fallbackWidth={fallbackWidth}
+			fallbackHeight={fallbackWidth * aspectRatio}
+		/>
+	);
+}
+
+WPResponsiveImage.propTypes = {
+	alt: PropTypes.string.isRequired,
+	aspectRatio: PropTypes.number.isRequired,
+	fallbackWidth: PropTypes.number.isRequired,
+	src: PropTypes.string.isRequired,
+	widthRange: PropTypes.array.isRequired,
+};
+
+export {
+	Image as default,
+	WPResponsiveImage,
+};

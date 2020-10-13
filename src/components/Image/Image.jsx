@@ -154,11 +154,11 @@ export const updateQueryStringParameter = ( uri, key, value ) => {
 	return `${uri}${separator}${key}=${value}`;
 };
 
-function resizeWPImage( src, width, aspectRatio ) {
+function resizeWPImage( src, width, height ) {
 	let resizedSrc = updateQueryStringParameter( src, 'w', width );
 
-	if ( aspectRatio ) {
-		resizedSrc = updateQueryStringParameter( resizedSrc, 'h', width * aspectRatio );
+	if ( height ) {
+		resizedSrc = updateQueryStringParameter( resizedSrc, 'h', height );
 		resizedSrc = updateQueryStringParameter( resizedSrc, 'crop', 1 );
 	}
 
@@ -191,13 +191,13 @@ function WPResponsiveImage( {
 
 	// Map source widths to image URLs
 	const srcSet = srcWidths
-		.map( width => `${resizeWPImage( src, width, aspectRatio )} ${width}w` )
+		.map( width => `${resizeWPImage( src, width, width * aspectRatio )} ${width}w` )
 		.join();
 
 	return (
 		<Image
 			alt={alt}
-			src={resizeWPImage( src, fallbackWidth, aspectRatio )}
+			src={resizeWPImage( src, fallbackWidth, fallbackWidth * aspectRatio )}
 			srcSet={srcSet}
 			fallbackWidth={fallbackWidth}
 			fallbackHeight={fallbackWidth * aspectRatio}

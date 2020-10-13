@@ -185,18 +185,20 @@ function WPResponsiveImage( {
 	widthRange,
 } ) {
 	const [ smallestWidth, largestWidth ] = widthRange;
-	const singleWidths = arrayFromRange( smallestWidth, largestWidth, 100 );
-	const doubleWidths = singleWidths.map( width => width * 2 );
-	const srcWidths = Array.from( new Set( [ ...singleWidths, ...doubleWidths ] ) );
+	// Create an array of src widths based on the provided range
+	// Double the largest width to account for higher pixel density displays
+	const srcWidths = arrayFromRange( smallestWidth, largestWidth * 2, 100 );
 
 	// Map source widths to image URLs
-	const srcSet = srcWidths.map( width => `${resizeWPImage( src, width, aspectRatio )} ${width}w` );
+	const srcSet = srcWidths
+		.map( width => `${resizeWPImage( src, width, aspectRatio )} ${width}w` )
+		.join();
 
 	return (
 		<Image
 			alt={alt}
 			src={resizeWPImage( src, fallbackWidth, aspectRatio )}
-			srcSet={srcSet.join()}
+			srcSet={srcSet}
 			fallbackWidth={fallbackWidth}
 			fallbackHeight={fallbackWidth * aspectRatio}
 		/>

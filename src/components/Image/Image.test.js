@@ -33,4 +33,3 @@ describe( 'Image', () => {
 		expect( wrapper.find( 'ImageAmp' ).props().src ).toEqual( defaultProps.src );
 	} );
 } );
-

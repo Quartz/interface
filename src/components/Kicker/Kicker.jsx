@@ -10,7 +10,7 @@ function Kicker ( {
 			{children}
 		</div>
 	);
-};
+}
 
 Kicker.propTypes = {
 	/**
@@ -20,4 +20,3 @@ Kicker.propTypes = {
 };
 
 export default Kicker;
-

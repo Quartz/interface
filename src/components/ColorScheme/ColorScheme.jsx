@@ -163,7 +163,7 @@ function ColorScheme( {
 	};
 
 	return <style type="text/css">{minifyCss( getCss( props ) )}</style>;
-};
+}
 
 ColorScheme.propTypes = {
 	/**

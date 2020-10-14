@@ -1,5 +1,5 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
-import Image, { WPResponsiveImage } from './Image';
+import Image from './Image';
 
 <Meta title="Image" component={Image} />
 
@@ -70,22 +70,5 @@ This component does not provide [art direction](https://developer.mozilla.org/en
 				<Image {...args} />
 			</div>
 		)}
-	</Story>
-</Canvas>
-
-### WPResponsiveImage
-
-<Canvas>
-	<Story
-		args={{
-			alt: 'The Apple Inc. logo is seen hanging at the entrance to the Apple store on 5th Avenue in New York',
-			aspectRatio: 1,
-			fallbackWidth: 800,
-			src: 'https://cms.qz.com/wp-content/uploads/2020/10/2020-10-12T095922Z_142848263_RC2XGJ9T1J4Y_RTRMADP_3_APPLE-IPHONE-5G.jpg?quality=80&strip=all',
-			widthRange: [ 200, 1600 ],
-		}}
-		name="WPResponsiveImage"
-	>
-		{args => <WPResponsiveImage {...args} />}
 	</Story>
 </Canvas>

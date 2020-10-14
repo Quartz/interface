@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-	hexToRgb,
+	hexToRGB,
 	minifyCss,
 } from '@quartz/js-utils';
 import { color } from '@quartz/styles/dictionaries/colors.json';
@@ -47,14 +47,14 @@ export const schemes = {
 		accent: colors[ 'accent-blue' ],
 		background1: colors[ 'off-white' ],
 		background2: colors.white,
-		highlight: createRgba( ...hexToRgb( colors[ 'accent-blue' ] ), 0.2 ),
+		highlight: createRgba( ...hexToRGB( colors[ 'accent-blue' ] ), 0.2 ),
 		typography: colors.black,
 	},
 	DARK: {
 		accent: colors[ 'accent-blue-dark' ],
 		background1: colors[ 'dark-blue' ],
 		background2: colors[ 'dark-blue' ],
-		highlight: createRgba( ...hexToRgb( colors.pink ), 0.25 ),
+		highlight: createRgba( ...hexToRGB( colors.pink ), 0.25 ),
 		typography: colors.white,
 	},
 	PRINT: {
@@ -107,7 +107,7 @@ function getCss ( {
 	}
 
 	// Colors derived from the typography color:
-	const typographyRgb = hexToRgb( typography );
+	const typographyRgb = hexToRGB( typography );
 	const typographyFaint = createRgba( ...typographyRgb, 0.7 ); // A fainter tint of the typography color, eg. for descriptions or subheadings.
 	const borderDecorative = createRgba( ...typographyRgb, 0.15 );
 	const borderInteractive = createRgba( ...typographyRgb, 0.3 );
@@ -115,7 +115,7 @@ function getCss ( {
 	const background4 = createRgba( ...typographyRgb, 0.07 );
 
 	// Colors derived from the background color:
-	const backgroundRgb = hexToRgb( background1 );
+	const backgroundRgb = hexToRGB( background1 );
 	const fakeTransparent = createRgba( ...backgroundRgb, 0.0001 ); // Fake transparent (i.e. for the paywall gradient)
 	const backgroundModal = createRgba( ...backgroundRgb, 0.98 );
 

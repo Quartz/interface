@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Image.scss';
-import { resizeImage as resizeWPImage, arrayFromRange } from '@quartz/js-utils';
+import { arrayFromRange, resizeWPImage } from '@quartz/js-utils';
 
 function ImageAmp ( {
 	alt,
@@ -24,7 +24,7 @@ function ImageAmp ( {
 			width={width / height}
 		/>
 	);
-};
+}
 
 ImageAmp.propTypes = {
 	alt: PropTypes.string.isRequired,

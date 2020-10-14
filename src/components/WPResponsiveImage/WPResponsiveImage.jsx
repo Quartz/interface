@@ -40,7 +40,7 @@ WPResponsiveImage.propTypes = {
 	alt: PropTypes.string.isRequired,
 
 	/**
-	 * Height over width. E.g. an `aspectRatio`` of 2 is twice as tall as
+	 * Height over width. E.g. an `aspectRatio` of 2 is twice as tall as
 	 * it is wide. Used to calculate the height of the image based on its
 	 * width.
 	 */

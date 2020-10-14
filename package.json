@@ -9,7 +9,7 @@
 		"copy": "./copy.sh",
 		"start": "start-storybook -p 8600 -s public",
 		"build": "build-storybook -o .storybook/build -s public",
-		"eslint": "eslint --fix --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js",
+		"eslint": "eslint --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js",
 		"stylelint": "stylelint --ignore-path .gitignore '**/*.scss'",
 		"test:lint": "npm run eslint && npm run stylelint",
 		"test:unit": "jest",

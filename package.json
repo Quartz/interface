@@ -23,7 +23,7 @@
 		"src/**/*.scss"
 	],
 	"dependencies": {
-		"@quartz/js-utils": "github:Quartz/js-utils#f7a4ea1"
+		"@quartz/js-utils": "github:Quartz/js-utils#aacf564"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.10.4",

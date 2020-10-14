@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Image.scss';
+import { resizeImage as resizeWPImage, arrayFromRange } from '@quartz/js-utils';
 
 function ImageAmp ( {
 	alt,
@@ -136,47 +137,6 @@ Image.defaultProps = {
 	loading: 'lazy',
 };
 
-/**
- * Helper to update query string params
- * @param  {string} uri
- * @param  {string} key
- * @param  {string} value
- * @return {string}
- */
-export const updateQueryStringParameter = ( uri, key, value ) => {
-	const re = new RegExp( `([?&])${key}=.*?(&|$)`, 'i' );
-	const separator = uri.indexOf( '?' ) !== -1 ? '&' : '?';
-
-	if ( uri.match( re ) ) {
-		return uri.replace( re, `$1${key}=${value}$2` );
-	}
-
-	return `${uri}${separator}${key}=${value}`;
-};
-
-function resizeWPImage( src, width, height ) {
-	let resizedSrc = updateQueryStringParameter( src, 'w', width );
-
-	if ( height ) {
-		resizedSrc = updateQueryStringParameter( resizedSrc, 'h', height );
-		resizedSrc = updateQueryStringParameter( resizedSrc, 'crop', 1 );
-	}
-
-	return resizedSrc;
-}
-
-function arrayFromRange( min, max, increment = 1 ) {
-	const arr = new Array( Math.ceil( ( max - min ) / increment ) )
-		.fill()
-		.map( ( _, i ) => min + ( i * increment ) );
-
-	if ( arr.slice( -1 ) !== max ) {
-		arr.push( max );
-	}
-
-	return arr;
-}
-
 function WPResponsiveImage( {
 	alt,
 	aspectRatio,
@@ -206,10 +166,37 @@ function WPResponsiveImage( {
 }
 
 WPResponsiveImage.propTypes = {
+	/**
+	 * Alternative text to describe the image for screen readers or in situations
+	 * where the image cannot be loaded. This prop is required but under certain
+	 * circumstances an empty string is preferred.
+	 */
 	alt: PropTypes.string.isRequired,
+
+	/**
+	 * Height over width. E.g. an aspectRatio of 2 is twice as tall as it
+	 * is wide. Used to calculate the height of the image based on its
+	 * width.
+	 */
 	aspectRatio: PropTypes.number.isRequired,
+
+	/**
+	 * The rendered width of the image when CSS cannot be loaded or in very old
+	 * browsers. Also used as the width of the src image.
+	 */
 	fallbackWidth: PropTypes.number.isRequired,
+
+	/**
+	 * URL of an image in the WordPress media library. Must support
+	 * resizing using the width (`w``), height (`h``) and crop (`crop`)
+	 * query parameters.
+	 */
 	src: PropTypes.string.isRequired,
+
+	/**
+	 * Array containing two values: the smallest and the largest widths
+	 * at which the image is expected to be rendered, e.g. [ 100, 200 ].
+	 */
 	widthRange: PropTypes.arrayOf( PropTypes.number ).isRequired,
 };
 

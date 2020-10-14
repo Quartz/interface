@@ -184,10 +184,10 @@ function WPResponsiveImage( {
 	src,
 	widthRange,
 } ) {
-	const [ smallestWidth, largestWidth ] = widthRange;
+	const [ min, max ] = widthRange;
 	// Create an array of src widths based on the provided range
 	// Double the largest width to account for higher pixel density displays
-	const srcWidths = arrayFromRange( smallestWidth, largestWidth * 2, 100 );
+	const srcWidths = arrayFromRange( min, max * 2, 100 );
 
 	// Map source widths to image URLs
 	const srcSet = srcWidths
@@ -210,7 +210,7 @@ WPResponsiveImage.propTypes = {
 	aspectRatio: PropTypes.number.isRequired,
 	fallbackWidth: PropTypes.number.isRequired,
 	src: PropTypes.string.isRequired,
-	widthRange: PropTypes.array.isRequired,
+	widthRange: PropTypes.arrayOf( PropTypes.number ).isRequired,
 };
 
 export {

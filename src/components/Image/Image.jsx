@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Image.scss';
 import { arrayFromRange, resizeWPImage } from '@quartz/js-utils';
+import styles from './Image.scss';
 
 function ImageAmp ( {
 	alt,

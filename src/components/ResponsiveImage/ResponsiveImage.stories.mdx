@@ -1,18 +1,18 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
-import WPResponsiveImage from './WPResponsiveImage';
+import ResponsiveImage from './ResponsiveImage';
 
-<Meta title="WPResponsiveImage" component={WPResponsiveImage} />
+<Meta title="ResponsiveImage" component={ResponsiveImage} />
 
-# WPResponsiveImage
+# ResponsiveImage
 
 A wrapper for the Image component that automatically generates a `srcset` value based on the provided WordPress image URL (`src`) and a range of image widths (`widthRange`).
 
 ## Usage guidelines
 
-- **Do** use the `WPResponsiveImage` for an image whose aspect ratio will not change.
+- **Do** use the `ResponsiveImage` for an image whose aspect ratio will not change.
 - **Do** supply an image URL that supports resizing via the `w` and `h` URL query parameters.
 - **Do** supply alt text for non-decorative images.
-- **Do not** use the `WPResponsiveImage` for an image whose aspect ratio changes between breakpoints (use an art direction solution instead, e.g., `<picture>`). You can read more about the difference between responsive images and art direction on [MDN](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
+- **Do not** use the `ResponsiveImage` for an image whose aspect ratio changes between breakpoints (use an art direction solution instead, e.g., `<picture>`). You can read more about the difference between responsive images and art direction on [MDN](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
 
 ## Props
 
@@ -27,8 +27,8 @@ A wrapper for the Image component that automatically generates a `srcset` value 
 		}}
 		name="Default"
 	>
-		{args => <WPResponsiveImage {...args} />}
+		{args => <ResponsiveImage {...args} />}
 	</Story>
 </Canvas>
 
-<ArgsTable story="WPResponsiveImage" />
+<ArgsTable story="ResponsiveImage" />

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Image } from '..';
 import { arrayFromRange, resizeWPImage } from '@quartz/js-utils';
 
-function WPResponsiveImage( {
+function ResponsiveImage( {
 	alt,
 	aspectRatio,
 	fallbackWidth,
@@ -31,7 +31,7 @@ function WPResponsiveImage( {
 	);
 }
 
-WPResponsiveImage.propTypes = {
+ResponsiveImage.propTypes = {
 	/**
 	 * Alternative text to describe the image for screen readers or in situations
 	 * where the image cannot be loaded. This prop is required but under certain
@@ -66,4 +66,4 @@ WPResponsiveImage.propTypes = {
 	widthRange: PropTypes.arrayOf( PropTypes.number ).isRequired,
 };
 
-export default WPResponsiveImage;
+export default ResponsiveImage;

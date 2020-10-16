@@ -1,10 +1,10 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
-import Fieldset from './Fieldset';
+import TextInput from './TextInput';
 
-<Meta title="Fieldset" component={Fieldset} />
+<Meta title="TextInput" component={TextInput} />
 
-# Fieldset
+# TextInput
 
 A basic uncontrolled input component that for either a `textArea` or `input` element depending on the `isMultiline` prop.
 Rendered inside an associated `label` tag. The `inputRef` prop can be used to find the component's `value`.
@@ -21,13 +21,12 @@ export const defaultActions = {
 <Canvas>
 	<Story
 		args={{
-			...defaultActions,
 			id: 'search',
 			placeholder: 'Search',
 		}}
 		name="Default"
 	>
-		{args => <Fieldset {...args} />}
+		{args => <TextInput {...args} />}
 	</Story>
 </Canvas>
 
@@ -45,7 +44,7 @@ export const defaultActions = {
 		}}
 		name="ReadOnly"
 	>
-		{args => <Fieldset {...args} />}
+		{args => <TextInput {...args} />}
 	</Story>
 </Canvas>
 
@@ -62,7 +61,7 @@ export const defaultActions = {
 		}}
 		name="Email"
 	>
-		{args => <Fieldset {...args} />}
+		{args => <TextInput {...args} />}
 	</Story>
 </Canvas>
 
@@ -77,7 +76,7 @@ export const defaultActions = {
 		}}
 		name="Password"
 	>
-		{args => <Fieldset {...args} />}
+		{args => <TextInput {...args} />}
 	</Story>
 </Canvas>
 
@@ -91,6 +90,6 @@ export const defaultActions = {
 		}}
 		name="TextArea"
 	>
-		{args => <Fieldset {...args} />}
+		{args => <TextInput {...args} />}
 	</Story>
 </Canvas>

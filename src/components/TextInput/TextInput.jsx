@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
-import styles from './Fieldset.scss';
+import styles from './TextInput.scss';
 const cx = classnames.bind( styles );
 
-const Fieldset = ( {
+const TextInput = ( {
 	autoComplete,
 	defaultValue,
 	describedBy,
@@ -35,7 +35,7 @@ const Fieldset = ( {
 	const requiredField = label && required;
 
 	return (
-		<fieldset className={styles.container}>
+		<div className={styles.container}>
 			<label className={`${styles.label} ${styles.requiredLabel}`}>
 				{label}
 				{requiredField && <span className={styles.requiredAsterisk}> * </span>}
@@ -88,11 +88,11 @@ const Fieldset = ( {
 					/>
 				}
 			</label>
-		</fieldset>
+		</div>
 	);
 };
 
-Fieldset.propTypes = {
+TextInput.propTypes = {
 	/**
 	 * Input tag prop; boolean to accept autoCompletion or not.
 	 */
@@ -171,14 +171,15 @@ Fieldset.propTypes = {
 	type: PropTypes.oneOf( [ 'text', 'email', 'password' ] ),
 };
 
-Fieldset.defaultProps = {
+TextInput.defaultProps = {
 	disabled: false,
 	isMultiline: false,
-	onBlur: () => {},
-	onChange: () => {},
-	onFocus: () => {},
+	onBlur: () => null,
+	onChange: () => null,
+	onFocus: () => null,
+	readOnly: false,
 	required: false,
 	type: 'text',
 };
 
-export default Fieldset;
+export default TextInput;

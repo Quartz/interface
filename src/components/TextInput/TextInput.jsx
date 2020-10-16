@@ -6,8 +6,7 @@ const cx = classnames.bind( styles );
 
 const TextInput = ( {
 	autoComplete,
-	defaultValue,
-	describedBy,
+	ariaDescribedBy,
 	disabled,
 	isMultiline,
 	inputRef,
@@ -41,15 +40,13 @@ const TextInput = ( {
 				{requiredField && <span className={styles.requiredAsterisk}> * </span>}
 				{isMultiline &&
 					<textarea
-						className={cx( 'textarea', { ...sharedClassNames } )}
+						className={cx( 'textarea', { sharedClassNames } )}
+						type={type}
 						rows={6}
-						aria-describedby={describedBy}
-						autocomplete={autoComplete}
-						defaultValue={defaultValue}
-						describedBy={describedBy}
+						aria-describedby={ariaDescribedBy}
 						disabled={disabled}
 						id={id}
-						maxLength={maxLength}
+						maxlength={maxLength}
 						placeholder={placeholder}
 						onBlur={onBlur}
 						onChange={onChange}
@@ -64,15 +61,13 @@ const TextInput = ( {
 
 				{!isMultiline &&
 					<input
-						className={cx( 'input', { ...sharedClassNames } )}
+						className={cx( 'input', { sharedClassNames } )}
 						type={type}
-						aria-describedby={describedBy}
+						aria-describedby={ariaDescribedBy}
 						autocomplete={autoComplete}
-						defaultValue={defaultValue}
-						describedBy={describedBy}
 						disabled={disabled}
 						id={id}
-						maxLength={maxLength}
+						maxlength={maxLength}
 						placeholder={placeholder}
 						readOnly={readOnly}
 						onBlur={onBlur}
@@ -84,7 +79,6 @@ const TextInput = ( {
 						readOnly={readOnly}
 						ref={inputRef}
 						required={required}
-						type={type}
 					/>
 				}
 			</label>
@@ -94,21 +88,17 @@ const TextInput = ( {
 
 TextInput.propTypes = {
 	/**
-	 * Input tag prop; boolean to accept autoCompletion or not.
+	 * Used with aria-describedby attribute to indicate the ID of a linked description element.
 	 */
-	autoComplete: PropTypes.string,
+	ariaDescribedBy: PropTypes.string,
 	/**
-	 * Input tag prop; sets default value.
+	 * Whether the value of the control can be automatically completed by the browser.
 	 */
-	defaultValue: PropTypes.string,
+	autoComplete: PropTypes.bool.isRequired,
 	/**
-	 * Input tag prop; used with aria-describedby attribute to indicate the ID of a linked description element.
+	 * Sets whether the input is disabled from changing values or not.
 	 */
-	describedBy: PropTypes.string,
-	/**
-	 * Input tag prop; sets whether the input is disabled from changing values or not.
-	 */
-	disabled: PropTypes.bool,
+	disabled: PropTypes.bool.isRequired,
 	/**
 	 * Used to identify the element.
 	 */
@@ -122,11 +112,11 @@ TextInput.propTypes = {
 	 */
 	isMultiline: PropTypes.bool.isRequired,
 	/**
-	 * Text to be used in `label` tag.
+	 * Semantic description of the input or textarea purpose to be displayed above the element.
 	 */
 	label: PropTypes.string,
 	/**
-	 * Input tag prop; prevents string length beyond given value.
+	 * Prevents string length beyond given value.
 	 */
 	maxLength: PropTypes.number,
 	/**
@@ -150,28 +140,31 @@ TextInput.propTypes = {
 	 */
 	onInvalid: PropTypes.func,
 	/**
-	 * Input tag prop; sets `value` validation pattern.
+	 * Sets `value` validation pattern.
 	 */
 	pattern: PropTypes.string,
 	/**
-	 * Input tag prop; sets 'ghost' text that appears when no value exists.
+	 * Sets 'ghost' text that appears when no value exists.
 	 */
 	placeholder: PropTypes.string,
 	/**
-	 * Input tag prop; determines whether value is editable or not.
+	 * Determines whether value is editable or not.
 	 */
 	readOnly: PropTypes.bool,
 	/**
-	 * Input tag prop + style prop; if true, value must be present for the form to be submitted. Will add asterisk to label if label is present.
+	 * If true, value must be present for the form to be submitted. Will add asterisk to label if label is present.
 	 */
 	required: PropTypes.bool.isRequired,
 	/**
-	 * Input tag prop; determines type of form control.
+	 * For input element only - determines type of form control, defaulting to text. Depending on the input type,
+	 * different browser validations may apply (e.g. 'password' type will automatically obscure text input).
+	 * Overview of types (MDN): https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 	 */
-	type: PropTypes.oneOf( [ 'text', 'email', 'password' ] ),
+	type: PropTypes.oneOf( [ 'text', 'email', 'password', 'tel', 'search', 'hidden', 'number', 'url', 'datetime' ] ),
 };
 
 TextInput.defaultProps = {
+	autoComplete: true,
 	disabled: false,
 	isMultiline: false,
 	onBlur: () => null,

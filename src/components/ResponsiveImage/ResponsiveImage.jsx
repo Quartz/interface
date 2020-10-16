@@ -5,7 +5,8 @@ import { arrayFromRange, resizeWPImage } from '@quartz/js-utils';
 
 function ResponsiveImage( {
 	alt,
-	aspectRatio,
+	fallbackHeight,
+	fallbackWidth,
 	sizes,
 	src,
 	widthRange,
@@ -15,25 +16,26 @@ function ResponsiveImage( {
 	// Double the largest width to account for higher pixel density displays
 	const srcWidths = arrayFromRange( minWidth, maxWidth * 2, 100 );
 
+	// Calculate the aspect ratio so we can set the correct height for
+	// each source based on its width.
+	const aspectRatio = fallbackHeight / fallbackWidth;
+
 	// Map source widths to image URLs
 	const srcSet = srcWidths
-		.map( width => `${resizeWPImage( src, width, aspectRatio ? Math.round( width * aspectRatio ) : null, typeof aspectRatio !== 'undefined' )} ${width}w` )
+		.map( width => `${resizeWPImage( src, width, aspectRatio * width, true )} ${width}w` )
 		.join();
 
-	// Make a sensible default for sizes if none was provided. Here we
-	// saying that as long as the viewport is smaller than the maximum
-	// image size, the size of the image slot will be 100% of the
-	// viewport. Above that, the image slot will have a fixed pixel value.
-	const sizesDefault = `(max-width: ${maxWidth}px) 100vw, ${maxWidth}px`;
+	// If no `sizes` prop was specified, assume the image has a fixed width
+	const sizesDefault = `${fallbackWidth}px`;
 
 	return (
 		<Image
 			alt={alt}
 			sizes={sizes || sizesDefault}
-			src={resizeWPImage( src, maxWidth, maxWidth * aspectRatio )}
+			src={resizeWPImage( src, fallbackWidth, fallbackHeight )}
 			srcSet={srcSet}
-			fallbackWidth={maxWidth}
-			fallbackHeight={maxWidth * aspectRatio}
+			fallbackWidth={fallbackWidth}
+			fallbackHeight={fallbackHeight}
 		/>
 	);
 }
@@ -47,12 +49,18 @@ ResponsiveImage.propTypes = {
 	alt: PropTypes.string.isRequired,
 
 	/**
-	 * Height over width. E.g. an `aspectRatio` of 2 is twice as tall as
-	 * it is wide. If provided, used to calculate the height of the
-	 * cropped based on its width. If undefined, the image will not be
-	 * cropped.
+	 * The rendered height of the image when CSS cannot be loaded or in very old
+	 * browsers. With `fallbackWidth`, it sets the aspect ratio for the image.
+	 * Therefore, it's critical to provide an accurate value. A good practice is
+	 * to set this at the largest size at which this image can be rendered.
 	 */
-	aspectRatio: PropTypes.number,
+	fallbackHeight: PropTypes.number.isRequired,
+
+	/**
+	 * The rendered width of the image when CSS cannot be loaded or in very old
+	 * browsers. See `fallbackHeight`.
+	 */
+	fallbackWidth: PropTypes.number.isRequired,
 
 	/**
 	 * Desribes the width of the image slot to the browser. This can be
@@ -60,11 +68,9 @@ ResponsiveImage.propTypes = {
 	 * a fixed width), or as complicated as a comma-separated list of
 	 * media conditions mapped to image slot widths.
 	 *
-	 * By default, this prop will be derived from the maximum image size:
-	 * `(max-width: ${maxWidth}px) 100vw, ${maxWidth}px`. This tells the
-	 * browser that the image slot will be 100% of the viewport until the
-	 * viewport is larger than the maximum image size, at which point the
-	 * image slot will remain at a fixed value.
+	 * By default, `sizes` will be derived from the `fallbackWidth`,
+	 * which tells the browser the image slot will always have a fixed
+	 * width.
 	 *
 	 * Forwarded to the HTML image element verbatim.
 	 */

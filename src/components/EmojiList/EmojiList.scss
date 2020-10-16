@@ -1,11 +1,12 @@
 @use '~@quartz/styles/scss/helpers/resets';
+@use '~@quartz/styles/scss/media-queries';
 
 .container {
 	@include resets.ul;
 
 	li {
 		position: relative;
-		padding-left: 3em;
+		padding-left: 52px;
 		margin-bottom: 20px;
 		min-height: 40px;
 
@@ -13,7 +14,15 @@
 			position: absolute;
 			left: 0;
 			top: 0;
-			font-size: 40px;
+			font-size: 36px;
+
+			@include media-queries.tablet-portrait-up {
+				font-size: 40px;
+			}
+		}
+
+		@include media-queries.tablet-portrait-up {
+			padding-left: 48px;
 		}
 	}
 }

@@ -23,8 +23,9 @@ function Badge ( {
 			<ResponsiveImage
 				alt={alt}
 				aspectRatio={1}
-				fallbackWidth={px}
+				sizes={`${px}px`}
 				src={imageUrl}
+				widthRange={[ px, px ]}
 			/>
 		</div>
 	);

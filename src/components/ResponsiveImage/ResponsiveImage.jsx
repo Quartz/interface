@@ -6,27 +6,34 @@ import { arrayFromRange, resizeWPImage } from '@quartz/js-utils';
 function ResponsiveImage( {
 	alt,
 	aspectRatio,
-	fallbackWidth,
+	sizes,
 	src,
 	widthRange,
 } ) {
-	const [ min, max ] = widthRange;
+	const [ minWidth, maxWidth ] = widthRange;
 	// Create an array of src widths based on the provided range
 	// Double the largest width to account for higher pixel density displays
-	const srcWidths = arrayFromRange( min, max * 2, 100 );
+	const srcWidths = arrayFromRange( minWidth, maxWidth * 2, 100 );
 
 	// Map source widths to image URLs
 	const srcSet = srcWidths
-		.map( width => `${resizeWPImage( src, width, width * aspectRatio )} ${width}w` )
+		.map( width => `${resizeWPImage( src, width, Math.round( width * aspectRatio ), true )} ${width}w` )
 		.join();
+
+	// Make a sensible default for sizes if none was provided. Here we
+	// saying that as long as the viewport is smaller than the maximum
+	// image size, the size of the image slot will be 100% of the
+	// viewport. Above that, the image slot will have a fixed pixel value.
+	const sizesDefault = `(max-width: ${maxWidth}px) 100vw, ${maxWidth}px`;
 
 	return (
 		<Image
 			alt={alt}
-			src={resizeWPImage( src, fallbackWidth, fallbackWidth * aspectRatio )}
+			sizes={sizes || sizesDefault}
+			src={resizeWPImage( src, maxWidth, maxWidth * aspectRatio )}
 			srcSet={srcSet}
-			fallbackWidth={fallbackWidth}
-			fallbackHeight={fallbackWidth * aspectRatio}
+			fallbackWidth={maxWidth}
+			fallbackHeight={maxWidth * aspectRatio}
 		/>
 	);
 }
@@ -47,10 +54,20 @@ ResponsiveImage.propTypes = {
 	aspectRatio: PropTypes.number.isRequired,
 
 	/**
-	 * The rendered width of the image when CSS cannot be loaded or in very old
-	 * browsers. Also used as the width of the src image.
+	 * Desribes the width of the image slot to the browser. This can be
+	 * as simple as a pixel-based value (for an image slot that will have
+	 * a fixed width), or as complicated as a comma-separated list of
+	 * media conditions mapped to image slot widths.
+	 *
+	 * By default, this prop will be derived from the maximum image size:
+	 * `(max-width: ${maxWidth}px) 100vw, ${maxWidth}px`. This tells the
+	 * browser that the image slot will be 100% of the viewport until the
+	 * viewport is larger than the maximum image size, at which point the
+	 * image slot will remain at a fixed value.
+	 *
+	 * Forwarded to the HTML image element verbatim.
 	 */
-	fallbackWidth: PropTypes.number.isRequired,
+	sizes: PropTypes.string,
 
 	/**
 	 * URL of an image in the WordPress media library. Must support

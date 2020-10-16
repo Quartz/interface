@@ -20,7 +20,6 @@ A wrapper for the Image component that automatically generates a `srcset` value 
 	<Story
 		args={{
 			alt: 'The Apple Inc. logo is seen hanging at the entrance to the Apple store on 5th Avenue in New York',
-			aspectRatio: 0.666667,
 			src: 'https://cms.qz.com/wp-content/uploads/2020/10/2020-10-12T095922Z_142848263_RC2XGJ9T1J4Y_RTRMADP_3_APPLE-IPHONE-5G.jpg?quality=80&strip=all',
 			widthRange: [ 200, 1600 ],
 		}}
@@ -31,3 +30,68 @@ A wrapper for the Image component that automatically generates a `srcset` value 
 </Canvas>
 
 <ArgsTable story="ResponsiveImage" />
+
+## Examples
+
+### Fixed width
+
+By providing a pixel value in the `sizes` prop, we tell the browser that the image slot will always stay the same size. The pixel density of the user's screen will be the only factor in determining which image source to display.
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'An animated gif showing James Franco in The Disaster Artist (2017)',
+			sizes: '240px',
+			src: 'https://cms.qz.com/wp-content/uploads/2020/10/giphy-32.gif',
+			widthRange: [ 240, 240 ],
+		}}
+		name="Fixed"
+	>
+		{
+			args => (
+				<div style={{ width: 240 }}>
+					<ResponsiveImage {...args} />
+				</div>
+			)
+		}
+	</Story>
+</Canvas>
+
+### Cropped
+
+We can crop an image by providing the aspect ratio. The aspect ratio of the image will not change between resolutions.
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'The Apple Inc. logo is seen hanging at the entrance to the Apple store on 5th Avenue in New York',
+			aspectRatio: 1,
+			src: 'https://cms.qz.com/wp-content/uploads/2020/10/2020-10-12T095922Z_142848263_RC2XGJ9T1J4Y_RTRMADP_3_APPLE-IPHONE-5G.jpg?quality=80&strip=all',
+			widthRange: [ 200, 1600 ],
+		}}
+		name="Cropped1"
+	>
+		{args => <ResponsiveImage {...args} />}
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'A 2020 Porsche Taycan is driven into a tunnel with a city skyline in the background',
+			aspectRatio: 0.25,
+			sizes: '(max-width: 1240px) 50vw, 620px',
+			src: 'https://cms.qz.com/wp-content/uploads/2020/10/PORSCHE-620x360-sponsoredcontent-1.png',
+			widthRange: [ 300, 620 ],
+		}}
+		name="Cropped2"
+	>
+		{
+			args => (
+				<div style={{ width: '50vw', maxWidth: 620 }}>
+					<ResponsiveImage {...args} />
+				</div>
+			)
+		}
+	</Story>
+</Canvas>

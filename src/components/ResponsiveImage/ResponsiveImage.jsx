@@ -17,7 +17,7 @@ function ResponsiveImage( {
 
 	// Map source widths to image URLs
 	const srcSet = srcWidths
-		.map( width => `${resizeWPImage( src, width, Math.round( width * aspectRatio ), true )} ${width}w` )
+		.map( width => `${resizeWPImage( src, width, aspectRatio ? Math.round( width * aspectRatio ) : null, typeof aspectRatio !== 'undefined' )} ${width}w` )
 		.join();
 
 	// Make a sensible default for sizes if none was provided. Here we
@@ -48,10 +48,11 @@ ResponsiveImage.propTypes = {
 
 	/**
 	 * Height over width. E.g. an `aspectRatio` of 2 is twice as tall as
-	 * it is wide. Used to calculate the height of the image based on its
-	 * width.
+	 * it is wide. If provided, used to calculate the height of the
+	 * cropped based on its width. If undefined, the image will not be
+	 * cropped.
 	 */
-	aspectRatio: PropTypes.number.isRequired,
+	aspectRatio: PropTypes.number,
 
 	/**
 	 * Desribes the width of the image slot to the browser. This can be

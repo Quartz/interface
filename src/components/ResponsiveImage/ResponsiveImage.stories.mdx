@@ -10,8 +10,7 @@ A wrapper for the Image component that automatically generates a `srcset` value 
 There are two valid use-cases for the `ResponsiveImage` component:
 
 1. An image that will be served at fixed dimensions, but which will offer higher-resolution versions for users with high PPI displays, such as Apple’s Retina Displays.
-1. An image whose size will be determined by the user’s viewport. We use the `widthRange` prop to specify the upper and lower limits of the image's potential widths, and the `size` prop to help the browser choose which image resolution is most appropriate.
-
+1. An image whose size will be determined by the user’s viewport. We use the `widthRange` prop to specify the upper and lower limits of the image's potential widths, and the `size` prop to help the browser choose which is the largest image it needs.
 
 ## Usage guidelines
 
@@ -19,6 +18,7 @@ There are two valid use-cases for the `ResponsiveImage` component:
 - **Do** supply an image URL that supports resizing via the `w` and `h` URL query parameters.
 - **Do** supply alt text for non-decorative images.
 - **Do** describe the image slot's behavior via the `sizes` prop, when you expect it to change with the viewport dimensions.
+- **Do not** omit the `sizes` prop if the image’s dimensions will be derived from the viewport dimensions.
 
 ## Props
 
@@ -95,7 +95,7 @@ In the following example, the image container width is set to `50vw` (50% of the
 	</Story>
 </Canvas>
 
-In the following example, the image slot width will always be 100% of its container, which in Storybook is more-or-less the width of the viewport until the application container element reaches its max-width at 1300 pixels wide, at which point the image container is about 960px wide. We can therefore describe this behavior as `(max-width: 1300px) 90vw, 960px`.
+In the following example, the image slot width will always be 100% of its container, which in Storybook is more-or-less the width of the viewport (let’s call it 90vw) until the application container element reaches its max-width at 1300 pixels wide, at which point the image container will be fixed at 960px wide. We can therefore describe this behavior as `(max-width: 1300px) 90vw, 960px`.
 
 <Canvas>
 	<Story
@@ -113,3 +113,9 @@ In the following example, the image slot width will always be 100% of its contai
 	</Story>
 </Canvas>
 
+## Further reading
+
+The spec for responsive images is complicated! Here are some useful resources:
+
+- [CSS Tricks - Responsive Images: If you’re just changing resolutions, use srcset.](https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/)
+- [MDN - HTMLImageElement.sizes](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes)

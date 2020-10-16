@@ -5,12 +5,12 @@ import ResponsiveImage from './ResponsiveImage';
 
 # ResponsiveImage
 
-A wrapper for the Image component that automatically generates a `srcset` value based on the provided image URL (`src`) and a range of image widths (`widthRange`).
+A wrapper for the Image component that automatically generates a `srcset` value based on the provided image URL (`src`) and a range of image widths (`widthRange`). Use this component to display an image at the most appropriate resolution based on the conditions in the user's browser.
 
-There are two valid use-cases for the `ResponsiveImage` component:
+There are two reasons you may want to use this component:
 
-1. An image that will be served at fixed dimensions, but which will offer higher-resolution versions for users with high PPI displays, such as Apple’s Retina Displays.
-1. An image whose size will be determined by the user’s viewport. We use the `widthRange` prop to specify the upper and lower limits of the image's potential widths, and the `size` prop to help the browser choose which is the largest image it needs.
+1. You have an image that will be served at set dimensions (fixed width), but you want to offer higher-resolution versions for users with high PPI displays, such as Apple’s Retina Displays.
+1. You have an image whose size will be determined by the user’s viewport (fluid width). We use the `widthRange` prop to specify the upper and lower bounds of the image's potential widths, and the `size` prop to help the browser choose the largest image it needs.
 
 ## Usage guidelines
 
@@ -19,6 +19,7 @@ There are two valid use-cases for the `ResponsiveImage` component:
 - **Do** supply alt text for non-decorative images.
 - **Do** describe the image slot's behavior via the `sizes` prop, when you expect it to change with the viewport dimensions.
 - **Do not** omit the `sizes` prop if the image’s dimensions will be derived from the viewport dimensions.
+- **Do not** replicate the exact CSS media queries of the image slot in `sizes`. Often a simple expression is best, such as `(max-width: 768px) 100vw, 50vw` (meaning, when the browser window is wider than 768px, this image is probably going to be displayed about half the size of that. If it’s smaller, it’ll probably be full-width).
 
 ## Props
 
@@ -119,3 +120,4 @@ The spec for responsive images is complicated! Here are some useful resources:
 
 - [CSS Tricks - Responsive Images: If you’re just changing resolutions, use srcset.](https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/)
 - [MDN - HTMLImageElement.sizes](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes)
+- [Eric Portist - Keep ’em Separated](https://ericportis.com/posts/2014/separated/)

@@ -22,8 +22,8 @@ function Badge ( {
 		<div className={`${styles.container} ${styles[ size ]}`}>
 			<ResponsiveImage
 				alt={alt}
-				aspectRatio={1}
-				sizes={`${px}px`}
+				fallbackHeight={px}
+				fallbackWidth={px}
 				src={imageUrl}
 				widthRange={[ px, px ]}
 			/>

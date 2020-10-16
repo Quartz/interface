@@ -5,7 +5,7 @@ import ResponsiveImage from './ResponsiveImage';
 
 # ResponsiveImage
 
-A wrapper for the Image component that automatically generates a `srcset` value based on the provided WordPress image URL (`src`) and a range of image widths (`widthRange`).
+A wrapper for the Image component that automatically generates a `srcset` value based on the provided image URL (`src`) and a range of image widths (`widthRange`).
 
 There are two valid use-cases for the `ResponsiveImage` component:
 
@@ -18,7 +18,7 @@ There are two valid use-cases for the `ResponsiveImage` component:
 - **Do** use the `ResponsiveImage` for an image whose aspect ratio will not change.
 - **Do** supply an image URL that supports resizing via the `w` and `h` URL query parameters.
 - **Do** supply alt text for non-decorative images.
-- **Do not** use the `ResponsiveImage` for an image whose aspect ratio changes between breakpoints (use an art direction solution instead, e.g., `<picture>`). You can read more about the difference between responsive images and art direction on [MDN](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
+- **Do** describe the image slot's behavior via the `sizes` prop, when you expect it to change with the viewport dimensions.
 
 ## Props
 
@@ -35,7 +35,7 @@ There are two valid use-cases for the `ResponsiveImage` component:
 	</Story>
 </Canvas>
 
-<ArgsTable story="ResponsiveImage" />
+<ArgsTable story="Default" />
 
 ## Examples
 

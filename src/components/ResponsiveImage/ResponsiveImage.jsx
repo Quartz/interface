@@ -78,14 +78,17 @@ ResponsiveImage.propTypes = {
 
 	/**
 	 * URL of an image in the WordPress media library. Must support
-	 * resizing using the width (`w``), height (`h``) and crop (`crop`)
+	 * resizing using the width (`w`), height (`h`) and crop (`crop`)
 	 * query parameters.
 	 */
 	src: PropTypes.string.isRequired,
 
 	/**
 	 * Array containing two values: the smallest and the largest widths
-	 * at which the image is expected to be rendered, e.g. [ 100, 200 ].
+	 * at which the image is expected to be rendered, e.g. `[ 100, 200 ]`.
+	 *
+	 * For fixed-dimension images, pass the same value for the minimum
+	 * and maximum values, e.g. `[ 100, 100 ]`.
 	 */
 	widthRange: PropTypes.arrayOf( PropTypes.number ).isRequired,
 };

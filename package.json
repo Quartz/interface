@@ -13,7 +13,8 @@
 		"stylelint": "stylelint --ignore-path .gitignore '**/*.scss'",
 		"test:lint": "npm run eslint && npm run stylelint",
 		"test:unit": "jest",
-		"test": "npm run test:lint && npm run test:unit"
+		"test": "npm run test:lint && npm run test:unit",
+		"new": "./copy.sh Example $1"
 	},
 	"author": "",
 	"license": "ISC",

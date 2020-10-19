@@ -6,9 +6,10 @@ import TextInput from './TextInput';
 
 # TextInput
 
-A basic uncontrolled input component that for either a `textArea` or `input` element depending on the `isMultiline` prop.
-Rendered inside an associated `label` tag. The `inputRef` prop can be used to find the component's `value`.
-Generally, this is not meant to be used by itself, but as a building block within other components.
+A basic input component for either single or multiline input. Use component props to add a label above
+the element, set whether or not it is a required field, add validations, set input type for use with
+browser validations (such as `email` or `password`), and pass functions that will be used when a user
+interacts with the component.
 
 ## Props
 

@@ -140,7 +140,7 @@ TextInput.propTypes = {
 	 */
 	onInvalid: PropTypes.func,
 	/**
-	 * Sets `value` validation pattern.
+	 * A regex validation that the input must match for input to be valid (for example, a custom email validator).
 	 */
 	pattern: PropTypes.string,
 	/**

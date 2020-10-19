@@ -101,7 +101,6 @@
 .disabled,
 .read-only {
 	background-color: transparent;
-	cursor: default;
 	color: $color-typography-faint;
 
 	&:hover {
@@ -109,7 +108,7 @@
 	}
 }
 
-input::-webkit-credentials-auto-fill-button {
+.input::-webkit-credentials-auto-fill-button {
 	/* moves the key icon in Safari outside our login fields */
 	margin-right: -24px;
 }

@@ -11,7 +11,7 @@ function Hed ( {
 			{children}
 		</div>
 	);
-};
+}
 
 Hed.propTypes = {
 	/**

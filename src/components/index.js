@@ -12,6 +12,7 @@ export { default as Kicker } from './Kicker/Kicker';
 export { default as PageHeader } from './PageHeader/PageHeader';
 export { default as Pill } from './Pill/Pill';
 export { default as RadioButton } from './RadioButton/RadioButton';
+export { default as ResponsiveImage } from './ResponsiveImage/ResponsiveImage';
 export { default as Select } from './Select/Select';
 export { default as Spinner } from './Spinner/Spinner';
 export { TabNav, TabNavItem } from './TabNav/TabNav';

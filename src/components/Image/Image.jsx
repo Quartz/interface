@@ -23,14 +23,14 @@ function ImageAmp ( {
 			width={width / height}
 		/>
 	);
-};
+}
 
 ImageAmp.propTypes = {
 	alt: PropTypes.string.isRequired,
 	height: PropTypes.number.isRequired,
-	sizes: PropTypes.string.isRequired,
+	sizes: PropTypes.string,
 	src: PropTypes.string.isRequired,
-	srcSet: PropTypes.string.isRequired,
+	srcSet: PropTypes.string,
 	title: PropTypes.string,
 	width: PropTypes.number.isRequired,
 };
@@ -74,7 +74,7 @@ function Image ( {
 			width={width}
 		/>
 	);
-};
+}
 
 Image.propTypes = {
 	/**
@@ -113,7 +113,7 @@ Image.propTypes = {
 	/**
 	 * The responsize `img` sizes attribute.
 	 */
-	sizes: PropTypes.string.isRequired,
+	sizes: PropTypes.string,
 
 	/**
 	 * The fallback `img` src attribute.
@@ -123,7 +123,7 @@ Image.propTypes = {
 	/**
 	 * The response `img` srcSet attribute.
 	 */
-	srcSet: PropTypes.string.isRequired,
+	srcSet: PropTypes.string,
 
 	/**
 	 * The `img` title attribute.

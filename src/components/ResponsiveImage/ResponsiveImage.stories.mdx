@@ -1,0 +1,123 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import ResponsiveImage from './ResponsiveImage';
+
+<Meta title="ResponsiveImage" component={ResponsiveImage} />
+
+# ResponsiveImage
+
+A wrapper for the Image component that automatically generates a `srcset` value based on the provided image URL (`src`) and a range of image widths (`widthRange`). Use this component to display an image at the most appropriate resolution based on the conditions in the user's browser.
+
+There are two reasons you may want to use this component:
+
+1. You have an image that will be served at set dimensions (fixed width), but you want to offer higher-resolution versions for users with high PPI displays, such as Apple’s Retina Displays.
+1. You have an image whose size will be determined by the user’s viewport (fluid width). We use the `widthRange` prop to specify the upper and lower bounds of the image's potential widths, and the `size` prop to help the browser choose the largest image it needs.
+
+## Usage guidelines
+
+- **Do** use the `ResponsiveImage` for an image whose aspect ratio will not change.
+- **Do** supply an image URL that supports resizing via the `w` and `h` URL query parameters.
+- **Do** supply alt text for non-decorative images.
+- **Do** describe the image slot's behavior via the `sizes` prop, when you expect it to change with the viewport dimensions.
+- **Do not** omit the `sizes` prop if the image’s dimensions will be derived from the viewport dimensions.
+- **Do not** replicate the exact CSS media queries of the image slot in `sizes`. Often a simple expression is best, such as `(max-width: 768px) 100vw, 50vw` (meaning, when the browser window is wider than 768px, this image is probably going to be displayed about half the size of that. If it’s smaller, it’ll probably be full-width).
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'The Apple Inc. logo is seen hanging at the entrance to the Apple store on 5th Avenue in New York',
+			src: 'https://cms.qz.com/wp-content/uploads/2020/10/2020-10-12T095922Z_142848263_RC2XGJ9T1J4Y_RTRMADP_3_APPLE-IPHONE-5G.jpg?quality=80&strip=all',
+			widthRange: [ 200, 1600 ],
+		}}
+		name="Default"
+	>
+		{args => <ResponsiveImage {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Examples
+
+### Fixed width
+
+By providing a pixel value in the `sizes` prop, we tell the browser that the image slot will always stay the same size.
+
+Additionally, we should provide this value as both the minimum and maximum widths in `widthRange`. The component will automatically generate high PPI versions by doubling the maximum value.
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'An animated gif showing James Franco in The Disaster Artist (2017)',
+			fallbackWidth: 240,
+			fallbackHeight: 120,
+			sizes: '240px',
+			src: 'https://cms.qz.com/wp-content/uploads/2020/10/giphy-32.gif',
+			widthRange: [ 240, 240 ],
+		}}
+		name="Fixed"
+	>
+		{
+			args => (
+				<div style={{ width: 240 }}>
+					<ResponsiveImage {...args} />
+				</div>
+			)
+		}
+	</Story>
+</Canvas>
+
+### Fluid width
+
+For image slots whose dimensions will be derived from the viewport size, we must roughly describe this behavior in the `sizes` prop to help the browser choose the most appropriate image from the `srcset`.
+
+In the following example, the image container width is set to `50vw` (50% of the viewport width) with a max-width of `640px`. The container will therefore reach its max-width when the viewport is `1280px` wide (`640/0.5`). We can express this in our `sizes` prop as `(max-width: 1280px) 50vw, 620px`.
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'A 2020 Porsche Taycan is driven into a tunnel with a city skyline in the background',
+			fallbackWidth: 620,
+			fallbackHeight: 320,
+			sizes: '(max-width: 1280px) 50vw, 620px',
+			src: 'https://cms.qz.com/wp-content/uploads/2020/10/PORSCHE-620x360-sponsoredcontent-1.png',
+			widthRange: [ 300, 620 ],
+		}}
+		name="Cropped2"
+	>
+		{
+			args => (
+				<div style={{ width: '50vw', maxWidth: 620 }}>
+					<ResponsiveImage {...args} />
+				</div>
+			)
+		}
+	</Story>
+</Canvas>
+
+In the following example, the image slot width will always be 100% of its container, which in Storybook is more-or-less the width of the viewport (let’s call it 90vw) until the application container element reaches its max-width at 1300 pixels wide, at which point the image container will be fixed at 960px wide. We can therefore describe this behavior as `(max-width: 1300px) 90vw, 960px`.
+
+<Canvas>
+	<Story
+		args={{
+			alt: 'The Apple Inc. logo is seen hanging at the entrance to the Apple store on 5th Avenue in New York',
+			fallbackWidth: 960,
+			fallbackHeight: 638,
+			sizes: '(max-width: 1300px) 90vw, 960px',
+			src: 'https://cms.qz.com/wp-content/uploads/2020/10/2020-10-12T095922Z_142848263_RC2XGJ9T1J4Y_RTRMADP_3_APPLE-IPHONE-5G.jpg?quality=80&strip=all',
+			widthRange: [ 300, 960 ],
+		}}
+		name="Cropped1"
+	>
+		{args => <ResponsiveImage {...args} />}
+	</Story>
+</Canvas>
+
+## Further reading
+
+The spec for responsive images is complicated! Here are some useful resources:
+
+- [CSS Tricks - Responsive Images: If you’re just changing resolutions, use srcset.](https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/)
+- [MDN - HTMLImageElement.sizes](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes)
+- [Eric Portist - Keep ’em Separated](https://ericportis.com/posts/2014/separated/)

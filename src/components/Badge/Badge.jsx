@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { resizeImage } from '@quartz/js-utils';
-import Image from '../Image/Image';
+import ResponsiveImage from '../ResponsiveImage/ResponsiveImage';
 import styles from './Badge.scss';
 
 const sizeToPx = {
@@ -19,24 +18,18 @@ function Badge ( {
 	// Convert size prop to image dimension. All badges are (rounded) squares.
 	const px = sizeToPx[ size ];
 
-	// Create an srcSet for 1x, 2x and 3x resolution.
-	const sizes = `${px}w`;
-	const srcSet = [ 1, 2, 3 ].map( resolution => `${resizeImage( imageUrl, px * resolution, px * resolution, true )} ${resolution}x` ).join( ', ' );
-	const src = resizeImage( imageUrl, px, px, true );
-
 	return (
 		<div className={`${styles.container} ${styles[ size ]}`}>
-			<Image
+			<ResponsiveImage
 				alt={alt}
 				fallbackHeight={px}
 				fallbackWidth={px}
-				sizes={sizes}
-				src={src}
-				srcSet={srcSet}
+				src={imageUrl}
+				widthRange={[ px, px ]}
 			/>
 		</div>
 	);
-};
+}
 
 Badge.propTypes = {
 	/**

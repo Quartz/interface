@@ -10,7 +10,7 @@ function Tagline ( {
 			{children}
 		</div>
 	);
-};
+}
 
 Tagline.propTypes = {
 	/**
@@ -20,4 +20,3 @@ Tagline.propTypes = {
 };
 
 export default Tagline;
-

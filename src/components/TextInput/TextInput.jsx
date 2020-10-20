@@ -34,7 +34,7 @@ const TextInput = ( {
 	return (
 		<label className={styles.container}>
 			{label && (
-				<span className={`${styles.label} ${required && label ? styles.requiredLabel : ''}`}>
+				<span className={`${styles.label} ${styles.required}`}>
 					{label}
 				</span>
 			)}

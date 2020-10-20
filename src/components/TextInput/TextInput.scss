@@ -1,7 +1,8 @@
-@import '~@quartz/styles/scss/borders';
-@import '~@quartz/styles/scss/color-scheme';
-@import '~@quartz/styles/scss/fonts';
-@import '~@quartz/styles/scss/helpers/resets';
+@use '~@quartz/styles/scss/borders';
+@use '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/fonts';
+@use '~@quartz/styles/scss/helpers/resets';
+@use '~@quartz/styles/scss/tokens';
 
 .container {
 	position: relative;
@@ -11,10 +12,10 @@
 }
 
 .label {
-	@include font-maison-extended-700-1;
+	@include fonts.maison-extended-700-1;
 
 	text-transform: uppercase;
-	color: $color-typography;
+	color: color-scheme.$typography;
 	display: block;
 	line-height: 1.25;
 }
@@ -26,57 +27,57 @@
 	&::after {
 		content: '*';
 
-		@include font-maison-800-3;
+		@include fonts.maison-800-3;
 
-		color: $color-accent;
+		color: color-scheme.$accent;
 		padding: 0 4px;
 		line-height: 0.8;
 	}
 }
 
 .input {
-	@include reset-text-input;
-	@include font-maison-500-3;
+	@include resets.text-input;
+	@include fonts.maison-500-3;
 
 	position: relative;
 	display: inline-block;
 	height: 44px;
 	width: 100%;
-	border-radius: $size-border-radius;
-	border: $border-solid-interactive;
+	border-radius: tokens.$size-border-radius;
+	border: borders.$solid-interactive;
 	box-sizing: border-box;
 	font-size: 16px;
 	font-weight: 300;
-	color: $color-typography;
+	color: color-scheme.$typography;
 	text-indent: 12px;
-	background-color: $color-background-2;
+	background-color: color-scheme.$background-2;
 	padding: 0;
 	transition: border-color, 0.25s;
 	margin: 8px 0;
 
 	&::placeholder {
-		color: $color-typography-faint;
+		color: color-scheme.$typography-faint;
 	}
 
 	&:hover,
 	&:focus {
-		border-color: $color-accent;
+		border-color: color-scheme.$accent;
 	}
 
 	&.work {
-		@include font-graphik;
+		@include fonts.graphik;
 	}
 
 	&[aria-invalid=true],
 	&.status-error,
 	&.status-error:focus {
-		border-color: $color-red;
+		border-color: tokens.$color-red;
 	}
 }
 
 .textarea {
-	@include reset-text-input;
-	@include font-maison-500-3;
+	@include resets.text-input;
+	@include fonts.maison-500-3;
 
 	resize: none;
 	box-sizing: border-box;
@@ -84,30 +85,30 @@
 	width: 100%;
 	font-size: 16px;
 	line-height: 1.25;
-	color: $color-typography;
-	border: $border-solid-interactive;
-	background-color: $color-background-2;
-	border-radius: $size-border-radius;
+	color: color-scheme.$typography;
+	border: borders.$solid-interactive;
+	background-color: color-scheme.$background-2;
+	border-radius: tokens.$size-border-radius;
 	padding: 12px;
 	margin: 8px 0;
 
 	&:focus,
 	&:hover {
-		border-color: $color-accent;
+		border-color: color-scheme.$accent;
 	}
 
 	&::placeholder {
-		color: $color-typography-faint;
+		color: color-scheme.$typography-faint;
 	}
 }
 
 .disabled,
 .read-only {
 	background-color: transparent;
-	color: $color-typography-faint;
+	color: color-scheme.$typography-faint;
 
 	&:hover {
-		border-color: $color-border-decorative;
+		border-color: color-scheme.$border-decorative;
 	}
 }
 

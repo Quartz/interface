@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames/bind';
 import styles from './TextInput.scss';
-const cx = classnames.bind( styles );
 
 const TextInput = ( {
 	autoComplete,
@@ -40,7 +38,7 @@ const TextInput = ( {
 			)}
 			{isMultiline &&
 				<textarea
-					className={cx( 'textarea', { sharedClassNames } )}
+					className={`${styles.textarea}`}
 					type={type}
 					rows={6}
 					aria-describedby={ariaDescribedBy}
@@ -61,7 +59,7 @@ const TextInput = ( {
 
 			{!isMultiline &&
 				<input
-					className={cx( 'input', { sharedClassNames } )}
+					className={`${styles.input}`}
 					type={type}
 					aria-describedby={ariaDescribedBy}
 					autocomplete={autoComplete}

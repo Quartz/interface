@@ -18,20 +18,20 @@
 	color: color-scheme.$typography;
 	display: block;
 	line-height: 1.25;
-}
 
-.required {
-	display: flex;
-	flex-wrap: wrap;
+	&.required {
+		display: flex;
+		flex-wrap: wrap;
 
-	&::after {
-		content: '*';
+		&::after {
+			content: '*';
 
-		@include fonts.maison-800-3;
+			@include fonts.maison-800-3;
 
-		color: color-scheme.$accent;
-		padding: 0 4px;
-		line-height: 0.8;
+			color: color-scheme.$accent;
+			padding: 0 4px;
+			line-height: 0.8;
+		}
 	}
 }
 
@@ -92,13 +92,17 @@
 	}
 }
 
-.disabled,
-.read-only {
-	background-color: transparent;
-	color: color-scheme.$typography-faint;
+.input,
+.textarea {
+	&[disabled],
+	&[readonly] {
+		background-color: transparent;
+		// color: color-scheme.$typography-faint;
+		color: tokens.$color-red;
 
-	&:hover {
-		border-color: color-scheme.$border-decorative;
+		&:hover {
+			border-color: color-scheme.$border-decorative;
+		}
 	}
 }
 

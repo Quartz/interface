@@ -33,9 +33,11 @@ const TextInput = ( {
 
 	return (
 		<label className={styles.container}>
-			<span className={`${styles.label} ${required && label ? styles.requiredLabel : ''}`}>
-				{label}
-			</span>
+			{label && (
+				<span className={`${styles.label} ${required && label ? styles.requiredLabel : ''}`}>
+					{label}
+				</span>
+			)}
 			{isMultiline &&
 				<textarea
 					className={cx( 'textarea', { sharedClassNames } )}

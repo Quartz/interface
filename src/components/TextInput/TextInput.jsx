@@ -21,67 +21,58 @@ const TextInput = ( {
 	readOnly,
 	required,
 	type,
-} ) => {
-	// Class names used by both <input> and <textarea>.
-	const sharedClassNames = {
-		disabled,
-		readOnly,
-		[type]: type,
-	};
+} ) => (
+	<label className={styles.container}>
+		{label && (
+			<span className={`${styles.label} ${styles.required}`}>
+				{label}
+			</span>
+		)}
+		{isMultiline &&
+			<textarea
+				className={`${styles.textarea}`}
+				type={type}
+				rows={6}
+				aria-describedby={ariaDescribedBy}
+				disabled={disabled}
+				id={id}
+				maxlength={maxLength}
+				placeholder={placeholder}
+				onBlur={onBlur}
+				onChange={onChange}
+				onClick={onClick}
+				onFocus={onFocus}
+				onInvalid={onInvalid}
+				readOnly={readOnly}
+				ref={inputRef}
+				required={required}
+			/>
+		}
 
-	return (
-		<label className={styles.container}>
-			{label && (
-				<span className={`${styles.label} ${styles.required}`}>
-					{label}
-				</span>
-			)}
-			{isMultiline &&
-				<textarea
-					className={`${styles.textarea}`}
-					type={type}
-					rows={6}
-					aria-describedby={ariaDescribedBy}
-					disabled={disabled}
-					id={id}
-					maxlength={maxLength}
-					placeholder={placeholder}
-					onBlur={onBlur}
-					onChange={onChange}
-					onClick={onClick}
-					onFocus={onFocus}
-					onInvalid={onInvalid}
-					readOnly={readOnly}
-					ref={inputRef}
-					required={required}
-				/>
-			}
-
-			{!isMultiline &&
-				<input
-					className={`${styles.input}`}
-					type={type}
-					aria-describedby={ariaDescribedBy}
-					autocomplete={autoComplete}
-					disabled={disabled}
-					id={id}
-					maxlength={maxLength}
-					placeholder={placeholder}
-					readOnly={readOnly}
-					onBlur={onBlur}
-					onChange={onChange}
-					onClick={onClick}
-					onFocus={onFocus}
-					onInvalid={onInvalid}
-					pattern={pattern}
-					readOnly={readOnly}
-					ref={inputRef}
-					required={required}
-				/>
-			}
-		</label>
-	);
-};
+		{!isMultiline &&
+			<input
+				className={`${styles.input}`}
+				type={type}
+				aria-describedby={ariaDescribedBy}
+				autocomplete={autoComplete}
+				disabled={disabled}
+				id={id}
+				maxlength={maxLength}
+				placeholder={placeholder}
+				readOnly={readOnly}
+				onBlur={onBlur}
+				onChange={onChange}
+				onClick={onClick}
+				onFocus={onFocus}
+				onInvalid={onInvalid}
+				pattern={pattern}
+				readOnly={readOnly}
+				ref={inputRef}
+				required={required}
+			/>
+		}
+	</label>
+);
 
 TextInput.propTypes = {
 	/**

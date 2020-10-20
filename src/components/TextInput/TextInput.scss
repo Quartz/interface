@@ -16,19 +16,22 @@
 	text-transform: uppercase;
 	color: $color-typography;
 	display: block;
+	line-height: 1.25;
 }
 
 .required-label {
 	display: flex;
 	flex-wrap: wrap;
-}
 
-.required-asterisk {
-	@include font-maison-800-3;
+	&::after {
+		content: '*';
 
-	color: $color-accent;
-	padding: 0 4px;
-	line-height: 0.8;
+		@include font-maison-800-3;
+
+		color: $color-accent;
+		padding: 0 4px;
+		line-height: 0.8;
+	}
 }
 
 .input {

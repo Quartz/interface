@@ -24,65 +24,62 @@ const TextInput = ( {
 	required,
 	type,
 } ) => {
-	// ClassNames used by both <input> and <textarea>.
+	// Class names used by both <input> and <textarea>.
 	const sharedClassNames = {
 		disabled,
 		readOnly,
 		[type]: type,
 	};
 
-	const requiredField = label && required;
-
 	return (
-		<div className={styles.container}>
-			<label className={`${styles.label} ${styles.requiredLabel}`}>
+		<label className={styles.container}>
+			<span className={`${styles.label} ${required && label ? styles.requiredLabel : ''}`}>
 				{label}
-				{requiredField && <span className={styles.requiredAsterisk}> * </span>}
-				{isMultiline &&
-					<textarea
-						className={cx( 'textarea', { sharedClassNames } )}
-						type={type}
-						rows={6}
-						aria-describedby={ariaDescribedBy}
-						disabled={disabled}
-						id={id}
-						maxlength={maxLength}
-						placeholder={placeholder}
-						onBlur={onBlur}
-						onChange={onChange}
-						onClick={onClick}
-						onFocus={onFocus}
-						onInvalid={onInvalid}
-						readOnly={readOnly}
-						ref={inputRef}
-						required={required}
-					/>
-				}
+			</span>
+			{isMultiline &&
+				<textarea
+					className={cx( 'textarea', { sharedClassNames } )}
+					type={type}
+					rows={6}
+					aria-describedby={ariaDescribedBy}
+					disabled={disabled}
+					id={id}
+					maxlength={maxLength}
+					placeholder={placeholder}
+					onBlur={onBlur}
+					onChange={onChange}
+					onClick={onClick}
+					onFocus={onFocus}
+					onInvalid={onInvalid}
+					readOnly={readOnly}
+					ref={inputRef}
+					required={required}
+				/>
+			}
 
-				{!isMultiline &&
-					<input
-						className={cx( 'input', { sharedClassNames } )}
-						type={type}
-						aria-describedby={ariaDescribedBy}
-						autocomplete={autoComplete}
-						disabled={disabled}
-						id={id}
-						maxlength={maxLength}
-						placeholder={placeholder}
-						readOnly={readOnly}
-						onBlur={onBlur}
-						onChange={onChange}
-						onClick={onClick}
-						onFocus={onFocus}
-						onInvalid={onInvalid}
-						pattern={pattern}
-						readOnly={readOnly}
-						ref={inputRef}
-						required={required}
-					/>
-				}
-			</label>
-		</div>
+			{!isMultiline &&
+				<input
+					className={cx( 'input', { sharedClassNames } )}
+					type={type}
+					aria-describedby={ariaDescribedBy}
+					autocomplete={autoComplete}
+					disabled={disabled}
+					id={id}
+					maxlength={maxLength}
+					placeholder={placeholder}
+					readOnly={readOnly}
+					onBlur={onBlur}
+					onChange={onChange}
+					onClick={onClick}
+					onFocus={onFocus}
+					onInvalid={onInvalid}
+					pattern={pattern}
+					readOnly={readOnly}
+					ref={inputRef}
+					required={required}
+				/>
+			}
+		</label>
 	);
 };
 
@@ -104,7 +101,7 @@ TextInput.propTypes = {
 	 */
 	id: PropTypes.string,
 	/**
-	 * Used in the event of forwarding a ref to the input tag.
+	 * Used in the event of forwarding an external ref to the tag.
 	 */
 	inputRef: PropTypes.object,
 	/**
@@ -112,7 +109,7 @@ TextInput.propTypes = {
 	 */
 	isMultiline: PropTypes.bool.isRequired,
 	/**
-	 * Semantic description of the input or textarea purpose to be displayed above the element.
+	 * Semantic description of the input or textarea purpose to be displayed above the element (e.g. 'Email' for an email input).
 	 */
 	label: PropTypes.string,
 	/**
@@ -120,23 +117,23 @@ TextInput.propTypes = {
 	 */
 	maxLength: PropTypes.number,
 	/**
-	 * Event handler for blur event.
+	 * Event handler fired when focus is removed from the tag.
 	 */
 	onBlur: PropTypes.func.isRequired,
 	/**
-	 * Event handler for change event.
+	 * Event handler fired when user input changes.
 	 */
 	onChange: PropTypes.func.isRequired,
 	/**
-	 * Event handler for click event.
+	 * Event handler for when a user clicks onto the element.
 	 */
 	onClick: PropTypes.func,
 	/**
-	 * Event handler for focus event.
+	 * Event handler fired when a user focuses on the element, including tab-focus.
 	 */
 	onFocus: PropTypes.func.isRequired,
 	/**
-	 * Event handler for invalid event.
+	 * Event handler fired when input is found invalid (see `pattern` / `type`).
 	 */
 	onInvalid: PropTypes.func,
 	/**

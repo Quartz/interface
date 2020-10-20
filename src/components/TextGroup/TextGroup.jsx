@@ -29,7 +29,7 @@ function TextGroup ( {
 			}
 		</>
 	);
-};
+}
 
 TextGroup.propTypes = {
 	/**

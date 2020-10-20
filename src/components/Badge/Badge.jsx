@@ -36,7 +36,7 @@ function Badge ( {
 			/>
 		</div>
 	);
-};
+}
 
 Badge.propTypes = {
 	/**

@@ -13,13 +13,10 @@
 
 	&.required {
 		display: flex;
-		flex-wrap: wrap;
 
 		&::after {
-			content: '*';
-
-			@include fonts.maison-800-3;
-
+			content: ' *';
+			font-size: 20px;
 			color: color-scheme.$accent;
 			padding: 0 4px;
 			line-height: 0.8;
@@ -30,16 +27,16 @@
 .input,
 .textarea {
 	@include resets.text-input;
-	@include fonts.maison-500-3;
+	@include fonts.maison;
 
 	background-color: color-scheme.$background-2;
 	border: borders.$solid-interactive;
-	box-sizing: border-box;
 	border-radius: tokens.$size-border-radius;
-	color: color-scheme.$typography;
+	color: inherit;
 	font-size: 16px;
-	width: 100%;
 	margin: 8px 0;
+	transition: border-color, 0.25s;
+	width: 100%;
 
 	&::placeholder {
 		color: color-scheme.$typography-faint;
@@ -65,13 +62,10 @@
 .input {
 	display: inline-block;
 	height: 44px;
-	padding: 0;
 	text-indent: 12px;
-	transition: border-color, 0.25s;
 }
 
 .textarea {
-	display: block;
 	line-height: 1.25;
 	padding: 12px;
 	resize: none;

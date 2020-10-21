@@ -148,7 +148,7 @@ TextInput.propTypes = {
 	 * different browser validations may apply (e.g. 'password' type will automatically obscure text input).
 	 * Overview of types (MDN): https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 	 */
-	type: PropTypes.oneOf( [ 'text', 'email', 'password', 'tel', 'search', 'hidden', 'number', 'url', 'datetime' ] ),
+	type: PropTypes.oneOf( [ 'text', 'email', 'password', 'tel', 'search', 'hidden', 'number', 'url', 'datetime' ] ).isRequired,
 };
 
 TextInput.defaultProps = {

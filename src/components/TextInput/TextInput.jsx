@@ -30,8 +30,7 @@ const TextInput = ( {
 		)}
 		{isMultiline &&
 			<textarea
-				className={`${styles.textarea}`}
-				type={type}
+				className={styles.textarea}
 				rows={6}
 				aria-describedby={ariaDescribedBy}
 				disabled={disabled}
@@ -51,7 +50,7 @@ const TextInput = ( {
 
 		{!isMultiline &&
 			<input
-				className={`${styles.input}`}
+				className={styles.input}
 				type={type}
 				aria-describedby={ariaDescribedBy}
 				autocomplete={autoComplete}
@@ -132,7 +131,8 @@ TextInput.propTypes = {
 	 */
 	pattern: PropTypes.string,
 	/**
-	 * Sets 'ghost' text that appears when no value exists.
+	 * Sets 'ghost' text that appears within the input or textarea field when no value exists. For example, if the label
+	 * suggests the input is for email, set placeholder to an example email ("email@qz.com").
 	 */
 	placeholder: PropTypes.string,
 	/**

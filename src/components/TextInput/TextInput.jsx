@@ -88,7 +88,7 @@ TextInput.propTypes = {
 	 */
 	disabled: PropTypes.bool.isRequired,
 	/**
-	 * Used to identify the element.
+	 * HTML ID of the component. Forwarded to the input/textarea element.
 	 */
 	id: PropTypes.string,
 	/**

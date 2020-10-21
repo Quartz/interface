@@ -158,7 +158,7 @@ TextInput.propTypes = {
 		'hidden',
 		'number',
 		'url',
-		'datetime'
+		'datetime',
 	] ).isRequired,
 };
 

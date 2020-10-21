@@ -138,7 +138,7 @@ TextInput.propTypes = {
 	/**
 	 * Determines whether value is editable or not.
 	 */
-	readOnly: PropTypes.bool,
+	readOnly: PropTypes.bool.isRequired,
 	/**
 	 * If true, value must be present for the form to be submitted. Will add asterisk to label if label is present.
 	 */

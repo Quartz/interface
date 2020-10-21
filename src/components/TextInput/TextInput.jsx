@@ -24,7 +24,7 @@ const TextInput = ( {
 } ) => (
 	<label className={styles.container}>
 		{label && (
-			<span className={`${styles.label} ${styles.required}`}>
+			<span className={`${styles.label} ${required && styles.required}`}>
 				{label}
 			</span>
 		)}
@@ -83,7 +83,8 @@ TextInput.propTypes = {
 	 */
 	autoComplete: PropTypes.bool.isRequired,
 	/**
-	 * Sets whether the input is disabled from changing values or not.
+	 * Sets whether the input is prevented from changing values or not. Distinct from read-only in that users cannot
+	 * click or select in the field.
 	 */
 	disabled: PropTypes.bool.isRequired,
 	/**
@@ -136,7 +137,7 @@ TextInput.propTypes = {
 	 */
 	placeholder: PropTypes.string,
 	/**
-	 * Determines whether value is editable or not.
+	 * Determines whether value is editable or not. Users can still click/select/highlight in the field.
 	 */
 	readOnly: PropTypes.bool.isRequired,
 	/**
@@ -148,7 +149,17 @@ TextInput.propTypes = {
 	 * different browser validations may apply (e.g. 'password' type will automatically obscure text input).
 	 * Overview of types (MDN): https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 	 */
-	type: PropTypes.oneOf( [ 'text', 'email', 'password', 'tel', 'search', 'hidden', 'number', 'url', 'datetime' ] ).isRequired,
+	type: PropTypes.oneOf( [
+		'text',
+		'email',
+		'password',
+		'tel',
+		'search',
+		'hidden',
+		'number',
+		'url',
+		'datetime'
+	] ).isRequired,
 };
 
 TextInput.defaultProps = {

@@ -6,10 +6,16 @@ import TextInput from './TextInput';
 
 # TextInput
 
-A basic input component for either single or multiline input. Use component props to add a label above
-the element, set whether or not it is a required field, add validations, set input type for use with
-browser validations (such as `email` or `password`), and pass functions that will be used when a user
-interacts with the component.
+A text input component for either single or multiline input.
+
+## Usage guidelines
+
+- **Do** make the TextInput component a child of a `form` element
+- **Do** use the type that best describes the content type
+- **Do** use the `readOnly` prop if a user should be able to interact with the field without changing it, otherwise use `disabled`
+- **Don't** pass a type prop when `isMultiline`=true
+- **Don't** use the same text for the `label` and `placeholder`
+
 
 ## Props
 
@@ -33,22 +39,9 @@ export const defaultActions = {
 
 <ArgsTable story="Default" />
 
-## Stories
+## Examples
 
-<Canvas>
-	<Story
-		args={{
-			...defaultActions,
-			id: 'email',
-			placeholder: 'example@qz.com',
-			readOnly: true,
-		}}
-		name="ReadOnly"
-	>
-		{args => <TextInput {...args} />}
-	</Story>
-</Canvas>
-
+Sample component with email type, which activates browser validations and autocomplete.
 <Canvas>
 	<Story
 		args={{
@@ -66,6 +59,7 @@ export const defaultActions = {
 	</Story>
 </Canvas>
 
+Sample component with password type, which automatically obscures user input.
 <Canvas>
 	<Story
 		args={{
@@ -81,6 +75,7 @@ export const defaultActions = {
 	</Story>
 </Canvas>
 
+Sample multiline TextInput that could be used for (e.g.) feedback forms.
 <Canvas>
 	<Story
 		args={{

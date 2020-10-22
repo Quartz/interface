@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ArticleStrip.scss';
-import { ResponsiveImage } from '..';
+import { ResponsiveImage, TextGroup } from '..';
 
 function ArticleStrip ( {
 	dateGmt,
@@ -25,12 +25,13 @@ function ArticleStrip ( {
 				/>
 			</div>
 			<div>
-				{
-					kicker &&
-					<span className={styles.kicker}>{kicker}</span>
-				}
-				<span className={styles.title}>{title}</span>
-				<span className={styles.meta}>{`6 hours ago • ${edition}`}</span>
+				<TextGroup
+					isArticle={true}
+					kicker={kicker}
+					size={size}
+					title={title}
+					tagline={`6 hours ago • ${edition}`}
+				/>
 			</div>
 		</div>
 	);
@@ -47,6 +48,7 @@ ArticleStrip.propTypes = {
 
 ArticleStrip.defaultProps = {
 	edition: 'Quartz',
+	size: 'small',
 };
 
 export default ArticleStrip;

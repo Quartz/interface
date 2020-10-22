@@ -1,0 +1,50 @@
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import ArticleStrip from './ArticleStrip';
+
+<Meta title="ArticleStrip" component={ArticleStrip} />
+
+# ArticleStrip
+
+An example component that can be used as a template for new components. A script
+is provided to copy this component to a new one, renaming everything
+appropriately:
+
+```sh
+npm run copy ArticleStrip NewComponent
+```
+
+This script can also be used to copy any existing component, just replace
+`ArticleStrip` with the name of another component.
+
+## Usage guidelines
+
+- **Do** update the `ArticleStrip` component if you make improvements that other components could benefit from.
+- **Do not** use the `ArticleStrip` component.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{}}
+		name="Default"
+	>
+		{args => <ArticleStrip {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Inquisitive
+
+<Canvas>
+	<Story
+		args={{
+			children: 'Hello, world?',
+		}}
+		name="Inquisitive"
+	>
+		{args => <ArticleStrip {...args} />}
+	</Story>
+</Canvas>

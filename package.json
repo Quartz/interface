@@ -24,7 +24,7 @@
 		"src/**/*.scss"
 	],
 	"dependencies": {
-		"@quartz/js-utils": "^1.0.3"
+		"@quartz/js-utils": "^1.1.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.10.4",

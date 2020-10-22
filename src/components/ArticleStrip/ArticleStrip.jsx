@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ArticleStrip.scss';
 import { ResponsiveImage, TextGroup } from '..';
+import { stylizedTimestamp } from '@quartz/js-utils';
 
 const responsiveImagePropsMapping = {
 	small: {
@@ -50,7 +51,7 @@ function ArticleStrip ( {
 					kicker={kicker}
 					size={textGroupSizeMapping[ size ]}
 					title={title}
-					tagline={`6 hours ago • ${edition}`}
+					tagline={`${stylizedTimestamp( dateGmt )} • ${edition}`}
 				/>
 			</div>
 		</div>

@@ -8,19 +8,23 @@ function ArticleStrip ( {
 	edition,
 	kicker,
 	size,
-	thumbnail,
+	thumbnailUrl,
 	title,
 } ) {
-	const { altText, sourceUrl } = thumbnail || {};
 
 	return (
 		<div className={styles.container}>
-			<div className={styles.thumbnail}>
-				<Image alt={altText} src={sourceUrl} />
+			<div className={styles.thumbnailContainer}>
+				<Image alt="" src={thumbnailUrl} />
 			</div>
-			<span className={styles.kicker}>{kicker}</span>
-			<span className={styles.title}>{title}</span>
-			<span className={styles.meta}>{`6 hours ago • ${edition}`}</span>
+			<div>
+				{
+					kicker &&
+					<span className={styles.kicker}>{kicker}</span>
+				}
+				<span className={styles.title}>{title}</span>
+				<span className={styles.meta}>{`6 hours ago • ${edition}`}</span>
+			</div>
 		</div>
 	);
 }
@@ -28,12 +32,14 @@ function ArticleStrip ( {
 ArticleStrip.propTypes = {
 	dateGmt: PropTypes.string.isRequired,
 	edition: PropTypes.string.isRequired,
-	kicker: PropTypes.string.isRequired,
-	thumbnail: PropTypes.shape( {
-		altText: PropTypes.string.isRequired,
-		sourceUrl: PropTypes.string.isRequired,
-	} ).isRequired,
+	kicker: PropTypes.string,
+	size: PropTypes.oneOf( [ 'small', 'large' ] ),
+	thumbnailUrl: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
+};
+
+ArticleStrip.defaultProps = {
+	edition: 'Quartz',
 };
 
 export default ArticleStrip;

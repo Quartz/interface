@@ -1,3 +1,11 @@
+@use '~@quartz/styles/scss/tokens';
+
 .container {
-	padding: 10px;
+	display: flex;
+}
+
+.thumbnail-container {
+	width: 80px;
+	border-radius: tokens.$size-border-radius;
+	margin-right: 12px;
 }

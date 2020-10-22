@@ -11,7 +11,7 @@ const responsiveImagePropsMapping = {
 		sizes: '80px',
 		widthRange: [ 80, 80 ],
 	},
-	large: {
+	'extra-large': {
 		fallbackWidth: 220,
 		fallbackHeight: 220,
 		sizes: `
@@ -21,11 +21,6 @@ const responsiveImagePropsMapping = {
 		`,
 		widthRange: [ 80, 220 ],
 	},
-};
-
-const textGroupSizeMapping = {
-	small: 'small',
-	large: 'extra-large',
 };
 
 function ArticleStrip ( {
@@ -49,7 +44,7 @@ function ArticleStrip ( {
 				<TextGroup
 					isArticle={true}
 					kicker={kicker}
-					size={textGroupSizeMapping[ size ]}
+					size={size}
 					title={title}
 					tagline={`${stylizedTimestamp( dateGmt )} • ${edition}`}
 				/>
@@ -85,7 +80,7 @@ ArticleStrip.propTypes = {
 	 * The size of the component. Adjusts the thumbnail dimensions and
 	 * [TextGroup](/?path=/docs/textgroup--default-story) size used.
 	 */
-	size: PropTypes.oneOf( [ 'small', 'large' ] ),
+	size: PropTypes.oneOf( [ 'small', 'extra-large' ] ),
 
 	/**
 	 * URL of the thumbnail image from our WordPress media library.

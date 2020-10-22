@@ -5,7 +5,7 @@
 	display: flex;
 	align-items: flex-start;
 
-	&.large {
+	&.extra-large {
 		@include media-queries.tablet-portrait-up {
 			align-items: center;
 		}
@@ -19,7 +19,7 @@
 	border-radius: tokens.$size-border-radius;
 	overflow: hidden;
 
-	&.large {
+	&.extra-large {
 		@include media-queries.tablet-portrait-up {
 			width: 175px;
 			margin-right: 24px;

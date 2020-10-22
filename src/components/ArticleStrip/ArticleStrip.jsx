@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './ArticleStrip.scss';
 import { ResponsiveImage, TextGroup } from '..';
 
-const responsiveImageMeta = {
+const responsiveImagePropsMapping = {
 	small: {
 		fallbackWidth: 80,
 		fallbackHeight: 80,
@@ -41,7 +41,7 @@ function ArticleStrip ( {
 				<ResponsiveImage
 					alt=""
 					src={thumbnailUrl}
-					{...responsiveImageMeta[ size ]}
+					{...responsiveImagePropsMapping[ size ]}
 				/>
 			</div>
 			<div>

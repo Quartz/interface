@@ -3,6 +3,30 @@ import PropTypes from 'prop-types';
 import styles from './ArticleStrip.scss';
 import { ResponsiveImage, TextGroup } from '..';
 
+const responsiveImageMeta = {
+	small: {
+		fallbackWidth: 80,
+		fallbackHeight: 80,
+		sizes: '80px',
+		widthRange: [ 80, 80 ],
+	},
+	large: {
+		fallbackWidth: 220,
+		fallbackHeight: 220,
+		sizes: `
+			(min-width: 1200px) 220px,
+			(min-width: 768px) 175px,
+			80px
+		`,
+		widthRange: [ 80, 220 ],
+	},
+};
+
+const textGroupSizeMapping = {
+	small: 'small',
+	large: 'extra-large',
+};
+
 function ArticleStrip ( {
 	dateGmt,
 	edition,
@@ -11,24 +35,20 @@ function ArticleStrip ( {
 	thumbnailUrl,
 	title,
 } ) {
-
 	return (
-		<div className={styles.container}>
-			<div className={styles.thumbnailContainer}>
+		<div className={`${styles.container} ${styles[ size ]}`}>
+			<div className={`${styles.thumbnailContainer} ${styles[ size ]}`}>
 				<ResponsiveImage
 					alt=""
-					fallbackWidth={80}
-					fallbackHeight={80}
-					sizes="80px"
 					src={thumbnailUrl}
-					widthRange={[ 80, 80 ]}
+					{...responsiveImageMeta[ size ]}
 				/>
 			</div>
 			<div>
 				<TextGroup
 					isArticle={true}
 					kicker={kicker}
-					size={size}
+					size={textGroupSizeMapping[ size ]}
 					title={title}
 					tagline={`6 hours ago • ${edition}`}
 				/>

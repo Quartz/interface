@@ -1,7 +1,15 @@
+@use '~@quartz/styles/scss/media-queries';
 @use '~@quartz/styles/scss/tokens';
 
 .container {
 	display: flex;
+	align-items: flex-start;
+
+	&.large {
+		@include media-queries.tablet-portrait-up {
+			align-items: center;
+		}
+	}
 }
 
 .thumbnail-container {
@@ -10,4 +18,16 @@
 	margin-right: 12px;
 	border-radius: tokens.$size-border-radius;
 	overflow: hidden;
+
+	&.large {
+		@include media-queries.tablet-portrait-up {
+			width: 175px;
+			margin-right: 24px;
+		}
+
+		@include media-queries.desktop-up {
+			width: 220px;
+			margin-right: 40px;
+		}
+	}
 }

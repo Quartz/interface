@@ -5,7 +5,9 @@
 }
 
 .thumbnail-container {
+	flex-shrink: 0;
 	width: 80px;
-	border-radius: tokens.$size-border-radius;
 	margin-right: 12px;
+	border-radius: tokens.$size-border-radius;
+	overflow: hidden;
 }

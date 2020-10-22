@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ArticleStrip.scss';
-import { Image } from '..';
+import { ResponsiveImage } from '..';
 
 function ArticleStrip ( {
 	dateGmt,
@@ -15,7 +15,14 @@ function ArticleStrip ( {
 	return (
 		<div className={styles.container}>
 			<div className={styles.thumbnailContainer}>
-				<Image alt="" src={thumbnailUrl} />
+				<ResponsiveImage
+					alt=""
+					fallbackWidth={80}
+					fallbackHeight={80}
+					sizes="80px"
+					src={thumbnailUrl}
+					widthRange={[ 80, 80 ]}
+				/>
 			</div>
 			<div>
 				{

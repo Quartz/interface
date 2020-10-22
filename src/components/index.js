@@ -18,3 +18,4 @@ export { default as Spinner } from './Spinner/Spinner';
 export { TabNav, TabNavItem } from './TabNav/TabNav';
 export { default as Tagline } from './Tagline/Tagline';
 export { default as TextGroup } from './TextGroup/TextGroup';
+export { default as TextInput } from './TextInput/TextInput';

@@ -1,0 +1,76 @@
+@use '~@quartz/styles/scss/borders';
+@use '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/fonts';
+@use '~@quartz/styles/scss/helpers/resets';
+@use '~@quartz/styles/scss/tokens';
+
+.label {
+	@include fonts.maison-extended-700-1;
+
+	display: block;
+	line-height: 1.25;
+
+	&.required {
+		display: flex;
+
+		&::after {
+			content: ' *';
+			font-size: 20px;
+			color: color-scheme.$accent;
+			padding: 0 4px;
+			line-height: 0.8;
+		}
+	}
+}
+
+.input,
+.textarea {
+	@include resets.text-input;
+	@include fonts.maison;
+
+	background-color: color-scheme.$background-2;
+	border: borders.$solid-interactive;
+	border-radius: tokens.$size-border-radius;
+	color: inherit;
+	font-size: 16px;
+	margin: 8px 0;
+	transition: border-color, 0.25s;
+	width: 100%;
+
+	&::placeholder {
+		color: color-scheme.$typography-faint;
+	}
+
+	&:hover,
+	&:focus {
+		border-color: color-scheme.$accent;
+	}
+
+	&[disabled],
+	&[readonly] {
+		background-color: transparent;
+		// color: color-scheme.$typography-faint;
+		color: tokens.$color-red;
+
+		&:hover {
+			border-color: color-scheme.$border-decorative;
+		}
+	}
+}
+
+.input {
+	display: inline-block;
+	height: 44px;
+	text-indent: 12px;
+}
+
+.textarea {
+	line-height: 1.25;
+	padding: 12px;
+	resize: none;
+}
+
+.input::-webkit-credentials-auto-fill-button {
+	/* moves the key icon in Safari outside our login fields */
+	margin-right: -24px;
+}

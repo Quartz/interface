@@ -14,7 +14,7 @@
 		"test:lint": "npm run eslint && npm run stylelint",
 		"test:unit": "jest",
 		"test": "npm run test:lint && npm run test:unit",
-		"new": "./copy.sh Example $1"
+		"new": "npm run copy Example $1"
 	},
 	"author": "",
 	"license": "ISC",

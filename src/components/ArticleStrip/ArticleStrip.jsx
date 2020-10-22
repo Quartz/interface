@@ -58,11 +58,42 @@ function ArticleStrip ( {
 }
 
 ArticleStrip.propTypes = {
+	/**
+	 * A string-based representation of the article publish datetime at
+	 * the Greenwich Mean Time (GMT-00:00:00). E.g.,
+	 * `'2012-09-04T17:02:10'`.
+	*/
 	dateGmt: PropTypes.string.isRequired,
-	edition: PropTypes.string.isRequired,
+
+	/**
+	 * The Quartz edition to which the article belongs.
+	 */
+	edition: PropTypes.oneOf( [
+		'Quartz',
+		'Quartz Africa',
+		'Quartz India',
+		'Quartz at Work',
+	] ).isRequired,
+
+	/**
+	 * A short phrase that accompanies the hed. See [Kicker](/?path=/docs/kicker--default-story).
+	 */
 	kicker: PropTypes.string,
+
+	/**
+	 * The size of the component. Adjusts the thumbnail dimensions and
+	 * [TextGroup](/?path=/docs/textgroup--default-story) size used.
+	 */
 	size: PropTypes.oneOf( [ 'small', 'large' ] ),
+
+	/**
+	 * URL of the thumbnail image from our WordPress media library.
+	 */
 	thumbnailUrl: PropTypes.string.isRequired,
+
+	/**
+	 * The article headline. See [Hed](/?path=/docs/hed--default-story)
+	 */
 	title: PropTypes.string.isRequired,
 };
 

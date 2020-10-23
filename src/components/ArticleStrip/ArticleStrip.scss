@@ -1,3 +1,4 @@
+@use '~@quartz/styles/scss/color-scheme';
 @use '~@quartz/styles/scss/media-queries';
 @use '~@quartz/styles/scss/tokens';
 
@@ -30,4 +31,12 @@
 			margin-right: 40px;
 		}
 	}
+}
+
+.sponsored-by {
+	color: tokens.$color-gold;
+}
+
+.sponsor {
+	color: color-scheme.$typography-faint;
 }

@@ -67,3 +67,19 @@ A summary of a Quartz article, typically used when linking to that article in a 
 		{args => <ArticleStrip {...args} />}
 	</Story>
 </Canvas>
+
+### Sponsored article (a.k.a. bulletin)
+
+<Canvas>
+	<Story
+		args={{
+			size: 'extra-large',
+			sponsor: 'Citrix',
+			thumbnailUrl: 'https://cms.qz.com/wp-content/uploads/2018/11/Citrix_AB1-Twitter-B.png',
+			title: 'A renowned psychologist discusses the causes of FOMO in this audio interactive',
+		}}
+		name="Bulletin"
+	>
+		{args => <ArticleStrip {...args} />}
+	</Story>
+</Canvas>

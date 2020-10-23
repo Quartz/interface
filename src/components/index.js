@@ -1,3 +1,4 @@
+export { default as ArticleStrip } from './ArticleStrip/ArticleStrip';
 export { default as Badge } from './Badge/Badge';
 export { default as BadgeGroup } from './BadgeGroup/BadgeGroup';
 export { default as Button, ButtonLabel } from './Button/Button';

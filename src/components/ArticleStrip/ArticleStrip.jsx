@@ -23,30 +23,42 @@ const responsiveImagePropsMapping = {
 	},
 };
 
+function SponsoredBy( { sponsor } ) {
+	return <span className={styles.sponsoredBy}>Sponsor content <span className={styles.sponsor}>{`by ${sponsor}`}</span></span>;
+}
+
+SponsoredBy.propTypes = {
+	sponsor: PropTypes.string.isRequired,
+};
+
 function ArticleStrip ( {
 	dateGmt,
 	edition,
 	kicker,
 	size,
+	sponsor,
 	thumbnailUrl,
 	title,
 } ) {
 	return (
 		<div className={`${styles.container} ${styles[ size ]}`}>
-			<div className={`${styles.thumbnailContainer} ${styles[ size ]}`}>
-				<ResponsiveImage
-					alt=""
-					src={thumbnailUrl}
-					{...responsiveImagePropsMapping[ size ]}
-				/>
-			</div>
+			{
+				thumbnailUrl &&
+				<div className={`${styles.thumbnailContainer} ${styles[ size ]}`}>
+					<ResponsiveImage
+						alt=""
+						src={thumbnailUrl}
+						{...responsiveImagePropsMapping[ size ]}
+					/>
+				</div>
+			}
 			<div>
 				<TextGroup
 					isArticle={true}
-					kicker={kicker}
+					kicker={sponsor ? <SponsoredBy sponsor={sponsor} /> : kicker}
 					size={size}
 					title={title}
-					tagline={`${stylizedTimestamp( dateGmt )} • ${edition}`}
+					tagline={! sponsor && `${stylizedTimestamp( dateGmt )} • ${edition}`}
 				/>
 			</div>
 		</div>
@@ -59,7 +71,7 @@ ArticleStrip.propTypes = {
 	 * the Greenwich Mean Time (GMT-00:00:00). E.g.,
 	 * `'2012-09-04T17:02:10'`.
 	*/
-	dateGmt: PropTypes.string.isRequired,
+	dateGmt: PropTypes.string,
 
 	/**
 	 * The Quartz edition to which the article belongs.
@@ -69,7 +81,7 @@ ArticleStrip.propTypes = {
 		'Quartz Africa',
 		'Quartz India',
 		'Quartz at Work',
-	] ).isRequired,
+	] ),
 
 	/**
 	 * A short phrase that accompanies the hed. See [Kicker](/?path=/docs/kicker--default-story).
@@ -83,9 +95,19 @@ ArticleStrip.propTypes = {
 	size: PropTypes.oneOf( [ 'small', 'extra-large' ] ),
 
 	/**
+	 * If this article was written by Quartz Creative, i.e., it is a
+	 * 'bulletin' article, use this prop to provide the name of the
+	 * client sponsoring the article in order to display a 'Sponsor
+	 * content by' message instead of a kicker (even if a kicker is also
+	 * provided). Bulletin articles do not display an edition or
+	 * timestamp.
+	 */
+	sponsor: PropTypes.string,
+
+	/**
 	 * URL of the thumbnail image from our WordPress media library.
 	 */
-	thumbnailUrl: PropTypes.string.isRequired,
+	thumbnailUrl: PropTypes.string,
 
 	/**
 	 * The article headline. See [Hed](/?path=/docs/hed--default-story)

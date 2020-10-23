@@ -98,6 +98,7 @@ ArticleStrip.propTypes = {
 	 * If this is a 'bulletin' type article, passing in the name of the
 	 * company sponsoring the article will display a 'Sponsored by'
 	 * message instead of a kicker, even if a kicker is also provided.
+	 * A sponsored article will also not display an edition or timestamp.
 	 */
 	sponsor: PropTypes.string,
 

@@ -1,0 +1,33 @@
+@use '~@quartz/styles/scss/media-queries';
+@use '~@quartz/styles/scss/tokens';
+
+.container {
+	display: flex;
+	align-items: flex-start;
+
+	&.extra-large {
+		@include media-queries.tablet-portrait-up {
+			align-items: center;
+		}
+	}
+}
+
+.thumbnail-container {
+	flex-shrink: 0;
+	width: 80px;
+	margin-right: 12px;
+	border-radius: tokens.$size-border-radius;
+	overflow: hidden;
+
+	&.extra-large {
+		@include media-queries.tablet-portrait-up {
+			width: 175px;
+			margin-right: 24px;
+		}
+
+		@include media-queries.desktop-up {
+			width: 220px;
+			margin-right: 40px;
+		}
+	}
+}

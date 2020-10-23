@@ -95,10 +95,12 @@ ArticleStrip.propTypes = {
 	size: PropTypes.oneOf( [ 'small', 'extra-large' ] ),
 
 	/**
-	 * If this is a 'bulletin' type article, passing in the name of the
-	 * company sponsoring the article will display a 'Sponsored by'
-	 * message instead of a kicker, even if a kicker is also provided.
-	 * A sponsored article will also not display an edition or timestamp.
+	 * If this article was written by Quartz Creative, i.e., it is a
+	 * 'bulletin' article, use this prop to provide the name of the
+	 * client sponsoring the article in order to display a 'Sponsor
+	 * content by' message instead of a kicker (even if a kicker is also
+	 * provided). Bulletin articles do not display an edition or
+	 * timestamp.
 	 */
 	sponsor: PropTypes.string,
 

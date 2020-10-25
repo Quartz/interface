@@ -6,23 +6,28 @@
 		"node": ">=10.9"
 	},
 	"scripts": {
+		"build": "npm-run-all --parallel build:storybook build:typescript",
+		"build:storybook": "build-storybook -o .storybook/build -s public",
+		"build:typescript": "tsc",
 		"copy": "./copy.sh",
+		"prepublishOnly": "npm run build:typescript",
+		"new": "npm run copy Example $1",
 		"start": "start-storybook -p 8600 -s public",
-		"build": "build-storybook -o .storybook/build -s public",
-		"eslint": "eslint --ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data . --ignore-pattern bundles.js",
-		"stylelint": "stylelint --ignore-path .gitignore '**/*.scss'",
-		"test:lint": "npm run eslint && npm run stylelint",
-		"test:unit": "jest",
 		"test": "npm run test:lint && npm run test:unit",
-		"new": "npm run copy Example $1"
+		"test:eslint": "eslint --ext .js,.jsx --ignore-path .gitignore .",
+		"test:lint": "npm-run-all --parallel --continue-on-error --aggregate-output test:eslint test:stylelint test:types",
+		"test:stylelint": "stylelint --ignore-path .gitignore '**/*.scss'",
+		"test:types": "tsc --noEmit",
+		"test:unit": "jest"
 	},
-	"author": "",
+	"author": "Quartz",
 	"license": "ISC",
 	"files": [
-		"src/**/*.js",
-		"src/**/*.jsx",
-		"src/**/*.scss"
+		"dist/**/*",
+		"src/**/*"
 	],
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"dependencies": {
 		"@quartz/js-utils": "^1.1.0"
 	},
@@ -37,6 +42,7 @@
 		"@storybook/addon-essentials": "^6.0.10",
 		"@storybook/addon-links": "^6.0.10",
 		"@storybook/react": "^6.0.10",
+		"@types/jest": "^26.0.15",
 		"babel-jest": "^26.1.0",
 		"babel-loader": "^8.1.0",
 		"classnames": "^2.2.6",
@@ -45,6 +51,7 @@
 		"enzyme-adapter-react-16": "^1.15.2",
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^26.1.0",
+		"npm-run-all": "^4.1.5",
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
@@ -52,6 +59,7 @@
 		"sass-loader": "^10.0.2",
 		"storybook-addon-themes": "^5.4.1",
 		"style-loader": "^1.2.1",
-		"stylelint": "^13.6.1"
+		"stylelint": "^13.6.1",
+		"typescript": "^4.0.3"
 	}
 }

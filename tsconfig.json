@@ -3,19 +3,19 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
+    "declaration": true,
     "jsx": "react",
-    "module": "es6",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
+    "outDir": "dist",
     "paths": {},
     "sourceMap": true,
     "strictNullChecks": true,
     "target": "es2017"
   },
-  "exclude": [
-    "node_modules",
-    "public"
+  "include": [
+    "src/components"
   ]
 }

@@ -5,6 +5,9 @@ module.exports = {
 	setupFiles: [
 		'./jest.setup.js',
 	],
+	testPathIgnorePatterns: [
+		'<rootDir>/dist/',
+	],
 	transform: {
 		'.*': 'babel-jest',
 	},

@@ -23,9 +23,17 @@ Within Quartz, you may also use the `#product-prism-support` Slack channel for q
 
 Prism UI can be installed as a dependency using npm:
 
+`npm install --save github:Quartz/interface`
+
+Until we are ready to publish this package on npm and use semantic versioning, we recommend specifying a commit hash in your dependency, e.g.
+
 `npm install --save github:Quartz/interface#90297da`
 
-### Using the uncompiled version
+### Importing React components
+
+React components can be imported from `@quartz/interface`, like so:
+
+`import { Button } from '@quartz/interface';`
 
 Prism is written in TypeScript using JSX syntax and styled with SCSS. In the near future, we plan to release versions on npm that are compiled to JavaScript and CSS bundles. In the meantime, you must import the uncompiled components and use a build pipeline that can handle TypeScript, JSX, and SCSS. Prism assumes that your application uses React 16.8 or higher.
 

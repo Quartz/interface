@@ -9,11 +9,8 @@
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
-    "outDir": "dist",
-    "paths": {},
     "sourceMap": true,
     "strictNullChecks": true,
-    "target": "es2017"
   },
   "include": [
     "src/components"

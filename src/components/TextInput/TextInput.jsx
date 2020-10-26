@@ -53,10 +53,10 @@ const TextInput = ( {
 				className={styles.input}
 				type={type}
 				aria-describedby={ariaDescribedBy}
-				autocomplete={autoComplete}
+				autoComplete={autoComplete}
 				disabled={disabled}
 				id={id}
-				maxlength={maxLength}
+				maxLength={maxLength}
 				placeholder={placeholder}
 				readOnly={readOnly}
 				onBlur={onBlur}
@@ -79,9 +79,20 @@ TextInput.propTypes = {
 	 */
 	ariaDescribedBy: PropTypes.string,
 	/**
-	 * Whether the value of the control can be automatically completed by the browser.
+	 * Sets for the browser what values the browser should suggest to fill out the field.
 	 */
-	autoComplete: PropTypes.bool.isRequired,
+	autoComplete: PropTypes.oneOf( [
+		'country',
+		'email',
+		'name',
+		'off',
+		'on',
+		'organization',
+		'street-address',
+		'tel',
+		'username',
+		'url',
+	] ),
 	/**
 	 * Sets whether the input is prevented from changing values or not. Distinct from read-only in that users cannot
 	 * click or select in the field.

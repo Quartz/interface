@@ -5,6 +5,7 @@
 	"engines": {
 		"node": ">=12"
 	},
+	"sideEffects": false,
 	"scripts": {
 		"build:storybook": "build-storybook -o .storybook/build -s public",
 		"build:types": "tsc --emitDeclarationOnly",

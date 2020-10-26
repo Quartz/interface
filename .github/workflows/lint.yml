@@ -40,6 +40,6 @@ jobs:
           github_token: ${{ secrets.github_token }}
           auto_fix: true
           eslint: true
-          eslint_args: "--ext .js,.jsx --ignore-path .gitignore --ignore-pattern backstop_data --ignore-pattern bundles.js"
+          eslint_args: "--ext .js,.jsx,.ts,.tsx --ignore-path .gitignore --ignore-pattern *.d.ts"
           stylelint: true
           stylelint_args: "--ignore-path .gitignore"

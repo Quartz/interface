@@ -31,15 +31,16 @@ Until we are ready to publish this package on npm and use semantic versioning, w
 
 ### Importing React components
 
-React components can be imported from `@quartz/interface/src/components`, like so:
+React components can be imported from `@quartz/interface`, like so:
 
-`import { Button } from '@quartz/interface/src/components;'`
+`import { Button } from '@quartz/interface';`
 
-### BYO dependencies
+Prism is written in TypeScript using JSX syntax and styled with SCSS. In the near future, we plan to release versions on npm that are compiled to JavaScript and CSS bundles. In the meantime, you must import the uncompiled components and use a build pipeline that can handle TypeScript, JSX, and SCSS. Prism assumes that your application uses React 16.8 or higher.
 
-The Prism UI package is bundled without any dependencies, and JSX and SCSS are supplied un-transpiled. You are therefore responsible for providing any dependencies, such as React, and transpiling code, e.g. using Babel and Webpack.
+Make sure your build pipeline will transform the code in this package—tools like Webpack may ignore code in `node_modules` by default.
 
 ## Contributing
+
 Before you make a contribution to Prism UI, it’s worth asking yourself a few questions about the changes you want to make.
 
 If you want to **update a component**:

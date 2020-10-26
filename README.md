@@ -23,23 +23,36 @@ Within Quartz, you may also use the `#product-prism-support` Slack channel for q
 
 Prism UI can be installed as a dependency using npm:
 
-`npm install --save github:Quartz/interface`
+`npm install --save @quartz/interface`
 
-Until we are ready to publish this package on npm and use semantic versioning, we recommend specifying a commit hash in your dependency, e.g.
+You can also install a specific git commit, but only do this if you are using the "uncompiled" version (see below):
 
 `npm install --save github:Quartz/interface#90297da`
 
-### Importing React components
+### Using the bundled / compiled version
 
-React components can be imported from `@quartz/interface/src/components`, like so:
+Prism is written in TypeScript using JSX syntax and styled with SCSS, but releases to npm are compiled to JavaScript and CSS bundles. It should work as-is with your application’s build pipeline, like `create-react-app`. Prism assumes that your application uses React 16.8 or higher.
 
-`import { Button } from '@quartz/interface/src/components;'`
+To use the bundled version, import React components from `@quartz/interface`, like so:
 
-### BYO dependencies
+`import { Button } from '@quartz/interface';`
 
-The Prism UI package is bundled without any dependencies, and JSX and SCSS are supplied un-transpiled. You are therefore responsible for providing any dependencies, such as React, and transpiling code, e.g. using Babel and Webpack.
+You will need to included Prism’s bundled CSS file in your application. If you are using `css-loader` or a similar build plugin, you can import it at the top level of your application:
+
+`import '@quartz/interface/dist/index.css';`
+
+Alternatively, you can copy `dist/index.css` to a public directory and manually reference it in a `<link>` tag.
+
+### Using the uncompiled version
+
+If your build pipeline can handle TypeScript, JSX, and SCSS, you can import the uncompiled components:
+
+`import { Button } from '@quartz/interface/src/components';`
+
+Make sure your build pipeline will transform the code in this package—tools like Webpack may ignore code in `node_modules` by default.
 
 ## Contributing
+
 Before you make a contribution to Prism UI, it’s worth asking yourself a few questions about the changes you want to make.
 
 If you want to **update a component**:

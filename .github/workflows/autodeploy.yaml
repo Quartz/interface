@@ -29,7 +29,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build
+        run: npm run build:storybook
 
       - name: Publish to S3 bucket
         uses: jakejarvis/s3-sync-action@master

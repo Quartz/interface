@@ -1,0 +1,12 @@
+{
+	"plugins": [
+		"@babel/plugin-transform-runtime",
+		[
+			"transform-react-remove-prop-types",
+			{
+				mode: "remove",
+				removeImport: true
+			}
+		]
+	]
+}

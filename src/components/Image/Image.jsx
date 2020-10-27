@@ -85,7 +85,8 @@ Image.propTypes = {
 	alt: PropTypes.string.isRequired,
 
 	/**
-	 * Whether to render the AMP version of the image.
+	 * Whether to render the AMP version of the image. See
+	 * https://amp.dev/documentation/components/amp-img/
 	 */
 	amp: PropTypes.bool.isRequired,
 

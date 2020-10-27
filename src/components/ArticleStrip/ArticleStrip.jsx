@@ -32,6 +32,7 @@ SponsoredBy.propTypes = {
 };
 
 function ArticleStrip ( {
+	amp,
 	dateGmt,
 	edition,
 	kicker,
@@ -47,6 +48,7 @@ function ArticleStrip ( {
 				<div className={`${styles.thumbnailContainer} ${styles[ size ]}`}>
 					<ResponsiveImage
 						alt=""
+						amp={amp}
 						src={thumbnailUrl}
 						{...responsiveImagePropsMapping[ size ]}
 					/>
@@ -66,6 +68,12 @@ function ArticleStrip ( {
 }
 
 ArticleStrip.propTypes = {
+	/**
+	 * Whether to render the AMP-valid version of the thumbnail image
+	 * (`amp-img`).
+	 */
+	amp: PropTypes.bool.isRequired,
+
 	/**
 	 * A string-based representation of the article publish datetime at
 	 * the Greenwich Mean Time (GMT-00:00:00). E.g.,
@@ -116,6 +124,7 @@ ArticleStrip.propTypes = {
 };
 
 ArticleStrip.defaultProps = {
+	amp: false,
 	edition: 'Quartz',
 	size: 'small',
 };

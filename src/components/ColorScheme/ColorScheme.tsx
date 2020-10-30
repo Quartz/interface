@@ -5,12 +5,6 @@ import {
 } from '@quartz/js-utils';
 import { color } from '@quartz/styles/dictionaries/colors.json';
 
-// Reshape the color dictionary JSON for easier application
-const colors = Object.keys( color ).reduce( ( acc, colorName ) => ( {
-	...acc,
-	[ colorName ]: color[ colorName ].value,
-} ), {} );
-
 /**
  * Export some color schemes so that pages can request them specifically.
  * Otherwise we'll provide a context-aware default.
@@ -43,18 +37,18 @@ const colors = Object.keys( color ).reduce( ( acc, colorName ) => ( {
  */
 export const schemes = {
 	LIGHT: {
-		accent: colors[ 'accent-blue' ],
-		background1: colors[ 'off-white' ],
-		background2: colors.white,
-		highlight: createRgba( ...hexToRGB( colors[ 'accent-blue' ] ), 0.2 ),
-		typography: colors.black,
+		accent: color[ 'accent-blue' ].value,
+		background1: color[ 'off-white' ].value,
+		background2: color.white.value,
+		highlight: createRgba( ...hexToRGB( color[ 'accent-blue' ].value ), 0.2 ),
+		typography: color.black.value,
 	},
 	DARK: {
-		accent: colors[ 'accent-blue-dark' ],
-		background1: colors[ 'dark-blue' ],
-		background2: colors[ 'dark-blue' ],
-		highlight: createRgba( ...hexToRGB( colors.pink ), 0.25 ),
-		typography: colors.white,
+		accent: color[ 'accent-blue-dark' ].value,
+		background1: color[ 'dark-blue' ].value,
+		background2: color[ 'dark-blue' ].value,
+		highlight: createRgba( ...hexToRGB( color.pink.value ), 0.25 ),
+		typography: color.white.value,
 	},
 	PRINT: {
 		accent: '#000',
@@ -65,14 +59,8 @@ export const schemes = {
 
 /**
  * Helper function to construct a CSS rgba value.
- *
- * @param  {Number} r Red value.
- * @param  {Number} g Green value.
- * @param  {Number} b Blue value.
- * @param  {Number} a Alpha value.
- * @return {String}
  */
-function createRgba( r, g, b, a ) {
+function createRgba( r: number, g: number, b: number, a: number ): string {
 	return `rgba( ${r}, ${g}, ${b}, ${a})`;
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
 	hexToRGB,
 	minifyCss,
@@ -143,63 +142,64 @@ function getCss ( {
 	return css;
 }
 
-function ColorScheme( {
-	accent,
-	background1,
-	background2,
-	highlight,
-	type,
-	typography,
-} ) {
-	// Destructuring and reassembling ensures we don't have any hidden
-	// dependencies in our props (and pleases the linter).
-	const props = {
-		accent,
-		background1,
-		background2,
-		highlight,
-		type,
-		typography,
-	};
-
-	return <style type="text/css">{minifyCss( getCss( props ) )}</style>;
-}
-
-ColorScheme.propTypes = {
+export default function ColorScheme( props: {
 	/**
 	 * The color used for borders of focused interactive elements, accented
 	 * color blocks, article text links, certain headings, and more.
 	 */
-	accent: PropTypes.string.isRequired,
+	accent: string,
 
 	/**
 	 * Primary background color of the page.
 	 */
-	background1: PropTypes.string.isRequired,
+	background1: string,
 
 	/**
 	 * A tint of the background color, e.g., for alternating page sections.
 	 * Defaults to `background1`.
 	 */
-	background2: PropTypes.string,
+	background2?: string,
+
+	/**
+	 * An optional render prop if you need to use the CSS in a non-HTML context or
+	 * if you need to provide it to an external dependency like React Helmet.
+	 */
+	children?: ( css: string ) => JSX.Element,
 
 	/**
 	 * The background color used for highlighting text or other UI elements for
 	 * emphasis. Defaults to `typography` with 15% alpha channel.
 	 */
-	highlight: PropTypes.string,
+	highlight?: string,
 
 	/**
 	 * The color scheme type. If a value other than `default` or `print` is
 	 * provided, the definition will be wrapped in a `prefers-color-scheme`
 	 * media query.
 	 */
-	type: PropTypes.oneOf( [ 'dark', 'default', 'light', 'print' ] ).isRequired,
+	type: 'dark' | 'default' | 'light' | 'print',
 
 	/**
 	 * Default type color.
 	 */
-	typography: PropTypes.string.isRequired,
-};
+	typography: string,
+} ) {
+	// Reassembling ensures we don't have any hidden dependencies in our props (and
+	// pleases the linter).
+	const css = minifyCss(
+		getCss( {
+			accent: props.accent,
+			background1: props.background1,
+			background2: props.background2,
+			highlight: props.highlight,
+			type: props.type,
+			typography: props.typography,
+		} )
+	);
 
-export default ColorScheme;
+	if ( props.children ) {
+		return props.children( css );
+	}
+
+	return <style type="text/css">{css}</style>;
+}

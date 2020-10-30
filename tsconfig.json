@@ -9,8 +9,9 @@
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
+    "resolveJsonModule": true,
     "sourceMap": true,
-    "strictNullChecks": true,
+    "strictNullChecks": true
   },
   "include": [
     "src/components"

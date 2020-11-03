@@ -8,13 +8,13 @@
 .container {
 	@include fonts.maison;
 
+	width: 100%;
 	display: inline-flex;
 	align-items: center;
 	cursor: pointer;
 
 	&.block {
 		display: flex;
-		width: 100%;
 	}
 }
 

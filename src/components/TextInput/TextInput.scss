@@ -46,10 +46,14 @@
 		border-color: color-scheme.$accent;
 	}
 
+	&:invalid,
+	&[aria-invalid=true] {
+		border-color: tokens.$color-red;
+	}
+
 	&[disabled],
 	&[readonly] {
 		background-color: transparent;
-		// color: color-scheme.$typography-faint;
 		color: tokens.$color-red;
 
 		&:hover {
@@ -73,4 +77,15 @@
 .input::-webkit-credentials-auto-fill-button {
 	/* moves the key icon in Safari outside our login fields */
 	margin-right: -24px;
+}
+
+.hint {
+	@include fonts.maison-500-1;
+
+	color: color-scheme.$typography-faint;
+	margin-top: 4px;
+
+	&.invalid {
+		color: tokens.$color-red;
+	}
 }

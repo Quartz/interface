@@ -9,6 +9,7 @@
 
 	display: block;
 	line-height: 1.25;
+	margin: 8px 0;
 
 	&.required {
 		display: flex;
@@ -33,7 +34,6 @@
 	border-radius: tokens.$size-border-radius;
 	color: inherit;
 	font-size: 16px;
-	margin: 8px 0;
 	transition: border-color, 0.25s;
 	width: 100%;
 
@@ -46,7 +46,6 @@
 		border-color: color-scheme.$accent;
 	}
 
-	&:invalid,
 	&[aria-invalid=true] {
 		border-color: tokens.$color-red;
 	}

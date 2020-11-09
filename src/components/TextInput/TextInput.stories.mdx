@@ -75,6 +75,24 @@ Sample component with password type, which automatically obscures user input.
 	</Story>
 </Canvas>
 
+Sample component with hint and validation override.
+<Canvas>
+	<Story
+		args={{
+			...defaultActions,
+			id: 'promo-code',
+			label: 'Promo code',
+			placeholder: 'Promo code',
+			invalid: true,
+			hint: 'Not a valid promo code',
+			type: 'text',
+		}}
+		name="Invalid"
+	>
+		{args => <TextInput {...args} />}
+	</Story>
+</Canvas>
+
 Sample multiline TextInput that could be used for (e.g.) feedback forms.
 <Canvas>
 	<Story
@@ -82,6 +100,7 @@ Sample multiline TextInput that could be used for (e.g.) feedback forms.
 			...defaultActions,
 			id: 'textarea',
 			label: 'Message',
+			hint: 'We welcome as much feedback as you’d like to give.',
 			isMultiline: true,
 		}}
 		name="TextArea"

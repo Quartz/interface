@@ -1,23 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './TextInput.scss';
+import classnames from 'classnames/bind';
+
+const cx = classnames.bind( styles );
 
 const TextInput = ( {
-	autoComplete,
 	ariaDescribedBy,
+	autoComplete,
 	disabled,
-	isMultiline,
-	inputRef,
+	hint,
 	id,
+	inputRef,
+	invalid,
+	isMultiline,
 	label,
 	maxLength,
-	placeholder,
 	onBlur,
 	onChange,
 	onClick,
 	onFocus,
 	onInvalid,
 	pattern,
+	placeholder,
 	readOnly,
 	required,
 	type,
@@ -33,6 +38,7 @@ const TextInput = ( {
 				className={styles.textarea}
 				rows={6}
 				aria-describedby={ariaDescribedBy}
+				aria-invalid={invalid}
 				disabled={disabled}
 				id={id}
 				maxlength={maxLength}
@@ -53,6 +59,7 @@ const TextInput = ( {
 				className={styles.input}
 				type={type}
 				aria-describedby={ariaDescribedBy}
+				aria-invalid={invalid}
 				autoComplete={autoComplete}
 				disabled={disabled}
 				id={id}
@@ -70,6 +77,9 @@ const TextInput = ( {
 				required={required}
 			/>
 		}
+		<div className={cx( 'hint', { invalid } )}>
+			{hint}
+		</div>
 	</label>
 );
 
@@ -99,6 +109,10 @@ TextInput.propTypes = {
 	 */
 	disabled: PropTypes.bool.isRequired,
 	/**
+	 * Descriptive content displayed under the element, usually to provide context or instructions to the user (e.g. 'Password must be at least 6 characters' )
+	 */
+	hint: PropTypes.node.isRequired,
+	/**
 	 * HTML ID of the component. Forwarded to the input/textarea element.
 	 */
 	id: PropTypes.string,
@@ -106,6 +120,11 @@ TextInput.propTypes = {
 	 * Used in the event of forwarding an external ref to the tag.
 	 */
 	inputRef: PropTypes.object,
+	/**
+	 * Alert the user that client side validation has failed.
+	*/
+	invalid: PropTypes.bool.isRequired,
+
 	/**
 	 * Boolean that determines whether component is a `textarea` or `input` tag.
 	 */

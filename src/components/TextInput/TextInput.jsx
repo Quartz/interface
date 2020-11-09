@@ -77,9 +77,9 @@ const TextInput = ( {
 				required={required}
 			/>
 		}
-		<div className={cx( 'hint', { invalid } )}>
+		{hint && <div className={cx( 'hint', { invalid } )}>
 			{hint}
-		</div>
+		</div>}
 	</label>
 );
 

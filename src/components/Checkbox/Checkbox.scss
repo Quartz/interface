@@ -9,10 +9,6 @@
 
 	cursor: pointer;
 	display: flex;
-
-	&.has-error {
-		color: tokens.$color-red;
-	}
 }
 
 .input {

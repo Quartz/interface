@@ -17,7 +17,7 @@ const RadioButton = ( {
 	<label className={cx( 'container', display )}>
 		<input
 			checked={checked}
-			className={cx( 'input' )}
+			className={cx( 'input', display )}
 			disabled={disabled}
 			name={name}
 			onChange={onChange}

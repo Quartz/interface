@@ -24,13 +24,16 @@
 
 	cursor: pointer;
 	margin-right: 12px;
-	flex-shrink: 0;
 	width: 16px;
 	height: 16px;
 	border-radius: 50%;
 	border: borders.$solid-interactive;
 	transition: border-color tokens.$time-slowly;
 	background-color: color-scheme.$background-2;
+
+	&.block {
+		flex-shrink: 0;
+	}
 
 	&:focus,
 	&:hover,

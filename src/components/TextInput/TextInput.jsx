@@ -116,7 +116,7 @@ TextInput.propTypes = {
 	/**
 	 * Descriptive content displayed under the element, usually to provide context or instructions to the user (e.g. 'Password must be at least 6 characters' )
 	 */
-	hint: PropTypes.node.isRequired,
+	hint: PropTypes.node,
 	/**
 	 * HTML ID of the component. Forwarded to the input/textarea element.
 	 */

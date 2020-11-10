@@ -203,7 +203,7 @@ TextInput.propTypes = {
 };
 
 TextInput.defaultProps = {
-	autoComplete: true,
+	autoComplete: 'on',
 	disabled: false,
 	isMultiline: false,
 	onBlur: () => null,

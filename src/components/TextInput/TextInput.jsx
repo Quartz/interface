@@ -26,6 +26,7 @@ const TextInput = ( {
 	readOnly,
 	required,
 	type,
+	value,
 } ) => (
 	<label className={styles.container}>
 		{label && (
@@ -33,6 +34,7 @@ const TextInput = ( {
 				{label}
 			</span>
 		)}
+
 		{isMultiline &&
 			<textarea
 				className={styles.textarea}
@@ -51,6 +53,7 @@ const TextInput = ( {
 				readOnly={readOnly}
 				ref={inputRef}
 				required={required}
+				value={value}
 			/>
 		}
 
@@ -75,8 +78,10 @@ const TextInput = ( {
 				readOnly={readOnly}
 				ref={inputRef}
 				required={required}
+				value={value}
 			/>
 		}
+
 		{hint && <div className={cx( 'hint', { invalid } )}>
 			{hint}
 		</div>}
@@ -190,6 +195,9 @@ TextInput.propTypes = {
 		'url',
 		'datetime',
 	] ).isRequired,
+
+	// If present, the value of the form field.
+	value: PropTypes.string,
 };
 
 TextInput.defaultProps = {

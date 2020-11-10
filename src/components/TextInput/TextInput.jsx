@@ -196,7 +196,9 @@ TextInput.propTypes = {
 		'datetime',
 	] ).isRequired,
 
-	// If present, the value of the form field.
+	/**
+	 *  If present, the value of the form field.
+	 */
 	value: PropTypes.string,
 };
 

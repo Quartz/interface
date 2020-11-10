@@ -26,6 +26,7 @@ const TextInput = ( {
 	readOnly,
 	required,
 	type,
+	value,
 } ) => (
 	<label className={styles.container}>
 		{label && (
@@ -33,6 +34,7 @@ const TextInput = ( {
 				{label}
 			</span>
 		)}
+
 		{isMultiline &&
 			<textarea
 				className={styles.textarea}
@@ -51,6 +53,7 @@ const TextInput = ( {
 				readOnly={readOnly}
 				ref={inputRef}
 				required={required}
+				value={value}
 			/>
 		}
 
@@ -75,8 +78,10 @@ const TextInput = ( {
 				readOnly={readOnly}
 				ref={inputRef}
 				required={required}
+				value={value}
 			/>
 		}
+
 		{hint && <div className={cx( 'hint', { invalid } )}>
 			{hint}
 		</div>}
@@ -111,7 +116,7 @@ TextInput.propTypes = {
 	/**
 	 * Descriptive content displayed under the element, usually to provide context or instructions to the user (e.g. 'Password must be at least 6 characters' )
 	 */
-	hint: PropTypes.node.isRequired,
+	hint: PropTypes.node,
 	/**
 	 * HTML ID of the component. Forwarded to the input/textarea element.
 	 */
@@ -121,10 +126,9 @@ TextInput.propTypes = {
 	 */
 	inputRef: PropTypes.object,
 	/**
-	 * Alert the user that client side validation has failed.
+	 * Alert the user that validation has failed. This may be useful where HTML5 validation is not sufficient (for example, a field that is validated server side)
 	*/
 	invalid: PropTypes.bool.isRequired,
-
 	/**
 	 * Boolean that determines whether component is a `textarea` or `input` tag.
 	 */
@@ -190,11 +194,17 @@ TextInput.propTypes = {
 		'url',
 		'datetime',
 	] ).isRequired,
+
+	/**
+	 *  If present, the value of the form field.
+	 */
+	value: PropTypes.string,
 };
 
 TextInput.defaultProps = {
-	autoComplete: true,
+	autoComplete: 'on',
 	disabled: false,
+	invalid: false,
 	isMultiline: false,
 	onBlur: () => null,
 	onChange: () => null,

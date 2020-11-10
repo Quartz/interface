@@ -126,10 +126,9 @@ TextInput.propTypes = {
 	 */
 	inputRef: PropTypes.object,
 	/**
-	 * Alert the user that client side validation has failed.
+	 * Alert the user that validation has failed. This may be useful where HTML5 validation is not sufficient (for example, a field that is validated server side)
 	*/
 	invalid: PropTypes.bool.isRequired,
-
 	/**
 	 * Boolean that determines whether component is a `textarea` or `input` tag.
 	 */
@@ -205,6 +204,7 @@ TextInput.propTypes = {
 TextInput.defaultProps = {
 	autoComplete: 'on',
 	disabled: false,
+	invalid: false,
 	isMultiline: false,
 	onBlur: () => null,
 	onChange: () => null,

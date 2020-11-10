@@ -31,6 +31,10 @@
 	transition: border-color tokens.$time-slowly;
 	background-color: color-scheme.$background-2;
 
+	&.block {
+		flex-shrink: 0;
+	}
+
 	&:focus,
 	&:hover,
 	.container:focus,

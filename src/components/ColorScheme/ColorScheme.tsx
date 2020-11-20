@@ -46,7 +46,7 @@ export const schemes = {
 	DARK: {
 		accent: color[ 'accent-blue-dark' ].value,
 		background1: color[ 'dark-blue' ].value,
-		background2: color[ 'dark-blue' ].value,
+		background2: color[ 'mid-dark-blue' ].value,
 		highlight: createRgba( ...hexToRGB( color.pink.value ), 0.25 ),
 		typography: color.white.value,
 	},

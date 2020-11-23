@@ -5,7 +5,6 @@ import TextGroup from '../TextGroup/TextGroup';
 import styles from './BadgeGroup.scss';
 
 function BadgeGroup ( {
-	centered,
 	imageUrl,
 	kicker,
 	size,
@@ -13,7 +12,7 @@ function BadgeGroup ( {
 	title,
 } ) {
 	return (
-		<div className={`${styles.container} ${centered ? styles.centered : ''}`}>
+		<div className={styles.container}>
 			{
 				imageUrl &&
 					<div className={styles.badge}>
@@ -40,12 +39,6 @@ function BadgeGroup ( {
 }
 
 BadgeGroup.propTypes = {
-	/**
-	 * Style prop. Sets whether or not the component is center aligned or (default)
-	 * top-aligned. Useful if no tagline exists.
-	 */
-	centered: PropTypes.bool,
-
 	/**
 	 * The image URL. Any existing query parameters are stripped and it will be
 	 * resized and cropped automatically. Note that an image URL is not required,

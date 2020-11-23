@@ -1,13 +1,9 @@
 @use '~@quartz/styles/scss/color-scheme';
 
 .container {
-	align-items: start;
+	align-items: stretch;
 	display: flex;
 	flex-direction: row;
-}
-
-.centered {
-	align-items: center;
 }
 
 .badge {
@@ -15,7 +11,10 @@
 }
 
 .text {
+	display: flex;
 	flex-grow: 1;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .arrow {

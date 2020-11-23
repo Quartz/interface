@@ -1,7 +1,7 @@
 @use '~@quartz/styles/scss/color-scheme';
 
 .container {
-	align-items: start;
+	align-items: stretch;
 	display: flex;
 	flex-direction: row;
 }
@@ -11,6 +11,7 @@
 }
 
 .text {
+	align-self: center;
 	flex-grow: 1;
 }
 

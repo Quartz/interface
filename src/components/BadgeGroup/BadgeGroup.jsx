@@ -56,7 +56,7 @@ BadgeGroup.propTypes = {
 	 * Size preset. Adjusts the size of the TextGroup (see
 	 * `TextGroup.propTypes.size`).
 	 */
-	size: PropTypes.oneOf( [ 'small', 'medium' ] ),
+	size: PropTypes.oneOf( [ 'small', 'medium', 'large' ] ),
 
 	/**
 	 * Tagline to appear beneath the title.

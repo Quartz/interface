@@ -11,10 +11,8 @@
 }
 
 .text {
-	display: flex;
+	align-self: center;
 	flex-grow: 1;
-	flex-direction: column;
-	justify-content: center;
 }
 
 .arrow {

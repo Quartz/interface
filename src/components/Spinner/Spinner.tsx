@@ -1,14 +1,21 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import styles from './Spinner.scss';
 
-const Spinner = ( props: { timeout?: number } ) => {
+const timeoutIntervalMs = 10000;
+
+const Spinner = ( props: {
+	/**
+	 * Whether to display a timeout message to the user after a number of seconds have elapsed.
+	 */
+	timeout?: boolean,
+} ) => {
 	const { timeout } = props;
 	const [ showTimeout, setShowTimeout ] = useState( false );
 	useEffect( () => {
 		let timeoutTimer;
 
 		if ( timeout ) {
-			setTimeout( () => setShowTimeout( true ), timeout );
+			setTimeout( () => setShowTimeout( true ), timeoutIntervalMs );
 		}
 
 		return () => clearTimeout( timeoutTimer );

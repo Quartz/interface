@@ -1,5 +1,8 @@
 @use '~@quartz/styles/scss/color-scheme';
+@use '~@quartz/styles/scss/fonts';
 @use '~@quartz/styles/scss/helpers/a11y';
+@use '~@quartz/styles/scss/helpers/resets';
+@use '~@quartz/styles/scss/states';
 
 /* from https://projects.lukehaas.me/css-loaders/ */
 
@@ -26,4 +29,16 @@
 
 .label {
 	@include a11y.visually-hidden;
+}
+
+.timeout-message {
+	@include fonts.maison-500-2;
+}
+
+.reload {
+	@include resets.button;
+	@include states.fade-on-hover;
+
+	cursor: pointer;
+	color: color-scheme.$accent;
 }

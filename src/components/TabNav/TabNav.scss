@@ -66,5 +66,13 @@
 	&[aria-current="true"] {
 		border-bottom: 2px solid color-scheme.$accent;
 		color: color-scheme.$accent;
+
+		a {
+			color: color-scheme.$accent;
+		}
+	}
+
+	a {
+		color: inherit;
 	}
 }

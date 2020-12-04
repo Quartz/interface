@@ -11,7 +11,7 @@ This component does not provide [art direction](https://developer.mozilla.org/en
 
 ## Usage guidelines
 
-- **Do** use a container to constrain the size or shape of the image. An `Image` will always expand or contract to fit the width of its container. The `Image` component purposefully does not accept a `className` prop.
+- **Do** use a container to constrain the size or shape of the image whenever possible. By default, an `Image` will expand or contract to fit the width of its container. This can be overridden using styles applied via the `className` prop.
 - **Do** understand that the `fallbackHeight` and `fallbackWidth` props are [used to set aspect ratio and help the browser reserve space](https://blog.logrocket.com/jank-free-page-loading-with-media-aspect-ratios/) for the image during initial layout.
 - **Do** [provide useful alt text](https://www.w3.org/WAI/tutorials/images/decision-tree/) for your images. Sometimes, an empty string is the most useful!
 - **Do** learn why and how to use [responsive rendering](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images). It’s important to understand how `sizes` and `srcSet` work.

@@ -6,6 +6,7 @@ import { arrayFromRange, resizeWPImage } from '@quartz/js-utils';
 function ResponsiveImage( {
 	alt,
 	amp,
+	className,
 	fallbackHeight,
 	fallbackWidth,
 	sizes,
@@ -33,6 +34,7 @@ function ResponsiveImage( {
 		<Image
 			alt={alt}
 			amp={amp}
+			className={className}
 			sizes={sizes || sizesDefault}
 			src={resizeWPImage( src, fallbackWidth, fallbackHeight )}
 			srcSet={srcSet}
@@ -55,6 +57,11 @@ ResponsiveImage.propTypes = {
 	 * https://amp.dev/documentation/components/amp-img/
 	 */
 	amp: PropTypes.bool.isRequired,
+
+	/**
+		* Passed verbatim to img or amp-img element as class attribute.
+		*/
+	className: PropTypes.string,
 
 	/**
 	 * The rendered height of the image when CSS cannot be loaded or in very old

@@ -4,6 +4,7 @@ import styles from './Image.scss';
 
 function ImageAmp ( {
 	alt,
+	className,
 	height,
 	sizes,
 	src,
@@ -14,6 +15,7 @@ function ImageAmp ( {
 	return (
 		<amp-img
 			alt={alt}
+			className={className}
 			height="1"
 			layout="responsive"
 			sizes={sizes}
@@ -27,6 +29,7 @@ function ImageAmp ( {
 
 ImageAmp.propTypes = {
 	alt: PropTypes.string.isRequired,
+	className: PropTypes.string,
 	height: PropTypes.number.isRequired,
 	sizes: PropTypes.string,
 	src: PropTypes.string.isRequired,
@@ -38,6 +41,7 @@ ImageAmp.propTypes = {
 function Image ( {
 	alt,
 	amp,
+	className,
 	fallbackHeight: height,
 	fallbackWidth: width,
 	loading,
@@ -46,10 +50,13 @@ function Image ( {
 	srcSet,
 	title,
 } ) {
+	const classes = `${styles.image} ${className}`;
+
 	if ( amp ) {
 		return (
 			<ImageAmp
 				alt={alt}
+				className={classes}
 				height={1}
 				sizes={sizes}
 				src={src}
@@ -63,7 +70,7 @@ function Image ( {
 	return (
 		<img
 			alt={alt}
-			className={styles.image}
+			className={classes}
 			decoding="async"
 			height={height}
 			loading={loading}
@@ -89,6 +96,11 @@ Image.propTypes = {
 	 * https://amp.dev/documentation/components/amp-img/
 	 */
 	amp: PropTypes.bool.isRequired,
+
+	/**
+		* Passed verbatim to element as class attribute.
+		*/
+	className: PropTypes.string,
 
 	/**
 	 * The rendered height of the image when CSS cannot be loaded or in very old

@@ -7,11 +7,13 @@ import Image from './Image';
 
 Displays an image. The `Image` component requires `fallbackHeight` and `fallbackWidth` to set aspect ratio and `sizes` and `srcSet` to provide [responsive rendering](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images). They will not be calculated for you and there are no default values. Future components may provide a simpler implementation for specific use cases.
 
+The image element is rendered with some lightly opinionated but commonly needed styles: `display: block` and `width: 100%`. These styles can be overridden using the `className` prop.
+
 This component does not provide [art direction](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture), which is also a task for a future component.
 
 ## Usage guidelines
 
-- **Do** use a container to constrain the size or shape of the image whenever possible. By default, an `Image` will expand or contract to fit the width of its container. This can be overridden using styles applied via the `className` prop.
+- **Do** use a container to constrain the size or shape of the image whenever possible. By default, an `Image` will expand or contract to fit the width of its container. This can be overridden using styles applied via the `className` prop. You may (rarely) want to do this in order to have an image fill its parent element by height rather than width, or in order to use the `object-fit` property.
 - **Do** understand that the `fallbackHeight` and `fallbackWidth` props are [used to set aspect ratio and help the browser reserve space](https://blog.logrocket.com/jank-free-page-loading-with-media-aspect-ratios/) for the image during initial layout.
 - **Do** [provide useful alt text](https://www.w3.org/WAI/tutorials/images/decision-tree/) for your images. Sometimes, an empty string is the most useful!
 - **Do** learn why and how to use [responsive rendering](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images). It’s important to understand how `sizes` and `srcSet` work.

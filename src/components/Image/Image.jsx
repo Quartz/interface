@@ -4,7 +4,6 @@ import styles from './Image.scss';
 
 function ImageAmp ( {
 	alt,
-	className,
 	height,
 	sizes,
 	src,
@@ -15,7 +14,6 @@ function ImageAmp ( {
 	return (
 		<amp-img
 			alt={alt}
-			className={className}
 			height="1"
 			layout="responsive"
 			sizes={sizes}
@@ -29,7 +27,6 @@ function ImageAmp ( {
 
 ImageAmp.propTypes = {
 	alt: PropTypes.string.isRequired,
-	className: PropTypes.string,
 	height: PropTypes.number.isRequired,
 	sizes: PropTypes.string,
 	src: PropTypes.string.isRequired,
@@ -50,13 +47,10 @@ function Image ( {
 	srcSet,
 	title,
 } ) {
-	const classes = `${styles.image} ${className}`;
-
 	if ( amp ) {
 		return (
 			<ImageAmp
 				alt={alt}
-				className={classes}
 				height={1}
 				sizes={sizes}
 				src={src}
@@ -70,7 +64,7 @@ function Image ( {
 	return (
 		<img
 			alt={alt}
-			className={classes}
+			className={className ? `${styles.image} ${className}` : styles.image}
 			decoding="async"
 			height={height}
 			loading={loading}

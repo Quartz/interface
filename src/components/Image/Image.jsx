@@ -38,6 +38,7 @@ ImageAmp.propTypes = {
 function Image ( {
 	alt,
 	amp,
+	className,
 	fallbackHeight: height,
 	fallbackWidth: width,
 	loading,
@@ -63,7 +64,7 @@ function Image ( {
 	return (
 		<img
 			alt={alt}
-			className={styles.image}
+			className={className ? `${styles.image} ${className}` : styles.image}
 			decoding="async"
 			height={height}
 			loading={loading}
@@ -89,6 +90,11 @@ Image.propTypes = {
 	 * https://amp.dev/documentation/components/amp-img/
 	 */
 	amp: PropTypes.bool.isRequired,
+
+	/**
+	 * Passed verbatim to element as class attribute.
+	 */
+	className: PropTypes.string,
 
 	/**
 	 * The rendered height of the image when CSS cannot be loaded or in very old

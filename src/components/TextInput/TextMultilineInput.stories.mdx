@@ -1,0 +1,57 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { TextMultilineInput } from './TextInput';
+
+<Meta title="TextMultilineInput" component={TextMultilineInput} />
+
+# TextMultilineInput
+
+A text input component for multiline input.
+
+## Usage guidelines
+
+- **Do** make the TextMultilineInput component a child of a `form` element.
+- **Do** use the `readOnly` prop if a user should be able to interact with the field without changing it, otherwise use `disabled`.
+- **Don't** use the same text for the `label` and `placeholder`.
+
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			id: 'story',
+			placeholder: 'Tell me a story....',
+		}}
+		name="Default"
+	>
+		{args => <TextMultilineInput {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Examples
+
+export const defaultActions = {
+	onBlur: action( 'blurred' ),
+	onChange: action( 'changed' ),
+	onFocus: action( 'focused' ),
+};
+
+Sample multiline input that could be used for user feedback.
+
+<Canvas>
+	<Story
+		args={{
+			...defaultActions,
+			hint: 'We welcome as much feedback as you’d like to give.',
+			label: 'Message',
+			id: 'feedback',
+			required: true,
+		}}
+		name="TextArea"
+	>
+		{args => <TextMultilineInput {...args} />}
+	</Story>
+</Canvas>

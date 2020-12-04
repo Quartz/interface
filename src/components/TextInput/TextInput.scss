@@ -68,6 +68,7 @@
 }
 
 .textarea {
+	box-sizing: border-box;
 	line-height: 1.25;
 	padding: 12px;
 	resize: none;

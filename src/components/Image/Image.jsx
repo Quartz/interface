@@ -98,8 +98,8 @@ Image.propTypes = {
 	amp: PropTypes.bool.isRequired,
 
 	/**
-		* Passed verbatim to element as class attribute.
-		*/
+	 * Passed verbatim to element as class attribute.
+	 */
 	className: PropTypes.string,
 
 	/**

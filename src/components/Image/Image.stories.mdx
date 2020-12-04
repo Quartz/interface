@@ -7,7 +7,7 @@ import Image from './Image';
 
 Displays an image. The `Image` component requires `fallbackHeight` and `fallbackWidth` to set aspect ratio and `sizes` and `srcSet` to provide [responsive rendering](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images). They will not be calculated for you and there are no default values. Future components may provide a simpler implementation for specific use cases.
 
-The image element is rendered with some lightly opinionated but commonly needed styles: `display: block` and `width: 100%`. These styles can be overridden using the `className` prop.
+The image element (`img` or `amp-img`) is rendered with some lightly opinionated but commonly needed styles: `display: block` and `width: 100%`. These styles may be overridden using the `className` prop, but whenever possible you should use a parent element to constrain the dimensions of the image.
 
 This component does not provide [art direction](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture), which is also a task for a future component.
 

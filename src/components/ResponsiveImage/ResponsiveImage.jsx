@@ -59,8 +59,8 @@ ResponsiveImage.propTypes = {
 	amp: PropTypes.bool.isRequired,
 
 	/**
-		* Passed verbatim to img or amp-img element as class attribute.
-		*/
+	 * Passed verbatim to img or amp-img element as class attribute.
+	 */
 	className: PropTypes.string,
 
 	/**

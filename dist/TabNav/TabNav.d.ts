@@ -1,6 +1,10 @@
 import React from 'react';
 declare function TabNav(props: {
     /**
+     * Use when the TabNav is used with section headers or for non page-header content.
+     */
+    alignLeft?: boolean;
+    /**
      * Child node to be rendered as the inner HTML of the component.
      */
     children: React.ReactNode;

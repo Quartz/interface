@@ -35,8 +35,8 @@ function RadioButton ( props: {
 	 */
 	onChange: ( event: React.ChangeEvent ) => void,
 	/**
-     * Forward a ref to the element.
-     */
+      * Forward a ref to the element.
+      */
 	ref?: React.Ref<HTMLInputElement>
 	/**
 	 * Indicates that the radio button must be checked by the user in

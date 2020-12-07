@@ -16,7 +16,7 @@ export { default as Select } from "./Select/Select";
 export { default as Spinner } from "./Spinner/Spinner";
 export { default as Tagline } from "./Tagline/Tagline";
 export { default as TextGroup } from "./TextGroup/TextGroup";
-export { default as TextInput } from "./TextInput/TextInput";
 export { default as Button, ButtonLabel } from "./Button/Button";
 export { default as ColorScheme, schemes } from "./ColorScheme/ColorScheme";
 export { TabNav, TabNavItem } from "./TabNav/TabNav";
+export { TextInput, TextMultilineInput } from "./TextInput/TextInput";

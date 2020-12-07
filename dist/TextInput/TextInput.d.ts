@@ -1,72 +1,161 @@
-export default TextInput;
-declare function TextInput({ ariaDescribedBy, autoComplete, disabled, hint, id, inputRef, invalid, isMultiline, label, maxLength, onBlur, onChange, onClick, onFocus, onInvalid, pattern, placeholder, readOnly, required, type, value, }: {
-    ariaDescribedBy: any;
-    autoComplete: any;
-    disabled: any;
-    hint: any;
-    id: any;
-    inputRef: any;
-    invalid: any;
-    isMultiline: any;
-    label: any;
-    maxLength: any;
-    onBlur: any;
-    onChange: any;
-    onClick: any;
-    onFocus: any;
-    onInvalid: any;
-    pattern: any;
-    placeholder: any;
-    readOnly: any;
-    required: any;
-    type: any;
-    value: any;
+import React from 'react';
+export declare function TextInput(props: {
+    /**
+     * Used with aria-describedby attribute to indicate the ID of a linked description element.
+     */
+    ariaDescribedBy?: string;
+    /**
+     * Informs the browser what values should be suggested when filling out the field.
+     */
+    autoComplete: 'country' | 'email' | 'name' | 'off' | 'on' | 'organization' | 'street-address' | 'tel' | 'username' | 'url';
+    /**
+     * For uncontrolled components, sets the initial value which can be overridden by the user.
+     */
+    defaultValue?: string;
+    /**
+     * Sets whether the field is prevented from changing values or not. Distinct from read-only in that users cannot click or select in the field.
+     */
+    disabled?: boolean;
+    /**
+     * Descriptive content displayed under the field, usually to provide context or instructions to the user (e.g., "Password must be at least 6 characters").
+     */
+    hint?: React.ReactNode;
+    /**
+     * HTML ID. Forwarded to the element.
+     */
+    id: string;
+    /**
+     * Forward a ref to the element. Use this prop to create an uncontrolled component.
+     */
+    inputRef?: React.Ref<HTMLInputElement>;
+    /**
+     * Alert the user that validation has failed. This may be useful where HTML5 validation is not sufficient (for example, a field that is validated server-side).
+    */
+    invalid?: boolean;
+    /**
+     * Semantic description of the field's purpose to be displayed above the field (e.g., "Email" for an email input).
+     */
+    label?: string;
+    /**
+     * Prevents string length beyond given value.
+     */
+    maxLength?: number;
+    /**
+     * Event handler fired when focus is removed from the element.
+     */
+    onBlur?: (event: React.FocusEvent) => void;
+    /**
+     * Event handler fired when user input changes.
+     */
+    onChange?: (event: React.ChangeEvent) => void;
+    /**
+     * Event handler for when a user clicks on the element.
+     */
+    onClick?: (event: React.MouseEvent) => void;
+    /**
+     * Event handler fired when a user focuses on the element, including tab-focus.
+     */
+    onFocus?: (event: React.FocusEvent) => void;
+    /**
+     * Event handler fired when input is found invalid.
+     */
+    onInvalid?: (event: React.FormEvent) => void;
+    /**
+     * A regex validation that the input must match for input to be valid (for example, a custom email validator).
+     */
+    pattern?: string;
+    /**
+     * Sets "ghost" text that appears within the field when no value exists. For example, if the label suggests the input is for email, set placeholder to "email@qz.com".
+     */
+    placeholder?: string;
+    /**
+     * Determines whether field value is editable or not. Users can still click/select/highlight in the field.
+     */
+    readOnly?: boolean;
+    /**
+     * If true, value must be present for the form to be submitted. Will add asterisk to label if label is present.
+     */
+    required?: boolean;
+    /**
+     * Determines type of form control. Depending on the input type, different browser validations may apply (e.g., "password" type will automatically obscure text input). Overview of types (MDN): https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input.
+     */
+    type: 'text' | 'email' | 'password' | 'tel' | 'search' | 'hidden' | 'number' | 'url' | 'datetime';
+    /**
+     *  If present, the value of the field. Use this prop to create a controlled component.
+     */
+    value?: string;
 }): JSX.Element;
-declare namespace TextInput {
-    namespace propTypes {
-        const ariaDescribedBy: PropTypes.Requireable<string>;
-        const autoComplete: PropTypes.Requireable<string>;
-        const disabled: PropTypes.Validator<boolean>;
-        const hint: PropTypes.Requireable<PropTypes.ReactNodeLike>;
-        const id: PropTypes.Requireable<string>;
-        const inputRef: PropTypes.Requireable<object>;
-        const invalid: PropTypes.Validator<boolean>;
-        const isMultiline: PropTypes.Validator<boolean>;
-        const label: PropTypes.Requireable<string>;
-        const maxLength: PropTypes.Requireable<number>;
-        const onBlur: PropTypes.Validator<(...args: any[]) => any>;
-        const onChange: PropTypes.Validator<(...args: any[]) => any>;
-        const onClick: PropTypes.Requireable<(...args: any[]) => any>;
-        const onFocus: PropTypes.Validator<(...args: any[]) => any>;
-        const onInvalid: PropTypes.Requireable<(...args: any[]) => any>;
-        const pattern: PropTypes.Requireable<string>;
-        const placeholder: PropTypes.Requireable<string>;
-        const readOnly: PropTypes.Validator<boolean>;
-        const required: PropTypes.Validator<boolean>;
-        const type: PropTypes.Validator<string>;
-        const value: PropTypes.Requireable<string>;
-    }
-    namespace defaultProps {
-        const autoComplete_1: string;
-        export { autoComplete_1 as autoComplete };
-        const disabled_1: boolean;
-        export { disabled_1 as disabled };
-        const invalid_1: boolean;
-        export { invalid_1 as invalid };
-        const isMultiline_1: boolean;
-        export { isMultiline_1 as isMultiline };
-        export function onBlur_1(): null;
-        export { onBlur_1 as onBlur };
-        export function onChange_1(): null;
-        export { onChange_1 as onChange };
-        export function onFocus_1(): null;
-        export { onFocus_1 as onFocus };
-        const readOnly_1: boolean;
-        export { readOnly_1 as readOnly };
-        const required_1: boolean;
-        export { required_1 as required };
-        const type_1: string;
-        export { type_1 as type };
-    }
-}
-import PropTypes from "prop-types";
+export declare function TextMultilineInput(props: {
+    /**
+     * Used with aria-describedby attribute to indicate the ID of a linked description element.
+     */
+    ariaDescribedBy?: string;
+    /**
+     * For uncontrolled components, sets the initial value which can be overridden by the user.
+     */
+    defaultValue?: string;
+    /**
+     * Sets whether the field is prevented from changing values or not. Distinct from read-only in that users cannot click or select in the field.
+     */
+    disabled?: boolean;
+    /**
+     * Descriptive content displayed under the field, usually to provide context or instructions to the user.
+     */
+    hint?: React.ReactNode;
+    /**
+     * HTML ID. Forwarded to the element.
+     */
+    id: string;
+    /**
+     * Forward a ref to the element. Use this prop to create an uncontrolled component.
+     */
+    inputRef?: React.Ref<HTMLTextAreaElement>;
+    /**
+     * Alert the user that validation has failed. This may be useful where HTML5 validation is not sufficient (for example, a field that is validated server-side).
+    */
+    invalid?: boolean;
+    /**
+     * Semantic description of the field’s purpose to be displayed above the field.
+     */
+    label?: string;
+    /**
+     * Prevents string length beyond given value.
+     */
+    maxLength?: number;
+    /**
+     * Event handler fired when focus is removed from the element.
+     */
+    onBlur?: (event: React.FocusEvent) => void;
+    /**
+     * Event handler fired when user input changes.
+     */
+    onChange?: (event: React.ChangeEvent) => void;
+    /**
+     * Event handler for when a user clicks on the element.
+     */
+    onClick?: (event: React.MouseEvent) => void;
+    /**
+     * Event handler fired when a user focuses on the element, including tab-focus.
+     */
+    onFocus?: (event: React.FocusEvent) => void;
+    /**
+     * Event handler fired when input is found invalid.
+     */
+    onInvalid?: (event: React.FormEvent) => void;
+    /**
+     * Sets "ghost" text that appears within the element when no value exists.
+     */
+    placeholder?: string;
+    /**
+     * Determines whether the field value is editable or not. Users can still click/select/highlight in the field.
+     */
+    readOnly?: boolean;
+    /**
+     * If true, value must be present for the form to be submitted. Will add an asterisk to label if label is present.
+     */
+    required?: boolean;
+    /**
+     *  If present, the value of the field. Use this prop to create a controlled component.
+     */
+    value?: string;
+}): JSX.Element;

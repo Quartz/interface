@@ -14,11 +14,11 @@ declare function RadioButton(props: {
      * Whether the radio button is interactive. Forwarded to the input
      * element.
      */
-    disabled: boolean;
+    disabled?: boolean;
     /**
      * Controls the DOM flow behavior of the component.
      */
-    display: 'block' | 'inline';
+    display?: 'block' | 'inline';
     /**
      * A string to combine multiple radio buttons in order to provide a
      * multiple choice field. Forwarded to the input element.
@@ -38,14 +38,7 @@ declare function RadioButton(props: {
      * order for the parent form to validate. Forwarded to the input
      * element.
      */
-    required: boolean;
+    required?: boolean;
 }): JSX.Element;
-declare namespace RadioButton {
-    var defaultProps: {
-        disabled: boolean;
-        display: string;
-        required: boolean;
-    };
-}
 export default RadioButton;
 //# sourceMappingURL=RadioButton.d.ts.map

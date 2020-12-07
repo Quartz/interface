@@ -9,9 +9,8 @@
 	"scripts": {
 		"build:storybook": "build-storybook -o .storybook/build -s public",
 		"build:types": "tsc --emitDeclarationOnly",
+		"clean": "rm -rf dist",
 		"copy": "./copy.sh",
-		"prebuild": "rm -rf dist",
-		"prepublishOnly": "npm run build",
 		"new": "npm run copy Example $1",
 		"start": "start-storybook -p 8600 -s public",
 		"test": "npm run test:lint && npm run test:unit",
@@ -28,6 +27,7 @@
 		"src/**/*"
 	],
 	"main": "src/components/index",
+	"types": "dist/index.d.ts",
 	"dependencies": {},
 	"devDependencies": {
 		"@quartz/eslint-config-react": "^1.1.3",

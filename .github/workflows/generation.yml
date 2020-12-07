@@ -1,0 +1,61 @@
+name: Type Generation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-ts:
+    name: Generate & verify TypeScript types
+    runs-on: ubuntu-latest
+
+    env:
+      NODE_VERSION: 12
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ env.NODE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-${{ env.NODE_VERSION }}-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Clean dist directory
+        run: npm run clean
+
+      - name: Build type declarations
+        run: npm run build:types
+
+      - name: Commit type declarations
+        continue-on-error: true
+        id: git_commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add --all Web
+          git commit -m "Add TypeScript types" --no-verify --allow-empty
+          SHA_OUTPUT=`git rev-parse HEAD`
+          echo "::set-output name=sha::"$SHA_OUTPUT""
+          git push
+
+      - uses: Sibz/github-status-action@v1
+        continue-on-error: true
+        with:
+          authToken: ${{ secrets.GITHUB_TOKEN }}
+          sha: ${{ steps.git_commit.outputs.sha }}
+          state: success
+          context: Built TypeScript types

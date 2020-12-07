@@ -9,6 +9,7 @@
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
+    "outDir": "dist",
     "resolveJsonModule": true,
     "sourceMap": true,
     "strictNullChecks": true

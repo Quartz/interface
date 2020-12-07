@@ -1,4 +1,5 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import Hed from './Hed';
 
 <Meta title="Hed" component={Hed} />
@@ -6,7 +7,15 @@ import Hed from './Hed';
 
 # Hed
 
-A hed (short for headline) is the title of a story or unit of content. This component is not exported for direct use; instead, it is composed into other components that provide information about a story.
+A hed (short for headline) is the title of a story or unit of content.
+
+## Usage guidelines
+
+- **Do** use `Hed` instead of font mixins to style a head.
+- **Do** set margin for the `Hed` on an inner wrapping tag passed to the `children` prop.
+- **Do** use a semantic HTML tag (e.g., `h1`) as your inner wrapping tag when appropriate.
+- **Do not** wrap `Hed` with a semantic head tag; this will result in invalid HTML (e.g., a `div` nested in an `h1`).
+- **Do not** use `Hed` when a more abstracted component like <LinkTo kind="ArticleStrip">ArticleStrip</LinkTo> or <LinkTo kind="TextGroup">TextGroup</LinkTo> fits your use case.
 
 ## Props
 
@@ -14,6 +23,7 @@ A hed (short for headline) is the title of a story or unit of content. This comp
 	<Story
 		args={{
 			children: 'All the “wellness” products Americans love to buy are sold on both Infowars and Goop',
+			size: 'small',
 		}}
 		name="Default"
 	>
@@ -66,3 +76,34 @@ A hed (short for headline) is the title of a story or unit of content. This comp
 		{args => <Hed {...args} />}
 	</Story>
 </Canvas>
+
+### Extra Large
+
+<Canvas>
+	<Story
+		args={{
+			children: 'All the “wellness” products Americans love to buy are sold on both Infowars and Goop',
+			size: 'extra-large',
+		}}
+		name="Extra Large"
+	>
+		{args => <Hed {...args} />}
+	</Story>
+</Canvas>
+
+### As H1
+
+<Canvas>
+	<Story
+		args={{
+			children: (
+				<h1 style={{ fontSize: 'inherit' }}>All the “wellness” products Americans love to buy are sold on both Infowars and Goop</h1>
+			),
+			size: 'large',
+		}}
+		name="As H1"
+	>
+		{args => <Hed {...args} />}
+	</Story>
+</Canvas>
+

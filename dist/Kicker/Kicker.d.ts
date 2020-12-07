@@ -8,3 +8,4 @@ declare namespace Kicker {
     }
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=Kicker.d.ts.map

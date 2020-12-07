@@ -86,3 +86,4 @@ export default function ColorScheme(props: {
      */
     typography: string;
 }): JSX.Element;
+//# sourceMappingURL=ColorScheme.d.ts.map

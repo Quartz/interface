@@ -22,3 +22,4 @@ declare namespace EmojiList {
     }
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=EmojiList.d.ts.map

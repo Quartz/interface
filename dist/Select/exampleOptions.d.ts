@@ -3,3 +3,4 @@ declare var _default: {
     value: string;
 }[];
 export default _default;
+//# sourceMappingURL=exampleOptions.d.ts.map

@@ -12,3 +12,4 @@ declare namespace Example {
     }
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=Example.d.ts.map

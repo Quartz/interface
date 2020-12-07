@@ -8,3 +8,4 @@ declare namespace Blockquote {
     }
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=Blockquote.d.ts.map

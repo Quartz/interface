@@ -30,3 +30,4 @@ declare namespace ArticleStrip {
     }
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=ArticleStrip.d.ts.map

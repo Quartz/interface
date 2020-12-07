@@ -8,3 +8,4 @@ declare namespace CalloutCard {
     }
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=CalloutCard.d.ts.map

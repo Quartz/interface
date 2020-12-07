@@ -26,3 +26,4 @@ declare namespace ResponsiveImage {
     }
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=ResponsiveImage.d.ts.map

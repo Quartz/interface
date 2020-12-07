@@ -5,3 +5,4 @@ export default function Tagline(props: {
      */
     children: React.ReactNode;
 }): JSX.Element;
+//# sourceMappingURL=Tagline.d.ts.map

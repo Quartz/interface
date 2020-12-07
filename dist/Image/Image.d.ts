@@ -32,3 +32,4 @@ declare namespace Image {
     }
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=Image.d.ts.map

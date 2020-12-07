@@ -21,3 +21,4 @@ declare function TabNavItem(props: {
     isActive: boolean;
 }): JSX.Element;
 export { TabNav, TabNavItem };
+//# sourceMappingURL=TabNav.d.ts.map

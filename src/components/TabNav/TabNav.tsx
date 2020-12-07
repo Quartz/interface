@@ -3,12 +3,16 @@ import styles from './TabNav.scss';
 
 function TabNav ( props: {
 	/**
+	 * Use when the TabNav is used with section headers or for non page-header content.
+	 */
+	alignLeft: boolean,
+	/**
 	 * Child node to be rendered as the inner HTML of the component.
 	 */
 	children: React.ReactNode,
 } ) {
 	return (
-		<nav className={styles.container}>
+		<nav className={`${styles.container} ${props.alignLeft ? '' : styles.alignCenter}`}>
 			<div className={styles[ 'scroll-container' ]}>
 				<ul className={styles.tablist}>
 					{props.children}

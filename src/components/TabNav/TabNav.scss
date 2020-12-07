@@ -5,7 +5,6 @@
 @use '~@quartz/styles/scss/tokens';
 
 .container {
-	text-align: center;
 	white-space: nowrap;
 	position: relative;
 	width: 100%;
@@ -20,6 +19,10 @@
 		background: linear-gradient(to right, color-scheme.$background-1-transparent, color-scheme.$background-1);
 		pointer-events: none;
 	}
+}
+
+.align-center {
+	text-align: center;
 }
 
 .scroll-container {
@@ -39,6 +42,25 @@
 	padding: 16px 0 14px;
 	color: color-scheme.$typography-faint;
 
+	&:first-child {
+		margin-left: 0;
+	}
+
+	&[aria-current="true"] {
+		border-bottom: 2px solid color-scheme.$accent;
+		color: color-scheme.$accent;
+
+		a {
+			color: color-scheme.$accent;
+		}
+	}
+
+	a {
+		color: inherit;
+	}
+}
+
+.align-center .tab {
 	&:first-child {
 		margin-left: tokens.$size-gutter-mobile;
 
@@ -61,18 +83,5 @@
 		@include media-queries.desktop-up {
 			margin-right: tokens.$size-gutter-desktop;
 		}
-	}
-
-	&[aria-current="true"] {
-		border-bottom: 2px solid color-scheme.$accent;
-		color: color-scheme.$accent;
-
-		a {
-			color: color-scheme.$accent;
-		}
-	}
-
-	a {
-		color: inherit;
 	}
 }

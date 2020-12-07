@@ -14,6 +14,7 @@ A hed (short for headline) is the title of a story or unit of content. This comp
 	<Story
 		args={{
 			children: 'All the “wellness” products Americans love to buy are sold on both Infowars and Goop',
+			size: 'small',
 		}}
 		name="Default"
 	>
@@ -66,3 +67,33 @@ A hed (short for headline) is the title of a story or unit of content. This comp
 		{args => <Hed {...args} />}
 	</Story>
 </Canvas>
+
+### Extra Large
+
+<Canvas>
+	<Story
+		args={{
+			children: 'All the “wellness” products Americans love to buy are sold on both Infowars and Goop',
+			size: 'extra-large',
+		}}
+		name="Extra Large"
+	>
+		{args => <Hed {...args} />}
+	</Story>
+</Canvas>
+
+### As H1
+
+<Canvas>
+	<Story
+		args={{
+			as: 'h1',
+			children: 'All the “wellness” products Americans love to buy are sold on both Infowars and Goop',
+			size: 'large',
+		}}
+		name="As H1"
+	>
+		{args => <Hed {...args} />}
+	</Story>
+</Canvas>
+

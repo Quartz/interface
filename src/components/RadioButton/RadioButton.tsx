@@ -19,11 +19,11 @@ function RadioButton ( props: {
 	 * Whether the radio button is interactive. Forwarded to the input
 	 * element.
 	 */
-	disabled: boolean,
+	disabled?: boolean,
 	/**
 	 * Controls the DOM flow behavior of the component.
 	 */
-	display: 'block' | 'inline',
+	display?: 'block' | 'inline',
 	/**
 	 * A string to combine multiple radio buttons in order to provide a
 	 * multiple choice field. Forwarded to the input element.
@@ -37,34 +37,33 @@ function RadioButton ( props: {
 	/**
       * Forward a ref to the element.
       */
-	ref?: React.Ref<HTMLInputElement>
+	ref?: React.Ref<HTMLInputElement>,
 	/**
 	 * Indicates that the radio button must be checked by the user in
 	 * order for the parent form to validate. Forwarded to the input
 	 * element.
 	 */
-	required: boolean,
+	required?: boolean,
 } ) {
+	const {
+		disabled = false,
+		display = 'inline',
+		required = false,
+	} = props;
 	return (
-		<label className={cx( 'container', props.display )}>
+		<label className={cx( 'container', display )}>
 			<input
 				checked={props.checked}
-				className={cx( 'input', props.display )}
-				disabled={props.disabled}
+				className={cx( 'input', display )}
+				disabled={disabled}
 				name={props.name}
 				onChange={props.onChange}
-				required={props.required}
+				required={required}
 				type="radio"
 			/>
 			{props.children}
 		</label>
 	);
 }
-
-RadioButton.defaultProps = {
-	disabled: false,
-	display: 'inline',
-	required: false,
-};
 
 export default RadioButton;

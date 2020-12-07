@@ -5,7 +5,7 @@ function TabNav ( props: {
 	/**
 	 * Use when the TabNav is used with section headers or for non page-header content.
 	 */
-	alignLeft: boolean,
+	alignLeft?: boolean,
 	/**
 	 * Child node to be rendered as the inner HTML of the component.
 	 */

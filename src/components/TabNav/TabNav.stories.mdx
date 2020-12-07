@@ -14,9 +14,10 @@ A link (`<a>`) or button (`<button>`) element should be passed into each TabNavI
 
 - **Do** use TabNav to present sibling pages.
 - **Do** use TabNav inside the <LinkTo kind="PageHeader">PageHeader</LinkTo> component when possible.
+- **Do** use center-aligned TabNav when it controls page content; align left otherwise.
 - **Do not** use the TabNavItem component without an immediate TabNav parent.
 - **Do not** apply `isActive={true}` to more than one TabNavItem at a time.
-- **Do not** use a TabNav to link to pages that are not semantically related.
+- **Do not** use a TabNav to link to pages or section content that are not semantically related.
 
 ## Props
 
@@ -47,6 +48,29 @@ A link (`<a>`) or button (`<button>`) element should be passed into each TabNavI
 				</TabNavItem>
 				<TabNavItem>
 					<a href="#">Ringo</a>
+				</TabNavItem>
+			</TabNav>
+		)}
+	</Story>
+</Canvas>
+
+### Section Nav
+
+<Canvas>
+	<Story name="Section Nav">
+		{args => (
+			<TabNav alignLeft>
+				<TabNavItem isActive={true}>
+					<a href="#">Because China</a>
+				</TabNavItem>
+				<TabNavItem>
+					<a href="#">Fixing Capitalism</a>
+				</TabNavItem>
+				<TabNavItem>
+					<a href="#">The Climate Economy</a>
+				</TabNavItem>
+				<TabNavItem>
+					<a href="#">Future of Finance</a>
 				</TabNavItem>
 			</TabNav>
 		)}

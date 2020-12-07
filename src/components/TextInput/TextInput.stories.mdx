@@ -1,29 +1,24 @@
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
-import TextInput from './TextInput';
+import LinkTo from '@storybook/addon-links/react';
+import { TextInput } from './TextInput';
 
 <Meta title="TextInput" component={TextInput} />
 
 # TextInput
 
-A text input component for either single or multiline input.
+A text input component for user input.
 
 ## Usage guidelines
 
-- **Do** make the TextInput component a child of a `form` element
-- **Do** use the type that best describes the content type
-- **Do** use the `readOnly` prop if a user should be able to interact with the field without changing it, otherwise use `disabled`
-- **Don't** pass a type prop when `isMultiline`=true
-- **Don't** use the same text for the `label` and `placeholder`
+- **Do** make the TextInput component a child of a `form` element.
+- **Do** use the `type` that best describes the content type.
+- **Do** use the `readOnly` prop if a user should be able to interact with the field without changing it, otherwise use `disabled`.
+- **Do** use <LinkTo kind="TextMultilineInput">TextMultilineInput</LinkTo> for multiline input (`textarea`).
+- **Don't** use the same text for the `label` and `placeholder`.
 
 
 ## Props
-
-export const defaultActions = {
-	onBlur: action( 'blurred' ),
-	onChange: action( 'changed' ),
-	onFocus: action( 'focused' ),
-};
 
 <Canvas>
 	<Story
@@ -39,14 +34,22 @@ export const defaultActions = {
 
 <ArgsTable story="Default" />
 
+
 ## Examples
 
+export const defaultActions = {
+	onBlur: action( 'blurred' ),
+	onChange: action( 'changed' ),
+	onFocus: action( 'focused' ),
+};
+
 Sample component with email type, which activates browser validations and autocomplete.
+
 <Canvas>
 	<Story
 		args={{
 			...defaultActions,
-			autoComplete: true,
+			autoComplete: 'email',
 			id: 'email',
 			label: 'Email',
 			placeholder: 'example@qz.com',
@@ -60,6 +63,7 @@ Sample component with email type, which activates browser validations and autoco
 </Canvas>
 
 Sample component with password type, which automatically obscures user input.
+
 <Canvas>
 	<Story
 		args={{
@@ -76,6 +80,7 @@ Sample component with password type, which automatically obscures user input.
 </Canvas>
 
 Sample component with hint and validation override.
+
 <Canvas>
 	<Story
 		args={{
@@ -88,22 +93,6 @@ Sample component with hint and validation override.
 			type: 'text',
 		}}
 		name="Invalid"
-	>
-		{args => <TextInput {...args} />}
-	</Story>
-</Canvas>
-
-Sample multiline TextInput that could be used for (e.g.) feedback forms.
-<Canvas>
-	<Story
-		args={{
-			...defaultActions,
-			id: 'textarea',
-			label: 'Message',
-			hint: 'We welcome as much feedback as you’d like to give.',
-			isMultiline: true,
-		}}
-		name="TextArea"
 	>
 		{args => <TextInput {...args} />}
 	</Story>

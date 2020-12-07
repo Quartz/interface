@@ -24,3 +24,4 @@ declare namespace PageHeader {
     }
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=PageHeader.d.ts.map

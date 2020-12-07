@@ -40,3 +40,4 @@ declare namespace Checkbox {
     }
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=Checkbox.d.ts.map

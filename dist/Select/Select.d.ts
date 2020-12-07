@@ -35,3 +35,4 @@ declare namespace Select {
     }
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=Select.d.ts.map

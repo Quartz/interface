@@ -1,0 +1,72 @@
+@use '~@quartz/styles/scss/base';
+
+// This rule doesn't seem to do much, but is important to prevent Storybook from
+// throwing out unused styles *in production*. Not sure why this is the case;
+// might be a (very annoying) bug.
+.main {
+	display: block;
+}
+
+@font-face {
+	font-family: 'PTSerif';
+	src: url('../../public/fonts/PT_Serif/PT_Serif-Web-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'PTSerif';
+	src: url('../../public/fonts/PT_Serif/PT_Serif-Web-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'PTSerif';
+	src: url('../../public/fonts/PT_Serif/PT_Serif-Web-Italic.woff2') format('woff2');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'PTSerif';
+	src: url('../../public/fonts/PT_Serif/PT_Serif-Web-BoldItalic.woff2') format('woff2');
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'MaisonNeue';
+	src: url('../../public/fonts/MaisonNeue/MaisonNeue-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'MaisonNeue';
+	src: url('../../public/fonts/MaisonNeue/MaisonNeue-ExtraBold.woff2') format('woff2');
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'MaisonNeueExtended';
+	src: url('../../public/fonts/MaisonNeue/MaisonNeueExtended-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Publico Headline';
+	src: url('../../public/fonts/PublicoHeadline/PublicoHeadline-Bold-Web.woff2') format('woff2');
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}

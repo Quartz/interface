@@ -24,3 +24,4 @@ export default function TextGroup(props: {
      */
     title: string;
 }): JSX.Element;
+//# sourceMappingURL=TextGroup.d.ts.map

@@ -16,3 +16,4 @@ declare namespace Badge {
     }
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=Badge.d.ts.map

@@ -9,3 +9,4 @@ export default function Hed(props: {
      */
     size: 'small' | 'medium' | 'large' | 'extra-large';
 }): JSX.Element;
+//# sourceMappingURL=Hed.d.ts.map

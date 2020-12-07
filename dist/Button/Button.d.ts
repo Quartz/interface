@@ -63,3 +63,4 @@ declare namespace Button {
     export { defaultProps_1 as defaultProps };
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=Button.d.ts.map

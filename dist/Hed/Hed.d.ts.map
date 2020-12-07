@@ -1,0 +1,1 @@
+{"version":3,"file":"Hed.d.ts","sourceRoot":"","sources":["../../src/components/Hed/Hed.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAG1B,MAAM,CAAC,OAAO,UAAU,GAAG,CAAG,KAAK,EAAE;IACpC;;OAEG;IACH,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;IAE1B;;OAEG;IACH,IAAI,EAAE,OAAO,GAAG,QAAQ,GAAG,OAAO,GAAG,aAAa,CAAC;CACnD,eAMA"}

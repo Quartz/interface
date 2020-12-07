@@ -8,3 +8,4 @@ declare namespace Pill {
     }
 }
 import PropTypes from "prop-types";
+//# sourceMappingURL=Pill.d.ts.map

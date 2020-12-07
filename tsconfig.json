@@ -4,8 +4,9 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "declaration": true,
+    "declarationMap": true,
     "jsx": "react",
-    "module": "ES6",
+    "module": "es6",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
@@ -15,6 +16,6 @@
     "strictNullChecks": true
   },
   "include": [
-    "src/components"
+    "src/components/**/*"
   ]
 }

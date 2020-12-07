@@ -46,7 +46,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add --all Web
+          git add --all dist
           git commit -m "Add TypeScript types" --no-verify --allow-empty
           SHA_OUTPUT=`git rev-parse HEAD`
           echo "::set-output name=sha::"$SHA_OUTPUT""

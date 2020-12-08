@@ -44,6 +44,12 @@ function RadioButton ( props: {
 	 * element.
 	 */
 	required?: boolean,
+
+	/**
+	 * The value of the radio group when this radio button is selected.
+	*/
+	value?: string,
+
 } ) {
 	const {
 		disabled = false,
@@ -60,6 +66,7 @@ function RadioButton ( props: {
 				onChange={props.onChange}
 				required={required}
 				type="radio"
+				value={props.value}
 			/>
 			{props.children}
 		</label>

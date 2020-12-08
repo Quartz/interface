@@ -1,31 +1,44 @@
-export default RadioButton;
-declare function RadioButton({ checked, children, disabled, display, name, onChange, required, }: {
-    checked: any;
-    children: any;
-    disabled: any;
-    display: any;
-    name: any;
-    onChange: any;
-    required: any;
+import React from 'react';
+declare function RadioButton(props: {
+    /**
+     * Toggle for the component’s checked state. Forwarded to the input
+     * element.
+     */
+    checked: boolean;
+    /**
+     * Child nodes to be rendered as the label for the radio button.
+     * Label/input HTML linking happens automatically.
+     */
+    children: React.ReactNode;
+    /**
+     * Whether the radio button is interactive. Forwarded to the input
+     * element.
+     */
+    disabled?: boolean;
+    /**
+     * Controls the DOM flow behavior of the component.
+     */
+    display?: 'block' | 'inline';
+    /**
+     * A string to combine multiple radio buttons in order to provide a
+     * multiple choice field. Forwarded to the input element.
+     */
+    name: string;
+    /**
+     * Function to run when the radio button is toggled. Forwarded to the
+     * input element.
+     */
+    onChange: (event: React.ChangeEvent) => void;
+    /**
+      * Forward a ref to the element.
+      */
+    ref?: React.Ref<HTMLInputElement>;
+    /**
+     * Indicates that the radio button must be checked by the user in
+     * order for the parent form to validate. Forwarded to the input
+     * element.
+     */
+    required?: boolean;
 }): JSX.Element;
-declare namespace RadioButton {
-    namespace propTypes {
-        const checked: PropTypes.Requireable<boolean>;
-        const children: PropTypes.Requireable<PropTypes.ReactNodeLike>;
-        const disabled: PropTypes.Validator<boolean>;
-        const display: PropTypes.Requireable<string>;
-        const name: PropTypes.Requireable<string | number>;
-        const onChange: PropTypes.Requireable<(...args: any[]) => any>;
-        const required: PropTypes.Validator<boolean>;
-    }
-    namespace defaultProps {
-        const disabled_1: boolean;
-        export { disabled_1 as disabled };
-        const display_1: string;
-        export { display_1 as display };
-        const required_1: boolean;
-        export { required_1 as required };
-    }
-}
-import PropTypes from "prop-types";
+export default RadioButton;
 //# sourceMappingURL=RadioButton.d.ts.map

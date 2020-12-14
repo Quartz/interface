@@ -5,6 +5,7 @@ export { default as Blockquote } from "./Blockquote/Blockquote";
 export { default as CalloutCard } from "./CalloutCard/CalloutCard";
 export { default as Checkbox } from "./Checkbox/Checkbox";
 export { default as EmojiList } from "./EmojiList/EmojiList";
+export { default as FormLabel } from "./FormLabel/FormLabel";
 export { default as Hed } from "./Hed/Hed";
 export { default as Image } from "./Image/Image";
 export { default as Kicker } from "./Kicker/Kicker";

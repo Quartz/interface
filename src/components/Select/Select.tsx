@@ -127,7 +127,7 @@ export default function Select ( props: {
 			</svg>
 			{
 				props.hint &&
-					<span className={cx( 'subtext', { invalid: props.invalid } )}>
+					<span className={cx( 'hint', { invalid: props.invalid } )}>
 						{props.hint}
 					</span>
 			}

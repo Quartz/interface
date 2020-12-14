@@ -74,7 +74,7 @@
 	}
 }
 
-.subtext {
+.hint {
 	margin-top: 10px;
 	font-size: 12px;
 	color: color-scheme.$typography-faint;
@@ -82,21 +82,5 @@
 
 	&.invalid {
 		color: tokens.$color-red;
-	}
-}
-
-.label {
-	margin-bottom: 7px;
-
-	&.required {
-		display: flex;
-
-		&::after {
-			content: ' *';
-			font-size: 20px;
-			color: color-scheme.$accent;
-			padding: 0 4px;
-			line-height: 0.8;
-		}
 	}
 }

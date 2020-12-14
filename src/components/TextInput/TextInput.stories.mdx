@@ -20,9 +20,16 @@ A text input component for user input.
 
 ## Props
 
+export const defaultActions = {
+	onBlur: action( 'blurred' ),
+	onChange: action( 'changed' ),
+	onFocus: action( 'focused' ),
+};
+
 <Canvas>
 	<Story
 		args={{
+			...defaultActions,
 			id: 'search',
 			placeholder: 'Search',
 		}}
@@ -36,12 +43,6 @@ A text input component for user input.
 
 
 ## Examples
-
-export const defaultActions = {
-	onBlur: action( 'blurred' ),
-	onChange: action( 'changed' ),
-	onFocus: action( 'focused' ),
-};
 
 Sample component with email type, which activates browser validations and autocomplete.
 

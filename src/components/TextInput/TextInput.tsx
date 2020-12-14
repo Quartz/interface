@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './TextInput.scss';
 import classnames from 'classnames/bind';
+import { FormLabel } from '../index';
 
 const cx = classnames.bind( styles );
 
@@ -141,9 +142,7 @@ export function TextInput ( props: {
 		<label className={styles.container}>
 			{
 				props.label &&
-					<span className={cx( 'label', { required } )}>
-						{props.label}
-					</span>
+					<FormLabel required={required}>{props.label}</FormLabel>
 			}
 
 			<input
@@ -279,9 +278,7 @@ export function TextMultilineInput ( props: {
 		<label className={styles.container}>
 			{
 				props.label &&
-					<span className={cx( 'label', { required } )}>
-						{props.label}
-					</span>
+					<FormLabel required={required}>{props.label}</FormLabel>
 			}
 
 			<textarea

@@ -1,8 +1,17 @@
 import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
 import Select from './Select';
-import options from './exampleOptions';
 
 <Meta title="Select" component={Select} />
+
+export const options = [
+	{ label: 'Future of Finance', value: 'ff' },
+	{ label: 'Beyond Silicon Valley', value: 'bsv' },
+	{ label: 'How we spend', value: 'hws' },
+	{ label: 'Because China', value: 'bc' },
+	{ label: 'Fixing capitalism', value: 'fcs' },
+	{ label: 'The climate economy', value: 'tce' },
+];
 
 # Select
 
@@ -10,13 +19,20 @@ Presents users with a choice of options from a dropdown.
 
 ## Props
 
+export const defaultActions = {
+	onChange: action( 'changed' ),
+};
+
 <Canvas>
 	<Story
 		args={{
+			...defaultActions,
+			hint: 'Obsessions are our alternative to traditional journalistic beats.',
+			label: "Our obsessions",
 			options,
 			placeholder: "What are you obsessed with?",
-			hint: "Obsessions are our alternative to traditional journalistic beats.",
-			label: "Our obsessions"
+			required: true,
+			value: '',
 		}}
 		name="Default"
 	>
@@ -31,11 +47,12 @@ Presents users with a choice of options from a dropdown.
 <Canvas>
 	<Story
 		args={{
+			...defaultActions,
 			disabled: true,
+			hint: 'Enter your email to select an obsession to follow.',
+			label: 'Our obsessions',
 			options,
-			placeholder: "What are you obsessed with?",
-			hint: "Enter your email to select an obsession to follow.",
-			label: "Our obsessions"
+			value: 'ff',
 		}}
 		name="Disabled"
 	>
@@ -46,11 +63,12 @@ Presents users with a choice of options from a dropdown.
 <Canvas>
 	<Story
 		args={{
+			...defaultActions,
 			invalid: true,
 			options,
-			placeholder: "What are you obsessed with?",
 			hint: "Sorry, your selection isn't available for mail order.",
-			label: "Our obsessions"
+			label: "Our obsessions",
+			value: 'xx',
 		}}
 		name="Invalid"
 	>

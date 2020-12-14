@@ -1,0 +1,46 @@
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import FormLabel from './FormLabel';
+
+<Meta title="FormLabel" component={FormLabel} />
+
+# FormLabel
+
+A text label that accompanies a form field. Note that this component is purely
+presentational and does not render a `<label>`.
+
+## Usage guidelines
+
+- **Do** use the `FormLabel` component instead of implemented your own label style.
+- **Do** separately render a `<label>` for your form field.
+- **Do not** use `FormLabel` outside the context of a form.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			children: 'Your name',
+		}}
+		name="Default"
+	>
+		{args => <FormLabel {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Required
+
+<Canvas>
+	<Story
+		args={{
+			children: 'Your name',
+			required: true,
+		}}
+		name="Required"
+	>
+		{args => <FormLabel {...args} />}
+	</Story>
+</Canvas>

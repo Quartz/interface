@@ -27,6 +27,7 @@
 		"src/**/*"
 	],
 	"main": "src/components/index",
+	"module": "src/components/index",
 	"types": "dist/index.d.ts",
 	"dependencies": {},
 	"devDependencies": {

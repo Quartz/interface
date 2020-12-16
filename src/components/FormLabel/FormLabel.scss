@@ -1,0 +1,16 @@
+@use '~@quartz/styles/scss/color-scheme';
+
+.container {
+	margin-bottom: 8px;
+
+	&.required {
+		display: flex;
+
+		&::after {
+			content: ' *';
+			color: color-scheme.$accent;
+			padding: 0 4px;
+			line-height: 0.8;
+		}
+	}
+}

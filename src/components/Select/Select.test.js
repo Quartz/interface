@@ -23,10 +23,10 @@ const setup = overrides => {
 };
 
 describe( 'Select', () => {
-	it( 'Calls onChange when the select element blurs', () => {
+	it( 'Calls onChange when the select element changes', () => {
 		const { props, wrapper } = setup();
 
-		wrapper.find( 'select' ).simulate( 'blur' );
+		wrapper.find( 'select' ).simulate( 'change' );
 		expect( props.onChange ).toBeCalled();
 	} );
 } );

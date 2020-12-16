@@ -7,9 +7,8 @@
 
 .container {
 	@include fonts.maison;
-}
 
-.select-container {
+	display: block;
 	position: relative;
 }
 
@@ -24,11 +23,11 @@
 	border: borders.$solid-interactive;
 	cursor: pointer;
 	font-size: 16px;
-	color: color-scheme.$typography;
 	padding: 0 15px 0 40px;
 	background-color: color-scheme.$background-2;
 
 	&:disabled {
+		color: color-scheme.$typography-faint;
 		opacity: 0.5;
 
 		&:hover {
@@ -36,13 +35,14 @@
 		}
 	}
 
+	/* The :invalid selector is active when a disabled option is selected. */
+	&:invalid {
+		color: color-scheme.$typography-faint;
+	}
+
 	&[aria-invalid="true"] {
 		color: tokens.$color-red;
 		border-color: tokens.$color-red;
-	}
-
-	&.is-placeholder {
-		color: color-scheme.$typography-faint;
 	}
 
 	&:hover,
@@ -64,7 +64,7 @@
 
 	.select:disabled + &,
 	.select:disabled:hover + & {
-		--color: #{color-scheme.$typography};
+		--color: #{color-scheme.$typography-faint};
 
 		opacity: 0.5;
 	}
@@ -74,7 +74,7 @@
 	}
 }
 
-.subtext {
+.hint {
 	margin-top: 10px;
 	font-size: 12px;
 	color: color-scheme.$typography-faint;
@@ -83,11 +83,4 @@
 	&.invalid {
 		color: tokens.$color-red;
 	}
-}
-
-.label {
-	@include fonts.maison-extended-700-1;
-
-	display: block;
-	margin-bottom: 7px;
 }

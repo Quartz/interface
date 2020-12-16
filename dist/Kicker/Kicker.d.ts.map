@@ -1,1 +1,1 @@
-{"version":3,"file":"Kicker.d.ts","sourceRoot":"","sources":["../../src/components/Kicker/Kicker.jsx"],"names":[],"mappings":";AAIA;;gBAQC"}
+{"version":3,"file":"Kicker.d.ts","sourceRoot":"","sources":["../../src/components/Kicker/Kicker.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAG1B,MAAM,CAAC,OAAO,UAAU,MAAM,CAAG,KAAK,EAAE;IACvC;;OAEG;IACH,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC1B,eAMA"}

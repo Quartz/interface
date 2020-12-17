@@ -1,0 +1,18 @@
+@use '~@quartz/styles/scss/media-queries';
+@use '~@quartz/styles/scss/tokens';
+
+.image-container {
+	flex-shrink: 0;
+	width: 220px;
+	border-radius: tokens.$size-border-radius;
+
+	&.large {
+		@include media-queries.tablet-portrait-up {
+			width: 346px;
+		}
+
+		@include media-queries.desktop-up {
+			width: 666px;
+		}
+	}
+}

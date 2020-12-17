@@ -35,7 +35,7 @@ export default function Select(props: {
     /**
      * A function that will be called when the user's selection changes.
      */
-    onChange: (event: React.ChangeEvent) => void;
+    onChange?: (event: React.ChangeEvent) => void;
     /**
      * The options to display in the dropdown. Each has a label, which will display
      * to the user, and a value, which can be different than the label. For

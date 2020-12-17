@@ -9,12 +9,16 @@
 	@include fonts.maison;
 
 	display: block;
+}
+
+.select-container {
 	position: relative;
 }
 
 .select {
 	@include resets.select;
 
+	color: color-scheme.$typography;
 	display: inline-block;
 	height: 45px;
 	width: 100%;

@@ -47,7 +47,7 @@ export default function Select ( props: {
 	/**
 	 * A function that will be called when the user's selection changes.
 	 */
-	onChange: ( event: React.ChangeEvent ) => void,
+	onChange?: ( event: React.ChangeEvent ) => void,
 
 	/**
 	 * The options to display in the dropdown. Each has a label, which will display
@@ -85,46 +85,48 @@ export default function Select ( props: {
 	return (
 		<label className={styles.container}>
 			<FormLabel required={required}>{props.label}</FormLabel>
-			<select
-				aria-invalid={props.invalid}
-				className={styles.select}
-				disabled={disabled}
-				onChange={props.onChange}
-				ref={props.inputRef}
-				required={required}
-				value={props.value}
-			>
-				{
-					props.placeholder &&
-						<option disabled value="">
-							{props.placeholder}
-						</option>
-				}
-				{
-					props.options.map( item => (
-						<option
-							key={item.value}
-							value={item.value}
-						>
-							{item.label}
-						</option>
-					) )
-				}
-			</select>
-			<svg
-				aria-hidden="true"
-				className={cx( 'down-arrow', { invalid: props.invalid } )}
-				height="6"
-				width="11"
-				viewBox="15 20 11 6"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					d="M20.027 26l.016-.016 1.088-1.062 3.887-3.859L23.932 20l-3.894 3.852L16.104 20l-1.086 1.064 3.964 3.881z"
-					fill="var(--color, #4C4C4C)"
-					fillRule="evenodd"
-				/>
-			</svg>
+			<div className={styles.selectContainer}>
+				<select
+					aria-invalid={props.invalid}
+					className={styles.select}
+					disabled={disabled}
+					onChange={props.onChange}
+					ref={props.inputRef}
+					required={required}
+					value={props.value}
+				>
+					{
+						props.placeholder &&
+							<option disabled value="">
+								{props.placeholder}
+							</option>
+					}
+					{
+						props.options.map( item => (
+							<option
+								key={item.value}
+								value={item.value}
+							>
+								{item.label}
+							</option>
+						) )
+					}
+				</select>
+				<svg
+					aria-hidden="true"
+					className={cx( 'down-arrow', { invalid: props.invalid } )}
+					height="6"
+					width="11"
+					viewBox="15 20 11 6"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M20.027 26l.016-.016 1.088-1.062 3.887-3.859L23.932 20l-3.894 3.852L16.104 20l-1.086 1.064 3.964 3.881z"
+						fill="var(--color, #4C4C4C)"
+						fillRule="evenodd"
+					/>
+				</svg>
+			</div>
 			{
 				props.hint &&
 					<span className={cx( 'hint', { invalid: props.invalid } )}>

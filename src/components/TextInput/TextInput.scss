@@ -7,7 +7,6 @@
 .input,
 .textarea {
 	@include resets.text-input;
-	@include fonts.maison;
 
 	background-color: color-scheme.$background-2;
 	border: borders.$solid-interactive;

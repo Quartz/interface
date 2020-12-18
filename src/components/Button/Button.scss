@@ -1,5 +1,4 @@
 @use '~@quartz/styles/scss/color-scheme';
-@use '~@quartz/styles/scss/fonts';
 @use '~@quartz/styles/scss/helpers/positioning';
 @use '~@quartz/styles/scss/helpers/resets';
 @use '~@quartz/styles/scss/states';
@@ -34,8 +33,6 @@
 }
 
 .label {
-	@include fonts.maison;
-
 	font-size: 16px;
 	opacity: inherit;
 	white-space: nowrap;

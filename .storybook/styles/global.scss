@@ -1,10 +1,11 @@
 @use '~@quartz/styles/scss/base';
+@use '~@quartz/styles/scss/fonts';
 
-// This rule doesn't seem to do much, but is important to prevent Storybook from
-// throwing out unused styles *in production*. Not sure why this is the case;
-// might be a (very annoying) bug.
+// Having at least one used class from this file is important to prevent
+// Storybook from throwing out unused styles *in production*. Not sure why this
+// is the case; might be a (very annoying) bug.
 .main {
-	display: block;
+	@include fonts.maison;
 }
 
 @font-face {

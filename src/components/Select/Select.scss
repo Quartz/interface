@@ -1,13 +1,10 @@
 @use '~@quartz/styles/scss/borders';
 @use '~@quartz/styles/scss/color-scheme';
-@use '~@quartz/styles/scss/fonts';
 @use '~@quartz/styles/scss/helpers/positioning';
 @use '~@quartz/styles/scss/helpers/resets';
 @use '~@quartz/styles/scss/tokens';
 
 .container {
-	@include fonts.maison;
-
 	display: block;
 }
 

@@ -1,18 +1,16 @@
-@use '~@quartz/styles/scss/media-queries';
 @use '~@quartz/styles/scss/tokens';
+@use '~@quartz/styles/scss/helpers/positioning';
 
 .image-container {
-	flex-shrink: 0;
-	width: 220px;
+	position: relative;
 	border-radius: tokens.$size-border-radius;
+	margin-bottom: 12px;
+	overflow: hidden;
+}
 
-	&.large {
-		@include media-queries.tablet-portrait-up {
-			width: 346px;
-		}
+.play-icon {
+	@include positioning.center;
 
-		@include media-queries.desktop-up {
-			width: 666px;
-		}
-	}
+	height: 32%;
+	width: auto;
 }

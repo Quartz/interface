@@ -13,10 +13,11 @@ import FeatureCard from './FeatureCard';
 	<Story
 		args={{
 			altText: 'Some text',
+			imageSize: 'large',
+			kicker: "The buck stops here",
 			src: "https://cms.qz.com/wp-content/uploads/2017/11/walmart1-e1510848655454.jpg",
 			title: "How to shop without destroying the climate",
-			kicker: "The buck stops here",
-			size: 'small',
+			textSize: 'large',
 		}}
 		name="Default"
 	>
@@ -32,15 +33,36 @@ import FeatureCard from './FeatureCard';
 	<Story
 		args={{
 			altText: 'Some text',
+			imageSize: 'small',
+			kicker: "The buck stops here",
 			src: "https://cms.qz.com/wp-content/uploads/2017/11/walmart1-e1510848655454.jpg",
 			title: "How to shop without destroying the climate",
-			kicker: "The buck stops here",
-			size: 'small',
+			textSize: 'small',
 		}}
 		name="Fixed width"
 	>
 		{args => (
 			<div style={{ width: 300 }}>
+				<FeatureCard {...args} />
+			</div>
+		)}
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		args={{
+			altText: 'Some text',
+			description: 'Employee activists are transforming the workplace—and making companies better in the process.',
+			imageSize: 'portrait',
+			src: "https://cms.qz.com/wp-content/uploads/2020/12/workplace_cover.jpg",
+			title: "The rise of employee activists",
+			textSize: 'small',
+		}}
+		name="Portrait"
+	>
+		{args => (
+			<div style={{ width: 225 }}>
 				<FeatureCard {...args} />
 			</div>
 		)}

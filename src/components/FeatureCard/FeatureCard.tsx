@@ -44,6 +44,13 @@ export default function FeatureCard( props: {
 	 */
 	description?: string,
 	/**
+	 * The expected size & dimensions of the image to be rendered. The 'small' size will optimize
+	 * the image for smaller contexts, such as content lists at mobile sizes. 'Large' and
+	 * 'portrait' sizes will optimize for contexts such as Guide cards and content lists at desktop
+	 * sizes. See [ResponsiveImage](/?path=/docs/responsiveimage--default-story).
+	 */
+	imageSize: 'small' | 'large' | 'portrait',
+	/**
 	 * A short phrase that accompanies the Hed. See [Kicker](/?path=/docs/kicker--default-story).
 	 */
 	kicker?: string,
@@ -54,6 +61,10 @@ export default function FeatureCard( props: {
 	 */
 	src: string,
 	/**
+	 * The size of the title text.
+	 */
+	textSize: 'small' | 'medium' | 'large',
+	/**
 	 * The article headline, used in TextGroup as Hed. See [Hed](/?path=/docs/hed--default-story).
 	 */
 	title: string,
@@ -62,21 +73,14 @@ export default function FeatureCard( props: {
 	 * video content.
 	 */
 	showPlayIcon?: boolean,
-	/**
-	 * The expected size & dimensions of the image to be rendered. The 'small' size will optimize
-	 * the image for smaller contexts, such as content lists at mobile sizes. 'Large' and
-	 * 'portrait' sizes will optimize for contexts such as Guide cards and content lists at desktop
-	 * sizes. See [ResponsiveImage](/?path=/docs/responsiveimage--default-story).
-	 */
-	size: 'small' | 'large' | 'portrait',
 } ) {
 	return (
 		<div>
-			<div className={`${styles.imageContainer} ${styles[ props.size ]}`}>
+			<div className={`${styles.imageContainer} ${styles[ props.imageSize ]}`}>
 				<ResponsiveImage
 					alt={props.alt}
 					src={props.src}
-					{...responsiveImagePropsMapping[props.size]}
+					{...responsiveImagePropsMapping[props.imageSize]}
 				/>
 				{
 					props.showPlayIcon && (
@@ -87,11 +91,11 @@ export default function FeatureCard( props: {
 				}
 			</div>
 			<TextGroup
-				isArticle
+				isArticle={props.imageSize !== 'portrait'}
 				kicker={props.kicker}
 				tagline={props.description}
 				title={props.title}
-				size={props.size === 'portrait' ? 'small' : props.size}
+				size={props.textSize}
 			/>
 		</div>
 	);

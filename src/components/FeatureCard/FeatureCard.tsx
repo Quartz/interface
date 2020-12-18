@@ -97,7 +97,7 @@ export default function FeatureCard( props: {
 				{
 					props.showPlayIcon && (
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" className={styles.playIcon}>
-							<path d="M78.936 41.951L5.918 79.073a4 4 0 01-5.813-3.565V4.829a4 4 0 015.813-3.565l73.018 37.122a2 2 0 010 3.565z" fill="var(--color,#fff)" fill-rule="evenodd"/>
+							<path d="M78.936 41.951L5.918 79.073a4 4 0 01-5.813-3.565V4.829a4 4 0 015.813-3.565l73.018 37.122a2 2 0 010 3.565z" fill="var(--color,#fff)" fillRule="evenodd"/>
 						</svg>
 					)
 				}

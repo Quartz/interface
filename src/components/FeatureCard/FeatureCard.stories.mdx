@@ -75,15 +75,16 @@ import FeatureCard from './FeatureCard';
 		args={{
 			altText: 'A mug full of office supplies and activist signs',
 			description: 'Employee activists are transforming the workplace—and making companies better in the process.',
-			imageSize: 'portrait',
+			imageSize: 'large',
+			isPortrait: true,
 			src: "https://cms.qz.com/wp-content/uploads/2020/12/workplace_cover.jpg",
 			title: "The rise of employee activists",
-			textSize: 'small',
+			textSize: 'medium',
 		}}
 		name="Portrait"
 	>
 		{args => (
-			<div style={{ width: 225 }}>
+			<div style={{ width: 310 }}>
 				<FeatureCard {...args} />
 			</div>
 		)}

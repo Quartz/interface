@@ -19,7 +19,13 @@ const responsiveImagePropsMapping = {
 		`,
 		widthRange: [ 220, 666 ],
 	},
-	portrait: {
+	smallPortrait: {
+		fallbackWidth: 285,
+		fallbackHeight: 400,
+		sizes: '285px',
+		widthRange: [ 285, 400 ],
+	},
+	largePortrait: {
 		fallbackWidth: 285,
 		fallbackHeight: 400,
 		sizes: `
@@ -49,7 +55,12 @@ export default function FeatureCard( props: {
 	 * 'portrait' sizes will optimize for contexts such as Guide cards and content lists at desktop
 	 * sizes. See [ResponsiveImage](/?path=/docs/responsiveimage--default-story).
 	 */
-	imageSize: 'small' | 'large' | 'portrait',
+	imageSize: 'small' | 'large',
+	/**
+	 * Determines the aspect ratio of the image, e.g. whether it is sized for images that are taller
+	 * than they are wide.
+	 */
+	isPortrait?: boolean,
 	/**
 	 * A short phrase that accompanies the Hed. See [Kicker](/?path=/docs/kicker--default-story).
 	 */
@@ -74,13 +85,14 @@ export default function FeatureCard( props: {
 	 */
 	showPlayIcon?: boolean,
 } ) {
+	const imagePropsSize = props.isPortrait ? `${props.imageSize}Portrait` : props.imageSize;
 	return (
 		<div>
 			<div className={`${styles.imageContainer} ${styles[ props.imageSize ]}`}>
 				<ResponsiveImage
 					alt={props.alt}
 					src={props.src}
-					{...responsiveImagePropsMapping[props.imageSize]}
+					{...responsiveImagePropsMapping[imagePropsSize]}
 				/>
 				{
 					props.showPlayIcon && (
@@ -91,7 +103,7 @@ export default function FeatureCard( props: {
 				}
 			</div>
 			<TextGroup
-				isArticle={props.imageSize !== 'portrait'}
+				isArticle={!props.isPortrait}
 				kicker={props.kicker}
 				tagline={props.description}
 				title={props.title}

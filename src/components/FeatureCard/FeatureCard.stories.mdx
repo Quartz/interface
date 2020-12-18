@@ -5,7 +5,14 @@ import FeatureCard from './FeatureCard';
 
 # FeatureCard
 
+A stacked summary of a Quartz feature, including Guides and videos. Composed of an image and a title, as
+well as an optional [Kicker](/?path=/docs/kicker--default-story) and [Tagline](/?path=/docs/tagline--default-story).
+
 ## Usage guidelines
+
+- **DO** nest inside links to the relevant feature (`<a>`) and list tags when in a list of articles.
+- **DO** use an `imageSize` prop that is appropriate to the largest size at which the FeatureCard might be seen (e.g. if the FeatureCard is used in a sidebar list, use `small`).
+- **DON'T** use `isPortrait` with images that are not natively in a portrait aspect ratio.
 
 ## Props
 

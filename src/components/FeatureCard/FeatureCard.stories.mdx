@@ -1,4 +1,6 @@
 import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { Kicker, Tagline } from '..';
 import FeatureCard from './FeatureCard';
 
 <Meta title="FeatureCard" component={FeatureCard} />
@@ -6,7 +8,7 @@ import FeatureCard from './FeatureCard';
 # FeatureCard
 
 A stacked summary of a Quartz feature, including Guides and videos. Composed of an image and a title, as
-well as an optional [Kicker](/?path=/docs/kicker--default-story) and [Tagline](/?path=/docs/tagline--default-story).
+well as an optional <LinkTo kind={Kicker}>Kicker</LinkTo> and <LinkTo kind={Tagline}>Tagline</LinkTo>.
 
 ## Usage guidelines
 

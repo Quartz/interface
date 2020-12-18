@@ -1,15 +1,8 @@
-export default Example;
-declare function Example({ children, }: {
-    children: any;
+import React from 'react';
+export default function Example(props: {
+    /**
+     * Child node to be rendered as the inner HTML of the component.
+     */
+    children: React.ReactNode;
 }): JSX.Element;
-declare namespace Example {
-    namespace propTypes {
-        const children: PropTypes.Validator<string | number | boolean | {} | PropTypes.ReactElementLike | PropTypes.ReactNodeArray>;
-    }
-    namespace defaultProps {
-        const children_1: string;
-        export { children_1 as children };
-    }
-}
-import PropTypes from "prop-types";
 //# sourceMappingURL=Example.d.ts.map

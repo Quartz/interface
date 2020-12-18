@@ -1,0 +1,1 @@
+{"version":3,"file":"Constrain.d.ts","sourceRoot":"","sources":["../../src/components/Constrain/Constrain.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAG1B,MAAM,CAAC,OAAO,UAAU,SAAS,CAAG,KAAK,EAAE;IAC1C;;OAEG;IACH,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;IAE1B;;OAEG;IACH,IAAI,EAAE,OAAO,GAAG,QAAQ,GAAG,OAAO,GAAG,aAAa,CAAC;CACnD,eAMA"}

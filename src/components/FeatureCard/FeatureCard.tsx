@@ -26,7 +26,7 @@ const responsiveImagePropsMapping = {
 			(min-width: 1200px) 382px,
 			285px,
 		`,
-		widthRange: [ 285, 382 ],
+		widthRange: [ 285, 400 ],
 	},
 };
 

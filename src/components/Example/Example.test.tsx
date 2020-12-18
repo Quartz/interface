@@ -6,7 +6,9 @@ const defaultProps = {
 	children: 'Test content',
 };
 
-const setup = overrides => shallow( <Example {...defaultProps} {...overrides} /> );
+function setup ( overrides = {} ) {
+	return shallow( <Example {...defaultProps} {...overrides} /> );
+}
 
 describe( 'Example', () => {
 	it( 'renders', () => {

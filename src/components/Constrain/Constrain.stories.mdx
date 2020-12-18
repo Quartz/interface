@@ -1,0 +1,78 @@
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import Constrain from './Constrain';
+
+<Meta title="Layout/Constrain" component={Constrain} />
+
+# Constrain
+
+A layout container that provides a centering, max-width, and breakpoint-
+appropriate gutters.
+
+## Props
+
+export const defaultChildren = (
+	<>
+		<p>Reflecting on Wikipedia’s most-read pages is like holding up an encyclopedic mirror to 2020. English speakers read about those that died, about American politics and political institutions, about the stories behind popular TV shows, and about coronavirus.</p>
+		<p>Readers in June sought information on the Black experience in America and beyond—the death of George Floyd and Breonna Taylor, Edward Colston, and Juneteenth. And in November, top pages were overwhelmingly related to the winners and the losers of the US election.</p>
+		<p>We’ve pulled together the most-read English-language Wikipedia page for every day of 2020 excluding the Main Page and the Search page. While they tend to highlight the events, concerns, and people of the year, there are a few unexpected twists, like Johnny Bravo goes to Bollywood.</p>
+	</>
+);
+
+<Canvas>
+	<Story
+		args={{
+			children: defaultChildren,
+			size: 'small',
+		}}
+		name="Small"
+	>
+		{args => <Constrain {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Medium
+
+<Canvas>
+	<Story
+		args={{
+			children: defaultChildren,
+			size: 'medium',
+		}}
+		name="Medium"
+	>
+		{args => <Constrain {...args} />}
+	</Story>
+</Canvas>
+
+### Large
+
+<Canvas>
+	<Story
+		args={{
+			children: defaultChildren,
+			size: 'large',
+		}}
+		name="Large"
+	>
+		{args => <Constrain {...args} />}
+	</Story>
+</Canvas>
+
+### Extra Large
+
+<Canvas>
+	<Story
+		args={{
+			children: defaultChildren,
+			size: 'extra-large',
+		}}
+		name="Extra Large"
+	>
+		{args => <Constrain {...args} />}
+	</Story>
+</Canvas>

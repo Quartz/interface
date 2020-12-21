@@ -23,7 +23,7 @@ const responsiveImagePropsMapping = {
 		fallbackWidth: 285,
 		fallbackHeight: 400,
 		sizes: '285px',
-		widthRange: [ 285, 400 ],
+		widthRange: [ 285, 285 ],
 	},
 	largePortrait: {
 		fallbackWidth: 285,
@@ -32,19 +32,13 @@ const responsiveImagePropsMapping = {
 			(min-width: 1200px) 382px,
 			285px,
 		`,
-		widthRange: [ 285, 400 ],
+		widthRange: [ 285, 382 ],
 	},
 };
 
 export default function FeatureCard( props: {
 	/**
-	 * Alternative text to describe the image for screen readers or in situations
-	 * where the image cannot be loaded. This prop is required but under certain
-	 * circumstances an empty string is preferred.
-	 */
-	alt: string,
-	/**
-	 * Optional maller text below the component title. As an example, if the component title
+	 * Optional smaller text below the component title. As an example, if the component title
 	 * is "The rise of employee activists," a relevant description might be "Employee
 	 * activists are transforming the workplace—and making companies better in the process."
 	 */
@@ -70,13 +64,13 @@ export default function FeatureCard( props: {
 	 * resizing using the width (`w`), height (`h`) and crop (`crop`)
 	 * query parameters.
 	 */
-	src: string,
+	thumbnailUrl: string,
 	/**
 	 * The size of the title text.
 	 */
 	textSize: 'small' | 'medium' | 'large',
 	/**
-	 * The article headline, used in TextGroup as Hed. See [Hed](/?path=/docs/hed--default-story).
+	 * Primary text, used in TextGroup as Hed. See [Hed](/?path=/docs/hed--default-story).
 	 */
 	title: string,
 	/**
@@ -90,14 +84,14 @@ export default function FeatureCard( props: {
 		<div>
 			<div className={`${styles.imageContainer} ${styles[ props.imageSize ]}`}>
 				<ResponsiveImage
-					alt={props.alt}
-					src={props.src}
+					alt=""
+					src={props.thumbnailUrl}
 					{...responsiveImagePropsMapping[imagePropsSize]}
 				/>
 				{
 					props.showPlayIcon && (
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" className={styles.playIcon}>
-							<path d="M78.936 41.951L5.918 79.073a4 4 0 01-5.813-3.565V4.829a4 4 0 015.813-3.565l73.018 37.122a2 2 0 010 3.565z" fill="var(--color,#fff)" fillRule="evenodd"/>
+							<path d="M78.936 41.951L5.918 79.073a4 4 0 01-5.813-3.565V4.829a4 4 0 015.813-3.565l73.018 37.122a2 2 0 010 3.565z" fill="#fff" fillRule="evenodd"/>
 						</svg>
 					)
 				}

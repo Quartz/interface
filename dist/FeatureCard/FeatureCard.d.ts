@@ -1,13 +1,7 @@
 /// <reference types="react" />
 export default function FeatureCard(props: {
     /**
-     * Alternative text to describe the image for screen readers or in situations
-     * where the image cannot be loaded. This prop is required but under certain
-     * circumstances an empty string is preferred.
-     */
-    alt: string;
-    /**
-     * Optional maller text below the component title. As an example, if the component title
+     * Optional smaller text below the component title. As an example, if the component title
      * is "The rise of employee activists," a relevant description might be "Employee
      * activists are transforming the workplace—and making companies better in the process."
      */
@@ -33,13 +27,13 @@ export default function FeatureCard(props: {
      * resizing using the width (`w`), height (`h`) and crop (`crop`)
      * query parameters.
      */
-    src: string;
+    thumbnailUrl: string;
     /**
      * The size of the title text.
      */
     textSize: 'small' | 'medium' | 'large';
     /**
-     * The article headline, used in TextGroup as Hed. See [Hed](/?path=/docs/hed--default-story).
+     * Primary text, used in TextGroup as Hed. See [Hed](/?path=/docs/hed--default-story).
      */
     title: string;
     /**

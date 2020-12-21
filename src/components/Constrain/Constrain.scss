@@ -1,0 +1,31 @@
+@use '~@quartz/styles/scss/media-queries';
+@use '~@quartz/styles/scss/tokens';
+
+.container {
+	margin: auto;
+	padding: 0 tokens.$size-gutter-mobile;
+
+	@include media-queries.tablet-portrait-up {
+		padding: 0 tokens.$size-gutter-tablet;
+	}
+
+	@include media-queries.desktop-up {
+		padding: 0 tokens.$size-gutter-desktop;
+	}
+}
+
+.small {
+	max-width: 620px; // corresponds to $max-width-content-article
+}
+
+.medium {
+	max-width: 940px; // corresponds to $max-width-content
+}
+
+.large {
+	max-width: tokens.$size-breakpoint-desktop;
+}
+
+.extra-large {
+	max-width: tokens.$size-breakpoint-desktop-large;
+}

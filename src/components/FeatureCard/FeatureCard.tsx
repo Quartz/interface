@@ -51,6 +51,11 @@ export default function FeatureCard( props: {
 	 */
 	imageSize: 'small' | 'large',
 	/**
+	 * Whether the card is for article content; passed through to TextGroup to
+	 * determine color and formatting. Defaults to `true`.
+	 */
+	isArticle?: boolean,
+	/**
 	 * Determines the aspect ratio of the image, e.g. whether it is sized for images that are taller
 	 * than they are wide.
 	 */
@@ -80,6 +85,9 @@ export default function FeatureCard( props: {
 	showPlayIcon?: boolean,
 } ) {
 	const imagePropsSize = props.isPortrait ? `${props.imageSize}Portrait` : props.imageSize;
+	const {
+		isArticle = true,
+	} = props;
 	return (
 		<div>
 			<div className={`${styles.imageContainer} ${styles[ props.imageSize ]}`}>
@@ -97,7 +105,7 @@ export default function FeatureCard( props: {
 				}
 			</div>
 			<TextGroup
-				isArticle={!props.isPortrait}
+				isArticle={isArticle}
 				kicker={props.kicker}
 				tagline={props.description}
 				title={props.title}

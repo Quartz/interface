@@ -7,7 +7,7 @@ export default function FeatureCard(props: {
      */
     alt: string;
     /**
-     * Optional smaller text below the component title. As an example, if the component title
+     * Optional maller text below the component title. As an example, if the component title
      * is "The rise of employee activists," a relevant description might be "Employee
      * activists are transforming the workplace—and making companies better in the process."
      */

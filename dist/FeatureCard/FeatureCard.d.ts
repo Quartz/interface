@@ -14,6 +14,11 @@ export default function FeatureCard(props: {
      */
     imageSize: 'small' | 'large';
     /**
+     * Whether the card is for article content; passed through to TextGroup to
+     * determine color and formatting. Defaults to `true`.
+     */
+    isArticle?: boolean;
+    /**
      * Determines the aspect ratio of the image, e.g. whether it is sized for images that are taller
      * than they are wide.
      */

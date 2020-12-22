@@ -19,13 +19,29 @@ const responsiveImagePropsMapping = {
 		`,
 		widthRange: [ 220, 666 ],
 	},
-	smallPortrait: {
+};
+
+function ArticleImage( props: {
+	size: 'small' | 'large',
+	thumbnailUrl: string,
+} ) {
+	return (
+		<ResponsiveImage
+			alt=""
+			src={props.thumbnailUrl}
+			{...responsiveImagePropsMapping[props.size]}
+		/>
+	);
+}
+
+const responsivePortraitPropsMapping = {
+	small: {
 		fallbackWidth: 285,
 		fallbackHeight: 400,
 		sizes: '285px',
 		widthRange: [ 285, 285 ],
 	},
-	largePortrait: {
+	large: {
 		fallbackWidth: 285,
 		fallbackHeight: 400,
 		sizes: `
@@ -35,6 +51,19 @@ const responsiveImagePropsMapping = {
 		widthRange: [ 285, 382 ],
 	},
 };
+
+function ArticlePortrait( props: {
+	size: 'small' | 'large',
+	thumbnailUrl: string,
+} ) {
+	return (
+		<ResponsiveImage
+			alt=""
+			src={props.thumbnailUrl}
+			{...responsivePortraitPropsMapping[props.size]}
+		/>
+	);
+}
 
 export default function FeatureCard( props: {
 	/**
@@ -82,15 +111,16 @@ export default function FeatureCard( props: {
 		isArticle = true,
 	} = props;
 	const imageSize = 'medium' === props.size ? 'large' : props.size; // default to large resolution for medium text
-	const imagePropsSize = props.isPortrait ? `${imageSize}Portrait` : imageSize;
+	const imageMaxWidth = props.isPortrait ? `${imageSize}Portrait` : imageSize;
 	return (
 		<div>
-			<div className={`${styles.imageContainer} ${styles[ imagePropsSize ]}`}>
-				<ResponsiveImage
-					alt=""
-					src={props.thumbnailUrl}
-					{...responsiveImagePropsMapping[imagePropsSize]}
-				/>
+			<div className={`${styles.imageContainer} ${styles[ imageMaxWidth ]}`}>
+				{
+					props.isPortrait && <ArticlePortrait thumbnailUrl={props.thumbnailUrl} size={imageSize} />
+				}
+				{
+					!props.isPortrait && <ArticleImage thumbnailUrl={props.thumbnailUrl} size={imageSize} />
+				}
 				{
 					props.showPlayIcon && (
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" className={styles.playIcon}>

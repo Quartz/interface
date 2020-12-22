@@ -85,7 +85,7 @@ export default function FeatureCard( props: {
 	const imagePropsSize = props.isPortrait ? `${imageSize}Portrait` : imageSize;
 	return (
 		<div>
-			<div className={`${styles.imageContainer} ${styles[ imageSize ]}`}>
+			<div className={`${styles.imageContainer} ${styles[ imagePropsSize ]}`}>
 				<ResponsiveImage
 					alt=""
 					src={props.thumbnailUrl}

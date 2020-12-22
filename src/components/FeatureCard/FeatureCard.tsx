@@ -49,7 +49,7 @@ export default function FeatureCard( props: {
 	 */
 	isArticle?: boolean,
 	/**
-	 * Determines the aspect ratio of the image, e.g. whether it is sized for images that are taller
+	 * Determines the orientation of the image, e.g. whether it is sized for images that are taller
 	 * than they are wide.
 	 */
 	isPortrait?: boolean,
@@ -69,10 +69,8 @@ export default function FeatureCard( props: {
 	 */
 	showPlayIcon?: boolean,
 	/**
-	 * Determines the size of the title text and the expected size & dimensions of the image to be
-	 * rendered. The 'small' size will optimize the image for smaller contexts, such as content lists
-	 * at mobile sizes. 'Large' and 'portrait' sizes will optimize for contexts such as Guide cards
-	 * and content lists at desktop sizes. See [ResponsiveImage](/?path=/docs/responsiveimage--default-story).
+	 * Determines the size of the title text and the expected size & maximum image width of the
+	 * image component.
 	 */
 	size: 'small' | 'medium' | 'large',
 	/**

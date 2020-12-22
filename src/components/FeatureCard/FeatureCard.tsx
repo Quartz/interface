@@ -22,7 +22,15 @@ const responsiveImagePropsMapping = {
 };
 
 function ArticleImage( props: {
+	/**
+	 * Determines expected size and maximum width of the image.
+	 */
 	size: 'small' | 'large',
+	/**
+	 * URL of an image in the WordPress media library. Must support
+	 * resizing using the width (`w`), height (`h`) and crop (`crop`)
+	 * query parameters.
+	 */
 	thumbnailUrl: string,
 } ) {
 	return (
@@ -53,7 +61,15 @@ const responsivePortraitPropsMapping = {
 };
 
 function ArticlePortrait( props: {
+	/**
+	 * Determines expected size and maximum width of the image.
+	 */
 	size: 'small' | 'large',
+	/**
+	 * URL of an image in the WordPress media library. Must support
+	 * resizing using the width (`w`), height (`h`) and crop (`crop`)
+	 * query parameters.
+	 */
 	thumbnailUrl: string,
 } ) {
 	return (

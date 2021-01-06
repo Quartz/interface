@@ -1,1 +1,1 @@
-{"version":3,"file":"Example.d.ts","sourceRoot":"","sources":["../../src/components/Example/Example.jsx"],"names":[],"mappings":";AAIA;;gBAIC"}
+{"version":3,"file":"Example.d.ts","sourceRoot":"","sources":["../../src/components/Example/Example.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAG1B,MAAM,CAAC,OAAO,UAAU,OAAO,CAAG,KAAK,EAAE;IACxC;;OAEG;IACH,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC1B,eAIA"}

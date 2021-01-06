@@ -9,10 +9,10 @@ fi
 mkdir -p "./src/components/$2"
 
 files=(
-	'jsx'
 	'scss'
 	'stories.mdx'
-	'test.js'
+	'test.tsx'
+	'tsx'
 )
 for file in "${files[@]}"; do
 	source="./src/components/$1/$1.$file"

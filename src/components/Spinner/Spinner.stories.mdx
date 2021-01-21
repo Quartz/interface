@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
 import Spinner from './Spinner';
 
 <Meta title="UI/Spinner" component={Spinner} />
@@ -7,14 +7,39 @@ import Spinner from './Spinner';
 
 An animated spinner to indicate that an action is in progress.
 
-## Props
+Optionally displays a timeout message prompting the user to reload the page after the spinner has been visible for a number of seconds.
 
-This component does not accept any props.
+## Usage guidelines
+
+- **Do** use the `timeout` prop when you expect the awaited action to have completed in less than ten seconds.
+- **Do not** show a timeout message when the spinner is overly constrained by a parent element, such as a button.
+- **Do not** show a timeout message when reloading the page may cause the user to lose data, e.g. a form submission.
+
+## Props
 
 <Canvas>
 	<Story
-		args={{}}
+		args={{
+			timeout: false,
+		}}
 		name="Default"
+	>
+		{args => <Spinner {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Show timeout message after 10 seconds
+
+<Canvas>
+	<Story
+		args={{
+			timeout: true,
+		}}
+		name="Timeout message after 10 seconds"
 	>
 		{args => <Spinner {...args} />}
 	</Story>

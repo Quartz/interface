@@ -60,7 +60,7 @@ function ArticleStrip ( {
 					kicker={sponsor ? <SponsoredBy sponsor={sponsor} /> : kicker}
 					size={size}
 					title={title}
-					tagline={! sponsor && `${stylizedTimestamp( dateGmt )} • ${edition}`}
+					tagline={! sponsor && `${edition} • ${stylizedTimestamp( dateGmt )}`}
 				/>
 			</div>
 		</div>
@@ -82,13 +82,19 @@ ArticleStrip.propTypes = {
 	dateGmt: PropTypes.string,
 
 	/**
-	 * The Quartz edition to which the article belongs.
+	 * The Quartz edition or email to which the article belongs.
 	 */
 	edition: PropTypes.oneOf( [
 		'Quartz',
 		'Quartz Africa',
 		'Quartz India',
 		'Quartz at Work',
+		'📬 Quartz Daily Brief',
+		'📬 The Memo from Quartz at Work',
+		'📬 Need to Know: Coronavirus',
+		'📬 Space Business',
+		'📬 Quartz Africa Weekly Brief',
+		'📬 Quartz Weekly Obsession',
 	] ),
 
 	/**

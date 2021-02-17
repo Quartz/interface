@@ -1,0 +1,93 @@
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { Kicker, Tagline } from '..';
+import FeatureCard from './FeatureCard';
+
+<Meta title="Content/FeatureCard" component={FeatureCard} />
+
+# FeatureCard
+
+A stacked summary of a Quartz feature, including Guides and videos. Composed of an image and a title, as
+well as an optional <LinkTo kind={Kicker}>Kicker</LinkTo> and <LinkTo kind={Tagline}>Tagline</LinkTo>.
+
+## Usage guidelines
+
+- **DO** nest inside links to the relevant feature (`<a>`) and list tags when in a list of articles.
+- **DO** constrain the component appropriately with the parent container.
+- **DON'T** use `isPortrait` with images that are not natively in a portrait aspect ratio.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{
+			kicker: "The buck stops here",
+			thumbnailUrl: "https://cms.qz.com/wp-content/uploads/2017/11/walmart1-e1510848655454.jpg",
+			title: "How to shop without destroying the climate",
+			size: 'large',
+		}}
+		name="Default"
+	>
+		{args => <FeatureCard {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Examples
+
+<Canvas>
+	<Story
+		args={{
+			kicker: "The buck stops here",
+			thumbnailUrl: "https://cms.qz.com/wp-content/uploads/2017/11/walmart1-e1510848655454.jpg",
+			title: "How to shop without destroying the climate",
+			size: 'small',
+		}}
+		name="Fixed width"
+	>
+		{args => (
+			<div style={{ width: 315 }}>
+				<FeatureCard {...args} />
+			</div>
+		)}
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		args={{
+			kicker: "Quartz at Work (from home)",
+			showPlayIcon: true,
+			thumbnailUrl: "https://cms.qz.com/wp-content/uploads/2020/04/Tightrope-e1586961655857.jpg",
+			title: "Watch Quartz's workshop on leading teams through tension",
+			size: 'small',
+		}}
+		name="Play icon"
+	>
+		{args => (
+			<div style={{ width: 315 }}>
+				<FeatureCard {...args} />
+			</div>
+		)}
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		args={{
+			description: 'Employee activists are transforming the workplace—and making companies better in the process.',
+			isPortrait: true,
+			thumbnailUrl: "https://cms.qz.com/wp-content/uploads/2020/12/workplace_cover.jpg",
+			title: "The rise of employee activists",
+			size: 'medium',
+		}}
+		name="Portrait"
+	>
+		{args => (
+			<div style={{ width: 310 }}>
+				<FeatureCard {...args} />
+			</div>
+		)}
+	</Story>
+</Canvas>

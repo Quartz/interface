@@ -104,15 +104,11 @@ export default function FeatureCard( props: {
 	} = props;
 	const imageSize = 'medium' === props.size ? 'large' : props.size; // default to large resolution for medium text
 	const imageMaxWidth = props.isPortrait ? `${imageSize}Portrait` : imageSize;
+	const ArticleImageComponent = props.isPortrait ? ArticlePortrait : ArticleImage;
 	return (
 		<div>
 			<div className={`${styles.imageContainer} ${styles[ imageMaxWidth ]}`}>
-				{
-					props.isPortrait && <ArticlePortrait thumbnailUrl={props.thumbnailUrl} size={imageSize} />
-				}
-				{
-					!props.isPortrait && <ArticleImage thumbnailUrl={props.thumbnailUrl} size={imageSize} />
-				}
+				<ArticleImageComponent thumbnailUrl={props.thumbnailUrl} size={imageSize} />
 				{
 					props.showPlayIcon && (
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" className={styles.playIcon}>

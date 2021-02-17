@@ -2,25 +2,6 @@ import React from 'react';
 import { ResponsiveImage, TextGroup } from '..';
 import styles from './FeatureCard.scss';
 
-const responsiveImagePropsMapping = {
-	small: {
-		fallbackWidth: 220,
-		fallbackHeight: 122,
-		sizes: '220px',
-		widthRange: [ 220, 220 ],
-	},
-	large: {
-		fallbackWidth: 220,
-		fallbackHeight: 122,
-		sizes: `
-			(min-width: 1200px) 666px,
-			(min-width: 768px) 346px,
-			220px,
-		`,
-		widthRange: [ 220, 666 ],
-	},
-};
-
 function ArticleImage( props: {
 	/**
 	 * Determines expected size and maximum width of the image.
@@ -37,28 +18,17 @@ function ArticleImage( props: {
 		<ResponsiveImage
 			alt=""
 			src={props.thumbnailUrl}
-			{...responsiveImagePropsMapping[props.size]}
+			fallbackWidth={220}
+			fallbackHeight={122}
+			sizes={'small' === props.size ? '220px' : `
+				(min-width: 1200px) 666px,
+				(min-width: 768px) 346px,
+				220px,
+			`}
+			widthRange={[ 220, 'small' === props.size ? 220 : 666 ]}
 		/>
 	);
 }
-
-const responsivePortraitPropsMapping = {
-	small: {
-		fallbackWidth: 285,
-		fallbackHeight: 400,
-		sizes: '285px',
-		widthRange: [ 285, 285 ],
-	},
-	large: {
-		fallbackWidth: 285,
-		fallbackHeight: 400,
-		sizes: `
-			(min-width: 1200px) 382px,
-			285px,
-		`,
-		widthRange: [ 285, 382 ],
-	},
-};
 
 function ArticlePortrait( props: {
 	/**
@@ -76,7 +46,13 @@ function ArticlePortrait( props: {
 		<ResponsiveImage
 			alt=""
 			src={props.thumbnailUrl}
-			{...responsivePortraitPropsMapping[props.size]}
+			fallbackWidth={285}
+			fallbackHeight={400}
+			sizes={'small' === props.size ? '285px' : `
+				(min-width: 1200px) 382px,
+				285px,
+			`}
+			widthRange={[ 285, 'small' === props.size ? 285 : 382 ]}
 		/>
 	);
 }

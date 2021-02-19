@@ -8,6 +8,7 @@ export { default as Checkbox } from './Checkbox/Checkbox';
 export { default as ColorScheme, schemes } from './ColorScheme/ColorScheme';
 export { default as Constrain } from './Constrain/Constrain';
 export { default as EmojiList } from './EmojiList/EmojiList';
+export { default as FeatureCard } from './FeatureCard/FeatureCard';
 export { default as FormLabel } from './FormLabel/FormLabel';
 export { default as Hed } from './Hed/Hed';
 export { default as Image } from './Image/Image';

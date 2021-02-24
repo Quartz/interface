@@ -1,0 +1,50 @@
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
+import Icon from './Icon';
+
+<Meta title="Icons/Icon" component={Icon} />
+
+# Icon
+
+An example component that can be used as a template for new components. A script
+is provided to copy this component to a new one, renaming everything
+appropriately:
+
+```sh
+npm run new NewComponent
+```
+
+This script can also be used to copy any existing component, just replace
+`Icon` with the name of another component.
+
+## Usage guidelines
+
+- **Do** update the `Icon` component if you make improvements that other components could benefit from.
+- **Do not** use the `Icon` component.
+
+## Props
+
+<Canvas>
+	<Story
+		args={{}}
+		name="Default"
+	>
+		{args => <Icon {...args} />}
+	</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Inquisitive
+
+<Canvas>
+	<Story
+		args={{
+			children: 'Hello, world?',
+		}}
+		name="Inquisitive"
+	>
+		{args => <Icon {...args} />}
+	</Story>
+</Canvas>

@@ -37,6 +37,7 @@ export default function Icon ( props: {
 	} = props;
 	const fill = color || `var(--color-${themeColor}, black)`;
 	const commonProps = {
+		ariaHidden: true,
 		width: size,
 		height: size,
 		version: '1.1',

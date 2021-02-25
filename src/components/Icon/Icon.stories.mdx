@@ -20,6 +20,7 @@ tktk
 	<Story
 		args={{
 			name: 'apple',
+			size: 30,
 			themeColor: 'typography',
 		}}
 		name="Default"
@@ -44,7 +45,10 @@ tktk
 		args={{
 			icons: [
 				'apple',
+				'arrow-right',
 				'check',
+				'compass',
+				'envelope',
 				'facebook',
 				'linkedin',
 				'twitter',
@@ -55,15 +59,17 @@ tktk
 	>
 		{
 			args => (
-				<table border="1" cellpadding="10">
-					{
-						args.icons.map( icon => (
-							<tr>
-								<td>{icon}</td>
-								<td><Icon name={icon} /></td>
-							</tr>
-						) )
-					}
+				<table border="1" cellPadding="10">
+					<tbody>
+						{
+							args.icons.map( icon => (
+								<tr key={icon}>
+									<td>{icon}</td>
+									<td><Icon name={icon} /></td>
+								</tr>
+							) )
+						}
+					</tbody>
 				</table>
 			)
 		}

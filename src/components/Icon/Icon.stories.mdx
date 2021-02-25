@@ -1,20 +1,11 @@
 import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
 import Icon from './Icon';
 
-<Meta title="Icons/Icon" component={Icon} />
+<Meta title="Content/Icon" component={Icon} />
 
 # Icon
 
-An example component that can be used as a template for new components. A script
-is provided to copy this component to a new one, renaming everything
-appropriately:
-
-```sh
-npm run new NewComponent
-```
-
-This script can also be used to copy any existing component, just replace
-`Icon` with the name of another component.
+Renders an icon from the icon library.
 
 ## Usage guidelines
 
@@ -34,17 +25,34 @@ This script can also be used to copy any existing component, just replace
 
 <ArgsTable story="Default" />
 
-## Stories
-
-### Inquisitive
+## Library
 
 <Canvas>
 	<Story
 		args={{
-			children: 'Hello, world?',
+			icons: [
+				'apple',
+				'facebook',
+				'linkedin',
+				'twitter',
+				'youtube',
+			]
 		}}
-		name="Inquisitive"
+		name="Library"
 	>
-		{args => <Icon {...args} />}
+		{
+			args => (
+				<table border="1" cellpadding="10">
+					{
+						args.icons.map( icon => (
+							<tr>
+								<td>{icon}</td>
+								<td><Icon name={icon} /></td>
+							</tr>
+						) )
+					}
+				</table>
+			)
+		}
 	</Story>
 </Canvas>

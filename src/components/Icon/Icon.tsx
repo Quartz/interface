@@ -2,7 +2,9 @@ import React from 'react';
 
 export default function Icon ( props: {
 	/**
-	 * Fill color of the icon to be rendered. Takes precedence over themeColor.
+	 * Fill color of the icon to be rendered. Can be any HTML-valid
+	 * color string, e.g. hexadecimal, RGBA, CSS color names, etc.
+	 * If supplied, this value takes precedence over `props.themeColor`.
 	 */
 	color?: string,
 
@@ -11,6 +13,7 @@ export default function Icon ( props: {
 	 */
 	name: (
 		'apple' |
+		'check' |
 		'facebook' |
 		'linkedin' |
 		'twitter' |
@@ -23,7 +26,9 @@ export default function Icon ( props: {
 	size?: number,
 
 	/**
-	 * Theme color of the icon to be rendered. Defaults to 'typography'.
+	 * Theme color of the icon to be rendered. This will be mapped to a
+	 * CSS variable name declared by the ColorScheme component.
+	 * Defaults to 'typography'.
 	 */
 	themeColor?: (
 		'accent' |
@@ -38,7 +43,7 @@ export default function Icon ( props: {
 	} = props;
 	const fill = color || `var(--color-${themeColor}, black)`;
 	const commonProps = {
-		ariaHidden: true,
+		'aria-hidden': true,
 		height: size,
 		version: '1.1',
 		xmnls: 'http://www.w3.org/2000/svg',
@@ -50,6 +55,16 @@ export default function Icon ( props: {
 				<svg viewBox="0 0 20 20" {...commonProps}>
 					<path
 						d="M13.5805661,4.77558069 L13.8493455,4.79151818 C15.3003564,4.83691668 16.6450115,5.56385706 17.4776727,6.75304545 C16.1637481,7.56083283 15.3552155,8.9853992 15.3353455,10.5276455 C15.3372211,12.272513 16.3821605,13.8471921 17.9892,14.5268909 C17.6801306,15.5309145 17.214251,16.4797543 16.6088182,17.3382636 C15.7957455,18.5545364 14.9432455,19.7427909 13.5901727,19.7647545 C12.2754364,19.7951 11.8335909,18.9910273 10.3256273,18.9910273 C8.80353636,18.9910273 8.33259091,19.7428 7.07162727,19.7951 C5.78303636,19.8428273 4.79823636,18.4969636 3.9556,17.2921 C2.27140909,14.8315455 0.959963636,10.3578636 2.71814545,7.31384545 C3.54376107,5.83023225 5.08745569,4.88878947 6.78443636,4.83396364 C8.07419091,4.80742727 9.27191818,5.705 10.0648909,5.705 C10.8428091,5.705 12.3227636,4.63128182 13.8493455,4.79151818 Z M13.8652455,-5.86197757e-14 C13.9532591,1.14930223 13.5897969,2.28764719 12.8520455,3.17329091 C12.1362874,4.0635302 11.0517608,4.57630615 9.90952727,4.56454545 C9.83688603,3.44832971 10.2109261,2.3490173 10.9492636,1.50873636 C11.696982,0.657072432 12.7381253,0.118382261 13.8652455,-5.86197757e-14 Z"
+						fill={fill}
+						fillRule="evenodd"
+					/>
+				</svg>
+			);
+		case 'check':
+			return (
+				<svg viewBox="183 18 12 11" {...commonProps}>
+					<path
+						d="M193.294 18l-6.35 6.968-2.335-2.48L183 24.201l3.86 4.113L195 19.58z"
 						fill={fill}
 						fillRule="evenodd"
 					/>
@@ -91,7 +106,7 @@ export default function Icon ( props: {
 					<path
 						d="M14.002 17L14 7l10 5.017L14.002 17zM35.64 5.609s-.352-2.547-1.432-3.67C32.84.468 31.306.46 30.602.375 25.565 0 18.008 0 18.008 0h-.016S10.436 0 5.398.374C4.694.46 3.16.467 1.79 1.94.71 3.062.36 5.609.36 5.609S0 8.6 0 11.592v2.804c0 2.992.36 5.983.36 5.983s.351 2.548 1.43 3.67c1.37 1.472 3.169 1.425 3.97 1.58C8.64 25.912 18 26 18 26s7.565-.012 12.602-.386c.704-.086 2.238-.093 3.607-1.565 1.08-1.122 1.432-3.67 1.432-3.67S36 17.388 36 14.396v-2.804c0-2.992-.36-5.983-.36-5.983z"
 						fill={fill}
-						fill-rule="evenodd"
+						fillRule="evenodd"
 					/>
 				</svg>
 			);

@@ -1,5 +1,6 @@
 import { ArgsTable, Canvas, Story } from '@storybook/addon-docs/blocks';
 import Icon from './Icon';
+import ColorScheme, { schemes } from '../ColorScheme/ColorScheme';
 
 <Meta title="Content/Icon" component={Icon} />
 
@@ -7,19 +8,30 @@ import Icon from './Icon';
 
 Renders an icon from the icon library.
 
+Icons in Quartz interfaces are intended to be decorative and not a replacement for textual information. As such, all icons are rendered with `aria-hidden="true"`.
+
 ## Usage guidelines
 
-- **Do** update the `Icon` component if you make improvements that other components could benefit from.
-- **Do not** use the `Icon` component.
+tktk
 
 ## Props
 
 <Canvas>
 	<Story
-		args={{}}
+		args={{
+			name: 'apple',
+			themeColor: 'typography',
+		}}
 		name="Default"
 	>
-		{args => <Icon {...args} />}
+		{
+			args => (
+				<>
+					<Icon {...args} />
+					<ColorScheme {...schemes.LIGHT} type="default" />
+				</>
+			)
+		}
 	</Story>
 </Canvas>
 
@@ -32,6 +44,7 @@ Renders an icon from the icon library.
 		args={{
 			icons: [
 				'apple',
+				'check',
 				'facebook',
 				'linkedin',
 				'twitter',

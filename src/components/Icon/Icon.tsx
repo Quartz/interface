@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Icon ( props: {
 	/**
-	 * Fill color of the icon to be rendered. Defaults to black (#000).
+	 * Fill color of the icon to be rendered. Takes precedence over themeColor.
 	 */
 	color?: string,
 
@@ -15,13 +15,14 @@ export default function Icon ( props: {
 		'linkedin' |
 		'twitter'
 	),
+
 	/**
 	 * Size of the icon to be rendered in pixels. Defaults to 20.
 	 */
 	size?: number,
 
 	/**
-	 * Theme color of the icon to be rendered. Takes precedence over color.
+	 * Theme color of the icon to be rendered. Defaults to 'typography'.
 	 */
 	themeColor?: (
 		'accent' |
@@ -30,14 +31,14 @@ export default function Icon ( props: {
 	),
 } ) {
 	const {
-		color = 'black',
+		color,
 		size = 20,
-		themeColor,
+		themeColor = 'typography',
 	} = props;
-	const fill = themeColor ? `var(--color-${themeColor}, color)` : color;
+	const fill = color || `var(--color-${themeColor}, black)`;
 	const commonProps = {
 		width: size,
-		height: 'auto',
+		height: size,
 		version: '1.1',
 		xmnls: 'http://www.w3.org/2000/svg',
 	};

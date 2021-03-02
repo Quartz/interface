@@ -18,10 +18,6 @@
 
 .small {
 	max-width: 220px;
-
-	@include media-queries.desktop-up {
-		max-width: 400px;
-	}
 }
 
 .large {
@@ -36,6 +32,6 @@
 	max-width: 382px;
 
 	@include media-queries.desktop-up {
-		max-width: 600px;
+		max-width: 666px;
 	}
 }

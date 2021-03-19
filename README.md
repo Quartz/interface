@@ -122,11 +122,12 @@ disabled: PropTypes.bool.isRequired,
 #### Deployment
 
 * Deployment is accomplished through Github actions. See `Actions` tab for an easy overview or the yaml files in `./github/workflows`. Through these actions we can:
-1. Deploy Prism to `prism.qz.com` through AWS S3
+1. Deploy Prism to `prism.qz.com` through an [AWS S3 bucket](https://s3.console.aws.amazon.com/s3/buckets/prism.qz.com)
 2. Run linters
 3. Generate and validate types
 4. Run unit tests
 
-* `prism.qz.com` is deployed through Github actions after a new version is successfully released. To release a new version, draft a new release (see `/releases`), draft a new release, target the `main` branch, and add sequentially number the latest release according to major or minor semantic release version.
+* `prism.qz.com` is automatically deployed when a PR is merged to the `main` branch.
+* Versions should be released to update Prism where used in production. To release a new version, draft a new release (see `/releases`), draft a new release, target the `main` branch, and add sequentially number the latest release according to major or minor semantic release version.
 
 ### TK: Component story template

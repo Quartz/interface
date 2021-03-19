@@ -119,4 +119,14 @@ disabled: PropTypes.bool.isRequired,
 * The component does not include any external spacing, i.e. margin, which is considered the responsibility of the component consumer
 * Wherever possible, component SCSS extends helper mixins and token variables
 
+#### Deployment
+
+* Deployment is accomplished through Github actions. See `Actions` tab for an easy overview or the yaml files in `./github/workflows`. Through these actions we can:
+1. Deploy Prism to `prism.qz.com` through AWS S3
+2. Run linters
+3. Generate and validate types
+4. Run unit tests
+
+* `prism.qz.com` is deployed through Github actions after a new version is successfully released. To release a new version, draft a new release (see `/releases`), draft a new release, target the `main` branch, and add sequentially number the latest release according to major or minor semantic release version.
+
 ### TK: Component story template

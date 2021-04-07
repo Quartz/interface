@@ -14,21 +14,7 @@ export function TextInput ( props: {
 	/**
 	 * Informs the browser what values should be suggested when filling out the field.
 	 */
-	autoComplete:
-		'country' |
-		'email' |
-		'family-name' |
-		'given-name' |
-		'name' |
-		'new-password' |
-		'off' |
-		'on' |
-		'organization' |
-		'password' |
-		'street-address' |
-		'tel' |
-		'url' |
-		'username',
+	autoComplete?: React.InputHTMLAttributes<HTMLInputElement>['autoComplete'],
 
 	/**
 	 * For uncontrolled components, sets the initial value which can be overridden by the user.

@@ -17,14 +17,18 @@ export function TextInput ( props: {
 	autoComplete:
 		'country' |
 		'email' |
+		'family-name' |
+		'given-name' |
 		'name' |
+		'new-password' |
 		'off' |
 		'on' |
 		'organization' |
+		'password' |
 		'street-address' |
 		'tel' |
-		'username' |
-		'url',
+		'url' |
+		'username',
 
 	/**
 	 * For uncontrolled components, sets the initial value which can be overridden by the user.

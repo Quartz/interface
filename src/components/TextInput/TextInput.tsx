@@ -160,7 +160,7 @@ export function TextInput ( props: {
 
 			{
 				props.type === 'search' &&
-				<Icon name="search" size={15} className={styles.searchIcon} />
+				<Icon name="search" size={12} className={styles.searchIcon} />
 			}
 
 			{

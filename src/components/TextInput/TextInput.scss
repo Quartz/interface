@@ -91,9 +91,6 @@
 .search-icon {
 	@include positioning.vertical-center;
 
-	--color: #{color-scheme.$typography};
-
 	left: 16px;
-	width: 12px;
 	cursor: pointer;
 }

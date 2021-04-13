@@ -1,5 +1,6 @@
 @use '~@quartz/styles/scss/tokens';
 @use '~@quartz/styles/scss/helpers/positioning';
+@use '~@quartz/styles/scss/media-queries';
 
 .image-container {
 	position: relative;
@@ -29,4 +30,8 @@
 
 .large-portrait {
 	max-width: 382px;
+
+	@include media-queries.desktop-up {
+		max-width: 666px;
+	}
 }

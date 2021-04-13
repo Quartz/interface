@@ -2,5 +2,5 @@
 	"extends": [
 		"@quartz/eslint-config-react"
 	],
-	"parser": "@typescript-eslint/parser",
+	"parser": "@typescript-eslint/parser"
 }

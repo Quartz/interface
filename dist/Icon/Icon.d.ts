@@ -1,4 +1,16 @@
-/// <reference types="react" />
+import React from 'react';
+declare const svgIcons: {
+    readonly apple: (props: any) => JSX.Element;
+    readonly 'arrow-right': (props: any) => JSX.Element;
+    readonly check: (props: any) => JSX.Element;
+    readonly compass: (props: any) => JSX.Element;
+    readonly envelope: (props: any) => JSX.Element;
+    readonly facebook: (props: any) => JSX.Element;
+    readonly linkedin: (props: any) => JSX.Element;
+    readonly search: (props: any) => JSX.Element;
+    readonly twitter: (props: any) => JSX.Element;
+    readonly youtube: (props: any) => JSX.Element;
+};
 export default function Icon(props: {
     /**
      * Fill color of the icon to be rendered. Can be any HTML-valid
@@ -9,7 +21,7 @@ export default function Icon(props: {
     /**
      * Name of the icon to be rendered.
      */
-    name: ('apple' | 'arrow-right' | 'check' | 'compass' | 'envelope' | 'facebook' | 'linkedin' | 'twitter' | 'youtube');
+    name: keyof typeof svgIcons;
     /**
      * Size of the icon to be rendered in pixels. Defaults to 20.
      */
@@ -20,5 +32,7 @@ export default function Icon(props: {
      * Defaults to 'typography'.
      */
     themeColor?: ('accent' | 'typography' | 'typography-faint');
-}): JSX.Element | null;
+    className?: React.HTMLAttributes<HTMLElement>['className'];
+}): JSX.Element;
+export {};
 //# sourceMappingURL=Icon.d.ts.map

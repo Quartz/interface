@@ -10,11 +10,17 @@
 
 	background-color: color-scheme.$background-2;
 	border: borders.$solid-interactive;
-	border-radius: tokens.$size-border-radius;
 	color: inherit;
 	font-size: 16px;
 	transition: border-color, 0.25s;
 	width: 100%;
+
+	// our resets specify &[type=search] with a border-radius of 0 to override iOS
+	// styles, so we must also use that specificity here or the reset will take precedence
+	&,
+	&[type=search] {
+		border-radius: tokens.$size-border-radius;
+	}
 
 	&::placeholder {
 		color: color-scheme.$typography-faint;

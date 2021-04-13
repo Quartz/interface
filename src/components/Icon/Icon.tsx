@@ -81,6 +81,8 @@ export default function Icon ( props: {
 		'typography' |
 		'typography-faint'
 	),
+
+	className: React.HTMLAttributes<HTMLElement>['className'],
 } ) {
 	const {
 		color,
@@ -97,5 +99,5 @@ export default function Icon ( props: {
 	};
 
 	const Icon = svgIcons[props.name];
-	return <Icon {...commonProps}/>;
+	return <Icon {...commonProps} className={props.className} />;
 }

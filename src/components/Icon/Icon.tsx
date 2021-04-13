@@ -82,7 +82,7 @@ export default function Icon ( props: {
 		'typography-faint'
 	),
 
-	className: React.HTMLAttributes<HTMLElement>['className'],
+	className?: React.HTMLAttributes<HTMLElement>['className'],
 } ) {
 	const {
 		color,

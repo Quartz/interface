@@ -59,27 +59,27 @@ export function TextInput ( props: {
 	/**
 	 * Event handler fired when focus is removed from the element.
 	 */
-	onBlur?: ( event: React.FocusEvent ) => void,
+	onBlur?: ( event: React.FocusEvent<HTMLInputElement> ) => void,
 
 	/**
 	 * Event handler fired when user input changes.
 	 */
-	onChange?: ( event: React.ChangeEvent ) => void,
+	onChange?: ( event: React.ChangeEvent<HTMLInputElement> ) => void,
 
 	/**
 	 * Event handler for when a user clicks on the element.
 	 */
-	onClick?: ( event: React.MouseEvent ) => void,
+	onClick?: ( event: React.MouseEvent<HTMLInputElement> ) => void,
 
 	/**
 	 * Event handler fired when a user focuses on the element, including tab-focus.
 	 */
-	onFocus?: ( event: React.FocusEvent ) => void,
+	onFocus?: ( event: React.FocusEvent<HTMLInputElement> ) => void,
 
 	/**
 	 * Event handler fired when input is found invalid.
 	 */
-	onInvalid?: ( event: React.FormEvent ) => void,
+	onInvalid?: ( event: React.FormEvent<HTMLInputElement> ) => void,
 
 	/**
 	 * A regex validation that the input must match for input to be valid (for example, a custom email validator).
@@ -215,27 +215,27 @@ export function TextMultilineInput ( props: {
 	/**
 	 * Event handler fired when focus is removed from the element.
 	 */
-	onBlur?: ( event: React.FocusEvent ) => void,
+	onBlur?: ( event: React.FocusEvent<HTMLTextAreaElement> ) => void,
 
 	/**
 	 * Event handler fired when user input changes.
 	 */
-	onChange?: ( event: React.ChangeEvent ) => void,
+	onChange?: ( event: React.ChangeEvent<HTMLTextAreaElement> ) => void,
 
 	/**
 	 * Event handler for when a user clicks on the element.
 	 */
-	onClick?: ( event: React.MouseEvent ) => void,
+	onClick?: ( event: React.MouseEvent<HTMLTextAreaElement> ) => void,
 
 	/**
 	 * Event handler fired when a user focuses on the element, including tab-focus.
 	 */
-	onFocus?: ( event: React.FocusEvent ) => void,
+	onFocus?: ( event: React.FocusEvent<HTMLTextAreaElement> ) => void,
 
 	/**
 	 * Event handler fired when input is found invalid.
 	 */
-	onInvalid?: ( event: React.FormEvent ) => void,
+	onInvalid?: ( event: React.FormEvent<HTMLTextAreaElement> ) => void,
 
 	/**
 	 * Sets "ghost" text that appears within the element when no value exists.

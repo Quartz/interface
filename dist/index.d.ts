@@ -9,6 +9,7 @@ export { default as EmojiList } from "./EmojiList/EmojiList";
 export { default as FeatureCard } from "./FeatureCard/FeatureCard";
 export { default as FormLabel } from "./FormLabel/FormLabel";
 export { default as Hed } from "./Hed/Hed";
+export { default as Icon } from "./Icon/Icon";
 export { default as Image } from "./Image/Image";
 export { default as Kicker } from "./Kicker/Kicker";
 export { default as PageHeader } from "./PageHeader/PageHeader";

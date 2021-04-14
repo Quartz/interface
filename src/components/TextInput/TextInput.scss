@@ -1,8 +1,13 @@
 @use '~@quartz/styles/scss/borders';
 @use '~@quartz/styles/scss/color-scheme';
 @use '~@quartz/styles/scss/fonts';
+@use '~@quartz/styles/scss/helpers/positioning';
 @use '~@quartz/styles/scss/helpers/resets';
 @use '~@quartz/styles/scss/tokens';
+
+.container {
+	position: relative;
+}
 
 .input,
 .textarea {
@@ -12,7 +17,7 @@
 	border: borders.$solid-interactive;
 	color: inherit;
 	font-size: 16px;
-	transition: border-color, 0.25s;
+	transition: border-color 0.25s;
 	width: 100%;
 
 	// our resets specify &[type=search] with a border-radius of 0 to override iOS
@@ -22,6 +27,10 @@
 		border-radius: tokens.$size-border-radius;
 	}
 
+	&[type=search] {
+		padding-left: 25px; // add space for search icon
+	}
+
 	&::placeholder {
 		color: color-scheme.$typography-faint;
 	}
@@ -29,6 +38,10 @@
 	&:hover,
 	&:focus {
 		border-color: color-scheme.$accent;
+	}
+
+	&::-webkit-search-cancel-button {
+		margin-right: tokens.$size-border-radius;
 	}
 
 	&[aria-invalid=true] {
@@ -73,4 +86,11 @@
 	&.invalid {
 		color: tokens.$color-red;
 	}
+}
+
+.search-icon {
+	@include positioning.vertical-center;
+
+	left: 16px;
+	cursor: pointer;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './TextInput.scss';
 import classnames from 'classnames/bind';
-import { FormLabel } from '../index';
+import { FormLabel, Icon } from '../index';
 
 const cx = classnames.bind( styles );
 
@@ -157,6 +157,11 @@ export function TextInput ( props: {
 				type={props.type}
 				value={props.value}
 			/>
+
+			{
+				props.type === 'search' &&
+				<Icon name="search" size={12} className={styles.searchIcon} />
+			}
 
 			{
 				props.hint &&

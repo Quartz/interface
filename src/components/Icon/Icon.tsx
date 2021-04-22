@@ -95,7 +95,7 @@ export default function Icon ( props: {
 		fill,
 		height: size,
 		version: '1.1',
-		xmnls: 'http://www.w3.org/2000/svg',
+		xmlns: 'http://www.w3.org/2000/svg',
 	};
 
 	const Icon = svgIcons[props.name];

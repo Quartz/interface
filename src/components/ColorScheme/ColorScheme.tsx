@@ -3,7 +3,7 @@ import {
 	hexToRGB,
 	minifyCss,
 } from '@quartz/js-utils';
-import { color } from '@quartz/styles/dictionaries/colors.json';
+import colors from '@quartz/styles/dictionaries/colors.json';
 
 /**
  * Export some color schemes so that pages can request them specifically.
@@ -37,18 +37,18 @@ import { color } from '@quartz/styles/dictionaries/colors.json';
  */
 export const schemes = {
 	LIGHT: {
-		accent: color[ 'accent-blue' ].value,
-		background1: color[ 'off-white' ].value,
-		background2: color.white.value,
-		highlight: createRgba( ...hexToRGB( color[ 'accent-blue' ].value ), 0.2 ),
-		typography: color.black.value,
+		accent: colors.color[ 'accent-blue' ].value,
+		background1: colors.color[ 'off-white' ].value,
+		background2: colors.color.white.value,
+		highlight: createRgba( ...hexToRGB( colors.color[ 'accent-blue' ].value ), 0.2 ),
+		typography: colors.color.black.value,
 	},
 	DARK: {
-		accent: color[ 'accent-blue-dark' ].value,
-		background1: color[ 'dark-blue' ].value,
-		background2: color[ 'mid-dark-blue' ].value,
-		highlight: createRgba( ...hexToRGB( color.pink.value ), 0.25 ),
-		typography: color.white.value,
+		accent: colors.color[ 'accent-blue-dark' ].value,
+		background1: colors.color[ 'dark-blue' ].value,
+		background2: colors.color[ 'mid-dark-blue' ].value,
+		highlight: createRgba( ...hexToRGB( colors.color.pink.value ), 0.25 ),
+		typography: colors.color.white.value,
 	},
 	PRINT: {
 		accent: '#000',

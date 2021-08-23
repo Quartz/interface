@@ -11,7 +11,8 @@
 	cursor: pointer;
 	position: relative;
 
-	&:disabled, &.inactive {
+	&:disabled,
+	&.inactive {
 		@include states.fade-on-hover;
 
 		opacity: 0.5;

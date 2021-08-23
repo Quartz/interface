@@ -1,36 +1,37 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import styles from './Button.scss';
 import Spinner from '../Spinner/Spinner';
 
 const cx = classnames.bind( styles );
 
-const ButtonLabel = ( {
-	children,
-	inline,
-	variant,
-} ) => <span className={cx( 'label', `variant-${variant}`, { block: !inline } )}>{children}</span>;
+type Variant = 'primary' | 'secondary' | 'warning'
 
-ButtonLabel.propTypes = {
+const ButtonLabel = ( props: {
 	/**
 	 * Child nodes to be rendered as the label for the button. Maps to
 	 * the button element’s innerHTML.
 	 */
-	children: PropTypes.node.isRequired,
+	children: React.ReactNode,
 	/**
 	 * Whether the label should be purely textual, e.g. for use in a
 	 * paragraph of text.
 	 */
-	inline: PropTypes.bool.isRequired,
+	inline?: boolean,
 	/**
 	 * Visual variations of the button.
 	 */
-	variant: PropTypes.oneOf( [
-		'primary',
-		'secondary',
-		'warning',
-	] ).isRequired,
+	variant?: Variant,
+} ) => {
+	const {
+		children,
+		inline = false,
+		variant = 'primary',
+	} = props;
+
+	return (
+		<span className={cx( 'label', `variant-${variant}`, { block: !inline } )}>{children}</span>
+	);
 };
 
 ButtonLabel.defaultProps = {
@@ -38,126 +39,113 @@ ButtonLabel.defaultProps = {
 	variant: 'primary',
 };
 
-const Button = ( {
-	ariaChecked,
-	children,
-	ariaDescribedBy,
-	disabled,
-	inactive,
-	inline,
-	loading,
-	on,
-	onClick,
-	role,
-	type,
-	variant,
-} ) => (
-	<button
-		aria-checked={ariaChecked}
-		aria-describedby={ariaDescribedBy}
-		className={cx( 'button', { block: !inline, inactive } )}
-		disabled={disabled || loading}
-		on={on}
-		onClick={onClick}
-		role={role}
-		type={type}
-	>
-		<ButtonLabel variant={variant} inline={inline}>
-			{
-				loading && (
-					<div className={styles.spinner}>
-						<Spinner />
-					</div>
-				)
-			}
-			<span className={cx( 'label-text', { loading } )}>{children}</span>
-		</ButtonLabel>
-	</button>
-);
+type AriaRole = (
+	'checkbox' | 'link' | 'menuitem' | 'menuitemcheckbox' | 'menuitemradio' | 'option' | 'radio' | 'switch' | 'tab'
+)
 
-Button.propTypes = {
+const Button = ( props: {
 	/**
 	 * Forwarded to the button element as `aria-checked`. Only use when
 	 * `props.role` is one of `checkbox`, `menuitemcheckbox`,
 	 * `menuitemradiobutton`, `radiobutton`, or `switch`.
 	 */
-	ariaChecked: PropTypes.bool,
+	ariaChecked?: boolean,
 	/**
 	 * Forwarded to the button element as `aria-described-by`.
 	 */
-	ariaDescribedBy: PropTypes.string,
+	ariaDescribedBy?: string,
 	/**
 	 * Child nodes to be rendered as the label for the button. Maps to
 	 * the button element’s innerHTML.
 	 */
-	children: PropTypes.node.isRequired,
+	children: React.ReactNode,
 	/**
 	 * Whether the button is interactive. Forwarded to the button
 	 * element.
 	 */
-	disabled: PropTypes.bool.isRequired,
+	disabled?: boolean,
 	/**
 	 * Same visual state as `props.disabled`, but without affecting
 	 * interactivity. Use this when you want to indicate that a form's
 	 * contents are invalid, but still submissible.
 	 */
-	inactive: PropTypes.bool.isRequired,
+	inactive?: boolean,
 	/**
 	 * Whether the button should be purely textual, e.g. for use in a
 	 * paragraph of text.
 	 */
-	inline: PropTypes.bool.isRequired,
+	inline?: boolean,
 	/**
 	 * Visually replaces `props.children` with the Spinner component. Use
 	 * when waiting for an action to complete in response to a user
 	 * engaging the button.
 	 */
-	loading: PropTypes.bool.isRequired,
+	loading?: boolean,
 	/**
 	 * For binding Google AMP interactivity. See
 	 * https://amp.dev/documentation/examples/components/amp-bind/
 	 */
-	on: PropTypes.string,
+	on?: string,
 	/**
 	 * Function to run when the button is engaged. Forwarded to the button
 	 * element.
 	 */
-	onClick: PropTypes.func.isRequired,
+	onClick: React.UIEventHandler<HTMLButtonElement>,
 	/**
 	 * The WAI-ARIA element role. It is always preferable to use the
 	 * approporiate HTML element over the role attribute, e.g.
 	 * `<input type="checkbox" />` is preferred to `<Button role="checkbox" />`.
 	 * Forwarded to the button element.
 	 */
-	role: PropTypes.oneOf( [
-		'checkbox',
-		'link',
-		'menuitem',
-		'menuitemcheckbox',
-		'menuitemradio',
-		'option',
-		'radio',
-		'switch',
-		'tab',
-	] ),
+	role?: AriaRole,
 	/**
 	 * When value is 'submit', the button will submit a parent `<form>`
 	 * element when engaged. Forwarded to the button element.
 	 */
-	type: PropTypes.oneOf( [ 'submit', 'button' ] ).isRequired,
+	type: 'submit' | 'button',
 	/**
 	 * Visual variations of the button. See `ButtonLabel.propTypes.variant`
 	 */
-	variant: PropTypes.string,
-};
+	variant?: Variant
+} ) => {
+	const {
+		ariaChecked,
+		ariaDescribedBy,
+		children,
+		disabled = false,
+		inactive = false,
+		inline = false,
+		loading = false,
+		on,
+		onClick,
+		role,
+		type = 'button',
+		variant = 'primary',
+	} = props;
 
-Button.defaultProps = {
-	disabled: false,
-	inactive: false,
-	inline: false,
-	loading: false,
-	onClick: () => {},
-	type: 'button',
+	return (
+		<button
+			aria-checked={ariaChecked}
+			aria-describedby={ariaDescribedBy}
+			className={cx( 'button', { block: !inline, inactive } )}
+			disabled={disabled || loading}
+			on={on}
+			onClick={onClick}
+			role={role}
+			type={type}
+		>
+			<ButtonLabel variant={variant} inline={inline}>
+				{
+					loading && (
+						<div className={styles.spinner}>
+							<Spinner />
+						</div>
+					)
+				}
+				<span className={cx( 'label-text', { loading } )}>{children}</span>
+			</ButtonLabel>
+		</button>
+	);
 };
 
 export { ButtonLabel };

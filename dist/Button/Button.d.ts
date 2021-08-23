@@ -1,66 +1,93 @@
+import React from 'react';
+declare type Variant = 'primary' | 'secondary' | 'warning';
+declare const ButtonLabel: {
+    (props: {
+        /**
+         * Child nodes to be rendered as the label for the button. Maps to
+         * the button element’s innerHTML.
+         */
+        children: React.ReactNode;
+        /**
+         * Whether the label should be purely textual, e.g. for use in a
+         * paragraph of text.
+         */
+        inline?: boolean | undefined;
+        /**
+         * Visual variations of the button.
+         */
+        variant?: "primary" | "secondary" | "warning" | undefined;
+    }): JSX.Element;
+    defaultProps: {
+        inline: boolean;
+        variant: string;
+    };
+};
+declare type AriaRole = ('checkbox' | 'link' | 'menuitem' | 'menuitemcheckbox' | 'menuitemradio' | 'option' | 'radio' | 'switch' | 'tab');
+declare const Button: (props: {
+    /**
+     * Forwarded to the button element as `aria-checked`. Only use when
+     * `props.role` is one of `checkbox`, `menuitemcheckbox`,
+     * `menuitemradiobutton`, `radiobutton`, or `switch`.
+     */
+    ariaChecked?: boolean | undefined;
+    /**
+     * Forwarded to the button element as `aria-described-by`.
+     */
+    ariaDescribedBy?: string | undefined;
+    /**
+     * Child nodes to be rendered as the label for the button. Maps to
+     * the button element’s innerHTML.
+     */
+    children: React.ReactNode;
+    /**
+     * Whether the button is interactive. Forwarded to the button
+     * element.
+     */
+    disabled?: boolean | undefined;
+    /**
+     * Same visual state as `props.disabled`, but without affecting
+     * interactivity. Use this when you want to indicate that a form's
+     * contents are invalid, but still submissible.
+     */
+    inactive?: boolean | undefined;
+    /**
+     * Whether the button should be purely textual, e.g. for use in a
+     * paragraph of text.
+     */
+    inline?: boolean | undefined;
+    /**
+     * Visually replaces `props.children` with the Spinner component. Use
+     * when waiting for an action to complete in response to a user
+     * engaging the button.
+     */
+    loading?: boolean | undefined;
+    /**
+     * For binding Google AMP interactivity. See
+     * https://amp.dev/documentation/examples/components/amp-bind/
+     */
+    on?: string | undefined;
+    /**
+     * Function to run when the button is engaged. Forwarded to the button
+     * element.
+     */
+    onClick: React.UIEventHandler<HTMLButtonElement>;
+    /**
+     * The WAI-ARIA element role. It is always preferable to use the
+     * approporiate HTML element over the role attribute, e.g.
+     * `<input type="checkbox" />` is preferred to `<Button role="checkbox" />`.
+     * Forwarded to the button element.
+     */
+    role?: "link" | "option" | "switch" | "checkbox" | "radio" | "menuitem" | "tab" | "menuitemcheckbox" | "menuitemradio" | undefined;
+    /**
+     * When value is 'submit', the button will submit a parent `<form>`
+     * element when engaged. Forwarded to the button element.
+     */
+    type: 'submit' | 'button';
+    /**
+     * Visual variations of the button. See `ButtonLabel.propTypes.variant`
+     */
+    variant?: "primary" | "secondary" | "warning" | undefined;
+}) => JSX.Element;
+export { ButtonLabel };
 export default Button;
-export function ButtonLabel({ children, inline, variant, }: {
-    children: any;
-    inline: any;
-    variant: any;
-}): JSX.Element;
-export namespace ButtonLabel {
-    namespace propTypes {
-        const children: PropTypes.Validator<string | number | boolean | {} | PropTypes.ReactElementLike | PropTypes.ReactNodeArray>;
-        const inline: PropTypes.Validator<boolean>;
-        const variant: PropTypes.Validator<string>;
-    }
-    namespace defaultProps {
-        const inline_1: boolean;
-        export { inline_1 as inline };
-        const variant_1: string;
-        export { variant_1 as variant };
-    }
-}
-declare function Button({ ariaChecked, children, ariaDescribedBy, disabled, inline, loading, on, onClick, role, type, variant, }: {
-    ariaChecked: any;
-    children: any;
-    ariaDescribedBy: any;
-    disabled: any;
-    inline: any;
-    loading: any;
-    on: any;
-    onClick: any;
-    role: any;
-    type: any;
-    variant: any;
-}): JSX.Element;
-declare namespace Button {
-    export namespace propTypes_1 {
-        export const ariaChecked: PropTypes.Requireable<boolean>;
-        export const ariaDescribedBy: PropTypes.Requireable<string>;
-        const children_1: PropTypes.Validator<string | number | boolean | {} | PropTypes.ReactElementLike | PropTypes.ReactNodeArray>;
-        export { children_1 as children };
-        export const disabled: PropTypes.Validator<boolean>;
-        const inline_2: PropTypes.Validator<boolean>;
-        export { inline_2 as inline };
-        export const loading: PropTypes.Validator<boolean>;
-        export const on: PropTypes.Requireable<string>;
-        export const onClick: PropTypes.Validator<(...args: any[]) => any>;
-        export const role: PropTypes.Requireable<string>;
-        export const type: PropTypes.Validator<string>;
-        const variant_2: PropTypes.Requireable<string>;
-        export { variant_2 as variant };
-    }
-    export { propTypes_1 as propTypes };
-    export namespace defaultProps_1 {
-        const disabled_1: boolean;
-        export { disabled_1 as disabled };
-        const inline_3: boolean;
-        export { inline_3 as inline };
-        const loading_1: boolean;
-        export { loading_1 as loading };
-        export function onClick_1(): void;
-        export { onClick_1 as onClick };
-        const type_1: string;
-        export { type_1 as type };
-    }
-    export { defaultProps_1 as defaultProps };
-}
-import PropTypes from "prop-types";
 //# sourceMappingURL=Button.d.ts.map

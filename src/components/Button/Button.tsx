@@ -90,7 +90,7 @@ const Button = ( props: {
 	 * Function to run when the button is engaged. Forwarded to the button
 	 * element.
 	 */
-	onClick: React.UIEventHandler<HTMLButtonElement>,
+	onClick?: React.UIEventHandler<HTMLButtonElement>,
 	/**
 	 * The WAI-ARIA element role. It is always preferable to use the
 	 * approporiate HTML element over the role attribute, e.g.

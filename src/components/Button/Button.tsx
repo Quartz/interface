@@ -102,7 +102,7 @@ const Button = ( props: {
 	 * When value is 'submit', the button will submit a parent `<form>`
 	 * element when engaged. Forwarded to the button element.
 	 */
-	type: 'submit' | 'button',
+	type?: 'submit' | 'button',
 	/**
 	 * Visual variations of the button. See `ButtonLabel.propTypes.variant`
 	 */

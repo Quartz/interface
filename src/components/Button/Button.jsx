@@ -43,6 +43,7 @@ const Button = ( {
 	children,
 	ariaDescribedBy,
 	disabled,
+	inactive,
 	inline,
 	loading,
 	on,
@@ -54,7 +55,7 @@ const Button = ( {
 	<button
 		aria-checked={ariaChecked}
 		aria-describedby={ariaDescribedBy}
-		className={cx( 'button', { block: !inline } )}
+		className={cx( 'button', { block: !inline, inactive } )}
 		disabled={disabled || loading}
 		on={on}
 		onClick={onClick}
@@ -95,6 +96,12 @@ Button.propTypes = {
 	 * element.
 	 */
 	disabled: PropTypes.bool.isRequired,
+	/**
+	 * Same visual state as `props.disabled`, but without affecting
+	 * interactivity. Use this when you want to indicate that a form's
+	 * contents are invalid, but still submissible.
+	 */
+	inactive: PropTypes.bool.isRequired,
 	/**
 	 * Whether the button should be purely textual, e.g. for use in a
 	 * paragraph of text.
@@ -146,6 +153,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
 	disabled: false,
+	inactive: false,
 	inline: false,
 	loading: false,
 	onClick: () => {},

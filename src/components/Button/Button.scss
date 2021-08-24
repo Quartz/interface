@@ -11,10 +11,14 @@
 	cursor: pointer;
 	position: relative;
 
-	&:disabled {
+	&:disabled,
+	&.inactive {
 		@include states.fade-on-hover;
 
 		opacity: 0.5;
+	}
+
+	&:disabled {
 		cursor: default;
 	}
 

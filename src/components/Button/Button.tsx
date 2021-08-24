@@ -40,7 +40,15 @@ ButtonLabel.defaultProps = {
 };
 
 type AriaRole = (
-	'checkbox' | 'link' | 'menuitem' | 'menuitemcheckbox' | 'menuitemradio' | 'option' | 'radio' | 'switch' | 'tab'
+	'checkbox'
+	| 'link'
+	| 'menuitem'
+	| 'menuitemcheckbox'
+	| 'menuitemradio'
+	| 'option'
+	| 'radio'
+	| 'switch'
+	| 'tab'
 )
 
 const Button = ( props: {
@@ -90,7 +98,7 @@ const Button = ( props: {
 	 * Function to run when the button is engaged. Forwarded to the button
 	 * element.
 	 */
-	onClick?: React.UIEventHandler<HTMLButtonElement>,
+	onClick?: React.UIEventHandler<HTMLButtonElement>, // empty when type="submit"
 	/**
 	 * The WAI-ARIA element role. It is always preferable to use the
 	 * approporiate HTML element over the role attribute, e.g.

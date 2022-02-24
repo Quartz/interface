@@ -13,7 +13,8 @@
     "outDir": "dist",
     "resolveJsonModule": true,
     "sourceMap": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true
   },
   "include": [
     "src/components/**/*"

@@ -60,7 +60,7 @@ export default function ResponsiveImage( props: {
 	 * For fixed-dimension images, pass the same value for the minimum
 	 * and maximum values, e.g. `[ 100, 100 ]`.
 	 */
-	widthRange: Array<number>;
+	widthRange: [number, number];
 } ) {
 	const {
 		alt,

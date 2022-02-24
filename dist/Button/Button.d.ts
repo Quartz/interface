@@ -15,7 +15,7 @@ declare const ButtonLabel: {
         /**
          * Visual variations of the button.
          */
-        variant?: "primary" | "secondary" | "warning" | undefined;
+        variant?: Variant | undefined;
     }): JSX.Element;
     defaultProps: {
         inline: boolean;
@@ -70,14 +70,14 @@ declare const Button: (props: {
      * Function to run when the button is engaged. Forwarded to the button
      * element.
      */
-    onClick?: ((event: React.UIEvent<HTMLButtonElement, UIEvent>) => void) | undefined;
+    onClick?: React.UIEventHandler<HTMLButtonElement> | undefined;
     /**
      * The WAI-ARIA element role. It is always preferable to use the
      * approporiate HTML element over the role attribute, e.g.
      * `<input type="checkbox" />` is preferred to `<Button role="checkbox" />`.
      * Forwarded to the button element.
      */
-    role?: "link" | "option" | "switch" | "checkbox" | "radio" | "menuitem" | "tab" | "menuitemcheckbox" | "menuitemradio" | undefined;
+    role?: AriaRole | undefined;
     /**
      * When value is 'submit', the button will submit a parent `<form>`
      * element when engaged. Forwarded to the button element.
@@ -86,7 +86,7 @@ declare const Button: (props: {
     /**
      * Visual variations of the button. See `ButtonLabel.propTypes.variant`
      */
-    variant?: "primary" | "secondary" | "warning" | undefined;
+    variant?: Variant | undefined;
 }) => JSX.Element;
 export { ButtonLabel };
 export default Button;

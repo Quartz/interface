@@ -14,4 +14,10 @@ describe( 'Pill', () => {
 
 		expect( wrapper.text() ).toEqual( 'Test content' );
 	} );
+
+	it( 'renders an icon when passed', () => {
+		const wrapper = setup( { icon: '✦' } );
+
+		expect( wrapper.text() ).toEqual( '✦Test content' );
+	} );
 } );

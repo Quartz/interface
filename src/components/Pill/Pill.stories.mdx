@@ -27,9 +27,27 @@ is typically used to show that something has been updated.
 	</Story>
 </Canvas>
 
-<ArgsTable story="Default" />
+<ArgsTable story="With icon" />
 
 ## Stories
+
+### With icon
+
+<Canvas>
+	<Story
+		args={{
+			children: 'Member email',
+			icon: '✦',
+		}}
+		name="With icon"
+	>
+		{(args) => (
+			<Hed>
+				<Pill {...args} />
+			</Hed>
+		)}
+	</Story>
+</Canvas>
 
 ### With Hed
 

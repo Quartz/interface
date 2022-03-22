@@ -1,1 +1,1 @@
-{"version":3,"file":"Pill.d.ts","sourceRoot":"","sources":["../../src/components/Pill/Pill.jsx"],"names":[],"mappings":";AAIA;;gBAIC"}
+{"version":3,"file":"Pill.d.ts","sourceRoot":"","sources":["../../src/components/Pill/Pill.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAG1B,aAAK,SAAS,GAAG;IACf;;OAEG;IACH,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;IAC1B;;OAEG;IACH,IAAI,CAAC,EAAE,MAAM,CAAC;CACf,CAAC;AAEF,MAAM,CAAC,OAAO,UAAU,IAAI,CAAE,EAAE,QAAQ,EAAE,IAAI,EAAE,EAAE,SAAS,eAS1D"}

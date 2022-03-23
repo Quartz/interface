@@ -3,7 +3,7 @@ declare type PageHeaderProps = {
     /**
      * Boolean to determine whether or not the component renders with a bottom border.
      */
-    border: boolean;
+    border?: boolean;
     /**
      * Child node to be rendered as the inner HTML of the component.
      */
@@ -15,7 +15,7 @@ declare type PageHeaderProps = {
     /**
      * Boolean to determine whether to add padding to the header before the bottom border.
      */
-    showPadding: boolean;
+    showPadding?: boolean;
     /**
      * Boolean to determine whether to add a top margin to the header.
      */

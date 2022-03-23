@@ -10,12 +10,12 @@ type PillProps = {
    * Icon to display before the children.
    */
   icon?: string;
-  type?: 'default' | 'alt';
+  pillStyle?: 'default' | 'alt';
 };
 
-export default function Pill( { children, icon, type = 'default' }: PillProps ) {
+export default function Pill( { children, icon, pillStyle = 'default' }: PillProps ) {
 	return (
-		<div className={`${styles.container} ${type === 'alt' ? styles['alt-type'] : ''}`} >
+		<div className={`${styles.container} ${pillStyle === 'alt' ? styles['alt-style'] : ''}`} >
 			{icon && <span className={styles.icon} aria-hidden="true">
 				{icon}
 			</span>}

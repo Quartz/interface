@@ -15,7 +15,7 @@ type PillProps = {
 
 export default function Pill( { children, icon, pillStyle = 'default' }: PillProps ) {
 	return (
-		<div className={`${styles.container} ${pillStyle === 'alt' ? styles['alt-style'] : ''}`} >
+		<div className={`${styles.container} ${pillStyle === 'alt' ? styles.altStyle : ''}`} >
 			{icon && <span className={styles.icon} aria-hidden="true">
 				{icon}
 			</span>}

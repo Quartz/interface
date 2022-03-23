@@ -34,6 +34,7 @@ import colors from '@quartz/styles/dictionaries/colors.json';
  * 8. Navigation background: background of the navigation and tab bar. Defaults
  *    to Background 1.
  * 9. Highlight: color used to highlight text or other UI elements for emphasis.
+ * 10. Typography inverted: inverted type color used in overlaid elements.
  */
 export const schemes = {
 	LIGHT: {
@@ -42,6 +43,7 @@ export const schemes = {
 		background2: colors.color.white.value,
 		highlight: createRgba( ...hexToRGB( colors.color[ 'accent-blue' ].value ), 0.2 ),
 		typography: colors.color.black.value,
+		typographyInverted: colors.color.white.value,
 	},
 	DARK: {
 		accent: colors.color[ 'accent-blue-dark' ].value,
@@ -49,6 +51,7 @@ export const schemes = {
 		background2: colors.color[ 'mid-dark-blue' ].value,
 		highlight: createRgba( ...hexToRGB( colors.color.pink.value ), 0.25 ),
 		typography: colors.color.white.value,
+		typographyInverted: colors.color.black.value,
 	},
 	PRINT: {
 		accent: '#000',
@@ -71,6 +74,7 @@ function getCss ( {
 	highlight,
 	type,
 	typography,
+	typographyInverted,
 } ) {
 	// Print color schemes are simpler.
 	if ( 'print' === type ) {
@@ -89,6 +93,7 @@ function getCss ( {
 					--color-highlight: transparent;
 					--color-typography: ${typography};
 					--color-typography-faint: ${typography};
+					--color-typography-inverted: ${typographyInverted || background1};
 				}
 			}`;
 	}
@@ -120,6 +125,7 @@ function getCss ( {
 				--color-highlight: ${highlight || borderDecorative};
 				--color-typography: ${typography};
 				--color-typography-faint: ${typographyFaint};
+				--color-typography-inverted: ${typographyInverted || background1};
 			}
 		`;
 
@@ -171,6 +177,11 @@ export default function ColorScheme( props: {
 	 * Default type color.
 	 */
 	typography: string,
+
+	/**
+	 * Inverted type color, for use in overlaid elements. Defaults to `background1`.
+	 */
+	typographyInverted?: string,
 } ) {
 	// Reassembling ensures we don't have any hidden dependencies in our props (and
 	// pleases the linter).
@@ -182,6 +193,7 @@ export default function ColorScheme( props: {
 			highlight: props.highlight,
 			type: props.type,
 			typography: props.typography,
+			typographyInverted: props.typographyInverted,
 		} )
 	);
 

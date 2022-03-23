@@ -2,7 +2,13 @@
 @use '~@quartz/styles/scss/fonts';
 
 .container {
-	@include fonts.maison-500-1;
-
 	color: color-scheme.$typography-faint;
+
+	&.small {
+		@include fonts.maison-500-1;
+	}
+
+	&.large {
+		@include fonts.maison-500-3;
+	}
 }

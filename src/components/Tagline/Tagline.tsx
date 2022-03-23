@@ -1,15 +1,21 @@
 import React from 'react';
 import styles from './Tagline.scss';
 
-export default function Tagline ( props: {
+type TaglineProps = {
 	/**
-	 * The text of the kicker.
+	 * The text of the tagline.
 	 */
 	children: React.ReactNode,
-} ) {
+	/**
+	 * Determines the font size.
+	 */
+	size?: 'small' | 'large',
+}
+
+export default function Tagline (  { children, size = 'small' }: TaglineProps ) {
 	return (
-		<div className={styles.container}>
-			{props.children}
+		<div className={`${styles.container} ${styles[size]}`}>
+			{children}
 		</div>
 	);
 }

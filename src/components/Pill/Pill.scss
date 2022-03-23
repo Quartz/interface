@@ -11,6 +11,15 @@
 	padding: 0.5em;
 	vertical-align: middle;
 	white-space: nowrap;
+
+	&.alt-type {
+		color: color-scheme.$typography-inverted;
+		background-color: color-scheme.$typography;
+		border-radius: 4px;
+		padding: 0.6em;
+		text-transform: none;
+		line-height: 1;
+	}
 }
 
 .icon {

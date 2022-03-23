@@ -36,10 +36,28 @@ is typically used to show that something has been updated.
 <Canvas>
 	<Story
 		args={{
-			children: 'Member email',
+			children: 'Members only',
 			icon: '✦',
 		}}
 		name="With icon"
+	>
+		{(args) => (
+			<Hed>
+				<Pill {...args} />
+			</Hed>
+		)}
+	</Story>
+</Canvas>
+
+### Alt style
+
+<Canvas>
+	<Story
+		args={{
+			children: s only email',
+			type: 'alt',
+		}}
+		name="Alt style"
 	>
 		{(args) => (
 			<Hed>

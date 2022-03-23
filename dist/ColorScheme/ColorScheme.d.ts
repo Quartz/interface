@@ -28,6 +28,7 @@
  * 8. Navigation background: background of the navigation and tab bar. Defaults
  *    to Background 1.
  * 9. Highlight: color used to highlight text or other UI elements for emphasis.
+ * 10. Typography inverted: inverted type color used in overlaid elements.
  */
 export declare const schemes: {
     LIGHT: {
@@ -36,6 +37,7 @@ export declare const schemes: {
         background2: string;
         highlight: string;
         typography: string;
+        typographyInverted: string;
     };
     DARK: {
         accent: string;
@@ -43,6 +45,7 @@ export declare const schemes: {
         background2: string;
         highlight: string;
         typography: string;
+        typographyInverted: string;
     };
     PRINT: {
         accent: string;
@@ -85,5 +88,9 @@ export default function ColorScheme(props: {
      * Default type color.
      */
     typography: string;
+    /**
+     * Inverted type color, for use in overlaid elements. Defaults to `background1`.
+     */
+    typographyInverted?: string;
 }): JSX.Element;
 //# sourceMappingURL=ColorScheme.d.ts.map

@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import Pill from './Pill';
 
 const defaultProps = {
+	pillStyle: 'faint',
 	children: 'Test content',
 };
 
@@ -13,5 +14,11 @@ describe( 'Pill', () => {
 		const wrapper = setup();
 
 		expect( wrapper.text() ).toEqual( 'Test content' );
+	} );
+
+	it( 'renders an icon when passed', () => {
+		const wrapper = setup( { icon: '✦' } );
+
+		expect( wrapper.text() ).toEqual( '✦Test content' );
 	} );
 } );

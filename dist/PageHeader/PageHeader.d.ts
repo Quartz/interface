@@ -1,27 +1,34 @@
+import React from 'react';
+declare type PageHeaderProps = {
+    /**
+     * Boolean to determine whether or not the component renders with a bottom border.
+     */
+    border: boolean;
+    /**
+     * Child node to be rendered as the inner HTML of the component.
+     */
+    children?: React.ReactNode;
+    /**
+     * Smaller-print text used for the page subheader (renders in `<p>` tag).
+     */
+    intro?: React.ReactNode;
+    /**
+     * Boolean to determine whether to add padding to the header before the bottom border.
+     */
+    showPadding: boolean;
+    /**
+     * Boolean to determine whether to add a top margin to the header.
+     */
+    showTopMargin?: boolean;
+    /**
+     * Very small-print text used directly below the title (e.g., as a dateline).
+     */
+    tagline?: React.ReactNode;
+    /**
+     * Required text for the h1 tag.
+     */
+    title: string;
+};
+declare const PageHeader: ({ border, children, intro, showPadding, showTopMargin, tagline, title, }: PageHeaderProps) => JSX.Element;
 export default PageHeader;
-declare function PageHeader({ border, children, intro, showPadding, tagline, title, }: {
-    border: any;
-    children: any;
-    intro: any;
-    showPadding: any;
-    tagline: any;
-    title: any;
-}): JSX.Element;
-declare namespace PageHeader {
-    namespace propTypes {
-        const border: PropTypes.Validator<boolean>;
-        const children: PropTypes.Requireable<PropTypes.ReactNodeLike>;
-        const intro: PropTypes.Requireable<PropTypes.ReactNodeLike>;
-        const showPadding: PropTypes.Validator<boolean>;
-        const tagline: PropTypes.Requireable<PropTypes.ReactNodeLike>;
-        const title: PropTypes.Validator<string>;
-    }
-    namespace defaultProps {
-        const border_1: boolean;
-        export { border_1 as border };
-        const showPadding_1: boolean;
-        export { showPadding_1 as showPadding };
-    }
-}
-import PropTypes from "prop-types";
 //# sourceMappingURL=PageHeader.d.ts.map

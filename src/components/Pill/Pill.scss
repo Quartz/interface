@@ -5,14 +5,17 @@
 .container {
 	@include fonts.maison-extended-700-1;
 
-	background-color: color-scheme.$highlight;
-	border-radius: tokens.$size-border-radius;
 	display: inline-block;
-	padding: 0.5em;
-	vertical-align: middle;
 	white-space: nowrap;
 
-	&.alt-style {
+	&.faint {
+		background-color: color-scheme.$highlight;
+		border-radius: tokens.$size-border-radius;
+		padding: 0.5em;
+		vertical-align: middle;
+	}
+
+	&.inverted {
 		color: color-scheme.$typography-inverted;
 		background-color: color-scheme.$typography;
 		border-radius: 4px;
@@ -20,8 +23,8 @@
 		text-transform: none;
 		line-height: 1;
 	}
-}
 
-.icon {
-	margin-right: 4px;
+	.icon {
+		margin-right: 4px;
+	}
 }

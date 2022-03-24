@@ -54,7 +54,7 @@ const PageHeader = ( {
 			{
 				tagline &&
 					<div className={styles.tagline}>
-						<Tagline>{tagline}</Tagline>
+						<Tagline size="large">{tagline}</Tagline>
 					</div>
 			}
 			{

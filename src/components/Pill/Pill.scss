@@ -9,6 +9,7 @@
 	white-space: nowrap;
 
 	&.faint {
+		@include fonts.maison-extended-700-1;
 		background-color: color-scheme.$highlight;
 		border-radius: tokens.$size-border-radius;
 		padding: 0.5em;
@@ -16,6 +17,7 @@
 	}
 
 	&.inverted {
+		@include fonts.maison-800-4;
 		color: color-scheme.$typography-inverted;
 		background-color: color-scheme.$typography;
 		border-radius: 4px;

@@ -11,7 +11,7 @@
  *
  * 1. Typography: Default font color.
  * 2. Background 1: Background color of the page.
- * 3. Accent 1: The color of focused interactive borders, accented color blocks,
+ * 3. Accent: The color of focused interactive borders, accented color blocks,
  *    article text links, certain headings and more.
  * 4. UI: The color of the site logo and other chrome in the navigation and
  *    around the site.
@@ -25,10 +25,12 @@
  *    sections. Defaults to Background 1.
  * 7. Background 3: a second tint of the background color. Defaults to
  *    Typography with 10% alpha channel.
- * 8. Navigation background: background of the navigation and tab bar. Defaults
- *    to Background 1.
- * 9. Highlight: color used to highlight text or other UI elements for emphasis.
- * 10. Typography inverted: inverted type color used in overlaid elements.
+ * 8. Highlight: color used to highlight text or other UI elements for emphasis.
+ * 9. Typography inverted: inverted type color used in overlaid elements.
+ * 10. Navigation background: background of navigation elements. Defaults
+ *     to Background 1.
+ * 11. Navigation typography: Type color of navigation elements. Defaults to Typography.
+ * 12. Navigation accent: Accent color of navigation elements. Defaults to Accent.
  */
 export declare const schemes: {
     LIGHT: {
@@ -60,6 +62,12 @@ export default function ColorScheme(props: {
      */
     accent: string;
     /**
+    * The color used for borders of focused interactive elements, accented
+    * color blocks, article text links, certain headings, etc. on navigation.
+    * Defaults to `accent`.
+    */
+    accentNavigation?: string;
+    /**
      * Primary background color of the page.
      */
     background1: string;
@@ -68,6 +76,11 @@ export default function ColorScheme(props: {
      * Defaults to `background1`.
      */
     background2?: string;
+    /**
+     * Background of the navigation.
+     * Defaults to `background1`.
+     */
+    backgroundNavigation?: string;
     /**
      * An optional render prop if you need to use the CSS in a non-HTML context or
      * if you need to provide it to an external dependency like React Helmet.
@@ -92,5 +105,9 @@ export default function ColorScheme(props: {
      * Inverted type color, for use in overlaid elements. Defaults to `background1`.
      */
     typographyInverted?: string;
+    /**
+     * Type color of the navigation.
+     */
+    typographyNavigation?: string;
 }): JSX.Element;
 //# sourceMappingURL=ColorScheme.d.ts.map

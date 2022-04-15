@@ -17,7 +17,7 @@ import colors from '@quartz/styles/dictionaries/colors.json';
  *
  * 1. Typography: Default font color.
  * 2. Background 1: Background color of the page.
- * 3. Accent 1: The color of focused interactive borders, accented color blocks,
+ * 3. Accent: The color of focused interactive borders, accented color blocks,
  *    article text links, certain headings and more.
  * 4. UI: The color of the site logo and other chrome in the navigation and
  *    around the site.
@@ -31,10 +31,12 @@ import colors from '@quartz/styles/dictionaries/colors.json';
  *    sections. Defaults to Background 1.
  * 7. Background 3: a second tint of the background color. Defaults to
  *    Typography with 10% alpha channel.
- * 8. Navigation background: background of the navigation and tab bar. Defaults
- *    to Background 1.
- * 9. Highlight: color used to highlight text or other UI elements for emphasis.
- * 10. Typography inverted: inverted type color used in overlaid elements.
+ * 8. Highlight: color used to highlight text or other UI elements for emphasis.
+ * 9. Typography inverted: inverted type color used in overlaid elements.
+ * 10. Navigation background: background of navigation elements. Defaults
+ *     to Background 1.
+ * 11. Navigation typography: Type color of navigation elements. Defaults to Typography.
+ * 12. Navigation accent: Accent color of navigation elements. Defaults to Accent.
  */
 export const schemes = {
 	LIGHT: {
@@ -69,12 +71,15 @@ function createRgba( r: number, g: number, b: number, a: number ): string {
 
 function getCss ( {
 	accent,
+	accentNavigation,
 	background1,
 	background2,
+	backgroundNavigation,
 	highlight,
 	type,
 	typography,
 	typographyInverted,
+	typographyNavigation,
 } ) {
 	// Print color schemes are simpler.
 	if ( 'print' === type ) {
@@ -82,29 +87,37 @@ function getCss ( {
 			@media print {
 				:root {
 					--color-accent: ${accent};
+					--color-accent-navigation: ${accent};
 					--color-background-1: ${background1};
 					--color-background-1-transparent: transparent;
 					--color-background-2: transparent;
 					--color-background-3: transparent;
 					--color-background-4: transparent;
 					--color-background-navigation: transparent;
+					--color-background-navigation-faint: transparent;
 					--color-border-decorative: ${typography};
 					--color-border-interactive: ${typography};
 					--color-highlight: transparent;
 					--color-typography: ${typography};
 					--color-typography-faint: ${typography};
 					--color-typography-inverted: ${typographyInverted || background1};
+					--color-typography-navigation: ${typography};
+					--color-typography-navigation-faint: ${typography};
 				}
 			}`;
 	}
 
 	// Colors derived from the typography color:
 	const typographyRgb = hexToRGB( typography );
+	const typographyNavigationRgb = hexToRGB( typographyNavigation || typography );
+	const backgroundNavigationRgb = hexToRGB( backgroundNavigation || background1 );
 	const typographyFaint = createRgba( ...typographyRgb, 0.7 ); // A fainter tint of the typography color, eg. for descriptions or subheadings.
+	const typographyNavigationFaint = createRgba( ...typographyNavigationRgb, 0.7 ); // A fainter tint of the typography-navigation color, eg. for descriptions or subheadings under navigation elements.
 	const borderDecorative = createRgba( ...typographyRgb, 0.15 );
 	const borderInteractive = createRgba( ...typographyRgb, 0.3 );
 	const background3 = createRgba( ...typographyRgb, 0.15 );
 	const background4 = createRgba( ...typographyRgb, 0.07 );
+	const backgroundNavigationFaint = backgroundNavigation ? createRgba( ...backgroundNavigationRgb, 0.98 ) : background2; // A fainter tint of the navigation background color, eg. nav flyouts
 
 	// Colors derived from the background color:
 	const backgroundRgb = hexToRGB( background1 );
@@ -114,11 +127,14 @@ function getCss ( {
 	const css = `
 			:root {
 				--color-accent: ${accent};
+				--color-accent-navigation: ${accentNavigation || accent};
 				--color-background-1: ${background1};
 				--color-background-1-transparent: ${fakeTransparent};
 				--color-background-2: ${background2 || background1};
 				--color-background-3: ${background3};
 				--color-background-4: ${background4};
+				--color-background-navigation: ${backgroundNavigation || background1};
+				--color-background-navigation-faint: ${backgroundNavigationFaint};
 				--color-background-modal: ${backgroundModal};
 				--color-border-decorative: ${borderDecorative};
 				--color-border-interactive: ${borderInteractive};
@@ -126,6 +142,8 @@ function getCss ( {
 				--color-typography: ${typography};
 				--color-typography-faint: ${typographyFaint};
 				--color-typography-inverted: ${typographyInverted || background1};
+				--color-typography-navigation: ${typographyNavigation || typography};
+				--color-typography-navigation-faint: ${typographyNavigationFaint};
 			}
 		`;
 
@@ -143,6 +161,13 @@ export default function ColorScheme( props: {
 	 */
 	accent: string,
 
+	 /**
+	 * The color used for borders of focused interactive elements, accented
+	 * color blocks, article text links, certain headings, etc. on navigation.
+	 * Defaults to `accent`.
+	 */
+	accentNavigation?: string,
+
 	/**
 	 * Primary background color of the page.
 	 */
@@ -153,6 +178,12 @@ export default function ColorScheme( props: {
 	 * Defaults to `background1`.
 	 */
 	background2?: string,
+
+	/**
+	 * Background of the navigation.
+	 * Defaults to `background1`.
+	 */
+	backgroundNavigation?: string,
 
 	/**
 	 * An optional render prop if you need to use the CSS in a non-HTML context or
@@ -182,18 +213,26 @@ export default function ColorScheme( props: {
 	 * Inverted type color, for use in overlaid elements. Defaults to `background1`.
 	 */
 	typographyInverted?: string,
+
+	/**
+	 * Type color of the navigation.
+	 */
+	typographyNavigation?: string,
 } ) {
 	// Reassembling ensures we don't have any hidden dependencies in our props (and
 	// pleases the linter).
 	const css = minifyCss(
 		getCss( {
 			accent: props.accent,
+			accentNavigation: props.accentNavigation,
 			background1: props.background1,
 			background2: props.background2,
+			backgroundNavigation: props.backgroundNavigation,
 			highlight: props.highlight,
 			type: props.type,
 			typography: props.typography,
 			typographyInverted: props.typographyInverted,
+			typographyNavigation: props.typographyNavigation,
 		} )
 	);
 

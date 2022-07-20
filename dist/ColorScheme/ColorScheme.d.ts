@@ -62,10 +62,10 @@ export default function ColorScheme(props: {
      */
     accent: string;
     /**
-    * The color used for borders of focused interactive elements, accented
-    * color blocks, article text links, certain headings, etc. on navigation.
-    * Defaults to `accent`.
-    */
+     * The color used for borders of focused interactive elements, accented
+     * color blocks, article text links, certain headings, etc. on navigation.
+     * Defaults to `accent`.
+     */
     accentNavigation?: string;
     /**
      * Primary background color of the page.

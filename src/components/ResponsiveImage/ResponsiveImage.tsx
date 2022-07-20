@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from '..';
-import { arrayFromRange, resizeWPImage } from '@quartz/js-utils';
+import { arrayFromRange, resizeImage } from '@quartz/js-utils';
 
 export default function ResponsiveImage( props: {
 	/**
@@ -85,7 +85,7 @@ export default function ResponsiveImage( props: {
 
 	// Map source widths to image URLs
 	const srcSet = srcWidths
-		.map( width => `${resizeWPImage( src, width, aspectRatio * width, true, quality )} ${width}w` )
+		.map( width => `${resizeImage( src, width, aspectRatio * width, true, quality )} ${width}w` )
 		.join();
 
 	// If no `sizes` prop was specified, assume the image has a fixed width
@@ -97,7 +97,7 @@ export default function ResponsiveImage( props: {
 			amp={amp}
 			className={className}
 			sizes={sizes || sizesDefault}
-			src={resizeWPImage( src, fallbackWidth, fallbackHeight )}
+			src={resizeImage( src, fallbackWidth, fallbackHeight )}
 			srcSet={srcSet}
 			fallbackWidth={fallbackWidth}
 			fallbackHeight={fallbackHeight}

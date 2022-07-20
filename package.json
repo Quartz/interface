@@ -35,7 +35,7 @@
 	"devDependencies": {
 		"@babel/core": "^7.12.9",
 		"@quartz/eslint-config-react": "^1.1.5",
-		"@quartz/js-utils": "^1.1.1",
+		"@quartz/js-utils": "^2.0.0",
 		"@quartz/stylelint-config": "^1.2.0",
 		"@storybook/addon-a11y": "^6.1.10",
 		"@storybook/addon-actions": "^6.1.10",

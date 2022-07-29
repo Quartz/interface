@@ -1,6 +1,6 @@
 {
 	"name": "@quartz/interface",
-	"version": "1.0.1",
+	"version": "1.1.4",
 	"description": "",
 	"engines": {
 		"node": ">=12"
@@ -29,14 +29,15 @@
 	"main": "src/components/index",
 	"module": "src/components/index",
 	"types": "dist/index.d.ts",
-	"dependencies": {
-		"@quartz/styles": "github:Quartz/styles#0.2.2"
+	"peerDependencies": {
+		"@quartz/styles": "Quartz/styles#0.2.2"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.12.9",
 		"@quartz/eslint-config-react": "^1.1.5",
 		"@quartz/js-utils": "^2.0.0",
 		"@quartz/stylelint-config": "^1.2.0",
+		"@quartz/styles": "Quartz/styles#0.2.2",
 		"@storybook/addon-a11y": "^6.1.10",
 		"@storybook/addon-actions": "^6.1.10",
 		"@storybook/addon-essentials": "^6.1.10",

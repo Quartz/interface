@@ -1,6 +1,6 @@
 {
 	"name": "@quartz/interface",
-	"version": "1.0.1",
+	"version": "1.1.5",
 	"description": "",
 	"engines": {
 		"node": ">=12"
@@ -30,7 +30,7 @@
 	"module": "src/components/index",
 	"types": "dist/index.d.ts",
 	"dependencies": {
-		"@quartz/styles": "github:Quartz/styles#0.2.2"
+		"@quartz/styles": "^0.2.3"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.12.9",
@@ -53,6 +53,7 @@
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^26.1.0",
 		"npm-run-all": "^4.1.5",
+		"postcss": "^8.4.14",
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
